@@ -59,7 +59,7 @@ include('functions.php');
 
 				<form class="login100-form validate-form" method="post" action="index.php">
 					<span class="login100-form-title">
-						Staff Login
+						Staff Login Deployment
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
