@@ -1,11 +1,8 @@
 <?php 
 	session_start();
-include('conn.php');
+	include('conn.php');
 
-	$servername= "localhost";
-    $username= "root";
-    $password= "123123";
-	$DatabaseName  = "petscience_db";
+	
 	
 	// connect to database
 	$db = mysqli_connect($servername,$username,$password,$DatabaseName);
@@ -14,7 +11,6 @@ include('conn.php');
 	$username = "";
 	$email    = "";
 	$errors   = array(); 
-
 
 	// call the login() function if register_btn is clicked
 	if (isset($_POST['login_btn'])) {
@@ -32,7 +28,6 @@ include('conn.php');
 	// LOGIN USER
 	function login(){
 		global $db, $username, $errors;
-
 		// grap form values
 		$username = e($_POST['username']);
 		$password = e($_POST['pass']);
@@ -55,7 +50,7 @@ include('conn.php');
 			if (mysqli_num_rows($results) == 1) { // user found
 				// check if user is admin or user
 				$logged_in_user = mysqli_fetch_assoc($results);
-				
+				echo 'here21e1';
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
 					header('location: ViewTable.php');		  
