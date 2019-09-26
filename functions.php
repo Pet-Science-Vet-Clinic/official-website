@@ -53,7 +53,7 @@
 				echo 'here21e1';
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
-					header('location: ViewTable.php');		  
+					header('location: viewtable.php');		  
 				}
 			else {
 				?>
