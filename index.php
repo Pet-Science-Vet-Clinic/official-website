@@ -54,7 +54,7 @@ include('functions.php');
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/rippleeffect.png" alt="IMG">
+					<img src="img/rippleeffect.png" alt="IMG">
 				</div>
 
 				<form class="login100-form validate-form" method="post" action="index.php">
