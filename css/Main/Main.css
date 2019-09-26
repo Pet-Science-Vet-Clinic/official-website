@@ -1,0 +1,159 @@
+  
+  
+  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+  #TopMenu_Items a{
+    text-decoration: none;
+
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+  }
+
+  .FontPage_Images{
+    background-position: center;
+    background-size: cover;
+    min-height: 100%;
+    width: 100%; 
+    height: 650px;
+  }
+
+
+
+  /* /MODAL APPOINTMENT TEXTFIELD CSS/ */
+  
+
+
+  #make_appointment_modal_Entries  input[type=text], input[type=date], select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+
+
+  #make_appointment_modal_Entries input[type=checkbox]{
+    padding: 5px;
+    margin-top: 10px;
+  }
+
+  #make_appointment_modal_Entries input[type=radio]{
+    padding: 5px;
+    margin-top: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    position: relative;
+  }
+  
+  /* Bottom right text */
+  .text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .login100-more {
+     /*width: calc(100% - 560px); */
+    height: auto;
+    width: 65%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /*z-index: 1;*/
+  }
+  
+  .login100-more::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.1);
+  } 
+  
+  .header_titles{
+      font-size: 18px;
+      font-family: "segoe ui", sans-serif
+  }
+  
+  .header_div{
+    padding-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 2%;  
+  }
+  
+  .animate_top{
+                -webkit-animation: animatetop 0.3s;
+                animation: animatetop 0.3s;
+                top: 0;
+              }
+  
+              .modal {
+                  display: none; /* Hidden by default */
+                  position: fixed; /* Stay in place */
+                  z-index: 1; /* Sit on top */
+                  left: 0;
+                  top: 0;
+                  width: 100%; /* Full width */
+                  height: 100%; /* Full height */
+                  overflow: auto; /* Enable scroll if needed */
+                  background-color: rgb(0,0,0); /* Fallback color */
+                  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            /* padding-top: 60px; */
+                  padding-top: 8%;
+            
+                  /*background-color: grey;*/
+                  /* overflow-x: hidden; */
+              }
+  
+              /* Modal Content/Box */
+              .modal-content {
+                  background-color: #fefefe;
+                  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+                  border: 1px solid #888;
+                  width: 70%; /* Could be more or less, depending on screen size */
+  
+                  overflow-y: auto;
+                  /* overflow-x: scroll; */
+              }
+
+
+              /* Date time picker css start*/
+              label {
+                display: block;
+                font: 1rem 'Fira Sans', sans-serif;
+            }
+            
+            input,
+            label {
+                margin: .4rem 0;
+            }
+              /* Date time picker css end */
+
