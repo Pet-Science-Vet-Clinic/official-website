@@ -23,7 +23,38 @@
 		unset($_SESSION['user']);
 		header("location: index.php");
 	}
+//make new appointment
 
+	if(isset($_POST['make_appointment_modal_SubmitAppointment'])){
+		$appointment_date = $_POST['datepicked'];
+		$time_slot = $_POST['timepicked'];
+		$customer_name = $_POST['customer_fullname'];
+		$cellular_number = $_POST['customer_cellnum'];
+		$email_address = $_POST['customer_email'];
+		$reason_for_appointment = $_POST['reason_for_appointment'];
+		$valuehere = " ";
+		$statusvalue = "1";
+  
+		$sql = "INSERT INTO tb_appointment_list (appointment_Date, appointment_TimeSlot, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_Type,appointment_Date2,appointment_ReasonForAppointment,appointment_Comment,appointment_Status)
+VALUES ('$appointment_date', '$time_slot', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment', '$valuehere', '$valuehere', '$valuehere', '$statusvalue')";
+$query=$conn->query($sql);
+		if($query)  
+		{
+		  echo '<script>
+  alert("Appointment Set!");
+		  </script>';
+   header("Refresh:0");
+		}
+		else
+		{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+// 		  echo '<script>
+//   alert("Appointment Not Set!");
+// 		  </script>';
+		   //header("Refresh:0");
+		}
+		
+  }
 
 	// LOGIN USER
 	function login(){
@@ -50,7 +81,6 @@
 			if (mysqli_num_rows($results) == 1) { // user found
 				// check if user is admin or user
 				$logged_in_user = mysqli_fetch_assoc($results);
-				echo 'here21e1';
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
 					header('location: viewtable.php');		  
@@ -94,5 +124,8 @@
 			echo '</div>';
 		}
 	}
+
+
+	
 
 ?>
