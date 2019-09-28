@@ -1,3 +1,6 @@
+<?php
+include('functions.php');
+?>
 <!DOCTYPE html>
 <html>
 <title>Pet Science Veterinary Clinic</title>
@@ -11,14 +14,6 @@
 <link rel="stylesheet" href="css/Main/appointment3.css">
 <link rel="stylesheet" href="css/Main/template2.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<!-- <link rel="stylesheet" href="css/raleway_font.css"> -->
-<!-- Date time Bootstrap Start-->
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
-
-<!-- Date time Bootstrap End -->
 
 
 <body class="w3-light-grey">
@@ -59,6 +54,7 @@
       <!--About Us Modal End-->
 
        <!--Make Appointment Modal Start-->
+	   <form method = "POST">
     <div id="make_appointment_modal"  class="modal">
         <div class=" animate_top" style="width: 55%; margin:auto;">
             <div class="panel panel-primary">
@@ -86,20 +82,20 @@
                     <div style="width: 100%; float:left">
                       <div style="width: 50%; float:left;">
                         <label></h5> Appointment Date <span style="color:red;">*</span></label>
-                        <input type="date" class="" id="appointment_modal_Date" name=""  >
+                        <input type="date" class="" id="appointment_modal_Date" name="datepicked"  >
                       </div>
 
                       <div style="width: 50%; display: inline-block; padding-left: 15px;">
                         <label>Time Block <span style="color:red;">*</span></label>
-                        <select id="appointment_modal_TimeBlock" style="margin-top: 6px;">
+                        <select id="appointment_modal_TimeBlock" style="margin-top: 6px;" name="timepicked">
                           <option value=""></option>
-                          <option value="Block_A">Block A (8am-9am)</option>
-                          <option value="Block_B">Block B (9am-10am)</option>
-                          <option value="Block_C">Block C (10am-11pm)</option>
-                          <option value="Block_D">Block D (11am-12am)</option>
-                          <option value="Block_E">Block E (1pm-2pm)</option>
-                          <option value="Block_F">Block F (2pm-3pm)</option>
-                          <option value="Block_G">Block G (3pm-4pm)</option>
+                          <option value="Block_A" name = "timepicked">Block A (8am-9am)</option>
+                          <option value="Block_B" name = "timepicked">Block B (9am-10am)</option>
+                          <option value="Block_C" name = "timepicked">Block C (10am-11pm)</option>
+                          <option value="Block_D" name = "timepicked">Block D (11am-12am)</option>
+                          <option value="Block_E" name = "timepicked">Block E (1pm-2pm)</option>
+                          <option value="Block_F" name = "timepicked">Block F (2pm-3pm)</option>
+                          <option value="Block_G" name = "timepicked">Block G (3pm-4pm)</option>
                         </select>
                       </div>
                     </div>
@@ -109,17 +105,17 @@
                       <div style="width: 100%; float: left;">
                         <div style="width: 33%; float:left;">
                           <label> Fullname <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Fullname" name=""   maxlength="45" >
+                          <input type="text" class="" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" >
                         </div>
   
                         <div style="width: 33; display: inline-block; padding-left: 15px;">
                           <label> Cellular Number <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_CellNumber" name="" maxlength="11"  >
+                          <input type="text" class="" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11"  >
                         </div>
   
                         <div style="width: 33%; display:inline-block; padding-left: 15px;">
                           <label> Email </label>
-                          <input type="text" class="" id="appointment_modal_Email" name=""   maxlength="40" >
+                          <input type="text" class="" id="appointment_modal_Email" name="customer_email"   maxlength="40" >
                         </div>
                       </div>
 
@@ -128,21 +124,21 @@
                             <label> Reason for Appointment <span style="color:red;">*</span></label>
                               <div style="padding-left:20px; padding-right: 20px;">
                                 <div style="width: 33%; float: left;">
-                                    <label><input type="checkbox" id="appointment_modal_Check_Consultation" name="" value=""> <span>Consultation</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Vaccination" name="" value=""> <span>Vaccination</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Treatment" name="" value=""> <span>Treatment</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Consultation" name="reason_for_appointment" value="Consultation"> <span>Consultation</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Vaccination" name="reason_for_appointment" value="Vaccination"> <span>Vaccination</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Treatment" name="reason_for_appointment" value="Treatment"> <span>Treatment</span></label>
                                 </div>
   
                                 <div style="width: 33%; display: inline-block;">
-                                    <label><input type="checkbox" id="appointment_modal_Check_Surgery" name="" value=""> <span>Surgery</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Deworming" name="" value=""> <span>Deworming</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Boarding" name="" value=""> <span>Boarding</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Surgery" name="reason_for_appointment" value="Surgery"> <span>Surgery</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Deworming" name="reason_for_appointment" value="Deworming"> <span>Deworming</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Boarding" name="reason_for_appointment" value="Boarding"> <span>Boarding</span></label>
                                 </div>
   
                                 <div style="width: 33%; display: inline-block;">
-                                    <label><input type="checkbox" id="appointment_modal_Check_Confinement" name="" value=""> <span>Confinement</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Grooming" name="" value=""> <span>Grooming</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Other" name="" value=""> <span>Other</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Confinement" name="reason_for_appointment" value="Confinement"> <span>Confinement</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Grooming" name="reason_for_appointment" value="Grooming"> <span>Grooming</span></label>
+                                    <label><input type="checkbox" id="appointment_modal_Check_Other" name="reason_for_appointment" value="Other"> <span>Other</span></label>
                                 </div>
                                </div>
                             </div>
@@ -159,157 +155,11 @@
 
                 
 
-                    <!-- <form class="jotform-form" action="https://submit.jotform.me/submit/92303437440450/" method="post" name="form_92303437440450" id="92303437440450" accept-charset="utf-8">
-                      <input type="hidden" name="formID" value="92303437440450" />
-                      <div role="main" class="form-all">
-                        <ul class="form-section page-section">
-                          <li id="cid_22" class="form-input-wide" data-type="control_head">
-                            <div class="form-header-group ">
-                             
-                            </div>
-                          </li>
-                          <li class="form-line jf-required allowTime" data-type="control_datetime" id="id_26">
-                            <label class="form-label form-label-left form-label-auto" id="label_26" for="month_26">
-                              Appointment Date
-                              <span class="form-required">
-                                *
-                              </span>
-                            </label>
-                                <label for="start">Date: <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2099-12-31">
-                                Time: 
-                                <select>
-                                  <option value="Block_A">Block A (8am-9am)</option>
-                                  <option value="Block_B">Block B (9am-10am)</option>
-                                  <option value="Block_C">Block C (10am-11pm)</option>
-                                  <option value="Block_D">Block D (11am-12am)</option>
-                                  <option value="Block_E">Block E (1pm-2pm)</option>
-                                  <option value="Block_F">Block F (2pm-3pm)</option>
-                                  <option value="Block_G">Block G (3pm-4pm)</option>
-                                </select></label>
-                            
-                          <li class="form-line jf-required" data-type="control_fullname" id="id_16">
-                            <label class="form-label form-label-left form-label-auto" id="label_16" for="first_16">
-                              Name
-                              <span class="form-required">
-                                *
-                              </span>
-                            </label>
-                            <div id="cid_16" class="form-input jf-required">
-                              <div data-wrapper-react="true">
-                                <span class="form-sub-label-container" style="vertical-align:top">
-                                  <input type="text" id="first_16" name="q16_yourName[first]" class="form-textbox validate[required]" size="35" value="" data-component="first" aria-labelledby="label_16 sublabel_16_first" required="" />
-                                  <label class="form-sub-label" for="first_16" id="sublabel_16_first" style="min-height:13px"> Fullname </label>
-                                </span>
-                              
-                              </div>
-                            </div>
-                          </li>
-                          <li class="form-line jf-required" data-type="control_email" id="id_17">
-                            <label class="form-label form-label-left form-label-auto" id="label_17" for="input_17">
-                              E-mail
-                              <span class="form-required">
-                                *
-                              </span>
-                            </label>
-                            <div id="cid_17" class="form-input jf-required">
-                              <input type="email" id="input_17" name="q17_yourEmail" class="form-textbox validate[required, Email]" size="27" value="" maxLength="50" placeholder="ex: myname@example.com" data-component="email" aria-labelledby="label_17" required="" />
-                            </div>
-                          </li>
-                          <li class="form-line jf-required" data-type="control_phone" id="id_25">
-                            <label class="form-label form-label-left form-label-auto" id="label_25" for="input_25_area">
-                              Phone Number
-                              <span class="form-required">
-                                *
-                              </span>
-                            </label>
-                            <div id="cid_25" class="form-input jf-required">
-                              <div data-wrapper-react="true">
-                                <span class="form-sub-label-container" style="vertical-align:top">
-                                  
-                                <span class="form-sub-label-container" style="vertical-align:top">
-                                  <input type="tel" id="input_25_phone" name="q25_phoneNumber[phone]" class="form-textbox validate[required]" size="12" value="" data-component="phone" aria-labelledby="label_25 sublabel_25_phone" required="" />
-                                  <label class="form-sub-label" for="input_25_phone" id="sublabel_25_phone" style="min-height:13px"> Phone Number </label>
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="form-line jf-required" data-type="control_checkbox" id="id_20">
-                            <label class="form-label form-label-left form-label-auto" id="label_20" for="input_20_0">
-                              Reason of Appointment
-                              <span class="form-required">  *</span>
-                            </label>
-                            <div id="cid_20" class="form-input jf-required">
-                              <div class="form-single-column" data-component="checkbox">
-                               <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_0" name="q20_reasonOf[]" value="Consultation" required="" />
-                                  <label id="label_input_20_0" for="input_20_0"> Consultation </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_1" name="q20_reasonOf[]" value="Vaccination" required="" />
-                                  <label id="label_input_20_1" for="input_20_1"> Vaccination </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_2" name="q20_reasonOf[]" value="Treatment" required="" />
-                                  <label id="label_input_20_2" for="input_20_2"> Treatment </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_3" name="q20_reasonOf[]" value="Surgery" required="" />
-                                  <label id="label_input_20_3" for="input_20_3"> Surgery </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_4" name="q20_reasonOf[]" value="Deworming" required="" />
-                                  <label id="label_input_20_4" for="input_20_4"> Deworming </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_5" name="q20_reasonOf[]" value="Boarding" required="" />
-                                  <label id="label_input_20_5" for="input_20_5"> Boarding </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_6" name="q20_reasonOf[]" value="Confinement" required="" />
-                                  <label id="label_input_20_6" for="input_20_6"> Confinement </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_7" name="q20_reasonOf[]" value="Grooming" required="" />
-                                  <label id="label_input_20_7" for="input_20_7"> Grooming </label>
-                                </span>
-                                <span class="form-checkbox-item" style="clear:left">
-                                  <input type="checkbox" class="form-checkbox validate[required]" id="input_20_8" name="q20_reasonOf[]" value="Other" required="" />
-                                  <label id="label_input_20_8" for="input_20_8"> Other </label>
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                         
-                          
-                          <li class="form-line" data-type="control_button" id="id_2">
-                            <div id="cid_2" class="form-input-wide">
-                              <div style="margin-left:156px" class="form-buttons-wrapper ">
-                                
-                              </div>
-                            </div>
-                          </li>
-                          <li style="display:none">
-                            Should be Empty:
-                            <input type="text" name="website" value="" />
-                          </li>
-                        </ul>
-                      </div>
-                      <script>
-                      JotForm.showJotFormPowered = "new_footer";
-                      </script>
-                      <input type="hidden" id="simple_spc" name="simple_spc" value="92303437440450" />
-                      <script type="text/javascript">
-                      document.getElementById("si" + "mple" + "_spc").value = "92303437440450-92303437440450";
-                      </script>
-                    </form> -->
-
-
-
                 </div>
     
                 <div class="panel-footer">
                     <div align="right">
-                      <button class="btn btn-primary" id="make_appointment_modal_SubmitAppointment" value="" name="MODULE_YES"> Submit Appointment</button>
+                      <button class="btn btn-primary" id="make_appointment_modal_SubmitAppointment" value="" name="make_appointment_modal_SubmitAppointment"> Submit Appointment</button>
                     </div>
                 </div>
     
@@ -317,6 +167,7 @@
             </div>
         </div>
       </div>
+	  </form>
       <!--Make Appointment Modal End-->
 
 <!-- w3-content defines a container for fixed size centered content, 

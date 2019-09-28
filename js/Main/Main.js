@@ -81,9 +81,7 @@ $(document).on('click','#available_timeBlockA',()=>{
     $('#make_appointment_modal').css('display','block');
 });
 
-$(document).on('click','#make_appointment_modal_SubmitAppointment',()=>{
-    alert("Submit here");
-});
+
 
 
 // keypress functions =========================================================================================
