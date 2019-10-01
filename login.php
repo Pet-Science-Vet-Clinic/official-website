@@ -24,6 +24,11 @@ include('functions.php');
 // 	}
 // 	}
 
+// if (isLoggedOut()) {
+// 	// $_SESSION['msg'] = "You must log in first";
+// 	header('location: login.php');
+// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +62,7 @@ include('functions.php');
 					<img src="img/rippleeffect.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" method="post" action="index.php">
+				<form class="login100-form validate-form" method="post" action="viewtable.php">
 					<span class="login100-form-title">
 						Staff Login Deployment
 					</span>

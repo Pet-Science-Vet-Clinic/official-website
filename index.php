@@ -146,7 +146,7 @@ include('functions.php');
                       </div>
 
                       <div style="width: 100%; float:left; padding-top: 15px;">
-                          <h5>Clinic only caters appointment between chuchuchu</h5>
+                         
                       </div>
                      
                   
@@ -159,7 +159,7 @@ include('functions.php');
     
                 <div class="panel-footer">
                     <div align="right">
-                      <button class="btn btn-primary" id="make_appointment_modal_SubmitAppointment" value="" name="make_appointment_modal_SubmitAppointment"> Submit Appointment</button>
+                      <button class="btn btn-primary" id="make_appointment_modal_SubmitAppointment" value="" name="make_appointment_modal_SubmitAppointment" onclick="myFunction()"> Submit Appointment</button>
                     </div>
                 </div>
     
@@ -188,7 +188,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         <a class="w3-button"><span class="header_titles">Home</span></a>
         <a id="make_appointment" class="w3-button"><span class="header_titles">Make an Appointment</span> </a>
         <a class="w3-button"><span class="header_titles">About us</span></a>
-        <a href="FAQ.html" class="w3-button"><span class="header_titles">FAQ</span></a>
+        <a href="faq.php" class="w3-button"><span class="header_titles">FAQ</span></a>
 
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->

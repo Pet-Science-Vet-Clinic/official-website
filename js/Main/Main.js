@@ -47,6 +47,23 @@ function ValidateDate_isValidDate_Date(dateString) {
     return d.toISOString().slice(0,10) === dateString;
   }
 
+  function ConvertDate_Words(ProperDate){
+    try{
+        
+        var callbackDate = ""; 
+        var newDate = new Date(ProperDate); day = newDate.getDate(); month = newDate.getMonth() + 1; year = newDate.getFullYear();
+    
+        callbackDate = getMonthInWords(newDate.getMonth())+" "+newDate.getDate()+", "+newDate.getFullYear();
+    
+   
+        return callbackDate;
+    }catch(err){
+       return "";
+    }
+    
+  }
+
+
 
 
 function ClearAppointmentModalEntries(){
@@ -109,3 +126,6 @@ $('#appointment_modal_Fullname').keyup(function(){
     $('#appointment_modal_Fullname').val(toTitleCase($('#appointment_modal_Fullname').val()));
      $('#appointment_modal_Fullname').val(ReplaceMultipleWhitespace($('#appointment_modal_Fullname').val()));
   });
+
+
+  

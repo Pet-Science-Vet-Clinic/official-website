@@ -3,24 +3,24 @@
     
 
     // echo $_SERVER['HTTP_HOST'];
-       $servername= "";
-        $username= "";
-        $password= "";
-        $DatabaseName  = "";
+    //    $servername= "";
+    //     $username= "";
+    //     $password= "";
+    //     $DatabaseName  = "";
 
-    if($_SERVER['HTTP_HOST'] == "localhost"){
-        $servername= "localhost";
-        $username= "root";
-        $password= "123123";
-        $DatabaseName  = "petscience_db";
-    }else{
+    // if($_SERVER['HTTP_HOST'] == "localhost"){
+    //     $servername= "localhost";
+    //     $username= "root";
+    //     $password= "123123";
+    //     $DatabaseName  = "petscience_db";
+    // }else{
         
-        $servername= "localhost";
+        $servername= "sql307.main-hosting.eu";
         $username= "u194745461_root";
         $password= "8462017935";
         $DatabaseName  = "u194745461_petscience_db";
         
-    }
+    //}
     
 
     $conn = mysqli_connect($servername,$username,$password,$DatabaseName);

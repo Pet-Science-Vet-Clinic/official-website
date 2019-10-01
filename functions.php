@@ -18,11 +18,18 @@
 		
 	}
 
-	if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['user']);
-		header("location: index.php");
-	}
+	// if (isset($_GET['logout'])) {
+	// 	session_destroy();
+	// 	unset($_SESSION['user']);
+	// 	header("location: index.php");
+	// }
+
+	// if (isset($_GET['logout'])) {
+	// 	session_destroy();
+	// 	unset($_SESSION['user']);
+	// 	header("location: Admin_LoginPage.php");
+	// }
+
 //make new appointment
 
 	if(isset($_POST['make_appointment_modal_SubmitAppointment'])){
@@ -35,8 +42,8 @@
 		$valuehere = " ";
 		$statusvalue = "1";
   
-		$sql = "INSERT INTO tb_appointment_list (appointment_Date, appointment_TimeSlot, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_Type,appointment_Date2,appointment_ReasonForAppointment,appointment_Comment,appointment_Status)
-VALUES ('$appointment_date', '$time_slot', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment', '$valuehere', '$valuehere', '$valuehere', '$statusvalue')";
+		$sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
+VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
 $query=$conn->query($sql);
 		if($query)  
 		{
@@ -55,7 +62,7 @@ $query=$conn->query($sql);
 		}
 		
   }
-
+  
 	// LOGIN USER
 	function login(){
 		global $db, $username, $errors;
@@ -105,7 +112,15 @@ $query=$conn->query($sql);
 		}
 	}
 
-	
+	function isLoggedOut()
+	{
+		if (!isset($_SESSION['user'])) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 
 	// escape string
 	function e($val){
