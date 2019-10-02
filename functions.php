@@ -18,11 +18,13 @@
 		
 	}
 
+
 	if (isset($_GET['logout'])) {
 		session_destroy();
-		unset($_SESSION['user']);
-		header("location: index.php");
+		unset($_SESSION['users']);
+		header("location: login.php");
 	}
+
 //make new appointment
 
 	if(isset($_POST['make_appointment_modal_SubmitAppointment'])){
@@ -35,8 +37,8 @@
 		$valuehere = " ";
 		$statusvalue = "1";
   
-		$sql = "INSERT INTO tb_appointment_list (appointment_Date, appointment_TimeSlot, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_Type,appointment_Date2,appointment_ReasonForAppointment,appointment_Comment,appointment_Status)
-VALUES ('$appointment_date', '$time_slot', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment', '$valuehere', '$valuehere', '$valuehere', '$statusvalue')";
+		$sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
+VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
 $query=$conn->query($sql);
 		if($query)  
 		{
@@ -47,15 +49,15 @@ $query=$conn->query($sql);
 		}
 		else
 		{
-			echo "Error: " . $sql . "<br>" . $conn->error;
-// 		  echo '<script>
-//   alert("Appointment Not Set!");
-// 		  </script>';
-		   //header("Refresh:0");
+			// echo "Error: " . $sql . "<br>" . $conn->error;
+		  echo '<script>
+  alert("Appointment Not Set!");
+		  </script>';
+		   header("Refresh:0");
 		}
 		
   }
-
+  
 	// LOGIN USER
 	function login(){
 		global $db, $username, $errors;
@@ -81,7 +83,7 @@ $query=$conn->query($sql);
 			if (mysqli_num_rows($results) == 1) { // user found
 				// check if user is admin or user
 				$logged_in_user = mysqli_fetch_assoc($results);
-					$_SESSION['user'] = $logged_in_user;
+					$_SESSION['users'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
 					header('location: viewtable.php');		  
 				}
@@ -98,14 +100,22 @@ $query=$conn->query($sql);
 
 	function isLoggedIn()
 	{
-		if (isset($_SESSION['user'])) {
+		if (!isset($_SESSION['users'])) {
 			return true;
 		}else{
 			return false;
 		}
 	}
 
-	
+	function isLoggedOut()
+	{
+		if (isset($_SESSION['users'])) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 
 	// escape string
 	function e($val){

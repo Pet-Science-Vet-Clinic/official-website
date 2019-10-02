@@ -21,9 +21,9 @@
     </a><img src="img/rippleeffect.png" style="width: 250px; height: auto;"><br><br>
   </div>
   <div class="w3-bar-block">
-    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="glyphicon glyphicon-user border-right"></i>Questions</a> 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><span class="glyphicon glyphicon-plus border-right"></span>Services</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><span class="glyphicon glyphicon-earphone border-right"></span>Contact Us</a>
+    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="border-right"></i><h4>Questions</h4></a>
+    <!-- <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><span class="glyphicon glyphicon-plus border-right"></span>Services</a>  -->
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><span class=" border-right"></span><h4>Contact Us</h4></a>
   </div>
   <!-- <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -54,22 +54,27 @@
   </header>
   
   <!-- First Question-->
-  <div class="w3-col s12">
-    <div class="w3-card-4 w3-margin w3-white">
+  <div class="w3-col s12 ">
+    <div class="w3-card-4 w3-margin w3-white card_roundBorder">
       <div class="w3-container">
-        <h3><b>What food should I choose for my puppies?</b></h3>
+        <h3><b>How can I get rid of fleas on my dog?</b></h3>
       </div>
   
       <div class="w3-container">
-        <p>We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-          </p>
+        <b><p>SUCCESSFUL FLEA CONTROL INCLUDES TREATING BOTH PETS AND THE ENVIRONMENT</p></b>
+
+<p>This can be a challenging task and requires a three-pronged approach. Fleas need to be eliminated from:<p>
+
+    <p>1.your dog</p>
+    <p>2.any other cats and dogs in your household</p>
+    <p>3.your home and yard (environment)</p>
+
+Once your dog’s fleas are under control, continued prevention is essential, since you cannot control some 
+outside sources of fleas, such as other people's pets, wild animals, or other property outside yours. </p>
         <div class="w3-row">
           <div class="w3-col s12">
                 <br>
-            <p><button class="w3-button w3-padding-large w3-white w3-border" id="about_us_btn"><b>READ MORE »</b></button></p>
+            <!-- <p><button class="w3-button w3-padding-large w3-white w3-border" id="about_us_btn"><b>READ MORE »</b></button></p> -->
           </div>
           <div class="w3-col m4 w3-hide-small">
             <!-- <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p> -->
@@ -80,77 +85,96 @@
   
   <!-- Second Photo Grid-->
   <div class="w3-col s12">
-    <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-card-4 w3-margin w3-white card_roundBorder">
       <div class="w3-container">
-        <h3><b>What food should I choose for my puppies?</b></h3>
+        <h3><b>What are the standard vaccination protocols for puppies and kittens?</b></h3>
       </div>
   
       <div class="w3-container">
-        <p>We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
+      <p>
+        <p><b>Puppy</b></p>
+  <p>-We use the following protocol for puppy vaccinations</p>
+  <p>-6 weeks-Parvovirus</p>
+  <p>-8 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis</p>
+  <p>-12 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme</p>
+  <p>-16 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme Rabies</p>
+  <br>
+  <p><b>Kitten</b></p>
+  <p>-8 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis</p>
+  <p>-12 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis, Rabies</p>
           </p>
         <div class="w3-row">
           <div class="w3-col s12">
                 <br>
-            <p><button class="w3-button w3-padding-large w3-white w3-border" id="about_us_btn"><b>READ MORE »</b></button></p>
+           
           </div>
           <div class="w3-col m4 w3-hide-small">
-            <!-- <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p> -->
+            
           </div>
         </div>
       </div>
     </div>
 
-  <!-- Pagination -->
-  <!-- <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
-    </div>
-  </div> -->
 
-  <!-- Images of Me -->
+<!-- Third modal -->
+<div class="w3-col s12">
+    <div class="w3-card-4 w3-margin w3-white card_roundBorder">
+      <div class="w3-container">
+        <h3><b>How should I care for my puppy’s teeth, ears, and nails?</b></h3>
+      </div>
+  
+      <div class="w3-container">
+      <p>
+      It is never too early to begin good dental hygiene. Luckily for us, 
+      there are easy ways to provide this for our puppies. Daily teeth-brushing is the gold standard,
+       and we recommend starting the process gradually to get your puppy used to it. Start with letting 
+       your puppy taste the pet-approved toothpaste, work up to using your finger or gauze to wipe a few
+      teeth, and eventually try out a toothbrush. Give both of you time to accept the brushing, and be 
+      sure to contact us if you have questions or would like a demonstration.
+          </p>
+        <div class="w3-row">
+          <div class="w3-col s12">
+                <br>
+           
+          </div>
+          <div class="w3-col m4 w3-hide-small">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="w3-container">
+    <h1><b>Services</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      
+    </div>
+    </div> -->
+
 <br><br>
 
- 
-    <!-- Pricing Tables -->
-    <!-- <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third w3-margin-bottom">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">1GB Storage</li>
-          <li class="w3-padding-16">Mail Support</li>
-          <li class="w3-padding-16">
-            <h2>$ 10</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
+ <!-- More info about our services -->
+    <!-- Pricing Tables  -->
+     <!-- <div class="w3-row-padding" style="margin:0 -16px ">
+      <div class="w3-third w3-margin-bottom ">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off card_roundBorder">
+          <li class="w3-black w3-xlarge w3-padding-32 card_topBorder ">Grooming</li>
+          <li class="w3-padding-16">Haircut</li>
+          <li class="w3-padding-16">Nail grooming</li>
+          <li class="w3-padding-16 ">Free Bath</li>
+        
         </ul>
       </div>
       
       <div class="w3-third w3-margin-bottom">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-teal w3-xlarge w3-padding-32">Pro</li>
-          <li class="w3-padding-16">Web Design</li>
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off card_roundBorder">
+          <li class="w3-teal w3-xlarge w3-padding-32 card_topBorder">Vaccination</li>
+          <li class="w3-padding-16"></li>
           <li class="w3-padding-16">Photography</li>
           <li class="w3-padding-16">50GB Storage</li>
           <li class="w3-padding-16">Endless Support</li>
-          <li class="w3-padding-16">
-            <h2>$ 25</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
+         
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
+         
           </li>
         </ul>
       </div>
@@ -172,23 +196,32 @@
         </ul>
       </div>
     </div>
-  </div> -->
-  
+   </div>  
+   -->
+<header id = "contact">
+   <div class="w3-container">
+    <h1><b>Contact Us</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      
+    </div>
+    </div>
+</header>
+
   <!-- Contact Section -->
-  <div class="w3-container w3-padding-large w3-grey">
-    <h4 id="contact"><b>Contact Us</b></h4>
-    <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
-      <div class="w3-third w3-dark-grey">
-        <p><img src="img/email.png" style="width: 36px; height: 36px;"></p>
-        <p>petscienceveterinarytalamban@gmail.com</p>
+  <div  class="w3-container w3-padding-large ">
+    <!-- <h4 id="contact"><b>Contact Us</b></h4> -->
+    <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px ">
+      <div class="w3-third w3-dark-grey card_leftBorder">
+        <p><img src="img/email.png" style="width: 60px; height: 60px;"></p>
+        <h4><p>petscienceveterinarytalamban@gmail.com</p></h4>
       </div>
       <div class="w3-third w3-teal">
-        <p><img src="img/location.png" style="width: 36px; height: 36px;"></p>
-        <p>Talamban, Cebu</p>
+        <p><img src="img/location.png" style="width: 60px; height: 60px;"></p>
+        <h4> <p>Talamban, Cebu</p></h4>
       </div>
-      <div class="w3-third w3-dark-grey">
-        <p><img src="img/telephone.png" style="width: 36px; height: 36px;"></p>
-        <p>414-8754     /    0912-345-6789</p>
+      <div class="w3-third w3-dark-grey card_rightBorder">
+        <p><img src="img/telephone.png" style="width: 60px; height: 60px;"></p>
+        <h4><p>414-8754     /    0912-345-6789</p></h4>
       </div>
     </div>
     

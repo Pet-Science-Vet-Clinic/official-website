@@ -47,6 +47,23 @@ function ValidateDate_isValidDate_Date(dateString) {
     return d.toISOString().slice(0,10) === dateString;
   }
 
+  function ConvertDate_Words(ProperDate){
+    try{
+        
+        var callbackDate = ""; 
+        var newDate = new Date(ProperDate); day = newDate.getDate(); month = newDate.getMonth() + 1; year = newDate.getFullYear();
+    
+        callbackDate = getMonthInWords(newDate.getMonth())+" "+newDate.getDate()+", "+newDate.getFullYear();
+    
+   
+        return callbackDate;
+    }catch(err){
+       return "";
+    }
+    
+  }
+
+
 
 
 function ClearAppointmentModalEntries(){
@@ -109,3 +126,19 @@ $('#appointment_modal_Fullname').keyup(function(){
     $('#appointment_modal_Fullname').val(toTitleCase($('#appointment_modal_Fullname').val()));
      $('#appointment_modal_Fullname').val(ReplaceMultipleWhitespace($('#appointment_modal_Fullname').val()));
   });
+
+// Checkbox limit ==================================
+// var limit = 3;
+// $('input.single-checkbox').on('change', function(evt) {
+//    if($(this).siblings(':checked').length >= limit) {
+//        this.checked = false;
+//    }
+// });
+
+$('input[type=checkbox]').on('change', function (e) {
+    if ($('input[type=checkbox]:checked').length > 3) {
+        $(this).prop('checked', false);
+        alert("Maximum of 3 services only");
+    }
+});
+  

@@ -1,29 +1,9 @@
 <?php
-// include('conn.php');
 include('functions.php');
-
-// if(isset($_POST['login_btn'])){
-// 	$uname=$_POST['username'];
-// 	$psw =$_POST['pass'];
-	
-// 	$sql1="SELECT * FROM tb_users WHERE user_Username='$uname' AND user_Password='$psw'";
-// 	$wewe=$conn->query($sql1);
-	
-// 	if(mysqli_num_rows($wewe) > 0){
-// 	  echo'<script>
-// 	alert("Access Granted");
-// 	</script>';
-// 	header ("location: ViewTable.php");
-// 	header("Refresh:0");
-// 	}
-// 	else{
-// 		echo'<script>
-// 	alert("Access Denied");
-// 	</script>';
-// 	header("Refresh:0");
-// 	}
-// 	}
-
+if (isLoggedOut()) {
+	// $_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +37,7 @@ include('functions.php');
 					<img src="img/rippleeffect.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" method="post" action="index.php">
+				<form class="login100-form validate-form" method="post" action="viewtable.php">
 					<span class="login100-form-title">
 						Staff Login Deployment
 					</span>
@@ -96,25 +76,8 @@ include('functions.php');
 		</div>
 	</div>
 	
-	
-
-	
-
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-
-	<!-- <script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
-
-	<!-- <script src="vendor/select2/select2.min.js"></script> -->
-
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<!-- <script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		 })
-	</script> -->
-
-	 <!-- <script src="js/main.js"></script> -->
 
 </body>
 </html>
