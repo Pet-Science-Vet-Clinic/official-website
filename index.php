@@ -89,13 +89,13 @@ include('functions.php');
                         <label>Time Block <span style="color:red;">*</span></label>
                         <select id="appointment_modal_TimeBlock" style="margin-top: 6px;" name="timepicked">
                           <option value=""></option>
-                          <option value="Block_A" name = "timepicked">Block A (8am-9am)</option>
-                          <option value="Block_B" name = "timepicked">Block B (9am-10am)</option>
-                          <option value="Block_C" name = "timepicked">Block C (10am-11pm)</option>
-                          <option value="Block_D" name = "timepicked">Block D (11am-12am)</option>
-                          <option value="Block_E" name = "timepicked">Block E (1pm-2pm)</option>
-                          <option value="Block_F" name = "timepicked">Block F (2pm-3pm)</option>
-                          <option value="Block_G" name = "timepicked">Block G (3pm-4pm)</option>
+                          <option value="Block A (8am-9am)" name = "timepicked">Block A (8am-9am)</option>
+                          <option value="Block B (9am-10am)" name = "timepicked">Block B (9am-10am)</option>
+                          <option value="Block C (10am-11pm)" name = "timepicked">Block C (10am-11pm)</option>
+                          <option value="Block D (11am-12am)" name = "timepicked">Block D (11am-12am)</option>
+                          <option value="Block E (1pm-2pm)" name = "timepicked">Block E (1pm-2pm)</option>
+                          <option value="Block F (2pm-3pm)" name = "timepicked">Block F (2pm-3pm)</option>
+                          <option value="Block G (3pm-4pm)" name = "timepicked">Block G (3pm-4pm)</option>
                         </select>
                       </div>
                     </div>

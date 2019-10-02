@@ -19,6 +19,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/Table/util.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/main.css">
+	<link rel="stylesheet" type="text/css" href="css/Table/main2.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -39,6 +40,9 @@
   ?>
 		<div class="container-table100">
 			<div class="table100 ver5 m-b-110">
+			<button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button>
 				<table data-vertable="ver5">
 					<thead>
 						<tr class="row100 head">
@@ -74,14 +78,14 @@
 
 		     <tr class="row100">
 		    <td  class="column100 column1" data-column="column1"><?php echo $Appointment_Type;?></td>
-		    <td><?php echo $Appointment_Time_Slot;?></td>
-		    <td><?php echo $Appoiment_Date2;?></td>
-		    <td><?php echo $Customer_Name;?></td>
-		    <td><?php echo $Customer_Email;?></td>
-		    <td><?php echo $Customer_Contact;?></td>
-		    <td><?php echo $Appointment_Reason;?></td>
-		    <td><?php echo $Appointment_Comment;?></td>
-			<td><?php echo $Appointment_Status;?></td>
+		    <td class="column100 column1" data-column="column1"><?php echo $Appointment_Time_Slot;?></td>
+		    <td class="column100 column1" data-column="column1"><?php echo $Appoiment_Date2;?></td>
+		    <td class="column100 column1" data-column="column1"><?php echo $Customer_Name;?></td>
+		    <td class="column100 column1" data-column="column1"><?php echo $Customer_Email;?></td>
+		    <td class="column100 column1" data-column="column1"><?php echo $Customer_Contact;?></td>
+		    <td class="column100 column1" data-column="column1"><?php echo $Appointment_Reason;?></td>
+		    <td class="column100 column1" data-column="column1"><?php echo $Appointment_Comment;?></td>
+			<td class="column100 column1" data-column="column1"><?php echo $Appointment_Status;?></td>
 </tr>
 </div>
 <?php endwhile; ?>

@@ -191,27 +191,16 @@
         <p>414-8754     /    0912-345-6789</p>
       </div>
     </div>
-    <hr class="w3-opacity">
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
-      </div>
-      <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
-      </div>
-      <div class="w3-section">
-        <label>Message</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
-      </div>
-      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
-    </form>
+    
+    
   </div>
-
+  <hr class="w3-opacity">
+   
+   <div class="w3-section">
   
-  <div class="w3-black w3-center w3-padding-24">Copyright <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">Kehzo</a></div>
-
+   </div>
+  
+ 
 <!-- End page content -->
 </div>
 
