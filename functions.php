@@ -18,17 +18,12 @@
 		
 	}
 
-	// if (isset($_GET['logout'])) {
-	// 	session_destroy();
-	// 	unset($_SESSION['user']);
-	// 	header("location: index.php");
-	// }
 
-	// if (isset($_GET['logout'])) {
-	// 	session_destroy();
-	// 	unset($_SESSION['user']);
-	// 	header("location: Admin_LoginPage.php");
-	// }
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['users']);
+		header("location: login.php");
+	}
 
 //make new appointment
 
@@ -54,11 +49,11 @@ $query=$conn->query($sql);
 		}
 		else
 		{
-			echo "Error: " . $sql . "<br>" . $conn->error;
-// 		  echo '<script>
-//   alert("Appointment Not Set!");
-// 		  </script>';
-		   //header("Refresh:0");
+			// echo "Error: " . $sql . "<br>" . $conn->error;
+		  echo '<script>
+  alert("Appointment Not Set!");
+		  </script>';
+		   header("Refresh:0");
 		}
 		
   }
@@ -88,7 +83,7 @@ $query=$conn->query($sql);
 			if (mysqli_num_rows($results) == 1) { // user found
 				// check if user is admin or user
 				$logged_in_user = mysqli_fetch_assoc($results);
-					$_SESSION['user'] = $logged_in_user;
+					$_SESSION['users'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
 					header('location: viewtable.php');		  
 				}
@@ -105,7 +100,7 @@ $query=$conn->query($sql);
 
 	function isLoggedIn()
 	{
-		if (isset($_SESSION['user'])) {
+		if (!isset($_SESSION['users'])) {
 			return true;
 		}else{
 			return false;
@@ -114,7 +109,7 @@ $query=$conn->query($sql);
 
 	function isLoggedOut()
 	{
-		if (!isset($_SESSION['user'])) {
+		if (isset($_SESSION['users'])) {
 			return true;
 		}else{
 			return false;

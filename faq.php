@@ -57,15 +57,20 @@
   <div class="w3-col s12 ">
     <div class="w3-card-4 w3-margin w3-white card_roundBorder">
       <div class="w3-container">
-        <h3><b>What food should I choose for my puppies?</b></h3>
+        <h3><b>How can I get rid of fleas on my dog?</b></h3>
       </div>
   
       <div class="w3-container">
-        <p>We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-          </p>
+        <b><p>SUCCESSFUL FLEA CONTROL INCLUDES TREATING BOTH PETS AND THE ENVIRONMENT</p></b>
+
+<p>This can be a challenging task and requires a three-pronged approach. Fleas need to be eliminated from:<p>
+
+    <p>1.your dog</p>
+    <p>2.any other cats and dogs in your household</p>
+    <p>3.your home and yard (environment)</p>
+
+Once your dog’s fleas are under control, continued prevention is essential, since you cannot control some 
+outside sources of fleas, such as other people's pets, wild animals, or other property outside yours. </p>
         <div class="w3-row">
           <div class="w3-col s12">
                 <br>
@@ -82,27 +87,62 @@
   <div class="w3-col s12">
     <div class="w3-card-4 w3-margin w3-white card_roundBorder">
       <div class="w3-container">
-        <h3><b>What food should I choose for my puppies?</b></h3>
+        <h3><b>What are the standard vaccination protocols for puppies and kittens?</b></h3>
       </div>
   
       <div class="w3-container">
-        <p>We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
-                We prefer you choose Pedigree for puppies because it has the prescribed nutrients the puppies need to be healthy. 
+      <p>
+        <p><b>Puppy</b></p>
+  <p>-We use the following protocol for puppy vaccinations</p>
+  <p>-6 weeks-Parvovirus</p>
+  <p>-8 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis</p>
+  <p>-12 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme</p>
+  <p>-16 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme Rabies</p>
+  <br>
+  <p><b>Kitten</b></p>
+  <p>-8 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis</p>
+  <p>-12 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis, Rabies</p>
           </p>
         <div class="w3-row">
           <div class="w3-col s12">
                 <br>
-            <!-- <p><button class="w3-button w3-padding-large w3-white w3-border" id="about_us_btn"><b>READ MORE »</b></button></p> -->
+           
           </div>
           <div class="w3-col m4 w3-hide-small">
-            <!-- <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p> -->
+            
           </div>
         </div>
       </div>
     </div>
 
+
+<!-- Third modal -->
+<div class="w3-col s12">
+    <div class="w3-card-4 w3-margin w3-white card_roundBorder">
+      <div class="w3-container">
+        <h3><b>How should I care for my puppy’s teeth, ears, and nails?</b></h3>
+      </div>
+  
+      <div class="w3-container">
+      <p>
+      It is never too early to begin good dental hygiene. Luckily for us, 
+      there are easy ways to provide this for our puppies. Daily teeth-brushing is the gold standard,
+       and we recommend starting the process gradually to get your puppy used to it. Start with letting 
+       your puppy taste the pet-approved toothpaste, work up to using your finger or gauze to wipe a few
+      teeth, and eventually try out a toothbrush. Give both of you time to accept the brushing, and be 
+      sure to contact us if you have questions or would like a demonstration.
+          </p>
+        <div class="w3-row">
+          <div class="w3-col s12">
+                <br>
+           
+          </div>
+          <div class="w3-col m4 w3-hide-small">
+            
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- <div class="w3-container">
     <h1><b>Services</b></h1>
     <div class="w3-section w3-bottombar w3-padding-16">

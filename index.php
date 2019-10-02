@@ -41,12 +41,6 @@ include('functions.php');
                   
                 </div>
     
-                <!-- <div class="panel-footer">
-                    <div align="right">
-                      <button class="btn btn-primary" id="" value="" name="MODULE_YES"> Button Here</button>
-                    </div>
-                </div> -->
-    
     
             </div>
         </div>
@@ -130,7 +124,7 @@ include('functions.php');
                                 </div>
   
                                 <div style="width: 33%; display: inline-block;">
-                                    <label><input type="checkbox" id="appointment_modal_Check_Surgery" name="reason_for_appointment" value="Surgery"> <span>Surgery</span></label>
+                                    <label><input  type="checkbox" id="appointment_modal_Check_Surgery" name="reason_for_appointment" value="Surgery"> <span>Surgery</span></label>
                                     <label><input type="checkbox" id="appointment_modal_Check_Deworming" name="reason_for_appointment" value="Deworming"> <span>Deworming</span></label>
                                     <label><input type="checkbox" id="appointment_modal_Check_Boarding" name="reason_for_appointment" value="Boarding"> <span>Boarding</span></label>
                                 </div>
@@ -185,9 +179,9 @@ and is wrapped around the whole page content, except for the footer in this exam
 
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small" id="TopMenu_Items">
-        <a class="w3-button"><span class="header_titles">Home</span></a>
+        <a  href ="#" class="w3-button"><span class="header_titles">Home</span></a>
         <a id="make_appointment" class="w3-button"><span class="header_titles">Make an Appointment</span> </a>
-        <a class="w3-button"><span class="header_titles">About us</span></a>
+        <!-- <a class="w3-button"><span class="header_titles">About us</span></a> -->
         <a href="faq.php" class="w3-button"><span class="header_titles">FAQ</span></a>
 
       </div>
@@ -211,16 +205,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/slide-four.jpg'); "></div>
    
     
-    <!-- <div class="w3-display-left w3-text-white" style="padding: 450px 0px 0px 100px" style="overflow: hidden;">
-        <span class="w3-jumbo w3-hide-small">What are you waiting for?</span><br>
-        <span class="w3-large"><h2>Make an appointment today!</h2></span>
-        <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Click here!</a></p>
-      </div>  -->
-
-    <!-- <img class="mySlides login100-more" src="img/slide-one.jpg" style='width: 1320px; height: 650px'>
-    <img class="mySlides login100-more" src="img/slide-two.jpg" style='width: 1320px; height: 650px'>
-    <img class="mySlides login100-more" src="img/slide-three.jpg" style='width: 1320px; height: 650px'>
-    <img class="mySlides login100-more" src="img/slide-four.jpg" style='width: 1320px; height: 650px'> -->
+   
 </header>
 <!-- Header End-->
 
@@ -255,28 +240,28 @@ and is wrapped around the whole page content, except for the footer in this exam
             <div class="w3-row" style="margin-top:64px">
               <div class="w3-col s3">
                 <i class="w3-text-orange w3-jumbo">
-                  <p><img src="img/grooming.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/grooming.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Grooming</p>
               </div>
 
               <div class="w3-col s3">
                 <i class=" w3-text-red w3-jumbo">
-                    <p><img src="img/vaccination.png" style="width: 100px; height: 100px;"></p>
+                    <p><img src="img/vaccination.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Vaccination</p>
               </div>
 
               <div class="w3-col s3">
                 <i class="fa fa-camera w3-text-yellow w3-jumbo">
-                  <p><img src="img/surgery.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/surgery.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Surgery</p>
               </div>
 
               <div class="w3-col s3">
                 <i class="fa fa-battery-full w3-text-green w3-jumbo">
-                  <p><img src="img/boarding.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/boarding.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Boarding</p>
               </div>
@@ -285,28 +270,28 @@ and is wrapped around the whole page content, except for the footer in this exam
             <div class="w3-row" style="margin-top:64px">
               <div class="w3-col s3">
                 <i class="fa fa-diamond w3-text-white w3-jumbo">
-                  <p><img src="img/checkup.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/checkup.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Check-up</p>
               </div>
 
               <div class="w3-col s3">
                 <i class="fa fa-cloud w3-text-blue w3-jumbo">
-                  <p><img src="img/confinement.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/confinement.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Confinement</p>
               </div>
 
               <div class="w3-col s3">
                 <i class="fa fa-globe w3-text-amber w3-jumbo">
-                  <p><img src="img/consultation.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/consultation.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Consultation</p>
               </div>
 
               <div class="w3-col s3">
                 <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/treatment.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/treatment.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Treatment</p>
               </div>
@@ -314,14 +299,14 @@ and is wrapped around the whole page content, except for the footer in this exam
               <div class="w3-row" style="margin-top:64px">
               <div class="w3-col s3">
                 <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/deworming.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/deworming.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>Deworming</p>
               </div>
 
               <div class="w3-col s3">
                 <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/house_call_services.png" style="width: 100px; height: 100px;"></p>
+                  <p><img src="img/house_call_services.png" style="width: 50%; height: 50%;"></p>
                 </i>
                 <p>House Call Services</p>
               </div>
@@ -330,9 +315,7 @@ and is wrapped around the whole page content, except for the footer in this exam
             
           </div>
       <div class="w3-row">
-        <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border" id="about_us_btn"><b>READ MORE »</b></button></p>
-        </div>
+     <hr>
         <div class="w3-col m4 w3-hide-small">
           <!-- <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p> -->
         </div>
@@ -354,7 +337,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
        <div class="w3-container">
         <p>
-            <div id="map" style="width:100%;height:400px;"></div>
+            <div id="googleMap" style="width:100%;height:400px;"></div>
           </p>
         <div class="w3-row">
         <div class="w3-col m8 s12">
@@ -365,27 +348,6 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
   </div>
   <!-- FAQ Preview End -->
-
-
-  <!-- <div class="w3-third w3-margin-bottom">
-      <ul class="w3-ul w3-border w3-center w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
-        <li class="w3-padding-16"><b>50GB</b> Storage</li>
-        <li class="w3-padding-16"><b>50</b> Emails</li>
-        <li class="w3-padding-16"><b>50</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 50</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-green w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-
-
 
 
 
@@ -401,10 +363,12 @@ and is wrapped around the whole page content, except for the footer in this exam
       </div>
         <div class="w3-container">
        
-            <p><h4><u>Monday-Saturday</u></h4></p>
-            <p>10am-4pm</p>
+            <p><h4><u>Monday-Friday</u></h4></p>
+            <p>8am-7pm</p>
+            <p><h4><u>Saturday</u></h4></p>
+            <p>8am-6pm</p>
             <p><h4><u>Sunday</u></h4></p>
-            <p>10am-3pm</p>
+            <p>9am-3pm</p>
           </div>
     
     
@@ -414,17 +378,16 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Clinic Hours Panel End -->
   
   <!-- Appointment slots start -->
-  <div class="w3-card w3-margin card_topBorder card_bottomBorder">
+  <!-- <div class="w3-card w3-margin card_topBorder card_bottomBorder">
     <div class="w3-container w3-padding card_colorHeader">
       <h4>Available Appointment Time Today</h4>
     </div>
     <ul class="w3-ul w3-hoverable w3-white card_bottomBorder">
-      <!-- <a id="available_timeBlockA" class="card_button"> -->
         <li class="w3-padding-16">
         <span class="w3-large">10am-11am</span><br>
         <span>2 slots</span>
       </li>
-    <!-- </a> -->
+    
       <li class="w3-padding-16">
         <span class="w3-large">11am-12pm</span><br>
         <span>1 slot</span>
@@ -442,26 +405,10 @@ and is wrapped around the whole page content, except for the footer in this exam
             <span>No slot Available</span>
           </li>  
     </ul>
-  </div>
+  </div> -->
   <hr> 
    <!-- Appointment slots End -->
 
-
-
-  <!-- Labels / tags -->
-  <!-- <div class="w3-card w3-margin">
-    <div class="w3-container w3-padding">
-      <h4>Tags</h4>
-    </div>
-    <div class="w3-container w3-white">
-    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
-    </p>
-    </div>
-  </div> -->
   
 <!-- END Introduction Menu -->
 </div>
@@ -472,37 +419,29 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- END w3-content -->
 </div>
 
-<!-- Footer -->
-<!-- <footer>
-<div class="container">
-        <div class="row">
-            <div class="col-xs-6 footer-para">
-                <p>&copy;Kehzo All right reserved</p>
-            </div>
-            
-        </div>
-    </div>
-</footer> -->
+
 
     <script src="js/Main/Main.js"></script>
     <script src="js/Main/JQuery.js"></script>
     <script src="js/Main/Bootstrap.js"></script>
     <script>
         // Initialize and add the map
-        
-        function initMap() {
-          // The location of Uluru
-          var PetSci = {lat: 10.363930, lng: 123.914704};
-          // The map, centered at Uluru
-          var map = new google.maps.Map(
-              document.getElementById('map'), {zoom: 4, center: PetSci});
-          // The marker, positioned at Uluru
-          var marker = new google.maps.Marker({position: PetSci, map: map});
-        }
-            </script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzf8Z7BvJ3GD9KqkqJRqJRMXkrMivyDQs&callback=initMap">
         </script>
         
+        <script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(10.363930,123.914704),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzf8Z7BvJ3GD9KqkqJRqJRMXkrMivyDQs&callback=myMap"></script>
+
+
+
+
 </body>
 </html>

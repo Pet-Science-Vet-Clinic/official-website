@@ -127,5 +127,18 @@ $('#appointment_modal_Fullname').keyup(function(){
      $('#appointment_modal_Fullname').val(ReplaceMultipleWhitespace($('#appointment_modal_Fullname').val()));
   });
 
+// Checkbox limit ==================================
+// var limit = 3;
+// $('input.single-checkbox').on('change', function(evt) {
+//    if($(this).siblings(':checked').length >= limit) {
+//        this.checked = false;
+//    }
+// });
 
+$('input[type=checkbox]').on('change', function (e) {
+    if ($('input[type=checkbox]:checked').length > 3) {
+        $(this).prop('checked', false);
+        alert("Maximum of 3 services only");
+    }
+});
   

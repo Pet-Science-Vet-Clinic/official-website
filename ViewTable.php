@@ -2,11 +2,9 @@
 include('functions.php');
 include('conn.php');
 
-if (isLoggedOut()) {
-	// $_SESSION['msg'] = "You must log in first";
+if (isLoggedIn()) {
 	header('location: login.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +42,7 @@ if (isLoggedOut()) {
   
   <div class="w3-padding-32">
     <div class="w3-bar w3-border">
-      <a href="login.php" class="w3-bar-item w3-button">Log out</a>
+      <a href="login.php?logout='1'" class="w3-bar-item w3-button">Log out</a>
 </header>
 
 
