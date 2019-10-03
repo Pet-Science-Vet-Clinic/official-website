@@ -63,6 +63,7 @@ function ValidateDate_isValidDate_Date(dateString) {
     
   }
 
+  
 
 
 
@@ -72,6 +73,29 @@ function ClearAppointmentModalEntries(){
   $('#make_appointment_modal_Entries').find('input:checkbox').prop('checked', false); 
 }   
 
+function CheckNumber_valid_(str){
+    if(str.charAt(0) != "0" || str.charAt(1) != "9"  || str.length < 11 ){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function Repelace_63Number(str){
+    if(!CheckNumber_valid_(str)){
+        str = str.substr(1);
+        return str = `+63${str}`;
+    }else{
+        if(str.charAt(0) == "+" && str.charAt(1) == "6" && str.charAt(2) == "3"){
+            str = str.substr(0);
+            str = str.substr(1);
+            str = str.substr(2);
+            return str = `0${str}`;
+        }else{
+            return str;
+        }
+    }
+}
 
 
 
@@ -127,6 +151,7 @@ $('#appointment_modal_Fullname').keyup(function(){
      $('#appointment_modal_Fullname').val(ReplaceMultipleWhitespace($('#appointment_modal_Fullname').val()));
   });
 
+
 // Checkbox limit ==================================
 // var limit = 3;
 // $('input.single-checkbox').on('change', function(evt) {
@@ -141,4 +166,12 @@ $('input[type=checkbox]').on('change', function (e) {
         alert("Maximum of 3 services only");
     }
 });
+
+
+//CP Trap===============================================================
+
+   $("#customer_cellnum").focusout(function() {
+    $('#customer_cellnum').val(Repelace_63Number($('#CRF_Cell').val()));
+    // alert(CheckNumber_valid_($('#CRF_Cell').val()));
+   });
   

@@ -24,6 +24,7 @@
     <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="border-right"></i><h4>Questions</h4></a>
     <!-- <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><span class="glyphicon glyphicon-plus border-right"></span>Services</a>  -->
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><span class=" border-right"></span><h4>Contact Us</h4></a>
+    <a href="index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><span class=" border-right"></span><h4>Home</h4></a>
   </div>
   <!-- <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>

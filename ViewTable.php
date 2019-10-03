@@ -54,24 +54,19 @@ if (isLoggedIn()) {
   ?>
  
 		<div class="container-table100">
-		<!-- <button type="button" class="btn btn-default btn-sm">
-			<span class="glyphicon glyphicon-log-out"></span> Log out
-        </button> -->
 			<div class="table100 ver5 m-b-110">
 			
 			
 				<table data-vertable="ver5">
 					<thead>
 						<tr class="row100 head">
-							<!-- <th class="column100 column1" data-column="column1">Appointment Type</th> -->
 							<th class="column100 column2" data-column="column2">Time Slot</th>
 							<th class="column100 column3" data-column="column3">Scheduled Date</th>
 							<th class="column100 column4" data-column="column4">Customer Name</th>
 							<th class="column100 column5" data-column="column5">Customer Email</th>
 							<th class="column100 column6" data-column="column6">Customer Contact No.</th>
 							<th class="column100 column7" data-column="column7">Reason for Appointment</th>
-							<!-- <th class="column100 column7" data-column="column7">Comment</th> -->
-							<!-- <th class="column100 column7" data-column="column7">Status</th> -->
+						
 							
 						</tr>
 					</thead>
@@ -80,16 +75,12 @@ if (isLoggedIn()) {
 
 						 <?php
 		    	while($rows = mysqli_fetch_array($Result)):; 
-				// $Appointment_Type = $rows['appointment_Type'];
 				$Appointment_Time_Slot = $rows['appointment_TimeSlot'];
 				$Appoiment_Date = $rows['appointment_Date'];
 				$Customer_Name = $rows['appointment_Customer_Name'];
 				$Customer_Email = $rows['appointment_Customer_Email'];
 				$Customer_Contact = $rows['appointment_Contact'];
 				$Appointment_Reason = $rows['appointment_ReasonForAppointment'];
-				// $Appointment_Comment = $rows['appointment_Comment'];
-				// $Appointment_Status = $rows['appointment_Status'];
-				// $teamid = $rows['id'];
 		    ?>
 		    <div id="TableItems">
 
