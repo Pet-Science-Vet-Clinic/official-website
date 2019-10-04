@@ -54,20 +54,19 @@ if (isLoggedIn()) {
   ?>
  
 		<div class="container-table100">
-			<div class="table100 ver5 m-b-110">
-			
-			
-				<table data-vertable="ver5">
-					<thead>
-						<tr class="row100 head">
+
+		<!-- <button type="button" class="btn btn-default btn-sm">
+			<span class="glyphicon glyphicon-log-out"></span> Log out
+        </button> -->
+
 							<th class="column100 column2" data-column="column2">Time Slot</th>
 							<th class="column100 column3" data-column="column3">Scheduled Date</th>
 							<th class="column100 column4" data-column="column4">Customer Name</th>
 							<th class="column100 column5" data-column="column5">Customer Email</th>
 							<th class="column100 column6" data-column="column6">Customer Contact No.</th>
 							<th class="column100 column7" data-column="column7">Reason for Appointment</th>
-						
-							
+
+					
 						</tr>
 					</thead>
 					<tbody>
@@ -81,6 +80,7 @@ if (isLoggedIn()) {
 				$Customer_Email = $rows['appointment_Customer_Email'];
 				$Customer_Contact = $rows['appointment_Contact'];
 				$Appointment_Reason = $rows['appointment_ReasonForAppointment'];
+
 		    ?>
 		    <div id="TableItems">
 
