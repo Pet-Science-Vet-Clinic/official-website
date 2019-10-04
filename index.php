@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,9 @@ include('functions.php');
 <link rel="stylesheet" href="css/Main/appointment2.css">
 <link rel="stylesheet" href="css/Main/appointment3.css">
 <link rel="stylesheet" href="css/Main/template2.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/Main/jquery1.9.1.js"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+
 
 
 <body class="w3-light-grey">
@@ -97,12 +100,12 @@ include('functions.php');
 
 
                       <div style="width: 100%; float: left;">
-                        <div style="width: 33%; float:left;">
+                        <div style="width: 33%; float:left; padding-right: 10px">
                           <label> Fullname <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" >
+                          <input type="text" class="" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" > 
                         </div>
-  
-                        <div style="width: 33; display: inline-block; padding-left: 15px;">
+                       (+63)
+                        <div style="width: 33; display: inline-block; padding-left: 0px;">
                           <label> Cellular Number <span style="color:red;">*</span></label>
                           <input type="text" class="" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11"  >
                         </div>
@@ -163,6 +166,38 @@ include('functions.php');
       </div>
 	  </form>
       <!--Make Appointment Modal End-->
+      <div class="modal fade" id="thankyouModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Thank you for making an appointment</h4>
+            </div>
+            <div class="modal-body">
+                <p>Appointment made!</p>                     
+            </div>    
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Thank you Modal -->
+<div class="modal fade" id="thankyouModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Thank you for pre-registering!</h4>
+            </div>
+            <div class="modal-body">
+                <p>Thanks for getting in touch!</p>                     
+            </div>    
+        </div>
+    </div>
+</div>
+
+
 
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
@@ -424,6 +459,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <script src="js/Main/Main.js"></script>
     <script src="js/Main/JQuery.js"></script>
     <script src="js/Main/Bootstrap.js"></script>
+    
     <script>
         // Initialize and add the map
         </script>

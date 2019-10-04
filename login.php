@@ -39,11 +39,11 @@ if (isLoggedOut()) {
 
 				<form class="login100-form validate-form" method="post" action="viewtable.php">
 					<span class="login100-form-title">
-						Staff Login Deployment
+						Staff Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username" placeholder="Username">
+						<input class="input100" type="text" name="username" placeholder="Username" maxlength="20" onkeypress="return blockSpecialChar(event)">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -51,7 +51,7 @@ if (isLoggedOut()) {
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="Password" maxlength="20" onkeypress="return blockSpecialChar(event)">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -78,6 +78,7 @@ if (isLoggedOut()) {
 	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script src="js/Login/main.js"></script>
 
 </body>
 </html>
