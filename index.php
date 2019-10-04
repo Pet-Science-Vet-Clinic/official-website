@@ -15,7 +15,7 @@ include('functions.php');
 <link rel="stylesheet" href="css/Main/appointment3.css">
 <link rel="stylesheet" href="css/Main/template2.css">
 <script src="js/Main/jquery1.9.1.js"></script>
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+
 
 
 
