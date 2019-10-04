@@ -19,6 +19,7 @@ include('functions.php');
 
 
 
+
 <body class="w3-light-grey">
 
     <!--About Us Modal Start-->
@@ -64,9 +65,7 @@ include('functions.php');
 
                   <div style="padding-left: 20px; padding-right: 20px;" id="make_appointment_modal_Entries">
                     <div class="header-text httal htvam">
-                      <!-- <h2 id="header_22" class="form-header" data-component="header">
-                        Set an Appointment
-                      </h2> -->
+                      
                       <h3 id="" class="">
                         Please fill out all the fields below.
                       </h3>
