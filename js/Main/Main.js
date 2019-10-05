@@ -170,8 +170,19 @@ $('input[type=checkbox]').on('change', function (e) {
 
 //CP Trap===============================================================
 
-   $("#customer_cellnum").focusout(function() {
-    $('#customer_cellnum').val(Repelace_63Number($('#CRF_Cell').val()));
+   $("#appointment_modal_CellNumber").focusout(function() {
+    $('#appointment_modal_CellNumber').val(Repelace_63Number($('#appointment_modal_CellNumber').val()));
     // alert(CheckNumber_valid_($('#CRF_Cell').val()));
    });
   
+
+   var prevScrollpos = window.pageYOffset;
+   window.onscroll = function() {
+   var currentScrollPos = window.pageYOffset;
+     if (prevScrollpos > currentScrollPos) {
+       document.getElementById("navbar").style.top = "0";
+     } else {
+       document.getElementById("navbar").style.top = "-130px";
+     }
+     prevScrollpos = currentScrollPos;
+   }

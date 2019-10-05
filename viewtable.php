@@ -30,6 +30,7 @@ if (isLoggedIn()) {
 	<link rel="stylesheet" type="text/css" href="css/Table/main.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/main2.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/w3.css">
+	<link rel="shortcut icon" href="img/officiallogo.ico">
 <!--===============================================================================================-->
 </head>
 <body>
