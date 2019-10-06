@@ -1,584 +1,859 @@
-<?php
-include('functions.php');
-
-?>
 <!DOCTYPE html>
-<html>
-<title>Pet Science Veterinary Clinic</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/Main/template.css">
-<link rel="stylesheet" href="css/Main/Bootsrap.css">
-<link rel="stylesheet" href="css/Main/Main.css">
-<link rel="stylesheet" href="css/Main/appointment.css">
-<link rel="stylesheet" href="css/Main/appointment2.css">
-<link rel="stylesheet" href="css/Main/appointment3.css">
-<link rel="stylesheet" href="css/Main/template2.css">
-<link rel="shortcut icon" href="img/officiallogo.ico">
-<script src="js/Main/jquery1.9.1.js"></script>
-
-
-
-
-
-<body class="w3-light-grey">
-
-    <!--About Us Modal Start-->
-    <div id="about_us_modal"  class="modal">
-        <div class=" animate_top" style="width: 80%; margin:auto;">
-            <div class="panel panel-primary">
-                <div class="panel-heading"><span>About Us</span>
-                  <button type="button" style="float:right;" id="close_btn_about_us" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="panel-body">
-                  <div class="modal_picture">
-                    <img src="img/slide-two.jpg" style='width: 1048px; height: 400px'>
-                  </div>
-                    <h3>History of the clinic</h3>
-                    <p>Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006.The origin of 
-                        the clinic’s name comes from the association of Pet Lovers in Southwestern University PHINMA.The clinic was created out of passion and 
-                        love for pets. The clinic accommodates as many pets as theycan work on in a day. It is their will and a heart of passion to save and help
-                         every pet that needs remedy. The clinic is open from Sunday to Saturday and this includes services they could offer such asgrooming,
-                          vaccination, surgery, boarding, check-up, confinement, consultation, treatment, deworming and house calls service.The clinic accepts
-                           walk-in clients and appointment schedules for pets. Pet Science Veterinary Clinic stores information that includes vaccination history,
-                            consultation, and the meditation of pets.Unfortunately, because of the limited source of vaccine, they only accept feline and canine
-                             pets.</p>
-                  
-                </div>
-    
-    
-            </div>
-        </div>
-      </div>
-      <!--About Us Modal End-->
-
-       <!--Make Appointment Modal Start-->
-	   <form method = "POST">
-    <div id="make_appointment_modal"  class="modal">
-        <div class=" animate_top" style="width: 75%; margin:auto;">
-            <div class="panel panel-primary">
-                <div class="panel-heading sansserif"><button type="button" style="float:right;" id="close_btn_make_appointment" class="close" data-dismiss="modal">&times;</button><span> <h4 class="leftspace">Schedule Appointment</h4> </span>
-                  
-                </div>
-                <div class="panel-body">
-                  <!-- <button type="button" style="float:right;" id="close_btn_make_appointment" class="close" data-dismiss="modal">&times;</button> -->
-
-
-                  <div style="padding-left: 20px; padding-right: 20px;" id="make_appointment_modal_Entries">
-                    <div class="header-text httal htvam">
-                      
-                      <h4 id="" class="sansserif">
-                      This is only a form to request an appointment, not to book an appointment. A member of out staff will contact you to confirm your pet’s scheduled appointment. If there is an urgent health concern, do not request an appointment online and call our practice at 414-8754 / 0912-345-6789.
-                      </h4>
-                      
-                    </div>
-                    
-                    <hr>
-
-                    
-                    <div style="width: 100%; float:left">
-                      <div style="width: 50%; float:left;">
-                        <label></h5> Appointment Date <span style="color:red;">*</span></label>
-                        <input type="date" class="" id="appointment_modal_Date" name="datepicked"  >
-                      </div>
-
-                      <div style="width: 50%; display: inline-block; padding-left: 15px;">
-                        <label>Time Block <span style="color:red;">*</span></label>
-                        <select id="appointment_modal_TimeBlock" style="margin-top: 6px;" name="timepicked">
-                          <option value=""></option>
-                          <option value="Block A (8am-9am)" name = "timepicked">Block A (8am-9am)</option>
-                          <option value="Block B (9am-10am)" name = "timepicked">Block B (9am-10am)</option>
-                          <option value="Block C (10am-11pm)" name = "timepicked">Block C (10am-11pm)</option>
-                          <option value="Block D (11am-12am)" name = "timepicked">Block D (11am-12am)</option>
-                          <option value="Block E (1pm-2pm)" name = "timepicked">Block E (1pm-2pm)</option>
-                          <option value="Block F (2pm-3pm)" name = "timepicked">Block F (2pm-3pm)</option>
-                          <option value="Block G (3pm-4pm)" name = "timepicked">Block G (3pm-4pm)</option>
-                        </select>
-                      </div>
-                    </div>
-
-
-
-                      <div style="width: 100%; float: left;">
-                        <div style="width: 33%; float:left; padding-right: 10px">
-                          <label> Fullname <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" > 
-                        </div>
-                        <div style="width: 33; display: inline-block; padding-left: 0px;">
-                          <label> Cellular Number <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11"  >
-                        </div>
-  
-                        <div style="width: 33%; display:inline-block; padding-left: 15px;">
-                          <label> Email </label>
-                          <input type="text" class="" id="appointment_modal_Email" name="customer_email"   maxlength="40" >
-                        </div>
-                      </div>
-
-                      <div style="width: 100%; float:left;">
-                          <div>
-                            <label> Reason for Appointment <span style="color:red;">*</span></label>
-                              <div style="padding-left:20px; padding-right: 20px;">
-                                <div style="width: 33%; float: left;">
-                                    <label><input type="checkbox" id="appointment_modal_Check_Consultation" name="reason_for_appointment" value="Consultation"> <span>Consultation</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Vaccination" name="reason_for_appointment" value="Vaccination"> <span>Vaccination</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Treatment" name="reason_for_appointment" value="Treatment"> <span>Treatment</span></label>
-                                </div>
-  
-                                <div style="width: 33%; display: inline-block;">
-                                    <label><input  type="checkbox" id="appointment_modal_Check_Surgery" name="reason_for_appointment" value="Surgery"> <span>Surgery</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Deworming" name="reason_for_appointment" value="Deworming"> <span>Deworming</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Boarding" name="reason_for_appointment" value="Boarding"> <span>Boarding</span></label>
-                                </div>
-  
-                                <div style="width: 33%; display: inline-block;">
-                                    <label><input type="checkbox" id="appointment_modal_Check_Confinement" name="reason_for_appointment" value="Confinement"> <span>Confinement</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Grooming" name="reason_for_appointment" value="Grooming"> <span>Grooming</span></label>
-                                    <label><input type="checkbox" id="appointment_modal_Check_Other" name="reason_for_appointment" value="Other"> <span>Other</span></label>
-                                </div>
-                               </div>
-                            </div>
-
-                      </div>
-
-                      <div style="width: 100%; float:left; padding-top: 15px;">
-                         
-                      </div>
-                     
-                  
-                  
-                  </div>
-
-                
-
-                </div>
-    
-                <div class="panel-footer">
-                    <div align="right">
-                      <button class="btn btn-primary" id="make_appointment_modal_SubmitAppointment" value="" name="make_appointment_modal_SubmitAppointment" onclick="myFunction()"> Submit Appointment</button>
-                    </div>
-                </div>
-    
-    
-            </div>
-        </div>
-      </div>
-    </form>
-      <!--Make Appointment Modal End-->
-
-<!-- New customer register modal -->
-<form method = "POST">
-    <div id="register_new_customer"  class="modal">
-        <div class="animate_top" style="width: 75%; margin:auto;">
-            <div class="panel panel-primary">
-                <div class="panel-heading sansserif"><button type="button" style="float:right;" id="close_btn_new_customer" class="close" data-dismiss="modal">&times;</button><span> <h4 class="leftspace">New Client Form</h4> </span>
-                  
-                </div>
-                <div class="panel-body">
-                  <!-- <button type="button" style="float:right;" id="close_btn_make_appointment" class="close" data-dismiss="modal">&times;</button> -->
-
-
-                  <div style="padding-left: 20px; padding-right: 20px;" id="make_appointment_modal_Entries">
-                    <div class="header-text httal htvam">
-                      
-                      <h4 id="" class="sansserif">
-                     Hi welcome to our Pet Science Veterinary Clinic. Please take your time on filling out the necessary data needed to be saved as your personal information in our clinic.
-                      </h4>
-                      
-                    </div>
-                    
-                    <hr>
-
-                      <div style="width: 100%; float: left;">
-                        <div style="width: 50%; float:left; padding-right: 10px">
-                          <label> Fullname <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Fullname" name="customer_fullname_new"  maxlength="45" > 
-                        </div>
-                        <div style="width: 50%; float:left; padding-right: 10px">
-                          <label> Address <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Address" name="customer_address_new"  maxlength="60" > 
-                        </div>
-                        
-                        </div>
-                        <div style="width: 100%; float: left;">
-                        <div style="width: 47%; display: inline-block; padding-left: 0px;">
-                          <label> Cellular Number <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_CellNumber" name="customer_cellnum_new" maxlength="11"  >
-                        </div>
-                        <div style="width: 47%; display:inline-block; padding-left: 10px;">
-                          <label> Email <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Email" name="customer_email_new"  maxlength="40" >
-                        </div>
-                        
-                      </div>
-                      
-
-                      <div style="width: 100%; float:left;">
-                          <div>
-                            <label> Pet Information </label>
-                            <div style="width: 50%; float:left; padding-right: 10px">
-                          <label> Pets' Name <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Fullname" name="pet_fullname_new"  maxlength="25" > 
-                        </div>
-                        <div style="width: 15%; float:left; padding-top: 5px; padding-right:1%">
-                        <label> Species <span style="color:red;">*</span></label><select name="pet_species">
-                        <option value="None"> ---- </option> 
-                        <option value="Canine">Canine</option>
-                        <option value="Feline">Feline</option>
-                        </select> </div>
-
-                        <div style="width: 10%; float:left; padding-top: 5px; padding-right:1%">
-                        <label> Sex <span style="color:red;">*</span></label><select id="pet_gender" name="pet_gender">
-                        <option value=""> ---- </option> 
-                        <option value="Male">Male</option>
-                        <option value="Female ">Female</option>
-                        </select> 
-                        </div>
-                        <div style="width: 20%; display:inline-block; padding-right:1%">
-                          <label> Breed <span style="color:red;">*</span></label>
-                          <input type="text" class="" id="appointment_modal_Email" name="pet_breed_new"  maxlength="25" >
-                        </div>
-                        <div style="width: 20%; float:left; padding-right:1%">
-                        <label></h5> DOB(Date of Birth) <span style="color:red;">*</span></label>
-                        <input type="date" class="" id="appointment_modal_Date" name="pet_DOB_new"  >
-                      </div>
-                        
-                      </div>
-
-                      <div style="width: 100%; float:left; padding-top: 15px;">
-                         
-                      </div>
-                      </div>
-                  
-                  
-                  </div>
-
-                
-
-                </div>
-    
-                <div class="panel-footer">
-                    <div align="right">
-                      <button class="btn btn-primary" id="new_customer_modal_SubmitRegistration" value="" name="new_customer_modal_SubmitRegistration" onclick="myFunction()"> Submit </button>
-                    </div>
-                </div>
-    
-    
-            </div>
-        </div>
-      </div>
-	  </form>
-<!-- New customer register modal end -->
-
-      <div class="modal fade" id="thankyouModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Thank you for making an appointment</h4>
-            </div>
-            <div class="modal-body">
-                <p>Appointment made!</p>                     
-            </div>    
-        </div>
-    </div>
-</div>
-
-
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
-<div class="w3-content" style="max-width:100%">
-
-  <div class="w3-top" >
-  <div id="navbar">
-  <div class="w3-bar w3-white w3-card header_div" id="myNavbar">
-
-
-<img src="img/rippleeffect.png" style="width: 65%; height: 95px;">
-<!-- <a class="">Pet Science Veterinary Clinic</a> -->
-
-
-
-<!-- Right-sided navbar links -->
-<div class="w3-right w3-hide-small" id="TopMenu_Items">
-  <a  href ="#" class="w3-button"><span class="header_titles">Home</span></a>
-  <a id="make_appointment" class="w3-button"><span class="header_titles">Make an Appointment</span> </a>
-  <!-- <a class="w3-button"><span class="header_titles">About us</span></a> -->
-  <a href="faq.php" class="w3-button"><span class="header_titles">FAQ</span></a>
-
-</div>
-<!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-  <i class="fa fa-bars"></i>
-</a>
-</div>
-  </div>
-    
-  </div>
-
-
-
-<!-- Header  Start-->
-<header class="w3-center line"> 
-        
-
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/1.jpg'); "></div>
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/2.jpg');  "></div>
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/3.jpg');"></div>
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/4.jpeg'); "></div>
-    <div class="w3-display-bottomleft w3-container textoverimage textoverimage-hover w3-hide-small"
-   style="bottom:1%;opacity:0.7;width:70%">
-  <h2><b>New client?<br>Register now and book an appointment in our clinic.</b></h2>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-margin-bottom" id="register_modal">Click Here!</button>
-</div>
-    
-   
-</header>
-<!-- Header End-->
-
-<!-- Grid -->
-<div class="w3-row">
-  
-<!-- About Us Preview Start -->
-<div class="container-services row2">
-  <!-- Blog entry -->
-  <div class="container-services line">
-    <div class="container-header">
-    <img class="aboutusphoto" src="img/item3.jpg">
-
-        <h3 class="text">About Us</h3>
-        
-     </div>
-
-     <div class="container-subHeader">
-       <br>
-        <h2 class="text2">History of the clinic</h2>
-        <br>
-      </div>
-
-      <div class="container-subHeader">
-
-      <h3 class="text3">Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006. 
-            The origin of the clinic’s name comes from the association of Pet Lovers in Southwestern University PHINMA.The clinic
-            was created out of passion and love for pets.The clinic accommodates as many pets as they can work on in a day.
-          </h3>
-
-    </div>
-  </div>
-</div>
-<!-- About Us Preview End -->
-
-  
-<div class="container-services row3 line">
-
-
-  <header class="container-header">
-  <h2 class="plaintext">Our Services</h2>
-  </header>
-  <div class="entry-content mt-5">
-    <div class="w3-row" style="margin-top:64px">
-      <div class="services-padding">
-
-              <div class="column-pad">
-                <i class="w3-text-orange w3-jumbo">
-                  <p><img id="grow" src="img/grooming.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Grooming</p>
-              </div>
-              <div class="column-pad">
-                <i class=" w3-text-red w3-jumbo">
-                    <p><img src="img/vaccination.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Vaccination</p>
-              </div>
-               <div class="column-pad">
-                <i class="fa fa-camera w3-text-yellow w3-jumbo">
-                  <p><img src="img/surgery.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Surgery</p>
-              </div>
-              <div class="column-pad">
-                <i class="fa fa-battery-full w3-text-green w3-jumbo">
-                  <p><img src="img/boarding.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Boarding</p>
-              </div>
-
-              <div class="column-pad">
-                <i class="fa fa-diamond w3-text-white w3-jumbo">
-                  <p><img src="img/checkup.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Check-up</p>
-              </div>
-
-              <div class="column-pad">
-                <i class="fa fa-cloud w3-text-blue w3-jumbo">
-                  <p><img src="img/confinement.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Confinement</p>
-              </div>
-
-              <div class="column-pad">
-                <i class="fa fa-globe w3-text-amber w3-jumbo">
-                  <p><img src="img/consultation.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Consultation</p>
-              </div>
-
-              <div class="column-pad">
-                <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/treatment.png" style="width: 40%; height: 40%;"></p>
-                </i>
-                <p>Treatment</p>
-              </div>
-               
-              <div class="column-pad2">
-                <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/deworming.png" style="width: 80%; height: 80%;"></p>
-                </i>
-                <p>Deworming</p>
-              </div>
-
-              <div class="column-pad2">
-                <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/house_call_services.png" style="width: 70%; height: 70%;"></p>
-                </i>
-                <p>House Call Services</p>
-              </div>
-  
-        </div>
-        </div>
-      </div>
-    </div>
-</div>
-              
-            
-          
-            
-             
-                
-             
-
-
-
-  <!-- FAQ Preview Start -->
-  <div class="container-services row2">
-    <div class="container-header">
-      <h3><b>Find Us</b></h3></div>
-      <div class="w3-container">
-      <br>
-      <h4>You can use this map in order to find our clinic.</h4>
-        </div>
-
-       <div class="w3-container">
-        <p>
-            <div id="googleMap" style="width:100%;height:400px;"></div>
-          </p>
-        <div class="w3-row">
-        <div class="w3-col m8 s12">
-          <hr>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-  <!-- FAQ Preview End -->
-
-
-
-</div>
-<!-- Grid End -->
-
-<!-- Clinic Hours Panel Start -->
-<div class="w3-col l4">
-  <!-- About Card -->
-  <div class="w3-card w3-margin w3-margin-top card_roundBorder">
-    <div class="card_colorHeader">
-        <h4><b>Clinic Hours</b></h4>
-      </div>
-        <div class="w3-container">
-       
-            <p><h4><u>Monday-Friday</u></h4></p>
-            <p>8am-7pm</p>
-            <p><h4><u>Saturday</u></h4></p>
-            <p>8am-6pm</p>
-            <p><h4><u>Sunday</u></h4></p>
-            <p>9am-3pm</p>
-          </div>
-    
-    
-  </div>
-  
-  <hr>
-  <!-- Clinic Hours Panel End -->
-  
-  <!-- Appointment slots start -->
-  <!-- <div class="w3-card w3-margin card_topBorder card_bottomBorder">
-    <div class="w3-container w3-padding card_colorHeader">
-      <h4>Available Appointment Time Today</h4>
-    </div>
-    <ul class="w3-ul w3-hoverable w3-white card_bottomBorder">
-        <li class="w3-padding-16">
-        <span class="w3-large">10am-11am</span><br>
-        <span>2 slots</span>
-      </li>
-    
-      <li class="w3-padding-16">
-        <span class="w3-large">11am-12pm</span><br>
-        <span>1 slot</span>
-      </li> 
-      <li class="w3-padding-16">
-        <span class="w3-large">1pm-2pm</span><br>
-        <span>3 slots</span>
-      </li>   
-      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-        <span class="w3-large">2pm-3pm</span><br>
-        <span>No slot Available</span>
-      </li>  
-      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-            <span class="w3-large">3pm-4pm</span><br>
-            <span>No slot Available</span>
-          </li>  
-    </ul>
-  </div> -->
-  <hr> 
-   <!-- Appointment slots End -->
-
-  
-<!-- END Introduction Menu -->
-</div>
-
-<!-- END GRID -->
-</div><br>
-
-<!-- END w3-content -->
-</div>
-
-
-
-    <script src="js/Main/Main.js"></script>
-    <script src="js/Main/JQuery.js"></script>
-    <script src="js/Main/Bootstrap.js"></script>
-    
-    <script>
-        // Initialize and add the map
-        </script>
-        
-        <script>
-function myMap() {
-var mapProp= {
-  center:new google.maps.LatLng(10.363930,123.914704),
-  zoom:5,
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzf8Z7BvJ3GD9KqkqJRqJRMXkrMivyDQs&callback=myMap"></script>
-
-
+<html lang="zxx">
+
+<head>
+	<title>Pet Science Veterinary Clinic</title>
+
+	<!--meta tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Lovely-pets Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!--//meta tags ends here-->
+
+	<!--booststrap-->
+
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+	<!--//booststrap end-->
+
+	<!-- font-awesome icons -->
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<!-- //font-awesome icons -->
+	<!--stylesheets-->
+	<link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+	<!--//stylesheets-->
+	<link rel='stylesheet' type='text/css' href='css/jquery.easy-gallery.css' />
+	<!-- For-gallery-CSS -->
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- //pop-ups-->
+	<link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="header-outs">
+		<div class="header-w3layouts">
+			<!-- Navigation -->
+
+			<div class="header-bar">
+				<nav class="navbar navbar-default">
+					<div class="navbar-header navbar-left">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<img src="img/rippleeffect.png" style="width: 100%; height: 95px;">
+						<!-- <h1><a class="navbar-brand" href="index.html">L<span class="fa fa-paw" aria-hidden="true"></span>vely-Pets</a></h1> -->
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="index.html">Home</a></li>
+								<li><a href="#about" class="scroll">About</a></li>
+								<li><a href="#services" class="scroll">Make an Appointment</a></li>
+								<li><a href="#gallery" class="scroll">FAQ</a></li>
+							</ul>
+						</nav>
+					</div>
+				</nav>
+			</div>
+
+			<div class="clearfix"> </div>
+
+		</div>
+
+		<!-- Slideshow 4 -->
+		<div class="slider">
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider4">
+					<li>
+						<div class="slider-img">
+							<div class="container">
+								<div class="slider-info">
+									<h4> <span class="home-banner">M</span><span class="home-bannerx">ake </span><span class="home-banner">A</span><span class="home-bannerx">n </span><span class="home-banner">A</span><span class="home-bannerx">ppointment</span> <span class="home-banner">N</span><span class="home-bannerx">ow!</span>
+										<span
+										    class="fa fa-paw paw-banner" aria-hidden="true"></span><span class="fa fa-paw paw-banner" aria-hidden="true"></span></h4>
+									<p>Make appointments with us online by clicking button below</p>
+									<div class="outs_more-buttn">
+										<a href="#" data-toggle="modal" data-target="#myModal">Click Here!</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="slider-img ">
+							<div class="container">
+								<div class="slider-info">
+									<h4><span class="home-banner">N</span><span class="home-bannerx">ew </span><span class="home-banner">H</span><span class="home-bannerx">ere?</span>
+										<span
+										    class="fa fa-paw paw-banner" aria-hidden="true"></span><span class="fa fa-paw paw-banner" aria-hidden="true"></span> </h4>
+									<p>Click the button below to register and make an appointment today.</p>
+									<div class="outs_more-buttn">
+										<a href="#" data-toggle="modal" data-target="#myModal">Register Now!</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<!-- This is here just to demonstrate the callbacks -->
+		<!-- <ul class="events">
+      <li>Example 4 callback events</li>
+    </ul>-->
+		<!-- //banner -->
+		<!-- modal -->
+		<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Register</h4>
+					</div>
+					<div class="modal-body">
+						<div class="out-info">
+							<div class="letter-w3ls">
+
+								<form action="#" method="post">
+									<div class="main">
+										<div class="form-left-to-w3l">
+
+											<input type="text" name="name" placeholder="Name" required="">
+											<div class="clear"></div>
+										</div>
+										<div class="form-right-to-w3ls">
+
+											<input type="text" name="last name" placeholder="Last Name" required="">
+											<div class="clear"></div>
+										</div>
+
+									</div>
+
+									<div class="main">
+										<div class="form-left-to-w3l">
+
+											<input type="email" name="email" placeholder="Email" required="">
+											<div class="clear"></div>
+										</div>
+										<div class="form-right-to-w3ls">
+
+											<input type="text" name="phone number" placeholder="Phone Number" required="">
+											<div class="clear"></div>
+										</div>
+									</div>
+									<div class="main">
+
+										<div class="form-left-to-w3l">
+											<select class="form-control">
+					<option value="">Adopt Pet</option>
+						<option>Male</option>
+						<option>Female</option>
+					</select>
+										</div>
+										<div class="form-right-to-w3ls">
+											<select class="form-control">
+					<option value="">Breed</option>
+						<option>Bull Dog</option>
+						<option>German Dog</option>
+						<option>Poodle Dog</option>
+						<option>Husky Dog</option>
+					</select>
+										</div>
+									</div>
+
+
+									<div class="form-add-to-w3ls add">
+
+										<input type="text" name="address" placeholder="Street Address" required="">
+										<div class="clear"></div>
+									</div>
+
+
+									<div class="main">
+										<div class="form-left-to-w3l">
+
+											<input type="text" name="city" placeholder="City" required="">
+											<div class="clear"></div>
+										</div>
+										<div class="form-right-to-w3ls">
+											<input type="text" name="state" placeholder="State" required="">
+											<div class="clear"></div>
+										</div>
+
+									</div>
+									<div class="main">
+										<div class="form-left-to-w3l">
+											<input type="text" name="Pin code" placeholder="Pin code" required="">
+											<div class="clear"></div>
+										</div>
+										<div class="form-right-to-w3ls">
+											<select class="form-control buttom">
+												<option value="">
+												Select Country</option>
+													<option value="category2">Oman</option>
+													<option value="category1">Australia</option>
+													<option value="category3">America</option>
+													<option value="category3">London</option>
+													<option value="category3">Goa</option>
+													<option value="category3">Canada</option>
+													<option value="category3">Srilanka</option>
+												</select>
+
+											<div class="clear"></div>
+										</div>
+
+									</div>
+
+									<div class="form-control-w3l">
+										<textarea name="Message" placeholder="Why You Want Adopt Pet...?" required=""></textarea>
+									</div>
+									<div class="btnn">
+										<button type="submit">Submit</button><br>
+									</div>
+
+								</form>
+							</div>
+						</div>
+						<!--//register form-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //modal -->
+	<!--About-->
+	<div class="about" id="about">
+		<div class="container">
+			<div class="about-top-grids">
+				<div class="col-md-7 about-top-grid">
+					<h2>About Us </h2>
+					<div class="arrow">
+						<ul>
+							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>Vivamus elementum semper </p>
+							</li>
+							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>Bibendum sodales, augue </p>
+							</li>
+							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>Vivamus elementum semper </p>
+							</li>
+							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>Vivamus elementum semper </p>
+							</li>
+						</ul>
+					</div>
+					<div class="about-para">
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+							natoque penatibus et magnis dis parturient montes, Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo
+							ligula eget dolor. Aenean massa. nascetur ridiculus mus.</p>
+					</div>
+				</div>
+				<div class="col-md-5 pope banner-agileits-btm" id="video">
+					<div class="button">
+
+						<a href="#small-dialog1" class="play-icon popup-with-zoom-anim"><span class="fa fa-play-circle" aria-hidden="true"></span></a>
+					</div>
+					<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
+						<div class="agileits_modal_body">
+							<iframe src="https://player.vimeo.com/video/72859932?"></iframe>
+
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--//About-->
+	<!--services-->
+	<div class="services" id="services">
+		<div class="container">
+			<h3 class="title clr">Services</h3>
+
+			<div class="banner-bottom-girds ">
+				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-history banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Pets Food</h4>
+						<p>
+							tur aut.maiores alias consequatur .</p>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-thumbs-o-up  banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Ear Cleaning</h4>
+						<p>
+							tur aut.maiores alias consequatur .</p>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-check banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Dog Wakling</h4>
+						<p>
+							tur aut.maiores alias consequatur .</p>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-medkit banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class="white-shadow">
+						<h4>24 Hour Care</h4>
+						<p>tur aut.maiores alias consequatur </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
+					<div class="left-icon-grid">
+						<span class="fa fa-eye banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Veterinary Help</h4>
+						<p>tur aut.maiores alias consequatur .</p>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-clock-o banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Visting Hours</h4>
+						<p>tur aut.maiores alias consequatur
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--//services-->
+	<div class="portfolio" id="gallery">
+
+		<h3 class="title">Our Gallery</h3>
+
+		<div class="sap_tabs">
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					<li class="resp-tab-item"><span>All</span></li>
+					<li class="resp-tab-item"><span>Pets 1</span></li>
+					<li class="resp-tab-item"><span>Pets 2</span></li>
+					<li class="resp-tab-item"><span>Pets 3</span></li>
+				</ul>
+				<div class="clearfix"> </div>
+				<div class="resp-tabs-container">
+					<div class="tab-1 resp-tab-content">
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g1.jpg' data-big-src='images/g1.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g2.jpg' data-big-src='images/g2.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g10.jpg' data-big-src='images/g10.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g4.jpg' data-big-src='images/g4.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6  portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g5.jpg' data-big-src='images/g5.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g6.jpg' data-big-src='images/g6.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g8.jpg' data-big-src='images/g8.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g11.jpg' data-big-src='images/g11.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="tab-1 resp-tab-content">
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g1.jpg' data-big-src='images/g1.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g10.jpg' data-big-src='images/g10.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g8.jpg' data-big-src='images/g8.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g11.jpg' data-big-src='images/g11.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+
+					<div class="tab-1 resp-tab-content">
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g5.jpg' data-big-src='images/g5.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g7.jpg' data-big-src='images/g7.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g6.jpg' data-big-src='images/g6.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g7.jpg' data-big-src='images/g7.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="tab-1 resp-tab-content">
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g2.jpg' data-big-src='images/g2.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g6.jpg' data-big-src='images/g6.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g4.jpg' data-big-src='images/g4.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
+							<div class="gallery-grid">
+								<img src='images/g7.jpg' data-big-src='images/g7.jpg' class="img-responsive" alt=" " />
+								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //portfolio -->
+	<!--price table-->
+	<div class="price-table" id="price">
+		<div class="container">
+			<h3 class="title clr ">Price-Table</h3>
+
+			<div class="agileits-banner-grids text-center">
+
+				<div class="col-md-4  col-sm-4  col-xs-4 clr1 agileits-banner-grid">
+
+					<h4>Lorem ipsum</h4>
+					<div class="table_cost">
+						<span class="cost clr-price"> 260$</span>
+					</div>
+					<div class="list-price">
+						<ul>
+							<li>Bengal cat</li>
+							<li>Russian Cat</li>
+							<li>Maine Cat</li>
+							<li>Perian Cat</li>
+						</ul>
+					</div>
+					<a class="w3_play_icon1" href="#" data-toggle="modal" data-target="#myModal"> Buy Now</a>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-4  clr2 agileits-banner-grid">
+
+					<h4>Dolor ipsum</h4>
+					<div class="table_cost">
+						<span class="cost"> 150$</span>
+					</div>
+					<div class="list-price">
+						<ul>
+							<li>Bengal cat</li>
+							<li>Russian Cat</li>
+							<li>Maine Cat</li>
+							<li>Perian Cat</li>
+						</ul>
+					</div>
+					<a class="w3_play_icon1" href="#" data-toggle="modal" data-target="#myModal"> Buy Now</a>
+				</div>
+				<div class=" col-md-4 col-sm-4 col-xs-4 clr3 agileits-banner-grid">
+
+					<h4>Lorem ipsum</h4>
+					<div class="table_cost">
+						<span class="cost clr-price "> 90$</span>
+					</div>
+					<div class="list-price">
+						<ul>
+							<li>Bengal cat</li>
+							<li>Russian Cat</li>
+							<li>Maine Cat</li>
+							<li>Perian Cat</li>
+						</ul>
+					</div>
+					<a class="w3_play_icon1" href="#" data-toggle="modal" data-target="#myModal"> Buy Now</a>
+				</div>
+				<div class="clearfix"></div>
+
+			</div>
+
+		</div>
+	</div>
+	<!--//price table-->
+	<!-- testimonials -->
+	<div class="testimonials" id="testimonials">
+		<div class="container">
+
+			<h3 class="title">Our Clients</h3>
+
+			<div class="carousel slide" data-ride="carousel" id="quote-carousel">
+				<!-- Bottom Carousel Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="images/t1.jpg" alt="">
+					</li>
+					<li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="images/t2.jpg" alt="">
+					</li>
+					<li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="images/t3.jpg" alt="">
+					</li>
+				</ol>
+
+				<!-- Carousel Slides / Quotes -->
+				<div class="carousel-inner text-center">
+
+					<!-- Quote 1 -->
+					<div class="item active">
+						<blockquote>
+							<div class="row">
+								<div class=" left-matter">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo!</p>
+									<h5>--kelly ove</h5>
+								</div>
+
+
+							</div>
+						</blockquote>
+					</div>
+					<!-- Quote 2 -->
+					<div class="item">
+						<blockquote>
+							<div class="row">
+								<div class=" left-matter">
+
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+									<h5>--Kennedy</h5>
+								</div>
+							</div>
+						</blockquote>
+					</div>
+					<!-- Quote 3 -->
+					<div class="item">
+						<blockquote>
+							<div class="row">
+								<div class=" left-matter">
+
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+									<h5>--Rosey</h5>
+								</div>
+							</div>
+						</blockquote>
+					</div>
+				</div>
+
+				<!-- Carousel Buttons Next/Prev 
+					<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><span class="fa fa-chevron-left"></span></a>
+					<a data-slide="next" href="#quote-carousel" class="right carousel-control"><span class="fa fa-chevron-right"></span></a> -->
+			</div>
+		</div>
+	</div>
+	<!-- testimonials -->
+
+	<!--contact-->
+	<div class="contact" id="contact">
+		<div class="container">
+			<h3 class="title clr">Contact</h3>
+			<div class=" col-md-8 col-sm-8 col-xs-7 contact-map">
+				<div class="map-grid">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.948805392833!2d-73.99619098458929!3d40.71914347933105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1479793484055"></iframe>
+
+				</div>
+			</div>
+
+			<div class=" col-md-4 col-sm-4 col-xs-5 contact-icons">
+				<div class="footer_grid_left">
+					<h5>Address</h5>
+					<p>Bmr St,Canada,<span> New York,10002,
+					USA</span></p>
+				</div>
+				<div class="footer_grid_left">
+					<h5> Contact Us</h5>
+					<p>+(000) 123 4565 32 <span>+(010) 123 4565 35</span></p>
+				</div>
+				<div class="footer_grid_left">
+					<h5>Email Us</h5>
+					<p><a href="mailto:info@example.com">info@example1.com</a>
+						<span><a href="mailto:info@example.com">info@example2.com</a></span></p>
+				</div>
+				<div class="footer_grid_left">
+					<h5>Times</h5>
+					<p>Mon-Sat:9AM to 6PM
+						<span>Sun:9AM to 7PM</span></p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+
+			<div class="contact-us">
+				<form action="#" method="post">
+					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+						<input type="text" name="Name" placeholder="Name" required="">
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+						<input type="text" name="Last Name" placeholder="Last Name" required="">
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+						<input type="email" name="Email" placeholder="Email" required="">
+
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+
+						<input type="text" name="phone" placeholder="phone" required="">
+
+					</div>
+					<div class="clearfix"> </div>
+					<div class="styled-input">
+
+						<textarea name="Message" placeholder="Message" required=""></textarea>
+					</div>
+					<div>
+						<div class="click">
+							<input type="submit" value="SEND">
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="buttom-w3">
+		<div class="container">
+			<div class="col-md-4 bottom-head text-center">
+				<h4><a href="index.html">LOVELY-PETS</a></h4>
+				<div class="pet-cat">
+					<p>Care Pets</p>
+				</div>
+			</div>
+			<div class="col-md-4 copyright text-center">
+				<div class="">
+					<h4> About Us</h4>
+				</div>
+				<div class="sub-para">
+					<p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p>
+				</div>
+			</div>
+			<div class="col-md-4 letter-sub text-center">
+
+				<div class="post">
+					<form action="#" method="post">
+
+						<div class="letter">
+							<input class="email" type="email" placeholder="Your email..." required="">
+						</div>
+						<div class="newsletter">
+							<input type="submit" value="Subscribe">
+						</div>
+					</form>
+				</div>
+				<div class="sub-para">
+					<p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+
+	</div>
+	<footer>
+		<p>&copy; 2018 Lovely-Pets. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a></p>
+	</footer>
+
+	<!--js working-->
+	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+	<script src="js/bootstrap.js"></script>
+	<!-- //js  working-->
+
+	<script src="js/responsiveslides.min.js"></script>
+
+	<script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider4").responsiveSlides({
+				auto: true,
+				pager: false,
+				nav: true,
+				speed: 900,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+
+		});
+	</script>
+	<!--// banner-->
+	<!--pop-up-box video-->
+	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+
+		});
+	</script>
+	<!-- //pop-up-box video -->
+
+	<!-- script for portfolio -->
+	<script type='text/javascript' src='js/jquery.easy-gallery.js'></script>
+	<script type='text/javascript'>
+		//init Gallery
+		$('.portfolio').easyGallery();
+	</script>
+	<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true // 100% fit in a container
+			});
+		});
+	</script>
+	<!-- //script for portfolio -->
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- start-smoth-scrolling -->
+
+	<!-- for-bottom-to-top smooth scrolling -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!-- //for-bottom-to-top smooth scrolling -->
 
 
 </body>
+
 </html>
