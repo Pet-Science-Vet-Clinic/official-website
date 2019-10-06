@@ -122,7 +122,14 @@ $(document).on('click','#available_timeBlockA',()=>{
     $('#make_appointment_modal').css('display','block');
 });
 
+$(document).on('click','#register_modal',()=>{
+    $('#register_new_customer').css('display','block');
+});
 
+$(document).on('click','#close_btn_new_customer',()=>{
+    ClearAppointmentModalEntries();
+    $('#register_new_customer').css('display','none');
+});
 
 
 // keypress functions =========================================================================================
@@ -186,3 +193,6 @@ $('input[type=checkbox]').on('change', function (e) {
      }
      prevScrollpos = currentScrollPos;
    }
+
+
+   

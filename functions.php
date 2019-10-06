@@ -124,6 +124,56 @@ else {
 
   }
  
+  //---New client register--//
+	if(isset($_POST['new_customer_modal_SubmitRegistration'])){
+
+		$query = "SELECT * FROM tb_web_customer_registration";
+		$results = mysqli_query($db, $query);
+	
+		if (mysqli_num_rows($results) <3) { 
+			
+
+
+		$cus_name = $_POST['customer_fullname_new'];
+		$cus_address = $_POST['customer_address_new'];
+		$cus_cell = $_POST['customer_cellnum_new'];
+		$cus_email = $_POST['customer_email_new'];
+
+		$pets_name = $_POST['pet_fullname_new'];
+		$pets_species = $_POST['pet_species'];
+		$pets_sex = $_POST['pet_gender'];
+		$pets_breed = $_POST['pet_breed_new'];
+		$pets_dob = $_POST['pet_DOB_new'];
+		
+	
+		$sql = "INSERT INTO tb_web_customer_registration (customer_fullname,customer_address, customer_cell, customer_email)
+	VALUES ('$cus_name', '$cus_address', '$cus_cell', '$cus_email')";
+	$query=$conn->query($sql);
+
+	$sql = "INSERT INTO tb_web_pet_registration (pet_name,pet_species,pet_sex,pet_breed,pet_dob)
+	VALUES ('$pets_name', '$pets_species', '$pets_sex', '$pets_breed', '$pets_dob')";
+	$querys=$conn->query($sql);
+
+		if($query)  
+		{
+			
+		  echo '<script>
+	alert("Registration complete!");
+		  </script>';
+	header("Refresh:0");
+		}
+		else
+		{
+			// echo "Error: " . $sql . "<br>" . $conn->error;
+		  echo '<script>
+	alert("Appointment Not Set!");
+		  </script>';
+		   header("Refresh:0");
+		}
+			
+	}
+	}
+	//---New client register end---//
   
 	// LOGIN USER
 	function login(){
@@ -163,6 +213,7 @@ else {
 			}
 		}
 	}
+	
 	
 
 	function block_checker()

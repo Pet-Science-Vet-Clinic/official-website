@@ -163,8 +163,113 @@ include('functions.php');
             </div>
         </div>
       </div>
-	  </form>
+    </form>
       <!--Make Appointment Modal End-->
+
+<!-- New customer register modal -->
+<form method = "POST">
+    <div id="register_new_customer"  class="modal">
+        <div class="animate_top" style="width: 75%; margin:auto;">
+            <div class="panel panel-primary">
+                <div class="panel-heading sansserif"><button type="button" style="float:right;" id="close_btn_new_customer" class="close" data-dismiss="modal">&times;</button><span> <h4 class="leftspace">New Client Form</h4> </span>
+                  
+                </div>
+                <div class="panel-body">
+                  <!-- <button type="button" style="float:right;" id="close_btn_make_appointment" class="close" data-dismiss="modal">&times;</button> -->
+
+
+                  <div style="padding-left: 20px; padding-right: 20px;" id="make_appointment_modal_Entries">
+                    <div class="header-text httal htvam">
+                      
+                      <h4 id="" class="sansserif">
+                     Hi welcome to our Pet Science Veterinary Clinic. Please take your time on filling out the necessary data needed to be saved as your personal information in our clinic.
+                      </h4>
+                      
+                    </div>
+                    
+                    <hr>
+
+                      <div style="width: 100%; float: left;">
+                        <div style="width: 50%; float:left; padding-right: 10px">
+                          <label> Fullname <span style="color:red;">*</span></label>
+                          <input type="text" class="" id="appointment_modal_Fullname" name="customer_fullname_new"  maxlength="45" > 
+                        </div>
+                        <div style="width: 50%; float:left; padding-right: 10px">
+                          <label> Address <span style="color:red;">*</span></label>
+                          <input type="text" class="" id="appointment_modal_Address" name="customer_address_new"  maxlength="60" > 
+                        </div>
+                        
+                        </div>
+                        <div style="width: 100%; float: left;">
+                        <div style="width: 47%; display: inline-block; padding-left: 0px;">
+                          <label> Cellular Number <span style="color:red;">*</span></label>
+                          <input type="text" class="" id="appointment_modal_CellNumber" name="customer_cellnum_new" maxlength="11"  >
+                        </div>
+                        <div style="width: 47%; display:inline-block; padding-left: 10px;">
+                          <label> Email <span style="color:red;">*</span></label>
+                          <input type="text" class="" id="appointment_modal_Email" name="customer_email_new"  maxlength="40" >
+                        </div>
+                        
+                      </div>
+                      
+
+                      <div style="width: 100%; float:left;">
+                          <div>
+                            <label> Pet Information </label>
+                            <div style="width: 50%; float:left; padding-right: 10px">
+                          <label> Pets' Name <span style="color:red;">*</span></label>
+                          <input type="text" class="" id="appointment_modal_Fullname" name="pet_fullname_new"  maxlength="25" > 
+                        </div>
+                        <div style="width: 15%; float:left; padding-top: 5px; padding-right:1%">
+                        <label> Species <span style="color:red;">*</span></label><select name="pet_species">
+                        <option value="None"> ---- </option> 
+                        <option value="Canine">Canine</option>
+                        <option value="Feline">Feline</option>
+                        </select> </div>
+
+                        <div style="width: 10%; float:left; padding-top: 5px; padding-right:1%">
+                        <label> Sex <span style="color:red;">*</span></label><select id="pet_gender" name="pet_gender">
+                        <option value=""> ---- </option> 
+                        <option value="Male">Male</option>
+                        <option value="Female ">Female</option>
+                        </select> 
+                        </div>
+                        <div style="width: 20%; display:inline-block; padding-right:1%">
+                          <label> Breed <span style="color:red;">*</span></label>
+                          <input type="text" class="" id="appointment_modal_Email" name="pet_breed_new"  maxlength="25" >
+                        </div>
+                        <div style="width: 20%; float:left; padding-right:1%">
+                        <label></h5> DOB(Date of Birth) <span style="color:red;">*</span></label>
+                        <input type="date" class="" id="appointment_modal_Date" name="pet_DOB_new"  >
+                      </div>
+                        
+                      </div>
+
+                      <div style="width: 100%; float:left; padding-top: 15px;">
+                         
+                      </div>
+                      </div>
+                  
+                  
+                  </div>
+
+                
+
+                </div>
+    
+                <div class="panel-footer">
+                    <div align="right">
+                      <button class="btn btn-primary" id="new_customer_modal_SubmitRegistration" value="" name="new_customer_modal_SubmitRegistration" onclick="myFunction()"> Submit </button>
+                    </div>
+                </div>
+    
+    
+            </div>
+        </div>
+      </div>
+	  </form>
+<!-- New customer register modal end -->
+
       <div class="modal fade" id="thankyouModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -225,7 +330,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-display-bottomleft w3-container textoverimage textoverimage-hover w3-hide-small"
    style="bottom:1%;opacity:0.7;width:70%">
   <h2><b>New client?<br>Register now and book an appointment in our clinic.</b></h2>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-margin-bottom">Click Here!</button>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-margin-bottom" id="register_modal">Click Here!</button>
 </div>
     
    
@@ -277,7 +382,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
               <div class="column-pad">
                 <i class="w3-text-orange w3-jumbo">
-                  <p><img src="img/grooming.png" style="width: 80%; height: 80%;"></p>
+                  <p><img id="grow" src="img/grooming.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Grooming</p>
               </div>
