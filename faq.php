@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/FAQ/font.css">
 <link rel="stylesheet" href="css/FAQ/fontawesome.css">
 <link rel="stylesheet" href="css/FAQ/bootstrap.css">
-
+<link rel="shortcut icon" href="img/officiallogo.ico">
 <style>
 .border-right {
  margin-right: 10px;

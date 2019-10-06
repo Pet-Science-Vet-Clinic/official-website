@@ -14,8 +14,10 @@ include('functions.php');
 <link rel="stylesheet" href="css/Main/appointment2.css">
 <link rel="stylesheet" href="css/Main/appointment3.css">
 <link rel="stylesheet" href="css/Main/template2.css">
+<link rel="shortcut icon" href="img/officiallogo.ico">
 <script src="js/Main/jquery1.9.1.js"></script>
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+
+
 
 
 
@@ -53,10 +55,10 @@ include('functions.php');
        <!--Make Appointment Modal Start-->
 	   <form method = "POST">
     <div id="make_appointment_modal"  class="modal">
-        <div class=" animate_top" style="width: 55%; margin:auto;">
+        <div class=" animate_top" style="width: 75%; margin:auto;">
             <div class="panel panel-primary">
-                <div class="panel-heading"><span> Set Appointment</span>
-                  <button type="button" style="float:right;" id="close_btn_make_appointment" class="close" data-dismiss="modal">&times;</button>
+                <div class="panel-heading sansserif"><button type="button" style="float:right;" id="close_btn_make_appointment" class="close" data-dismiss="modal">&times;</button><span> <h4 class="leftspace">Schedule Appointment</h4> </span>
+                  
                 </div>
                 <div class="panel-body">
                   <!-- <button type="button" style="float:right;" id="close_btn_make_appointment" class="close" data-dismiss="modal">&times;</button> -->
@@ -64,12 +66,10 @@ include('functions.php');
 
                   <div style="padding-left: 20px; padding-right: 20px;" id="make_appointment_modal_Entries">
                     <div class="header-text httal htvam">
-                      <!-- <h2 id="header_22" class="form-header" data-component="header">
-                        Set an Appointment
-                      </h2> -->
-                      <h3 id="" class="">
-                        Please fill out all the fields below.
-                      </h3>
+                      
+                      <h4 id="" class="sansserif">
+                      This is only a form to request an appointment, not to book an appointment. A member of out staff will contact you to confirm your pet’s scheduled appointment. If there is an urgent health concern, do not request an appointment online and call our practice at 414-8754 / 0912-345-6789.
+                      </h4>
                       
                     </div>
                     
@@ -104,7 +104,6 @@ include('functions.php');
                           <label> Fullname <span style="color:red;">*</span></label>
                           <input type="text" class="" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" > 
                         </div>
-                       (+63)
                         <div style="width: 33; display: inline-block; padding-left: 0px;">
                           <label> Cellular Number <span style="color:red;">*</span></label>
                           <input type="text" class="" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11"  >
@@ -181,64 +180,53 @@ include('functions.php');
 </div>
 
 
-
-<!-- Thank you Modal -->
-<div class="modal fade" id="thankyouModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Thank you for pre-registering!</h4>
-            </div>
-            <div class="modal-body">
-                <p>Thanks for getting in touch!</p>                     
-            </div>    
-        </div>
-    </div>
-</div>
-
-
-
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:100%">
 
   <div class="w3-top" >
-    <div class="w3-bar w3-white w3-card header_div" id="myNavbar">
+  <div id="navbar">
+  <div class="w3-bar w3-white w3-card header_div" id="myNavbar">
 
 
-      <a href="#home" class=""><img src="img/rippleeffect.png" style="width: 80px; height: 50px;"></a>
-      <!-- <a class="">Pet Science Veterinary Clinic</a> -->
+<img src="img/rippleeffect.png" style="width: 65%; height: 95px;">
+<!-- <a class="">Pet Science Veterinary Clinic</a> -->
 
 
 
-      <!-- Right-sided navbar links -->
-      <div class="w3-right w3-hide-small" id="TopMenu_Items">
-        <a  href ="#" class="w3-button"><span class="header_titles">Home</span></a>
-        <a id="make_appointment" class="w3-button"><span class="header_titles">Make an Appointment</span> </a>
-        <!-- <a class="w3-button"><span class="header_titles">About us</span></a> -->
-        <a href="faq.php" class="w3-button"><span class="header_titles">FAQ</span></a>
+<!-- Right-sided navbar links -->
+<div class="w3-right w3-hide-small" id="TopMenu_Items">
+  <a  href ="#" class="w3-button"><span class="header_titles">Home</span></a>
+  <a id="make_appointment" class="w3-button"><span class="header_titles">Make an Appointment</span> </a>
+  <!-- <a class="w3-button"><span class="header_titles">About us</span></a> -->
+  <a href="faq.php" class="w3-button"><span class="header_titles">FAQ</span></a>
 
-      </div>
-      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-  
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
+</div>
+<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+  <i class="fa fa-bars"></i>
+</a>
+</div>
+  </div>
+    
   </div>
 
 
 
 <!-- Header  Start-->
-<header class="w3-center "> 
+<header class="w3-center line"> 
         
 
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/slide-one.jpg'); "></div>
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/slide-two.jpg');  "></div>
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/slide-three.jpg');"></div>
-    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/slide-four.jpg'); "></div>
-   
+    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/1.jpg'); "></div>
+    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/2.jpg');  "></div>
+    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/3.jpg');"></div>
+    <div class="FontPage_Images mySlides w3-animate-opacity w3-grayscale-min" style="background-image: url('img/4.jpeg'); "></div>
+    <div class="w3-display-bottomleft w3-container textoverimage textoverimage-hover w3-hide-small"
+   style="bottom:1%;opacity:0.7;width:70%">
+  <h2><b>New client?<br>Register now and book an appointment in our clinic.</b></h2>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-margin-bottom">Click Here!</button>
+</div>
     
    
 </header>
@@ -246,124 +234,132 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Grid -->
 <div class="w3-row">
-
+  
 <!-- About Us Preview Start -->
-<div class="w3-col l8 s12 ">
+<div class="container-services row2">
   <!-- Blog entry -->
-  <div class="w3-card-4 w3-margin w3-white">
-    <div class="card_colorHeader">
-        <h3><b>About Us</b></h3>
+  <div class="container-services line">
+    <div class="container-header">
+    <img class="aboutusphoto" src="img/item3.jpg">
+
+        <h3 class="text">About Us</h3>
+        
      </div>
 
-     <div class="w3-container">
+     <div class="container-subHeader">
        <br>
-        <h2>History of the clinic</h2>
+        <h2 class="text2">History of the clinic</h2>
         <br>
       </div>
 
-      <div class="w3-container">
+      <div class="container-subHeader">
 
-      <p>Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006. 
+      <h3 class="text3">Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006. 
             The origin of the clinic’s name comes from the association of Pet Lovers in Southwestern University PHINMA.The clinic
             was created out of passion and love for pets.The clinic accommodates as many pets as they can work on in a day.
-        </p>
+          </h3>
 
-        <div class="w3-container card_services_padding  21 w3-center card_servicesbg">
-            <h1 class="w3-jumbo"><b>Services</b></h1>
-            <p>This are the services we offer here in our clinic.</p>
-          
-            <div class="w3-row" style="margin-top:64px">
-              <div class="w3-col s3">
+    </div>
+  </div>
+</div>
+<!-- About Us Preview End -->
+
+  
+<div class="container-services row3 line">
+
+
+  <header class="container-header">
+  <h2 class="plaintext">Our Services</h2>
+  </header>
+  <div class="entry-content mt-5">
+    <div class="w3-row" style="margin-top:64px">
+      <div class="services-padding">
+
+              <div class="column-pad">
                 <i class="w3-text-orange w3-jumbo">
-                  <p><img src="img/grooming.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/grooming.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Grooming</p>
               </div>
-
-              <div class="w3-col s3">
+              <div class="column-pad">
                 <i class=" w3-text-red w3-jumbo">
-                    <p><img src="img/vaccination.png" style="width: 50%; height: 50%;"></p>
+                    <p><img src="img/vaccination.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Vaccination</p>
               </div>
-
-              <div class="w3-col s3">
+               <div class="column-pad">
                 <i class="fa fa-camera w3-text-yellow w3-jumbo">
-                  <p><img src="img/surgery.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/surgery.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Surgery</p>
               </div>
-
-              <div class="w3-col s3">
+              <div class="column-pad">
                 <i class="fa fa-battery-full w3-text-green w3-jumbo">
-                  <p><img src="img/boarding.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/boarding.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Boarding</p>
               </div>
-            </div>
-          
-            <div class="w3-row" style="margin-top:64px">
-              <div class="w3-col s3">
+
+              <div class="column-pad">
                 <i class="fa fa-diamond w3-text-white w3-jumbo">
-                  <p><img src="img/checkup.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/checkup.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Check-up</p>
               </div>
 
-              <div class="w3-col s3">
+              <div class="column-pad">
                 <i class="fa fa-cloud w3-text-blue w3-jumbo">
-                  <p><img src="img/confinement.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/confinement.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Confinement</p>
               </div>
 
-              <div class="w3-col s3">
+              <div class="column-pad">
                 <i class="fa fa-globe w3-text-amber w3-jumbo">
-                  <p><img src="img/consultation.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/consultation.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Consultation</p>
               </div>
 
-              <div class="w3-col s3">
+              <div class="column-pad">
                 <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/treatment.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/treatment.png" style="width: 40%; height: 40%;"></p>
                 </i>
                 <p>Treatment</p>
               </div>
-            </div>
-              <div class="w3-row" style="margin-top:64px">
-              <div class="w3-col s3">
+               
+              <div class="column-pad2">
                 <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/deworming.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/deworming.png" style="width: 80%; height: 80%;"></p>
                 </i>
                 <p>Deworming</p>
               </div>
 
-              <div class="w3-col s3">
+              <div class="column-pad2">
                 <i class="fa fa-hdd-o w3-text-cyan w3-jumbo">
-                  <p><img src="img/house_call_services.png" style="width: 50%; height: 50%;"></p>
+                  <p><img src="img/house_call_services.png" style="width: 70%; height: 70%;"></p>
                 </i>
                 <p>House Call Services</p>
               </div>
-            </div>
-              
-            
-          </div>
-      <div class="w3-row">
-     <hr>
-        <div class="w3-col m4 w3-hide-small">
-          <!-- <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p> -->
+  
+        </div>
         </div>
       </div>
     </div>
-  </div>
-<!-- About Us Preview End -->
+</div>
+              
+            
+          
+            
+             
+                
+             
 
-  <hr>
+
 
   <!-- FAQ Preview Start -->
-  <div class="w3-card-4 w3-margin w3-white">
-    <div class="card_colorHeader">
+  <div class="container-services row2">
+    <div class="container-header">
       <h3><b>Find Us</b></h3></div>
       <div class="w3-container">
       <br>

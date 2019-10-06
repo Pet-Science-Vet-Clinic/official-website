@@ -141,7 +141,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-padding-16{padding-top:16px!important;padding-bottom:16px!important}.w3-padding-24{padding-top:24px!important;padding-bottom:24px!important}
 .w3-padding-32{padding-top:32px!important;padding-bottom:32px!important}.w3-padding-48{padding-top:48px!important;padding-bottom:48px!important}
 .w3-padding-64{padding-top:64px!important;padding-bottom:64px!important}
-.w3-left{float:left!important}.w3-right{float:right!important}
+.w3-left{float:left!important}.w3-right{float:right!important; padding-top:30px}
 .w3-button:hover{color:#000!important;background-color:#ccc!important}
 .w3-transparent,.w3-hover-none:hover{background-color:transparent!important}
 .w3-hover-none:hover{box-shadow:none!important}
@@ -242,7 +242,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .card_button{border:none;display:inline-block;padding:8px 1px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;
     background-color:inherit;cursor:pointer;white-space:nowrap;width: 100%;}                  
 
-.card_servicesbg{color: black!important;background-color:#ffd2c2!important;border-radius: 15px;
+.card_servicesbg{color: black!important;background-color:#4d94ff!important;border-radius: 15px;
         padding:0.01em 16px }
 
 .card_services_padding{padding-top:40px!important;padding-bottom:40px!important}

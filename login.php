@@ -8,7 +8,7 @@ if (isLoggedOut()) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Pet Science Vet Clinic Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -26,27 +26,31 @@ if (isLoggedOut()) {
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/login/util.css">
 	<link rel="stylesheet" type="text/css" href="css/login/main.css">
+	<link rel="shortcut icon" href="img/officiallogo.ico">
 <!--===============================================================================================-->
 </head>
 <body>
 	
 	<div class="limiter">
+		
 		<div class="container-login100">
+		<a href="index.php" ><button class="btn"><i class="fa fa-home"></i> Home</button></a>
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="img/rippleeffect.png" alt="IMG">
 				</div>
+				
 
-				<form class="login100-form validate-form" method="post" action="viewtable.php">
+				<form id ="formed" name="formed"class="login100-form validate-form" method="post" action="viewtable.php">
 					<span class="login100-form-title">
 						Staff Login
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
 						<input class="input100" type="text" name="username" placeholder="Username" maxlength="20" onkeypress="return blockSpecialChar(event)">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-id-badge" aria-hidden="true"></i>
 						</span>
 					</div>
 
@@ -62,8 +66,10 @@ if (isLoggedOut()) {
 						<button class="login100-form-btn" name="login_btn">
 							Login
 						</button>
+						
 					</div>
-
+					
+					
 					<div class="text-center p-t-12">
 						
 					</div>
