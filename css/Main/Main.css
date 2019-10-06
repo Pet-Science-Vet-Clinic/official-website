@@ -184,8 +184,8 @@
                 padding-top: 4%
               }
 
-              .textoverimage{color:#000!important;background-color:#4BD979!important}
-              .textoverimage-hover:hover{color:#000!important;background-color:#2eb82e!important}
+              .textoverimage{color:#000!important;background-color:#fff!important}
+              .textoverimage-hover:hover{color:#000!important;background-color:#fefefe!important}
 
               .row{ background: #fefefe; color:black}
               .row2{ background: #1f2e2e; color:white}
@@ -245,9 +245,11 @@
   top: 120%;
   right: 7%;
   height: 40%;
-  width: 50%;
-  border:10px solid #000;
+  width: 40%;
+  border:5px solid #fefefe;
           }
             .container-subHeader{padding-top: 1%; padding-left: 9%}
-              
+              .service-hover:hover{width: 40%}
+
+        
                 
