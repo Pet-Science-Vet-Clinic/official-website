@@ -1,5 +1,5 @@
 <?php
-include('functions.php');
+//include('functions.php');
 
 ?>
 
@@ -42,10 +42,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //pop-ups-->
 	<link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
 	<link rel="shortcut icon" href="img/officiallogo.ico">
-<<<<<<< HEAD
-
-=======
->>>>>>> Index.php-updates
 </head>
 
 <body>
@@ -69,20 +65,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="/">Home</a></li>
+								<li class="active"><a href="index.html">Home</a></li>
 								<li><a href="#about" class="scroll">About</a></li>
-<<<<<<< HEAD
-								<li><a href="#services" class="scroll">Services</a></li>
-								<li class="active" style="border: 2px solid #20c7b3;">
-									<a href="#" data-toggle="modal" data-target="#myModal">Make an Appointment</a>
-								</li>
-								<li><a href="#gallery" class="scroll">Gallery</a></li>
-								<li><a href="#contact" class="scroll">Contact Us</a></li>
-								<li><a href="" class="scroll">FAQ</a></li>
-=======
 								<li><a class="scroll" data-toggle="modal" data-target="#makeAppointment-modal">Make an Appointment</a></li>
 								<li><a href="#gallery" class="scroll">FAQ</a></li>
->>>>>>> Index.php-updates
 							</ul>
 						</nav>
 					</div>
@@ -970,7 +956,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3 class="title clr">Contact</h3>
 			<div class=" col-md-8 col-sm-8 col-xs-7 contact-map">
 				<div class="map-grid">
-					<iframe src="https://maps.google.com/maps?q=Pet%20Science%20Veterinary%20Clinic&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.948805392833!2d-73.99619098458929!3d40.71914347933105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1479793484055"></iframe>
 
 				</div>
 			</div>
@@ -978,26 +964,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class=" col-md-4 col-sm-4 col-xs-5 contact-icons">
 				<div class="footer_grid_left">
 					<h5>Address</h5>
-					<p>Talamban,<span> Cebu, 6000</span></p>
+					<p>Bmr St,Canada,<span> New York,10002,
+					USA</span></p>
 				</div>
 				<div class="footer_grid_left">
 					<h5> Contact Us</h5>
-					<p>(032) 414 8754 <span>(63) 912 345 6789</span></p>
+					<p>+(000) 123 4565 32 <span>+(010) 123 4565 35</span></p>
 				</div>
 				<div class="footer_grid_left">
 					<h5>Email Us</h5>
-					<p><a href="mailto:info@petsciencevet.com">info@petsciencevet.com</a>
+					<p><a href="mailto:info@example.com">info@example1.com</a>
+						<span><a href="mailto:info@example.com">info@example2.com</a></span></p>
 				</div>
 				<div class="footer_grid_left">
 					<h5>Times</h5>
-					<p>Mon-Fri:8AM to 7PM
-					<span>Sat:8AM to 6PM</span>
-					<span>Sun:9AM to 3PM</span></p>
+					<p>Mon-Sat:9AM to 6PM
+						<span>Sun:9AM to 7PM</span></p>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
 
-			<div class="contact">
+			<div class="contact-us">
 				<form action="#" method="post">
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
 						<input type="text" name="Name" placeholder="Name" required="">
@@ -1034,12 +1021,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="buttom-w3">
 		<div class="container">
-			<div class="col-md-6 bottom-head text-center">
-			   <img src="img/rippleeffect.png" style="width: 90%">
+			<div class="col-md-4 bottom-head text-center">
+				<h4><a href="index.html">LOVELY-PETS</a></h4>
+				<div class="pet-cat">
+					<p>Care Pets</p>
+				</div>
 			</div>
-			<div class="col-md-6 copyright text-center">
+			<div class="col-md-4 copyright text-center">
 				<div class="">
 					<h4> About Us</h4>
+				</div>
+				<div class="sub-para">
+					<p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p>
+				</div>
+			</div>
+			<div class="col-md-4 letter-sub text-center">
+
+				<div class="post">
+					<form action="#" method="post">
+
+						<div class="letter">
+							<input class="email" type="email" placeholder="Your email..." required="">
+						</div>
+						<div class="newsletter">
+							<input type="submit" value="Subscribe">
+						</div>
+					</form>
 				</div>
 				<div class="sub-para">
 					<p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p>
