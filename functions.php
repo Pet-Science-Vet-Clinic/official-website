@@ -28,42 +28,19 @@
 //make new appointment
 
 	if(isset($_POST['make_appointment_modal_SubmitAppointment'])){
-		$email_a = $_POST['customer_email'];
-		$email_b = 'bogus';
-		$fullname = !empty( $_POST[ 'customer_fullname' ] ) ? trim( $_POST[ 'customer_fullname' ] ) : '';
-		// $fullname = e($_POST['customer_fullname']);
-		$cellnum = e($_POST['customer_cellnum']);
-
-		// make sure form is filled properly
-		if (empty($fullname) || empty($cellnum)) {
-			?>
-			<?php echo'<script> alert("Please fill in the textboxes below"); </script>';  ?>
-			<?php
-		}
-		if(!isset($_POST['reason_for_appointment']))
-{
-	?>
-	<?php echo'<script> alert("Please check atleast one service"); </script>';  ?>
-	<?php
-}
-
-
-if (filter_var($email_a, FILTER_VALIDATE_EMAIL)) {
-	
+		
 	global $db, $username, $errors;
 // grap form values
 $blockpicked = e($_POST['timepicked']);
 $datepicked = e($_POST['datepicked']);
-
-// make sure form is filled properly
-if (empty($blockpicked)) {
-	array_push($errors, "Please choose a time block");
-}
+$checked = e($_POST['newuser']);
 
 
-// attempt login if no errors on form
 if (count($errors) == 0) {
-	
+
+if(isset($_POST['newuser'])) {
+
+
 
 	$query = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$blockpicked' AND appointment_Date ='$datepicked'";
 	$results = mysqli_query($db, $query);
@@ -83,6 +60,15 @@ if (count($errors) == 0) {
 	$sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
 VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
 $query=$conn->query($sql);
+
+$sql = "INSERT INTO tb_web_customer_registration (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
+VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
+$queryx=$conn->queryx($sql);
+
+$sql = "INSERT INTO tb_web_pet_registration (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
+VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
+$queryz=$conn->queryz($sql);
+
 	if($query)  
 	{
 		
@@ -110,16 +96,36 @@ alert("Appointment Not Set!");
 		// array_push($errors, "Wrong username/password combination");
 		// header("Refresh:0");
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+else
+{
+// attempt login if no errors on form
+
 	
+}
 
 }
 
-else {
-	?>
-	<?php echo'<script> alert("Email Invalid"); </script>';  ?>
-	<?php
-}
+
 
 
   }
