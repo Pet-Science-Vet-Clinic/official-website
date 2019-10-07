@@ -3,14 +3,9 @@
 	include('conn.php');
 
 	
-
+	
 	// connect to database
 	$db = mysqli_connect($servername,$username,$password,$DatabaseName);
-	// Check connection
-	
-	if (!$db) {
-		die("Database connection failed: " . mysqli_connect_error());
-	}
 
 	// variable declaration
 	$username = "";
@@ -45,40 +40,57 @@ if (count($errors) == 0) {
 
 if(isset($_POST['newuser'])) {
 
-
-
 	$query = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$blockpicked' AND appointment_Date ='$datepicked'";
 	$results = mysqli_query($db, $query);
 
 	if (mysqli_num_rows($results) <3) { 
 		
-		$appointment_date = $_POST['datepicked'];
+	$appointment_date = $_POST['datepicked'];
 	$time_slot = $_POST['timepicked'];
-	$customer_name = $_POST['customer_fullname'];
-	$cellular_number = $_POST['customer_cellnum'];
-	$email_address = $_POST['customer_email'];
+	// $customer_name = $_POST['hidden_customer_fullname'];
+	// $cellular_number = $_POST['hidden_customer_cellnum'];
+	// $email_address = $_POST['hidden_customer_email'];
 	$reason_for_appointment = $_POST['reason_for_appointment'];
-	$valuehere = " ";
+
+//==CUSTOMER DETAILS==//
+$customer_fullname = $_POST['hidden_customers_name'];
+	$customer_email = $_POST['hidden_customers_email'];
+	$customer_cellnum = $_POST['hidden_customers_celnum'];
+	$customer_gender = $_POST['hidden_customers_gender'];
+	$customer_telephone = $_POST['hidden_customers_phonenum'];
+	$customer_address = $_POST['hidden_customers_address'];
+//===Pet Details===//
+$pet_fullname = $_POST['hidden_pets_name'];
+	$pet_gender = $_POST['hidden_pets_gender'];
+	$pet_species = $_POST['hidden_pets_species'];
+	$pet_breed = $_POST['hidden_pets_breed'];
+	$pet_DOB = $_POST['hidden_pets_DOB'];
+
+	$valuehere = "0";
 	$statusvalue = "1";
 
 
-	$sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
-VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
+	$sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status,appointment_notification_status)
+VALUES ('$time_slot', '$appointment_date', '$customer_fullname', '$customer_email', '$customer_cellnum', '$reason_for_appointment','$statusvalue','$valuehere')";
 $query=$conn->query($sql);
 
-$sql = "INSERT INTO tb_web_customer_registration (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
-VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
-$queryx=$conn->queryx($sql);
+$sql = "INSERT INTO tb_web_customer_registration (customer_fullname,customer_address, customer_cell, customer_email, customer_gender,customer_telephone)
+VALUES ('$customer_fullname', '$customer_address', '$customer_cellnum', '$customer_email', '$customer_gender', '$customer_telephone')";
+$queryx=$conn->query($sql);
 
-$sql = "INSERT INTO tb_web_pet_registration (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Customer_Email, appointment_Contact,appointment_ReasonForAppointment,appointment_Status)
-VALUES ('$time_slot', '$appointment_date', '$customer_name', '$email_address', '$cellular_number', '$reason_for_appointment','$statusvalue')";
-$queryz=$conn->queryz($sql);
+// $sql = "INSERT INTO tb_web_customer_registration (customer_fullname,customer_address, customer_cell, customer_email, customer_gender,customer_telephone)
+// VALUES ('$customer_fullname', '$customer_address', '$customer_cellnum', '$customer_email', '$customer_gender', '$customer_telephone')";
+// $queryv=$conn->query($sql);
 
-	if($query)  
+$sql = "INSERT INTO tb_web_pet_registration (pet_name,pet_species, pet_sex, pet_breed, pet_dob)
+VALUES ('$pet_fullname', '$pet_species', '$pet_gender', '$pet_breed', '$pet_DOB')";
+$queryz=$conn->query($sql);
+
+	if($queryx)  
 	{
 		
 	  echo '<script>
-alert("Appointment Set!");
+alert("Registration and Appointment Set!");
 	  </script>';
 header("Refresh:0");
 	}
@@ -124,7 +136,55 @@ alert("Appointment Not Set!");
 else
 {
 // attempt login if no errors on form
+$query = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$blockpicked' AND appointment_Date ='$datepicked'";
+$results = mysqli_query($db, $query);
 
+if (mysqli_num_rows($results) <3) { 
+	
+$appointment_date = $_POST['datepicked'];
+$time_slot = $_POST['timepicked'];
+$customer_name = $_POST['customer_fullname'];
+$cellular_number = $_POST['customer_cellnum'];
+// $email_address = $_POST['hidden_customer_email'];
+$reason_for_appointment = $_POST['reason_for_appointment'];
+
+
+$valuehere = "0";
+$statusvalue = "1";
+
+
+$sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name, appointment_Contact,appointment_ReasonForAppointment,appointment_Status,appointment_notification_status)
+VALUES ('$time_slot', '$appointment_date', '$customer_name', '$cellular_number', '$reason_for_appointment','$statusvalue','$valuehere')";
+$query=$conn->query($sql);
+
+
+if($query)  
+{
+	
+  echo '<script>
+alert("Appointment Set!");
+  </script>';
+header("Refresh:0");
+}
+else
+{
+	// echo "Error: " . $sql . "<br>" . $conn->error;
+  echo '<script>
+alert("Appointment Not Set!");
+  </script>';
+   header("Refresh:0");
+}
+	
+	
+	}
+else if (mysqli_num_rows($results) >2) {
+	?>
+	<?php echo '<script> alert("Time block full.Please select another time block."); </script>'; ?>
+	<?php
+	
+	// array_push($errors, "Wrong username/password combination");
+	// header("Refresh:0");
+}
 	
 }
 

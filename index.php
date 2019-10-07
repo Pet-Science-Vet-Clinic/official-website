@@ -1,5 +1,5 @@
 <?php
-//include('functions.php');
+include('functions.php');
 
 ?>
 
@@ -67,13 +67,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.html">Home</a></li>
 								<li><a href="#about" class="scroll">About</a></li>
-								<li><a href="#services" class="scroll">Services</a></li>
-								<li class="active" style="border: 2px solid #20c7b3;">
-									<a href="#" data-toggle="modal" data-target="#makeAppointment-modal">Make an Appointment</a>
-								</li>
-								<li><a href="#gallery" class="scroll">Gallery</a></li>
-								<li><a href="#contact" class="scroll">Contact Us</a></li>
-								<li><a href="#faq" class="scroll">FAQ</a></li>
+								<li><a class="scroll" data-toggle="modal" data-target="#makeAppointment-modal">Make an Appointment</a></li>
+								<li><a href="#gallery" class="scroll">FAQ</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -97,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										    class="fa fa-paw paw-banner" aria-hidden="true"></span><span class="fa fa-paw paw-banner" aria-hidden="true"></span></h4>
 									<p>Make appointments with us online by clicking button below</p>
 									<div class="outs_more-buttn">
-										<a href="#" data-toggle="modal" data-target="#myModal">Click Here!</a>
+										<a href="#" data-toggle="modal" data-target="#makeAppointment-modal">Click Here!</a>
 									</div>
 								</div>
 							</div>
@@ -143,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="form-header">Owners' Information<br><br></div>
 										<div class="form-left-to-w3l add">
 
-											<input type="text" id="appointment_modal_Fullname" name="customer_fullname_new"  maxlength="45" placeholder="FullName" required="">
+											<input type="text" id="registration_modal_Fullname" name="customer_fullname_new"  maxlength="45" placeholder="FullName" required="">
 											<div class="clear"></div>
 										</div>
 
@@ -163,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="form-right-to-w3ls">
 
-											<input type="text" id="appointment_modal_CellNumber" name="customer_cellnum_new" maxlength="11" placeholder="Cellphone Number" required="">
+											<input type="text" id="registration_modal_CellNumber" name="customer_cellnum_new" maxlength="11" placeholder="Cellphone Number" required="">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -315,12 +310,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-											<input type="email" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" placeholder="Customers' Name" required="">
+											<input type="text" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" placeholder="Customers' Name">
 											<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
 
-											<input type="text" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11" placeholder="Phone Number" required="">
+											<input type="text" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11" placeholder="Phone Number">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -352,7 +347,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 									<div class="form-add-to-w3ls add">
-									<label><input class="checkboxchecked" type="checkbox" id="toggle-show" name="newuser" value="Consultation" onclick="showFunction()"> <span>New User?</span></label>
+									<label><input class="checkboxchecked" type="checkbox" id="toggle-show" name="newuser" value="Consultation" onclick="showFunction(); ClearFields();"> <span>New User?</span></label>
 										
 										<div class="clear"></div>
 									</div>
@@ -365,7 +360,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div id="hidden-header" style="display:none" class="form-header">Owners' Information<br><br></div>
 										<div class="form-left-to-w3l add">
 
-											<input id="hidden-fullname" name="hidden_customers_name" style="display:none" type="text"placeholder="FullName" required="">
+											<input id="hidden-fullname" name="hidden_customers_name" style="display:none" type="text"placeholder="FullName">
 											<div class="clear"></div>
 										</div>
 
@@ -380,12 +375,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-											<input id="hidden-email" name="hidden_customers_email" style="display:none" type="email" name="email" placeholder="Email" required="">
+											<input id="hidden-email" name="hidden_customers_email" style="display:none" type="email" name="email" placeholder="Email">
 											<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
 
-											<input id="hidden-celnum" name="hidden_customers_celnum" style="display:none" type="text" name="phone number" placeholder="Cellphone Number" required="">
+											<input id="hidden-celnum" name="hidden_customers_celnum" style="display:none" type="text" name="phone number" placeholder="Cellphone Number">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -399,7 +394,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</select>
 										</div>
 										<div class="form-right-to-w3ls">
-										<input id="hidden-phonenum" name="hidden_customers_phonenum" style="display:none" type="text" name="phone number" placeholder="Phone Number" required="">
+										<input id="hidden-phonenum" name="hidden_customers_phonenum" style="display:none" type="text" name="phone number" placeholder="Phone Number">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -407,7 +402,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 									<div class="form-add-to-w3ls add">
 
-										<input id="hidden-address" name="hidden_customers_address" style="display:none" type="text" name="address" placeholder="Home Address" required="">
+										<input id="hidden-address" name="hidden_customers_address" style="display:none" type="text" name="address" placeholder="Home Address">
 										<div class="clear"></div>
 									</div>
 									</div>
@@ -416,7 +411,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div id="hidden-title" style="display:none" class="form-header"><br>Pets' Information<br><br></div>
 									<div class="form-left-to-w3l add">
 
-									<input id="hidden-pets-name"  name="hidden_pets_name" style="display:none" type="text" name="name" placeholder="Pets' Name" required="">
+									<input id="hidden-pets-name"  name="hidden_pets_name" style="display:none" type="text" name="name" placeholder="Pets' Name">
 									
 									<div class="clear"></div>
 									</div>
@@ -441,7 +436,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<input id="hidden-breed" name="hidden_pets_breed" style="display:none" type="text" name="name" placeholder="Breed" required="">
+										<input id="hidden-breed" name="hidden_pets_breed" style="display:none" type="text" name="name" placeholder="Breed">
 										</div>
 										<div class="form-right-to-w3ls">
 										<input id="hidden=DOB" name="hidden_pets_DOB" style="display:none" type="date" class="" id="appointment_modal_Date" name="pet_DOB_new"  >
@@ -955,29 +950,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- testimonials -->
 
-	<!-- modal -->
-	<div class="modal about-modal fade" id="contactUsAlertModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Successfully sent!</h4>
-					</div>
-					<div class="modal-body text-center">
-						<h5>We will respond to your email as soon as possible, thank you.</h5>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- //modal -->
 	<!--contact-->
 	<div class="contact" id="contact">
 		<div class="container">
 			<h3 class="title clr">Contact</h3>
 			<div class=" col-md-8 col-sm-8 col-xs-7 contact-map">
 				<div class="map-grid">
-					<iframe src="https://maps.google.com/maps?q=Pet%20Science%20Veterinary%20Clinic&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.948805392833!2d-73.99619098458929!3d40.71914347933105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1479793484055"></iframe>
 
 				</div>
 			</div>
@@ -985,52 +964,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class=" col-md-4 col-sm-4 col-xs-5 contact-icons">
 				<div class="footer_grid_left">
 					<h5>Address</h5>
-					<p>Talamban,<span> Cebu, 6000</span></p>
+					<p>Bmr St,Canada,<span> New York,10002,
+					USA</span></p>
 				</div>
 				<div class="footer_grid_left">
 					<h5> Contact Us</h5>
-					<p>(032) 414 8754 <span>(63) 912 345 6789</span></p>
+					<p>+(000) 123 4565 32 <span>+(010) 123 4565 35</span></p>
 				</div>
 				<div class="footer_grid_left">
 					<h5>Email Us</h5>
-					<p><a href="mailto:info@petsciencevet.com">info@petsciencevet.com</a>
+					<p><a href="mailto:info@example.com">info@example1.com</a>
+						<span><a href="mailto:info@example.com">info@example2.com</a></span></p>
 				</div>
 				<div class="footer_grid_left">
 					<h5>Times</h5>
-					<p>Mon-Fri:8AM to 7PM
-					<span>Sat:8AM to 6PM</span>
-					<span>Sun:9AM to 3PM</span></p>
+					<p>Mon-Sat:9AM to 6PM
+						<span>Sun:9AM to 7PM</span></p>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
 
-			<div class="contact">
-				<form id="contactUsFormSubmit">
+			<div class="contact-us">
+				<form action="#" method="post">
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="text" id="contact_fname" name="contact_fname" placeholder="First Name" required="">
+						<input type="text" name="Name" placeholder="Name" required="">
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="text" id="contact_lname" name="contact_lname" placeholder="Last Name" required="">
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="email" id="contact_email" name="contact_email" placeholder="Email" required="">
-
+						<input type="text" name="Last Name" placeholder="Last Name" required="">
 					</div>
 
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+						<input type="email" name="Email" placeholder="Email" required="">
 
-						<input type="text" id="contact_phone" name="contact_phone" placeholder="phone" required="">
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+
+						<input type="text" name="phone" placeholder="phone" required="">
 
 					</div>
 					<div class="clearfix"> </div>
 					<div class="styled-input">
-						<textarea id="contact_message" name="contact_message" placeholder="Message" required=""></textarea>
+
+						<textarea name="Message" placeholder="Message" required=""></textarea>
 					</div>
 					<div>
 						<div class="click">
-							<!-- data-toggle="modal" data-target="#contactUsAlertModal" -->
-							<input id="btn-send-email" type="submit" value="SEND">
+							<input type="submit" value="SEND">
 						</div>
 					</div>
 				</form>
@@ -1039,70 +1019,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!-- faq -->
-	<div class="faq" id="faq">
-		<div class="container">
-		<div class="col-md-12 about-top-grid">
-					<h3 class="title">FAQ</h3>
-					
-					<div class="arrow">
-						<ul>
-							<h4>How can I get rid of fleas on my dog?</h4>
-							<li class="padding-20"><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>This can be a challenging task and requires a three-pronged approach. Fleas need to be eliminated from:</p>
-								<ul class="ml-20">
-									<li><p>1. your dog<br/></p></li>
-									<li><p>2. any other cats and dogs in your household</p></li>
-									<li><p>3. your home and yard (environment)</p></li>
-									<li class="mt-20"><p>Once your dog’s fleas are under control, continued prevention is essential, since you cannot control some 
-									outside sources of fleas, such as other people's pets, wild animals, or other property outside yours. </p></li>
-								</ul>	
-							</li>
-
-							<h4>What are the standard vaccination protocols for puppies and kittens?</h4>
-							<li class="padding-20"><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>Puppy</p>
-								<ul class="ml-20">
-									<li><p>- We use the following protocol for puppy vaccinations</p></li>
-									<li><p>- 6 weeks-Parvovirus</p></li>
-									<li><p>- 8 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis</p></li>
-									<li><p>- 12 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme</p></li>
-									<li><p>- 16 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme Rabies</p></li>
-								</ul>
-							</li>
-							<li class="padding-20"><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>Kitten</p>
-								<ul class="ml-20">
-									<li><p>- 8 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis</p></li>
-									<li><p>- 12 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis, Rabies</p></li>
-								</ul>
-							</li>
-
-							<h4>How should I care for my puppy’s teeth, ears, and nails?</h4>
-							<li class="padding-20"><span style="padding-bottom:0px;" class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>It is never too early to begin good dental hygiene. Luckily for us, 
-								there are easy ways to provide </p>
-								<p>this for our puppies. Daily teeth-brushing is the gold standard,
-								and we recommend starting the process gradually to get your puppy used to it. Start with letting 
-								your puppy taste the pet-approved toothpaste, work up to using your finger or gauze to wipe a few
-								teeth, and eventually try out a toothbrush. Give both of you time to accept the brushing, and be 
-								sure to contact us if you have questions or would like a demonstration.</p>
-							</li>
-						</ul>
-					</div>
-				</div>
-		</div>
-	</div>
-	<!-- faq -->
-
 	<div class="buttom-w3">
 		<div class="container">
-			<div class="col-md-6 bottom-head text-center">
-			   <img src="img/rippleeffect.png" style="width: 90%">
+			<div class="col-md-4 bottom-head text-center">
+				<h4><a href="index.html">LOVELY-PETS</a></h4>
+				<div class="pet-cat">
+					<p>Care Pets</p>
+				</div>
 			</div>
-			<div class="col-md-6 copyright text-center">
+			<div class="col-md-4 copyright text-center">
 				<div class="">
 					<h4> About Us</h4>
+				</div>
+				<div class="sub-para">
+					<p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p>
+				</div>
+			</div>
+			<div class="col-md-4 letter-sub text-center">
+
+				<div class="post">
+					<form action="#" method="post">
+
+						<div class="letter">
+							<input class="email" type="email" placeholder="Your email..." required="">
+						</div>
+						<div class="newsletter">
+							<input type="submit" value="Subscribe">
+						</div>
+					</form>
 				</div>
 				<div class="sub-para">
 					<p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p>
@@ -1122,7 +1066,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //js  working-->
 
 	<script src="js/responsiveslides.min.js"></script>
-	
+	<script src="js/main.js"></script>
 	
 	<!--// banner-->
 	<!--pop-up-box video-->
@@ -1143,10 +1087,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	
-	<script src="js/main.js"></script>
+	<!-- start-smoth-scrolling -->
+
+	<!-- for-bottom-to-top smooth scrolling -->
 	
 	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- //for-bottom-to-top smooth scrolling -->
+
 
 </body>
 

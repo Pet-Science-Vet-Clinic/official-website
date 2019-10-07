@@ -2024,6 +2024,9 @@ h4.form-header {
 .padding-20 {
     padding: 20px;
 }
+.hidden-headers{
+    display:none
+}
 
 .ml-20 {
     margin-left: 20px;

@@ -116,6 +116,24 @@ $("#contactUsFormSubmit").submit(function(event){
      });
 });
 
+  
+  $(document).ready(function(){
+    $('#toggle-show').click(function(){
+    if (this.checked) {
+    
+    $("#appointment_modal_Fullname").attr("disabled", true);
+    $("#appointment_modal_CellNumber").attr("disabled", true);
+    $("#appointment_modal_petsname").attr("disabled", true);
+    $("#appointment_modal_petsname").value(" ");
+    $("#appointment_modal_CellNumber").value(" ");
+    }
+    else {
+        $('#appointment_modal_Fullname').removeAttr("disabled");
+        $('#appointment_modal_CellNumber').removeAttr("disabled");
+        $('#appointment_modal_petsname').removeAttr("disabled");
+    }
+    });
+});
 
 
 $(function () {
