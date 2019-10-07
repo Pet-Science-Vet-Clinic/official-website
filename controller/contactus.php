@@ -39,7 +39,7 @@
 		$mail->setFrom($default_email, $name);
 		$mail->addAddress($default_email);                  // Add a recipient
 		$mail->addReplyTo($contact_email);
-		$mail->addCC('romarpatindol+cc@gmail.com');
+		$mail->addCC('ljbelenzo@gmail.com');
 
 		$mail->isHTML(true);                                  // Set email format to HTML
 
