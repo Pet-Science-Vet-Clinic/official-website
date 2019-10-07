@@ -1,29 +1,69 @@
 <?php 
 	
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+
+	require 'libraries/PHPMailer/src/Exception.php';
+	require 'libraries/PHPMailer/src/PHPMailer.php';
+	require 'libraries/PHPMailer/src/SMTP.php';
+	
+	$mail = new PHPMailer(true);
+	$mail_response;
+
+	$default_email = 'info@petsciencevet.com';
+	$fasfg = 'infopassword';
 	$contact_fname = isset($_POST['contact_fname']) ? $_POST['contact_fname'] : null;
 	$contact_lname = isset($_POST['contact_lname']) ? $_POST['contact_lname'] : null;
 	$contact_email = isset($_POST['contact_email']) ? $_POST['contact_email'] : null;
 	$contact_phone = isset($_POST['contact_phone']) ? $_POST['contact_phone'] : null;
 	$contact_message = isset($_POST['contact_message']) ? $_POST['contact_message'] : null;
-	
+	$str_phone = (string)$contact_phone;
+
+	$name = $contact_fname . " " . $contact_lname;
+	$subject = "Contact Us - from: " . $contact_email;
+	$alt_message = "Name: " . $name . "\nEmail: " . $contact_email . "\nPhone: " . $str_phone . "\n\nMessage: \n" . $contact_message;
+	$html_message = "<b>Name: <b/>" . $name . "</br>";
+	$html_message .= "<b>Email: <b/>" . $contact_email . "</br>";
+	$html_message .= "<b>Phone: <b/>" . $str_phone . "</br>";
+	$html_message .= "<h3><b>Message: <b/><h3/>" . $contact_message;
+	// PHP Mailer SMTP
+	try {
+		$mail->SMTPDebug = SMTP::DEBUG_SERVER;   
+		$mail->isSMTP();                                  // Set mailer to use SMTP
+		$mail->Host = 'smtp.hostinger.ph';  // Specify main and backup SMTP servers
+		$mail->SMTPAuth = true;                               // Enable SMTP authentication
+		$mail->Username = $default_email;               // SMTP username
+		$mail->Password = $fasfg;                           // SMTP password
+		$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;   // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+		$mail->Port = 587;                                    // TCP port to connect to
+
+		$mail->setFrom($default_email, $name);
+		$mail->addAddress($default_email);                  // Add a recipient
+		$mail->addReplyTo($contact_email);
+		$mail->addCC('romarpatindol+cc@gmail.com');
+
+		$mail->isHTML(true);                                  // Set email format to HTML
+
+		$mail->Subject = $subject;
+		$mail->Body    = $html_message;
+		$mail->AltBody = $alt_message;
+
+		$mail->send();
+		$mail_response = 'Mailer Error: ' . $mail->ErrorInfo;
+		
+	}catch (Exception $e) {
+		$mail_response = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+	}
+
 	$data = array(
 		'fname' => $contact_fname, 
 		'lname' => $contact_lname,
 		'email' => $contact_email,
-		'phone' => $contact_phone,
-		'message' => $contact_message
+		'phone' => $str_phone,
+		'message' => $html_message,
+		'alt_message' => $alt_message,
+		'mail_response' => $mail_response
 	);
-
-	$name = $contact_fname . " " . $contact_lname;
-	$email = $contact_email;
-	$subject = "Contact Us - " . $contact_email;
-	$message = "Name: " . $name . "\nEmail: " . $email . "\nPhone: " . $contact_phone . "\n\nMessage: \n" . $contact_message;
-	$to = "info@petsciencevet.com";
-	$headers = 'From: '.$email."\r\n" .
-			'Reply-To: '.$email."\r\n" .
-			'X-Mailer: PHP/' . phpversion();
-
-	mail($to, $subject, $message, $headers, "From: " . $name);
 
 	echo json_encode($data);
 ?>

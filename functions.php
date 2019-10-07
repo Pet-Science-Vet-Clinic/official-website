@@ -3,7 +3,7 @@
 	include('conn.php');
 
 	
-	
+
 	// connect to database
 	$db = mysqli_connect($servername,$username,$password,$DatabaseName);
 	// Check connection
