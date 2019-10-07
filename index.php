@@ -54,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<img src="img/rippleeffect.png" style="width: 300px;">
+					<img src="img/rippleeffect.png" style="width: 290px;">
 						<!-- <h1><a class="navbar-brand" href="index.html">L<span class="fa fa-paw" aria-hidden="true"></span>vely-Pets</a></h1> -->
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -296,10 +296,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="banner-bottom-girds ">
 				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
-						<span class="fa fa-history banner-icon" aria-hidden="true"></span>
+						<span class="fa fa-scissors banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class=" white-shadow">
-						<h4>Pets Food</h4>
+						<h4>Grooming</h4>
 						<p>
 							tur aut.maiores alias consequatur .</p>
 						<div class="clearfix"> </div>
@@ -307,10 +307,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
-						<span class="fa fa-thumbs-o-up  banner-icon" aria-hidden="true"></span>
+						<span class="fa fa-plus-square  banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class=" white-shadow">
-						<h4>Ear Cleaning</h4>
+						<h4>Vaccination</h4>
 						<p>
 							tur aut.maiores alias consequatur .</p>
 						<div class="clearfix"> </div>
@@ -318,10 +318,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
-						<span class="fa fa-check banner-icon" aria-hidden="true"></span>
+						<span class="fa fa-heartbeat banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class=" white-shadow">
-						<h4>Dog Wakling</h4>
+						<h4>Surgery</h4>
 						<p>
 							tur aut.maiores alias consequatur .</p>
 						<div class="clearfix"> </div>
@@ -329,30 +329,74 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
-						<span class="fa fa-medkit banner-icon" aria-hidden="true"></span>
+						<span class="fa fa-h-square banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class="white-shadow">
-						<h4>24 Hour Care</h4>
+						<h4>Boarding</h4>
 						<p>tur aut.maiores alias consequatur </p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
 					<div class="left-icon-grid">
-						<span class="fa fa-eye banner-icon" aria-hidden="true"></span>
+						<span class="fa fa-stethoscope banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class=" white-shadow">
-						<h4>Veterinary Help</h4>
+						<h4>Check-up</h4>
 						<p>tur aut.maiores alias consequatur .</p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
-						<span class="fa fa-clock-o banner-icon" aria-hidden="true"></span>
+						<span class="fa fa-hospital-o banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class=" white-shadow">
-						<h4>Visting Hours</h4>
+						<h4>Confinement</h4>
+						<p>tur aut.maiores alias consequatur
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-user-md banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Consultation</h4>
+						<p>tur aut.maiores alias consequatur
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-medkit banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Treatment</h4>
+						<p>tur aut.maiores alias consequatur
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-times-circle banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>Deworming</h4>
+						<p>tur aut.maiores alias consequatur
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-12 col-sm-6 col-xs-6  its-banner-grid">
+					<div class=" left-icon-grid">
+						<span class="fa fa-volume-control-phone banner-icon" aria-hidden="true"></span>
+					</div>
+					<div class=" white-shadow">
+						<h4>House Call Services</h4>
 						<p>tur aut.maiores alias consequatur
 						</p>
 					</div>
