@@ -22,13 +22,12 @@
 	$name = $contact_fname . " " . $contact_lname;
 	$subject = "Contact Us - from: " . $contact_email;
 	$alt_message = "Name: " . $name . "\nEmail: " . $contact_email . "\nPhone: " . $str_phone . "\n\nMessage: \n" . $contact_message;
-	$html_message = "<b>Name: <b/>" . $name . "</br>";
-	$html_message .= "<b>Email: <b/>" . $contact_email . "</br>";
-	$html_message .= "<b>Phone: <b/>" . $str_phone . "</br>";
-	$html_message .= "<h3><b>Message: <b/><h3/>" . $contact_message;
+	$html_message = "<h4>Name: <h4/>" . $name . "</br>";
+	$html_message .= "<h4>Email: <h4/>" . $contact_email . "</br>";
+	$html_message .= "<h4>Phone: <h4>" . $str_phone . "</br>";
+	$html_message .= "<h4>Message:<h4/>" . $contact_message;
 	// PHP Mailer SMTP
 	try {
-		$mail->SMTPDebug = SMTP::DEBUG_SERVER;   
 		$mail->isSMTP();                                  // Set mailer to use SMTP
 		$mail->Host = 'smtp.hostinger.ph';  // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -40,7 +39,7 @@
 		$mail->setFrom($default_email, $name);
 		$mail->addAddress($default_email);                  // Add a recipient
 		$mail->addReplyTo($contact_email);
-		$mail->addCC('romarpatindol+cc@gmail.com');
+		$mail->addCC('ljbelenzo@gmail.com');
 
 		$mail->isHTML(true);                                  // Set email format to HTML
 
@@ -49,7 +48,7 @@
 		$mail->AltBody = $alt_message;
 
 		$mail->send();
-		$mail_response = 'Mailer Error: ' . $mail->ErrorInfo;
+		$mail_response = 'Successfully sent!';
 		
 	}catch (Exception $e) {
 		$mail_response = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
