@@ -6,6 +6,11 @@
 	
 	// connect to database
 	$db = mysqli_connect($servername,$username,$password,$DatabaseName);
+	// Check connection
+	
+	if (!$db) {
+		die("Database connection failed: " . mysqli_connect_error());
+	}
 
 	// variable declaration
 	$username = "";
