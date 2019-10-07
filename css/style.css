@@ -82,7 +82,7 @@ ul {
 }
 
 /*-- //Reset-Code --*/
-.about, .services,.contact,.team,.testimonials,.portfolio,.price-table,.buttom-w3{
+.about, .services,.contact,.team,.testimonials,.faq,.portfolio,.price-table,.buttom-w3{
     padding: 5em 0;
 }
 
@@ -1200,7 +1200,7 @@ footer p a:hover{color:white;}
 }
 }
 @media(max-width:1366px){
-	.about, .services, .contact, .team, .testimonials, .portfolio, .price-table, .buttom-w3 {
+	.about, .services, .contact, .team, .testimonials, .faq, .faq, .portfolio, .price-table, .buttom-w3 {
     padding: 4em 0;
 }
 }
@@ -1227,8 +1227,8 @@ h1 a.navbar-brand {
     font-size: 44px;
 	margin-bottom: 24px;
 	}
-	.about, .services, .contact, .team, .testimonials, .portfolio, .price-table, .buttom-w3 {
-    padding: 3em 0;
+	.about, .services, .contact, .team, .testimonials, .faq, .portfolio, .price-table, .buttom-w3 {
+        padding: 3em 0;
 }
 span.cost {
     font-size: 28px;
@@ -1357,8 +1357,8 @@ h1 a.navbar-brand {
 .slider-info p {
     font-size: 16px;
 }
-.about, .services, .contact, .team, .testimonials,
- .portfolio, .price-table, .buttom-w3 {
+.about, .services, .contact, .team, .testimonials, .faq,
+ .faq, .portfolio, .price-table, .buttom-w3 {
     padding: 2.9em 0;
 }
 span.banner-icon {
@@ -1490,7 +1490,7 @@ span.banner-icon {
 .its-banner-grid h4 {
     font-size: 20px;
 }
-.about, .services, .contact, .team, .testimonials, .portfolio, .price-table, .buttom-w3 {
+.about, .services, .contact, .team, .testimonials, .faq, .portfolio, .price-table, .buttom-w3 {
     padding: 2.8em 0;
 }
 .title {
@@ -1537,7 +1537,7 @@ h1 a.navbar-brand span.fa {
 .arrow {
     margin: .9em 0em .2em;
 }
-.about, .services, .contact, .team, .testimonials, .portfolio, .price-table, .buttom-w3 {
+.about, .services, .contact, .team, .testimonials, .faq, .portfolio, .price-table, .buttom-w3 {
     padding: 2.7em 0;
 }
 .resp-tab-item {
@@ -1659,7 +1659,7 @@ a.w3_play_icon1 {
 .carousel-indicators {
     bottom: 18px;
 }
-.about, .services, .contact, .team, .testimonials, .portfolio, .price-table, .buttom-w3 {
+.about, .services, .contact, .team, .testimonials, .faq, .portfolio, .price-table, .buttom-w3 {
     padding: 2.5em 0;
 }
 .paw-banner {
@@ -1866,7 +1866,7 @@ textarea {
 .portfolio-grids {
     width: 100%;
 }
-.about, .services, .contact, .team, .testimonials, .portfolio, .price-table, .buttom-w3 {
+.about, .services, .contact, .team, .testimonials, .faq, .portfolio, .price-table, .buttom-w3 {
     padding: 2.3em 0;
 }
 }
@@ -1997,10 +1997,7 @@ h1 a.navbar-brand {
     font-size: 13.5px;
 }
 }
-
 /*--//responsive--*/
-
-
 .fullnameleft {
     flex-basis: 90%;
     -webkit-flex-basis: 90%;
@@ -2021,8 +2018,19 @@ h4.form-header {
     padding: 13px 0px;
 }
 }
+/*--//responsive--*/
 
+/*--//margins--*/
+.padding-20 {
+    padding: 20px;
+}
 
+.ml-20 {
+    margin-left: 20px;
+}
 
+.mt-20 {
+    margin-top: 20px;
+}
 
 
