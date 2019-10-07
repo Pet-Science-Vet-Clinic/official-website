@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li><a href="#gallery" class="scroll">Gallery</a></li>
 								<li><a href="#contact" class="scroll">Contact Us</a></li>
-								<li><a href="" class="scroll">FAQ</a></li>
+								<li><a href="#faq" class="scroll">FAQ</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -762,6 +762,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
+	<!-- faq -->
+	<div class="faq" id="faq">
+		<div class="container">
+		<div class="col-md-12 about-top-grid">
+					<h3 class="title">FAQ</h3>
+					
+					<div class="arrow">
+						<ul>
+							<h4>How can I get rid of fleas on my dog?</h4>
+							<li class="padding-20"><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>This can be a challenging task and requires a three-pronged approach. Fleas need to be eliminated from:</p>
+								<ul class="ml-20">
+									<li><p>1. your dog<br/></p></li>
+									<li><p>2. any other cats and dogs in your household</p></li>
+									<li><p>3. your home and yard (environment)</p></li>
+									<li class="mt-20"><p>Once your dog’s fleas are under control, continued prevention is essential, since you cannot control some 
+									outside sources of fleas, such as other people's pets, wild animals, or other property outside yours. </p></li>
+								</ul>	
+							</li>
+
+							<h4>What are the standard vaccination protocols for puppies and kittens?</h4>
+							<li class="padding-20"><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>Puppy</p>
+								<ul class="ml-20">
+									<li><p>- We use the following protocol for puppy vaccinations</p></li>
+									<li><p>- 6 weeks-Parvovirus</p></li>
+									<li><p>- 8 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis</p></li>
+									<li><p>- 12 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme</p></li>
+									<li><p>- 16 weeks-Distemper, Hepatitis, Parvovirus, Parainfluenza, +/-Leptospirosis, Bordetella, +/- lyme Rabies</p></li>
+								</ul>
+							</li>
+							<li class="padding-20"><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>Kitten</p>
+								<ul class="ml-20">
+									<li><p>- 8 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis</p></li>
+									<li><p>- 12 weeks-Calicivirus, Panleukopenia, Chlamydia psittaci, Rhinotracheitis, Rabies</p></li>
+								</ul>
+							</li>
+
+							<h4>How should I care for my puppy’s teeth, ears, and nails?</h4>
+							<li class="padding-20"><span style="padding-bottom:0px;" class="fa fa-paw dog-arrow" aria-hidden="true"></span>
+								<p>It is never too early to begin good dental hygiene. Luckily for us, 
+								there are easy ways to provide </p>
+								<p>this for our puppies. Daily teeth-brushing is the gold standard,
+								and we recommend starting the process gradually to get your puppy used to it. Start with letting 
+								your puppy taste the pet-approved toothpaste, work up to using your finger or gauze to wipe a few
+								teeth, and eventually try out a toothbrush. Give both of you time to accept the brushing, and be 
+								sure to contact us if you have questions or would like a demonstration.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+		</div>
+	</div>
+	<!-- faq -->
+
 	<div class="buttom-w3">
 		<div class="container">
 			<div class="col-md-6 bottom-head text-center">
