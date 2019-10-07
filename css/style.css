@@ -684,7 +684,14 @@ span.banner-icon {
 .its-banner-grid:hover span.banner-icon{
 	color:#fff;
 }
-.its-banner-grid:nth-child(4), .its-banner-grid:nth-child(5), .its-banner-grid:nth-child(6) {
+.its-banner-grid:nth-child(4), 
+.its-banner-grid:nth-child(5), 
+.its-banner-grid:nth-child(6), 
+.its-banner-grid:nth-child(7),
+.its-banner-grid:nth-child(8),
+.its-banner-grid:nth-child(9),
+.its-banner-grid:nth-child(10),
+.its-banner-grid:nth-child(11) {
     margin-top: 40px;
 }
 .cat-image{
