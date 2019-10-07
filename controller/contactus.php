@@ -22,10 +22,10 @@
 	$name = $contact_fname . " " . $contact_lname;
 	$subject = "Contact Us - from: " . $contact_email;
 	$alt_message = "Name: " . $name . "\nEmail: " . $contact_email . "\nPhone: " . $str_phone . "\n\nMessage: \n" . $contact_message;
-	$html_message = "<b>Name: <b/>" . $name . "</br>";
-	$html_message .= "<b>Email: <b/>" . $contact_email . "</br>";
-	$html_message .= "<b>Phone: <b/>" . $str_phone . "</br>";
-	$html_message .= "<h3><b>Message: <b/><h3/>" . $contact_message;
+	$html_message = "<h4>Name: <h4/>" . $name . "</br>";
+	$html_message .= "<h4>Email: <h4/>" . $contact_email . "</br>";
+	$html_message .= "<h4>Phone: <h4>" . $str_phone . "</br>";
+	$html_message .= "<h4>Message:<h4/>" . $contact_message;
 	// PHP Mailer SMTP
 	try {
 		$mail->isSMTP();                                  // Set mailer to use SMTP
