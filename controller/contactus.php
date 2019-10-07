@@ -28,7 +28,6 @@
 	$html_message .= "<h3><b>Message: <b/><h3/>" . $contact_message;
 	// PHP Mailer SMTP
 	try {
-		$mail->SMTPDebug = SMTP::DEBUG_SERVER;   
 		$mail->isSMTP();                                  // Set mailer to use SMTP
 		$mail->Host = 'smtp.hostinger.ph';  // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -49,7 +48,7 @@
 		$mail->AltBody = $alt_message;
 
 		$mail->send();
-		$mail_response = 'Mailer Error: ' . $mail->ErrorInfo;
+		$mail_response = 'Successfully sent!';
 		
 	}catch (Exception $e) {
 		$mail_response = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
