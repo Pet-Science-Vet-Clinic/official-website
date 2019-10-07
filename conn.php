@@ -26,7 +26,5 @@
     $conn = mysqli_connect($servername,$username,$password,$DatabaseName);
     $Conn_MYSQLI = new mysqli($servername, $username, $password,$DatabaseName);
 
-    
-
 ?>
    
