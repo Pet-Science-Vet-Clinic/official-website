@@ -955,6 +955,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- testimonials -->
 
+	<!-- modal -->
+	<div class="modal about-modal fade" id="contactUsAlertModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Successfully sent!</h4>
+					</div>
+					<div class="modal-body text-center">
+						<h5>We will respond to your email as soon as possible, thank you.</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //modal -->
 	<!--contact-->
 	<div class="contact" id="contact">
 		<div class="container">
@@ -989,32 +1005,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 
 			<div class="contact">
-				<form action="#" method="post">
+				<form id="contactUsFormSubmit">
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="text" name="Name" placeholder="Name" required="">
+						<input type="text" id="contact_fname" name="contact_fname" placeholder="First Name" required="">
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="text" name="Last Name" placeholder="Last Name" required="">
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="email" name="Email" placeholder="Email" required="">
-
+						<input type="text" id="contact_lname" name="contact_lname" placeholder="Last Name" required="">
 					</div>
 
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+						<input type="email" id="contact_email" name="contact_email" placeholder="Email" required="">
 
-						<input type="text" name="phone" placeholder="phone" required="">
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+
+						<input type="text" id="contact_phone" name="contact_phone" placeholder="phone" required="">
 
 					</div>
 					<div class="clearfix"> </div>
 					<div class="styled-input">
-
-						<textarea name="Message" placeholder="Message" required=""></textarea>
+						<textarea id="contact_message" name="contact_message" placeholder="Message" required=""></textarea>
 					</div>
 					<div>
 						<div class="click">
-							<input type="submit" value="SEND">
+							<!-- data-toggle="modal" data-target="#contactUsAlertModal" -->
+							<input id="btn-send-email" type="submit" value="SEND">
 						</div>
 					</div>
 				</form>
