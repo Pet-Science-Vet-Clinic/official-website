@@ -55,7 +55,6 @@ function showFunction() {
 // Contact Us Send Email
 // Variable to hold request
 var request;
-
 // Bind to the submit event of our form
 $("#contactUsFormSubmit").submit(function(event){
      // Prevent default posting of form - put here to work in case of errors
@@ -70,7 +69,7 @@ $("#contactUsFormSubmit").submit(function(event){
  
      // Let's select and cache all the fields
      var $inputs = $form.find("input, select, button, textarea");
- 
+     
      // Serialize the data in the form
      var serializedData = $form.serialize();
  
@@ -89,10 +88,13 @@ $("#contactUsFormSubmit").submit(function(event){
      // Callback handler that will be called on success
      request.done(function (response, textStatus, jqXHR){
          // Log a message to the console
+         var json_data = JSON.parse(response);
          console.log("Hooray, it worked!");
-         console.log(response);
+         console.log(json_data);
+         
          $('#contactUsAlertModal').modal('show');
          $('#contact_fname').val("");
+         $('#span_fname').html(json_data.fname);
          $('#contact_lname').val("");
          $('#contact_email').val("");
          $('#contact_phone').val("");

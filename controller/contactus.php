@@ -8,7 +8,7 @@
 	require 'libraries/PHPMailer/src/SMTP.php';
 	
 	$mail = new PHPMailer(true);
-	$mail_response;
+	$mail_response = "";
 
 	$default_email = 'info@petsciencevet.com';
 	$fasfg = 'infopassword';
@@ -54,13 +54,12 @@
 		$mail_response = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 	}
 
+	
 	$data = array(
 		'fname' => $contact_fname, 
 		'lname' => $contact_lname,
 		'email' => $contact_email,
 		'phone' => $str_phone,
-		'message' => $html_message,
-		'alt_message' => $alt_message,
 		'mail_response' => $mail_response
 	);
 
