@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="#about" class="scroll">About</a></li>
 								<li><a href="#services" class="scroll">Services</a></li>
 								<li class="active" style="border: 2px solid #20c7b3;">
-									<a href="#" data-toggle="modal" data-target="#makeAppointment-modal">Make an Appointment</a>
+									<a href="#" data-toggle="modal" id="buttontick" data-target="#makeAppointment-modal">Make an Appointment</a>
 								</li>
 								<!-- <li><a href="#gallery" class="scroll">Gallery</a></li> -->
 								<li><a href="#contact" class="scroll">Contact Us</a></li>
@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										    class="fa fa-paw paw-banner" aria-hidden="true"></span><span class="fa fa-paw paw-banner" aria-hidden="true"></span> </h4>
 									<p>Click the button below to register and make an appointment today.</p>
 									<div class="outs_more-buttn">
-										<a href="#" data-toggle="modal" data-target="#myModal">Register Now!</a>
+										<a href="#" data-toggle="modal" id="buttontick" data-target="#makeAppointment-modal" onclick="ticker();">Register Now!</a>
 									</div>
 								</div>
 							</div>
@@ -128,116 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </ul>-->
 		<!-- //banner -->
 		<!-- modal -->
-		<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">New Customer</h4>
-					</div>
-					<div class="modal-body">
-						<div class="out-info">
-							<div class="letter-w3ls">
-
-								<form action="#" method="post">
-									<div class="form-header">Owners' Information<br><br></div>
-										<div class="form-left-to-w3l add">
-
-										<input type="text" id="registration_modal_Fullname" name="customer_fullname_new"  maxlength="45" placeholder="FullName" required="">
-											<div class="clear"></div>
-										</div>
-
-										<!-- <div class="form-right-to-w3ls">
-
-											<input type="text" name="last name" placeholder="Last Name" required="">
-											<div class="clear"></div>
-										</div> -->
-
-									
-
-									<div class="main">
-										<div class="form-left-to-w3l">
-
-											<input type="email" id="appointment_modal_Email" name="customer_email_new" placeholder="Email" required="">
-											<div class="clear"></div>
-										</div>
-										<div class="form-right-to-w3ls">
-
-										<input type="text" id="registration_modal_CellNumber" name="customer_cellnum_new" maxlength="11" placeholder="Cellphone Number" required="">
-											<div class="clear"></div>
-										</div>
-									</div>
-									<div class="main">
-
-										<div class="form-left-to-w3l">
-											<select class="form-control" id="pet_gender" name="customer_gender">
-					<option value="" name="customer_gender">Gender</option>
-						<option value="Male" name="customer_gender">Male</option>
-						<option value="Female" name="customer_gender">Female</option>
-					</select>
-										</div>
-										<div class="form-right-to-w3ls">
-										<input type="text" id="appointment_modal_TelNumber" name="customer_telephone_new" maxlength="11" placeholder="Phone Number" required="">
-											<div class="clear"></div>
-										</div>
-									</div>
-
-
-									<div class="form-add-to-w3ls add">
-
-										<input type="text" id="appointment_modal_Address" name="customer_address_new" placeholder="Home Address" required="">
-										<div class="clear"></div>
-									</div>
-									<div class="divider"></div>
-									<div class="form-header"><br>Pets' Information<br><br></div>
-									<div class="form-left-to-w3l add">
-
-									<input type="text"  id="appointment_modal_petname" name="pet_fullname_new" placeholder="Pets' Name" required="">
-									<div class="clear"></div>
-									</div>
-									<div class="main">
-
-										<div class="form-left-to-w3l">
-											<select class="form-control" id="pet_gender" name="pet_gender">
-											<option value="" name="pet_gender">Gender</option>
-											<option value="Male" name="pet_gender">Male</option>
-											<option value="Female" name="pet_gender">Female</option>
-											</select>
-										</div>
-										<div class="form-right-to-w3ls">
-										<select class="form-control" name="pet_species">
-											<option value="" name="pet_species">Species</option>
-											<option value="Canine" name="pet_species">Canine</option>
-											<option value="Feline" name="pet_species">Feline</option>
-											</select>
-											<div class="clear"></div>
-										</div>
-									</div>
-									<div class="main">
-
-										<div class="form-left-to-w3l">
-										<input type="text" id="appointment_modal_Email" name="pet_breed_new" placeholder="Breed" required="">
-										</div>
-										<div class="form-right-to-w3ls">
-										<input type="date" class="" id="appointment_modal_Date" name="pet_DOB_new"  >
-											<div class="clear"></div>
-										</div>
-									</div>
-									
-									<div class="btnn">
-										<button id="new_customer_modal_SubmitRegistration" value="" name="new_customer_modal_SubmitRegistration" type="submit">Submit</button><br>
-									</div>
-
-								</form>
-							</div>
-						</div>
-						<!--//register form-->
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+		
 	<!-- //modal -->
 
 	<!-- Make Appointment Modal -->
@@ -245,14 +136,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<button type="button" id="buttonclosemodal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Make an Appointment</h4>
 					</div>
 					<div class="modal-body">
 						<div class="out-info">
 							<div class="letter-w3ls">
 
-								<form action="#" method="post">
+								<form id="appointmentModalForm">
 									<div class="form-header">Appointment Information<br><br></div>
 									<div class="main">
 									<div class="form-left-to-w3l">
@@ -281,25 +172,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-										<input type="text" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" placeholder="Customers' Name">
+										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_fullname"   maxlength="45" placeholder="Customers' Name">
 											<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
 
-										<input type="text" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11" placeholder="Phone Number">
+										<input type="text" id="appointment_modal_CellNumber" style="display:block" name="customer_cellnum" maxlength="11" placeholder="Phone Number">
 											<div class="clear"></div>
 										</div>
 									</div>
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<select id="appointment_modal_petsname" class="form-control" name = "pets_name">
-											<option value="">List of pets</option>
-											<option value="Canine">Lyka</option>
-											<option value="Feline">Berry</option>
-											</select>
-										</div>
-										<div class="form-right-to-w3ls">
 										<select id="appointment_modal_TimeBlock" class="form-control" name = "reason_for_appointment">
 											<option value="" name = "reason_for_appointment">Reason for Appointment</option>
 											<option value="Consultation" name = "reason_for_appointment">Consultation</option>
@@ -312,13 +196,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<option value="Grooming" name = "reason_for_appointment">Grooming</option>
 											<option value="Other" name = "reason_for_appointment">Other</option>
 											</select>
+										</div>
+										<div class="form-right-to-w3ls">
+										
 											<div class="clear"></div>
 										</div>
 									</div>
 
 
 									<div class="form-add-to-w3ls add">
-									<label><input class="checkboxchecked" type="checkbox" id="toggle-show" name="newuser" value="Consultation" onclick="showFunction(); ClearFields();"> <span>New User?</span></label>
+									<label><input class="checkboxchecked" type="checkbox" id="toggle-show" name="newuser" value="showhiddenfields" onclick="showFunction(); ClearFields();"> <span>New User?</span></label>
 										
 										<div class="clear"></div>
 									</div>
@@ -331,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div id="hidden-header" style="display:none" class="form-header">Customers' Information<br><br></div>
 										<div class="form-left-to-w3l add">
 
-										<input id="hidden-fullname" name="hidden_customers_name" style="display:none" type="text"placeholder="FullName">
+										<input id="hidden-fullname" name="hidden_customers_name" style="display:none" type="text" placeholder="FullName">
 											<div class="clear"></div>
 										</div>
 
@@ -343,7 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 									
 
-									<div class="main">
+										<div class="main">
 										<div class="form-left-to-w3l">
 
 										<input id="hidden-email" name="hidden_customers_email" style="display:none" type="email" name="email" placeholder="Email">
@@ -370,11 +257,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-											<select id="hidden-cusgender" name="hidden_customers_gender" style="display:none" class="form-control">
-					<option value="" name="hidden_customers_gender">Gender</option>
-						<option value="Male" name="hidden_customers_gender">Male</option>
-						<option value="Female" name="hidden_customers_gender">Female</option>
-					</select>
+										<input id="hidden-faxnum" name="hidden_customers_faxnum" style="display:none" type="text" name="phone number" placeholder="Fax Number">
+										<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
 										<input id="hidden-phonenum" name="hidden_customers_phonenum" style="display:none" type="text" name="phone number" placeholder="Phone Number">
@@ -390,42 +274,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									</div>
 
-									<div class="divider"></div>
-									<div id="hidden-title" style="display:none" class="form-header"><br>Pets' Information<br><br></div>
-									<div class="form-left-to-w3l add">
 
-									<input id="hidden-pets-name"  name="hidden_pets_name" style="display:none" type="text" name="name" placeholder="Pets' Name">
+								
+								
+
 									
-									<div class="clear"></div>
-									</div>
-									<div class="main">
-
-										<div class="form-left-to-w3l">
-											<select id="hidden-gender" name="hidden_pets_gender" style="display:none" class="form-control">
-											<option value="" name="hidden_pets_gender">Gender</option>
-											<option value="Male" name="hidden_pets_gender">Male</option>
-											<option value="Female" name="hidden_pets_gender">Female</option>
-											</select>
-										</div>
-										<div class="form-right-to-w3ls">
-										<select id="hidden-species" name="hidden_pets_species" style="display:none" class="form-control">
-											<option value="" name="hidden_pets_species">Species</option>
-											<option value="Canine" name="hidden_pets_species">Canine</option>
-											<option value="Feline" name="hidden_pets_species">Feline</option>
-											</select>
-											<div class="clear"></div>
-										</div>
-									</div>
-									<div class="main">
-
-										<div class="form-left-to-w3l">
-										<input id="hidden-breed" name="hidden_pets_breed" style="display:none" type="text" name="name" placeholder="Breed">
-										</div>
-										<div class="form-right-to-w3ls">
-										<input id="hidden=DOB" name="hidden_pets_DOB" style="display:none" type="date" class="" id="appointment_modal_Date" name="pet_DOB_new"  >
-											<div class="clear"></div>
-										</div>
-									</div>
 
 									<!-- hIDDEN ENDS HERE -->
 									<!-- </div> -->
@@ -646,7 +499,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 
-	<!-- modal -->
+	<!-- feedback modal alert start-->
 	<div class="modal about-modal fade" id="contactUsAlertModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -661,7 +514,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-	<!-- //modal -->
+	<!-- // feedback modal alert end -->
+
+	<!-- appointment success modal alert start -->
+	<div class="modal about-modal fade" id="appointmentAlertModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Response</h4>
+					</div>
+					<div class="modal-body text-center">
+						<h5 id="appointmentStatusMessage"></h5>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">OK</span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- appointment success modal alert end -->
+
+
+
 	<!--contact-->
 	<div class="contact" id="contact">
 		<div class="container">
@@ -695,6 +569,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="clearfix"> </div>
 
+<!-- feedback start -->
+
 			<div class="contact">
 				<form id="contactUsFormSubmit">
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
@@ -726,8 +602,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</form>
 			</div>
+			<!-- feedback end -->
+
 
 			<div class="clearfix"> </div>
+
 		</div>
 	</div>
 	<!-- faq -->
