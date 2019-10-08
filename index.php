@@ -964,7 +964,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h4 class="modal-title">Successfully sent!</h4>
 					</div>
 					<div class="modal-body text-center">
-						<h5>We will respond to your email as soon as possible, thank you.</h5>
+						<h5>Thank you <span id="span_fname"></span>! We will respond to your email as soon as possible.</h5>
 					</div>
 				</div>
 			</div>
