@@ -961,7 +961,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Successfully sent!</span></h4>
+						<h4 class="modal-title">Successfully sent!</h4>
 					</div>
 					<div class="modal-body text-center">
 						<h5>Thank you <span id="span_fname"></span>! We will respond to your email as soon as possible.</h5>
