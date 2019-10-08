@@ -2036,4 +2036,9 @@ h4.form-header {
     margin-top: 20px;
 }
 
+.thead-gray {
+    background-color: #636161;
+    color: white;
+    font-size: large;
+}
 

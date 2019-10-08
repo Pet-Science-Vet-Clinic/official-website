@@ -34,12 +34,10 @@ if (isLoggedOut()) {
 	<div class="limiter">
 		
 		<div class="container-login100">
-		<a href="index.php" ><button class="btn"><i class="fa fa-home"></i> Home</button></a>
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="img/rippleeffect.png" alt="IMG">
+				<a href="index.php" ><img src="img/rippleeffect.png" alt="IMG"></a>
 				</div>
-				
 
 				<form id ="formed" name="formed"class="login100-form validate-form" method="post" action="viewtable.php">
 					<span class="login100-form-title">
