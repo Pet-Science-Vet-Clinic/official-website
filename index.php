@@ -1,5 +1,5 @@
 <?php
-//include('functions.php');
+include('functions.php');
 
 ?>
 
@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="active" style="border: 2px solid #20c7b3;">
 									<a href="#" data-toggle="modal" data-target="#makeAppointment-modal">Make an Appointment</a>
 								</li>
-								<li><a href="#gallery" class="scroll">Gallery</a></li>
+								<!-- <li><a href="#gallery" class="scroll">Gallery</a></li> -->
 								<li><a href="#contact" class="scroll">Contact Us</a></li>
 								<li><a href="#faq" class="scroll">FAQ</a></li>
 							</ul>
@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										    class="fa fa-paw paw-banner" aria-hidden="true"></span><span class="fa fa-paw paw-banner" aria-hidden="true"></span></h4>
 									<p>Make appointments with us online by clicking button below</p>
 									<div class="outs_more-buttn">
-										<a href="#" data-toggle="modal" data-target="#myModal">Click Here!</a>
+									<a href="#" data-toggle="modal" data-target="#makeAppointment-modal">Click Here!</a>
 									</div>
 								</div>
 							</div>
@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="form-header">Owners' Information<br><br></div>
 										<div class="form-left-to-w3l add">
 
-											<input type="text" id="appointment_modal_Fullname" name="customer_fullname_new"  maxlength="45" placeholder="FullName" required="">
+										<input type="text" id="registration_modal_Fullname" name="customer_fullname_new"  maxlength="45" placeholder="FullName" required="">
 											<div class="clear"></div>
 										</div>
 
@@ -163,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="form-right-to-w3ls">
 
-											<input type="text" id="appointment_modal_CellNumber" name="customer_cellnum_new" maxlength="11" placeholder="Cellphone Number" required="">
+										<input type="text" id="registration_modal_CellNumber" name="customer_cellnum_new" maxlength="11" placeholder="Cellphone Number" required="">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -223,41 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="clear"></div>
 										</div>
 									</div>
-									<!-- <div class="main">
-										<div class="form-left-to-w3l">
-
-											<input type="text" name="city" placeholder="City" required="">
-											<div class="clear"></div>
-										</div>
-										<div class="form-right-to-w3ls">
-											<input type="text" name="state" placeholder="State" required="">
-											<div class="clear"></div>
-										</div>
-
-									</div> -->
-									<!-- <div class="main">
-										<div class="form-left-to-w3l">
-											<input type="text" name="Pin code" placeholder="Pin code" required="">
-											<div class="clear"></div>
-										</div>
-										<div class="form-right-to-w3ls">
-											<select class="form-control buttom">
-												<option value="">
-												Select Country</option>
-													<option value="category2">Oman</option>
-													<option value="category1">Australia</option>
-													<option value="category3">America</option>
-													<option value="category3">London</option>
-													<option value="category3">Goa</option>
-													<option value="category3">Canada</option>
-													<option value="category3">Srilanka</option>
-												</select>
-
-											<div class="clear"></div>
-										</div>
-
-									</div> -->
-
+									
 									<div class="btnn">
 										<button id="new_customer_modal_SubmitRegistration" value="" name="new_customer_modal_SubmitRegistration" type="submit">Submit</button><br>
 									</div>
@@ -315,12 +281,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-											<input type="email" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" placeholder="Customers' Name" required="">
+										<input type="text" id="appointment_modal_Fullname" name="customer_fullname"   maxlength="45" placeholder="Customers' Name">
 											<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
 
-											<input type="text" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11" placeholder="Phone Number" required="">
+										<input type="text" id="appointment_modal_CellNumber" name="customer_cellnum" maxlength="11" placeholder="Phone Number">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -352,7 +318,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 									<div class="form-add-to-w3ls add">
-									<label><input class="checkboxchecked" type="checkbox" id="toggle-show" name="newuser" value="Consultation" onclick="showFunction()"> <span>New User?</span></label>
+									<label><input class="checkboxchecked" type="checkbox" id="toggle-show" name="newuser" value="Consultation" onclick="showFunction(); ClearFields();"> <span>New User?</span></label>
 										
 										<div class="clear"></div>
 									</div>
@@ -362,10 +328,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<!-- DAPAT HIDDEN DRI -->
 									<div class="divider"></div>
 
-									<div id="hidden-header" style="display:none" class="form-header">Owners' Information<br><br></div>
+									<div id="hidden-header" style="display:none" class="form-header">Customers' Information<br><br></div>
 										<div class="form-left-to-w3l add">
 
-											<input id="hidden-fullname" name="hidden_customers_name" style="display:none" type="text"placeholder="FullName" required="">
+										<input id="hidden-fullname" name="hidden_customers_name" style="display:none" type="text"placeholder="FullName">
 											<div class="clear"></div>
 										</div>
 
@@ -380,14 +346,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-											<input id="hidden-email" name="hidden_customers_email" style="display:none" type="email" name="email" placeholder="Email" required="">
+										<input id="hidden-email" name="hidden_customers_email" style="display:none" type="email" name="email" placeholder="Email">
 											<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
 
-											<input id="hidden-celnum" name="hidden_customers_celnum" style="display:none" type="text" name="phone number" placeholder="Cellphone Number" required="">
+										<input id="hidden-celnum" name="hidden_customers_celnum" style="display:none" type="text" name="phone number" placeholder="Cellphone Number">
 											<div class="clear"></div>
 										</div>
+									</div>
+									<div class="main">
+
+									<div class="form-left-to-w3l">
+									<input id="hidden-celnum2" name="hidden_customers_celnum2" style="display:none" type="text" name="email" placeholder="cell-Notification">
+									<div class="clear"></div>
+									</div>
+
+									<div class="form-right-to-w3ls">
+									<input id="hidden-celnum3" name="hidden_customers_celnum3" style="display:none" type="text" name="phone number" placeholder="Cell 2(Optional)">
+									<div class="clear"></div>
+									</div>
 									</div>
 									<div class="main">
 
@@ -399,7 +377,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</select>
 										</div>
 										<div class="form-right-to-w3ls">
-										<input id="hidden-phonenum" name="hidden_customers_phonenum" style="display:none" type="text" name="phone number" placeholder="Phone Number" required="">
+										<input id="hidden-phonenum" name="hidden_customers_phonenum" style="display:none" type="text" name="phone number" placeholder="Phone Number">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -407,7 +385,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 									<div class="form-add-to-w3ls add">
 
-										<input id="hidden-address" name="hidden_customers_address" style="display:none" type="text" name="address" placeholder="Home Address" required="">
+									<input id="hidden-address" name="hidden_customers_address" style="display:none" type="text" name="address" placeholder="Home Address">
 										<div class="clear"></div>
 									</div>
 									</div>
@@ -416,7 +394,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div id="hidden-title" style="display:none" class="form-header"><br>Pets' Information<br><br></div>
 									<div class="form-left-to-w3l add">
 
-									<input id="hidden-pets-name"  name="hidden_pets_name" style="display:none" type="text" name="name" placeholder="Pets' Name" required="">
+									<input id="hidden-pets-name"  name="hidden_pets_name" style="display:none" type="text" name="name" placeholder="Pets' Name">
 									
 									<div class="clear"></div>
 									</div>
@@ -441,7 +419,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<input id="hidden-breed" name="hidden_pets_breed" style="display:none" type="text" name="name" placeholder="Breed" required="">
+										<input id="hidden-breed" name="hidden_pets_breed" style="display:none" type="text" name="name" placeholder="Breed">
 										</div>
 										<div class="form-right-to-w3ls">
 										<input id="hidden=DOB" name="hidden_pets_DOB" style="display:none" type="date" class="" id="appointment_modal_Date" name="pet_DOB_new"  >
@@ -511,25 +489,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-7 about-top-grid">
 					<h2>About Us </h2>
 					<div class="arrow">
-						<ul>
-							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>Vivamus elementum semper </p>
-							</li>
-							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>Bibendum sodales, augue </p>
-							</li>
-							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>Vivamus elementum semper </p>
-							</li>
-							<li><span class="fa fa-paw dog-arrow" aria-hidden="true"></span>
-								<p>Vivamus elementum semper </p>
-							</li>
-						</ul>
+					<span class="fa fa-paw dog-arrow" aria-hidden="true"></span>Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006.The origin of 
+                        the clinic’s name comes from the association of Pet Lovers in Southwestern University PHINMA.The clinic was created out of passion and 
+                        love for pets. The clinic accommodates as many pets as theycan work on in a day. It is their will and a heart of passion to save and help
+                         every pet that needs remedy. The clinic is open from Sunday to Saturday and this includes services they could offer such asgrooming,
+                          vaccination, surgery, boarding, check-up, confinement, consultation, treatment, deworming and house calls service.The clinic accepts
+                           walk-in clients and appointment schedules for pets. Pet Science Veterinary Clinic stores information that includes vaccination history,
+                            consultation, and the meditation of pets.Unfortunately, because of the limited source of vaccine, they only accept feline and canine
+                             pets.
 					</div>
 					<div class="about-para">
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-							natoque penatibus et magnis dis parturient montes, Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo
-							ligula eget dolor. Aenean massa. nascetur ridiculus mus.</p>
+						
 					</div>
 				</div>
 				<div class="col-md-5 pope banner-agileits-btm" id="video">
@@ -668,292 +638,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!--//services-->
-	<div class="portfolio" id="gallery">
 
-		<h3 class="title">Our Gallery</h3>
+	<!-- Gallery Start -->
 
-		<div class="sap_tabs">
-			<div id="horizontalTab">
-				<ul class="resp-tabs-list">
-					<li class="resp-tab-item"><span>All</span></li>
-					<li class="resp-tab-item"><span>Pets 1</span></li>
-					<li class="resp-tab-item"><span>Pets 2</span></li>
-					<li class="resp-tab-item"><span>Pets 3</span></li>
-				</ul>
-				<div class="clearfix"> </div>
-				<div class="resp-tabs-container">
-					<div class="tab-1 resp-tab-content">
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g1.jpg' data-big-src='images/g1.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g2.jpg' data-big-src='images/g2.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g10.jpg' data-big-src='images/g10.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g4.jpg' data-big-src='images/g4.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6  portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g5.jpg' data-big-src='images/g5.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
+	<!-- //Gallery End -->
 
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g6.jpg' data-big-src='images/g6.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g8.jpg' data-big-src='images/g8.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g11.jpg' data-big-src='images/g11.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="tab-1 resp-tab-content">
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g1.jpg' data-big-src='images/g1.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g10.jpg' data-big-src='images/g10.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g8.jpg' data-big-src='images/g8.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g11.jpg' data-big-src='images/g11.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-
-					<div class="tab-1 resp-tab-content">
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g5.jpg' data-big-src='images/g5.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g7.jpg' data-big-src='images/g7.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g6.jpg' data-big-src='images/g6.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g7.jpg' data-big-src='images/g7.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="tab-1 resp-tab-content">
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g2.jpg' data-big-src='images/g2.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g6.jpg' data-big-src='images/g6.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g4.jpg' data-big-src='images/g4.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 portfolio-grids">
-							<div class="gallery-grid">
-								<img src='images/g7.jpg' data-big-src='images/g7.jpg' class="img-responsive" alt=" " />
-								<p style='opacity:0;display:none'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							</div>
-						</div>
-
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- //portfolio -->
-	<!--price table-->
-	<div class="price-table" id="price">
-		<div class="container">
-			<h3 class="title clr ">Price-Table</h3>
-
-			<div class="agileits-banner-grids text-center">
-
-				<div class="col-md-4  col-sm-4  col-xs-4 clr1 agileits-banner-grid">
-
-					<h4>Lorem ipsum</h4>
-					<div class="table_cost">
-						<span class="cost clr-price"> 260$</span>
-					</div>
-					<div class="list-price">
-						<ul>
-							<li>Bengal cat</li>
-							<li>Russian Cat</li>
-							<li>Maine Cat</li>
-							<li>Perian Cat</li>
-						</ul>
-					</div>
-					<a class="w3_play_icon1" href="#" data-toggle="modal" data-target="#myModal"> Buy Now</a>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4  clr2 agileits-banner-grid">
-
-					<h4>Dolor ipsum</h4>
-					<div class="table_cost">
-						<span class="cost"> 150$</span>
-					</div>
-					<div class="list-price">
-						<ul>
-							<li>Bengal cat</li>
-							<li>Russian Cat</li>
-							<li>Maine Cat</li>
-							<li>Perian Cat</li>
-						</ul>
-					</div>
-					<a class="w3_play_icon1" href="#" data-toggle="modal" data-target="#myModal"> Buy Now</a>
-				</div>
-				<div class=" col-md-4 col-sm-4 col-xs-4 clr3 agileits-banner-grid">
-
-					<h4>Lorem ipsum</h4>
-					<div class="table_cost">
-						<span class="cost clr-price "> 90$</span>
-					</div>
-					<div class="list-price">
-						<ul>
-							<li>Bengal cat</li>
-							<li>Russian Cat</li>
-							<li>Maine Cat</li>
-							<li>Perian Cat</li>
-						</ul>
-					</div>
-					<a class="w3_play_icon1" href="#" data-toggle="modal" data-target="#myModal"> Buy Now</a>
-				</div>
-				<div class="clearfix"></div>
-
-			</div>
-
-		</div>
-	</div>
-	<!--//price table-->
-	<!-- testimonials -->
-	<div class="testimonials" id="testimonials">
-		<div class="container">
-
-			<h3 class="title">Our Clients</h3>
-
-			<div class="carousel slide" data-ride="carousel" id="quote-carousel">
-				<!-- Bottom Carousel Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="images/t1.jpg" alt="">
-					</li>
-					<li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="images/t2.jpg" alt="">
-					</li>
-					<li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="images/t3.jpg" alt="">
-					</li>
-				</ol>
-
-				<!-- Carousel Slides / Quotes -->
-				<div class="carousel-inner text-center">
-
-					<!-- Quote 1 -->
-					<div class="item active">
-						<blockquote>
-							<div class="row">
-								<div class=" left-matter">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-										aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo!</p>
-									<h5>--kelly ove</h5>
-								</div>
-
-
-							</div>
-						</blockquote>
-					</div>
-					<!-- Quote 2 -->
-					<div class="item">
-						<blockquote>
-							<div class="row">
-								<div class=" left-matter">
-
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-										aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-									<h5>--Kennedy</h5>
-								</div>
-							</div>
-						</blockquote>
-					</div>
-					<!-- Quote 3 -->
-					<div class="item">
-						<blockquote>
-							<div class="row">
-								<div class=" left-matter">
-
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-										aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-									<h5>--Rosey</h5>
-								</div>
-							</div>
-						</blockquote>
-					</div>
-				</div>
-
-				<!-- Carousel Buttons Next/Prev 
-					<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><span class="fa fa-chevron-left"></span></a>
-					<a data-slide="next" href="#quote-carousel" class="right carousel-control"><span class="fa fa-chevron-right"></span></a> -->
-			</div>
-		</div>
-	</div>
-	<!-- testimonials -->
+	
+	
 
 	<!-- modal -->
 	<div class="modal about-modal fade" id="contactUsAlertModal" tabindex="-1" role="dialog">
@@ -1113,7 +804,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	</div>
 	<footer>
-		<p>&copy; 2018 Lovely-Pets. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a></p>
+		<p>&copy; 2019 Pet Science Vet Clinic. All Rights Reserved | Design by <a href="https://www.facebook.com/Kesterific/" target="_blank">Thesis Team</a></p>
 	</footer>
 
 	<!--js working-->
