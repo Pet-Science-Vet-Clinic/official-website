@@ -1,10 +1,12 @@
+
+
 function showFunction() {
     // Get the checkbox
     var checkBox = document.getElementById("toggle-show");
     // Get the output text
    
     
-    var element6 = document.getElementById("hidden-header");
+    var element6 = document.getElementById("hidden-Submitbtn");
     var element7 = document.getElementById("hidden-fullname");
     var element8 = document.getElementById("hidden-celnum");
     var element9 = document.getElementById("hidden-faxnum");
@@ -20,39 +22,39 @@ function showFunction() {
     if (checkBox.checked == true){
      
       element6.style.display = "block";
-      element7.style.display = "block";
-      element8.style.display = "block";
-      element9.style.display = "block";
-      element10.style.display = "block";
-      element12.style.display = "block";
-      element13.style.display = "block";
-      element14.style.display = "block";
-      element15.style.display = "block";
+    //   element7.style.display = "block";
+    //   element8.style.display = "block";
+    //   element9.style.display = "block";
+    //   element10.style.display = "block";
+    //   element12.style.display = "block";
+    //   element13.style.display = "block";
+    //   element14.style.display = "block";
+    //   element15.style.display = "block";
 
-      element16.style.display ="none"; 
-      element17.style.display ="none"; 
+    //   element16.style.display ="none"; 
+    //   element17.style.display ="none"; 
     } else {
        
         
         element6.style.display = "none";
-        element7.style.display = "none";
-        element8.style.display = "none";
-        element9.style.display = "none";
-        element10.style.display = "none";
-        element12.style.display = "none";
-        element13.style.display = "none";
-        element14.style.display = "none";
-        element15.style.display = "none";
+        // element7.style.display = "none";
+        // element8.style.display = "none";
+        // element9.style.display = "none";
+        // element10.style.display = "none";
+        // element12.style.display = "none";
+        // element13.style.display = "none";
+        // element14.style.display = "none";
+        // element15.style.display = "none";
 
-        element16.style.display = "block";
-        element17.style.display = "block";
+        // element16.style.display = "block";
+        // element17.style.display = "block";
         
     }
   } 
 
 
 
-  function ticker(){
+function ticker(){
     $('#buttontick').checkboxMaster('input[name=showhiddenfields]');
   }
 $.fn.checkboxMaster = function(list) {
@@ -255,6 +257,263 @@ $("#appointmentModalForm").submit(function(event){
 
 //=== Appointment modal AJAX ===//
 
+//=== Registration modal AJAX ===//
+
+// Contact Us Send Email
+// Variable to hold request
+var request;
+// Bind to the submit event of our form
+$("#registrationModalForm").submit(function(event){
+     // Prevent default posting of form - put here to work in case of errors
+     event.preventDefault();
+
+     // Abort any pending request
+     if (request) {
+         request.abort();
+     }
+     // setup some local variables
+     var $form = $(this);
+ 
+     // Let's select and cache all the fields
+     var $inputs = $form.find("input, select, button, textarea, date, checkbox");
+     
+     // Serialize the data in the form
+     var serializedData = $form.serialize();
+ 
+     // Let's disable the inputs for the duration of the Ajax request.
+     // Note: we disable elements AFTER the form data has been serialized.
+     // Disabled form elements will not be serialized.
+     $inputs.prop("disabled", true);
+ 
+     // Fire off the request to /form.php
+     request = $.ajax({
+         url: "controller/registration.php",
+         type: "post",
+         data: serializedData
+     });
+ 
+     // Callback handler that will be called on success
+     request.done(function (response, textStatus, jqXHR){
+         // Log a message to the console
+         console.log(response);
+         var json_data = JSON.parse(response);
+         console.log("Hooray, it worked!");
+         console.log(json_data);
+         
+         if(json_data.status == "success"){
+         $('#RegistrationAlertModal').modal('show');
+         $('#appointmentStatusMessage').html(json_data.status_message);
+         
+         }
+         else if(json_data.status == "error")
+         {
+            $('#RegistrationAlertModal').modal('show');
+            $('#appointmentStatusMessage').html(json_data.status_message);
+         }
+         else if(json_data.status == "existing"){
+           
+            toastr.options.closeButton = true;
+            toastr.warning(json_data.status_message, json_data.status);
+
+            // $('#RegistrationAlertModal').modal('show');
+            // $('#appointmentStatusMessage').html(json_data.status_message);
+         }
+         $('#timepicked').val("");
+         $('#span_customersname').html(json_data.fname);
+         $('#customer_fullname').val("");
+         $('#customer_cellnum').val("");
+         $('#reason_for_appointment').val("");
+     });
+ 
+     // Callback handler that will be called on failure
+     request.fail(function (jqXHR, textStatus, errorThrown){
+         // Log the error to the console
+         console.error(
+             "The following error occurred: "+
+             textStatus, errorThrown
+         );
+     });
+ 
+     // Callback handler that will be called regardless
+     // if the request failed or succeeded
+     request.always(function () {
+         // Reenable the inputs
+         $inputs.prop("disabled", false);
+     });
+});
+
+//=== Registration modal AJAX ===//
+
+// ===Verify custoner number AJAX===//
+
+var request;
+// Bind to the submit event of our form
+$("#btnVerify").click(function(event){
+     // Prevent default posting of form - put here to work in case of errors
+     event.preventDefault();
+     $("#btnVerify").hide();
+     $("#btnVerifying").show();
+     // Abort any pending request
+     if (request) {
+         request.abort();
+     }
+     // setup some local variables
+     var $form = $("#appointmentModalForm");
+ 
+     // Let's select and cache all the fields
+     var $inputs = $form.find("input, select, button, textarea, date, checkbox");
+     
+     // Serialize the data in the form
+     var serializedData = $form.serialize();
+ 
+     // Let's disable the inputs for the duration of the Ajax request.
+     // Note: we disable elements AFTER the form data has been serialized.
+     // Disabled form elements will not be serialized.
+     $inputs.prop("disabled", true);
+ 
+     // Fire off the request to /form.php
+     request = $.ajax({
+         url: "controller/verifyCustomer.php",
+         type: "post",
+         data: serializedData
+     });
+ 
+     // Callback handler that will be called on success
+     request.done(function (response, textStatus, jqXHR){
+         // Log a message to the console
+         console.log(response);
+         var json_data = JSON.parse(response);
+         console.log("Hooray, it worked!");
+         console.log(json_data);
+         
+         if(json_data.status == "found"){
+            $('#statusVerified').show();
+            $('#btnVerify').hide();
+            $("#btnVerifying").hide();
+            $('#verifiedFullname').val(json_data.customer_name);
+            $('#appointmentForm').show();
+            
+         }
+         else if(json_data.status == "notfound")
+         {
+            $("#btnVerify").show();
+            $("#btnVerifying").hide();
+            toastr.options.closeButton = true;
+            toastr.warning(json_data.status_message, json_data.status);
+         }
+         else if(json_data.status == "pending")
+         {
+            $("#btnVerify").show();
+            $("#btnVerifying").hide();
+            toastr.options.closeButton = true;
+            toastr.warning(json_data.status_message, json_data.status);
+         }
+         
+         $('#timepicked').val("");
+         
+         $('#customer_fullname').val("");
+         $('#customer_cellnum').val("");
+         $('#reason_for_appointment').val("");
+     });
+ 
+     // Callback handler that will be called on failure
+     request.fail(function (jqXHR, textStatus, errorThrown){
+         // Log the error to the console
+         console.error(
+             "The following error occurred: "+
+             textStatus, errorThrown
+         );
+     });
+ 
+     // Callback handler that will be called regardless
+     // if the request failed or succeeded
+     request.always(function () {
+         // Reenable the inputs
+         $inputs.prop("disabled", false);
+     });
+});
+
+// ===Verify custoner number AJAX end===//
+
+// ===Make Appointment AJAX===//
+
+var request;
+// Bind to the submit event of our form
+$("#appointmentDetailsForm").submit(function(event){
+     // Prevent default posting of form - put here to work in case of errors
+     event.preventDefault();
+     // Abort any pending request
+
+     var customer_phone = $("#appointment_customer_phone").val();
+
+     if (request) {
+         request.abort();
+     }
+     // setup some local variables
+     var $form = $(this);
+ 
+     // Let's select and cache all the fields
+     var $inputs = $form.find("input, select, button, textarea, date, checkbox");
+     
+     // Serialize the data in the form
+     var serializedData = $form.serialize();
+     serializedData = serializedData + "&appointment_customer_phone=" + customer_phone;
+
+     // Let's disable the inputs for the duration of the Ajax request.
+     // Note: we disable elements AFTER the form data has been serialized.
+     // Disabled form elements will not be serialized.
+     $inputs.prop("disabled", true);
+ 
+     // Fire off the request to /form.php
+     request = $.ajax({
+         url: "controller/appointments.php",
+         type: "post",
+         data: serializedData
+     });
+ 
+     // Callback handler that will be called on success
+     request.done(function (response, textStatus, jqXHR){
+         // Log a message to the console
+         console.log(response);
+         var json_data = JSON.parse(response);
+         console.log("Hooray, it worked!");
+         console.log(json_data);
+         
+         if(json_data.status == "success"){
+        $('#RegistrationAlertModal').modal('show');
+         $('#appointmentStatusMessage').html(json_data.status_message);
+         }
+         else if(json_data.status == "full")
+         {
+            $('#RegistrationAlertModal').modal('show');
+            $('#appointmentStatusMessage').html(json_data.status_message);
+         }
+         
+         
+         $('#timepicked').val("");
+         $('#customer_fullname').val("");
+         $('#reason_for_appointment').val("");
+     });
+ 
+     // Callback handler that will be called on failure
+     request.fail(function (jqXHR, textStatus, errorThrown){
+         // Log the error to the console
+         console.error(
+             "The following error occurred: "+
+             textStatus, errorThrown
+         );
+     });
+ 
+     // Callback handler that will be called regardless
+     // if the request failed or succeeded
+     request.always(function () {
+         // Reenable the inputs
+         $inputs.prop("disabled", false);
+     });
+});
+
+// ===Make Appointment AJAX end===//
+
 
 $(function () {
     // Slideshow 4
@@ -333,3 +592,14 @@ $("#appointment_modal_CellNumber").keypress(function(e) {
       }
     }
    });
+
+
+$('#btnMakeAppointment').click(function(){
+    $('#makeAppointment-modal').modal('show');
+    $('#registration-modal').modal('hide');
+});
+
+$('#btnRegistration').click(function(){
+    $('#makeAppointment-modal').modal('hide');
+    $('#registration-modal').modal('show');
+});

@@ -39,6 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link rel='stylesheet' type='text/css' href='css/jquery.easy-gallery.css' />
 	<!-- For-gallery-CSS -->
 	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/toastr.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- //pop-ups-->
 	<link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
 	<link rel="shortcut icon" href="img/officiallogo.ico">
@@ -69,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="#about" class="scroll">About</a></li>
 								<li><a href="#services" class="scroll">Services</a></li>
 								<li class="active" style="border: 2px solid #20c7b3;">
-									<a href="#" data-toggle="modal" id="buttontick" data-target="#makeAppointment-modal">Make an Appointment</a>
+									<a href="#" data-toggle="modal" id="buttontick" data-target="#registration-modal">Make an Appointment</a>
 								</li>
 								<!-- <li><a href="#gallery" class="scroll">Gallery</a></li> -->
 								<li><a href="#contact" class="scroll">Contact Us</a></li>
@@ -97,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										    class="fa fa-paw paw-banner" aria-hidden="true"></span><span class="fa fa-paw paw-banner" aria-hidden="true"></span></h4>
 									<p>Make appointments with us online by clicking button below</p>
 									<div class="outs_more-buttn">
-									<a href="#" data-toggle="modal" data-target="#makeAppointment-modal">Click Here!</a>
+									<a href="#" data-toggle="modal" data-target="#registration-modal">Click Here!</a>
 									</div>
 								</div>
 							</div>
@@ -131,39 +132,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 	<!-- //modal -->
 
-	<!-- Make Appointment Modal -->
-	<div class="modal about-modal fade" id="makeAppointment-modal" tabindex="-1" role="dialog">
+	<!-- Registration information Modal -->
+	<div class="modal about-modal fade" id="registration-modal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" id="buttonclosemodal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Make an Appointment</h4>
+						<h6 class="modal-title">We need to verify your personal information first before making an appointment.<p> Already verified? <button id="btnMakeAppointment" class="btnn">Make appointment now!</button></p></h6>
 					</div>
 					<div class="modal-body">
 						<div class="out-info">
 							<div class="letter-w3ls">
 
-								<form id="appointmentModalForm">
-									<div class="form-header">Appointment Information<br><br></div>
+								<form id="registrationModalForm">
+									<div class="form-header">Your Personal Information<br><br></div>
 									<div class="main">
 									<div class="form-left-to-w3l">
 
-										<input type="date" class="" id="appointment_modal_Date" name="datepicked"  >
+									<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationFullname"   maxlength="45" placeholder="FullName">
 											<div class="clear"></div>
 										</div>
 
 										 <div class="form-right-to-w3ls">
-
-										 <select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
-										 <option value="" name = "timepicked">Choose a Time Block</option>
-										 <option value="Block A (8am-9am)" name = "timepicked">Block A (8am-9am)</option>
-                          				<option value="Block B (9am-10am)" name = "timepicked">Block B (9am-10am)</option>
-                          				<option value="Block C (10am-11pm)" name = "timepicked">Block C (10am-11pm)</option>
-                         				<option value="Block D (11am-12am)" name = "timepicked">Block D (11am-12am)</option>
-                          				<option value="Block E (1pm-2pm)" name = "timepicked">Block E (1pm-2pm)</option>
-                         				<option value="Block F (2pm-3pm)" name = "timepicked">Block F (2pm-3pm)</option>
-                         				<option value="Block G (3pm-4pm)" name = "timepicked">Block G (3pm-4pm)</option>
-											</select>
+										 <input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationAddress"   maxlength="45" placeholder="Address">
+										
 											<div class="clear"></div>
 										</div>
 
@@ -172,154 +164,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_fullname"   maxlength="45" placeholder="Customers' Name">
+										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address">
 											<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
-
-										<input type="text" id="appointment_modal_CellNumber" style="display:block" name="customer_cellnum" maxlength="11" placeholder="Phone Number">
+										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationCellphone"   maxlength="45" placeholder="Cellphone Number">
 											<div class="clear"></div>
 										</div>
 									</div>
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<select id="appointment_modal_TimeBlock" class="form-control" name = "reason_for_appointment">
-											<option value="" name = "reason_for_appointment">Reason for Appointment</option>
-											<option value="Consultation" name = "reason_for_appointment">Consultation</option>
-											<option value="Vaccination" name = "reason_for_appointment">Vaccination</option>
-											<option value="Treatment" name = "reason_for_appointment">Treatment</option>
-											<option value="Surgery" name = "reason_for_appointment">Surgery</option>
-											<option value="Deworming" name = "reason_for_appointment">Deworming</option>
-											<option value="Boarding" name = "reason_for_appointment">Boarding</option>
-											<option value="Confinement" name = "reason_for_appointment">Confinement</option>
-											<option value="Grooming" name = "reason_for_appointment">Grooming</option>
-											<option value="Other" name = "reason_for_appointment">Other</option>
-											</select>
+										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationTelephone"   maxlength="45" placeholder="Telephone Number">
+										
 										</div>
 										<div class="form-right-to-w3ls">
-										
+										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationOptional"   maxlength="10" placeholder="Cellphone (Optional)">
 											<div class="clear"></div>
 										</div>
 									</div>
 
-
-									<div class="form-add-to-w3ls add">
-									<label><input class="checkboxchecked" type="checkbox" id="toggle-show" name="newuser" value="showhiddenfields" onclick="showFunction(); ClearFields();"> <span>New User?</span></label>
-										
-										<div class="clear"></div>
-									</div>
-
-									<!-- DAPAT HIDDEN DRI -->
-									<!-- <div class="hidden" for="toggle-show"> -->
-									<!-- DAPAT HIDDEN DRI -->
 									<div class="divider"></div>
 
-									<div id="hidden-header" style="display:none" class="form-header">Customers' Information<br><br></div>
-										<div class="form-left-to-w3l add">
-
-										<input id="hidden-fullname" name="hidden_customers_name" style="display:none" type="text" placeholder="FullName">
-											<div class="clear"></div>
-										</div>
-
-										<!-- <div class="form-right-to-w3ls">
-
-											<input type="text" name="last name" placeholder="Last Name" required="">
-											<div class="clear"></div>
-										</div> -->
-
-									
-
-										<div class="main">
-										<div class="form-left-to-w3l">
-
-										<input id="hidden-email" name="hidden_customers_email" style="display:none" type="email" name="email" placeholder="Email">
-											<div class="clear"></div>
-										</div>
-										<div class="form-right-to-w3ls">
-
-										<input id="hidden-celnum" name="hidden_customers_celnum" style="display:none" type="text" name="phone number" placeholder="Cellphone Number">
-											<div class="clear"></div>
-										</div>
-									</div>
-									<div class="main">
-
-									<div class="form-left-to-w3l">
-									<input id="hidden-celnum2" name="hidden_customers_celnum2" style="display:none" type="text" name="email" placeholder="cell-Notification">
-									<div class="clear"></div>
-									</div>
-
-									<div class="form-right-to-w3ls">
-									<input id="hidden-celnum3" name="hidden_customers_celnum3" style="display:none" type="text" name="phone number" placeholder="Cell 2(Optional)">
-									<div class="clear"></div>
-									</div>
-									</div>
-									<div class="main">
-
-										<div class="form-left-to-w3l">
-										<input id="hidden-faxnum" name="hidden_customers_faxnum" style="display:none" type="text" name="phone number" placeholder="Fax Number">
-										<div class="clear"></div>
-										</div>
-										<div class="form-right-to-w3ls">
-										<input id="hidden-phonenum" name="hidden_customers_phonenum" style="display:none" type="text" name="phone number" placeholder="Phone Number">
-											<div class="clear"></div>
-										</div>
-									</div>
-
-
-									<div class="form-add-to-w3ls add">
-
-									<input id="hidden-address" name="hidden_customers_address" style="display:none" type="text" name="address" placeholder="Home Address">
-										<div class="clear"></div>
-									</div>
-									</div>
-
-
 								
-								
-
-									
-
-									<!-- hIDDEN ENDS HERE -->
-									<!-- </div> -->
-									<!-- hIDDEN ENDS HERE -->
-
-
-									<!-- <div class="main">
-										<div class="form-left-to-w3l">
-
-											<input type="text" name="city" placeholder="City" required="">
-											<div class="clear"></div>
-										</div>
-										<div class="form-right-to-w3ls">
-											<input type="text" name="state" placeholder="State" required="">
-											<div class="clear"></div>
-										</div>
-
-									</div> -->
-									<!-- <div class="main">
-										<div class="form-left-to-w3l">
-											<input type="text" name="Pin code" placeholder="Pin code" required="">
-											<div class="clear"></div>
-										</div>
-										<div class="form-right-to-w3ls">
-											<select class="form-control buttom">
-												<option value="">
-												Select Country</option>
-													<option value="category2">Oman</option>
-													<option value="category1">Australia</option>
-													<option value="category3">America</option>
-													<option value="category3">London</option>
-													<option value="category3">Goa</option>
-													<option value="category3">Canada</option>
-													<option value="category3">Srilanka</option>
-												</select>
-
-											<div class="clear"></div>
-										</div>
-
-									</div> -->
-
 									<div class="btnn">
 										<button id="make_appointment_modal_SubmitAppointment" value="" name="make_appointment_modal_SubmitAppointment" type="submit">Submit</button><br>
 									</div>
@@ -334,7 +201,126 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-	<!-- //Make Appointment Modal -->
+
+	<!-- //Register information Modal -->
+
+
+	<!-- Make appointment Modal start -->
+
+	<div class="modal about-modal fade" id="makeAppointment-modal" tabindex="-2" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" id="buttonclosemodal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h6 class="modal-title">Make Appointment<p> Not yet Registered? <button id="btnRegistration" class="btnn">Register now!</button></p></h6>
+					</div>
+					<div class="modal-body">
+						<div class="out-info">
+							<div class="letter-w3ls">
+
+								<form id="appointmentModalForm">
+									<div class="form-header">Please enter your cellphone number.<br><br></div>
+
+									<div class="main">
+									<div class="form-left-to-w3l">
+
+									<input type="text" id="appointment_customer_phone" style="display:block" name="appointment_customer_phone"   maxlength="12" placeholder="Cellphone Number">
+											<div class="clear"></div>
+										</div>
+
+										 <div class="form-right-to-w3ls">
+										 <button id="btnVerify" class="btnn">Verify</button>
+										 <button id="btnVerifying" style="display:none;" class="btnn" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
+										 <h4 id="statusVerified" style="display:none;">
+										 	<span class="label label-success"><span class="fa fa-check" aria-hidden="true"></span>Verified</span>
+										</h4>
+								
+										<div class="clear"></div>
+									</div>
+									</div>
+								</form>
+								
+									<div class="divider mb-20"></div>
+								
+									<form id="appointmentDetailsForm">
+										<div style="display:none;" id="appointmentForm">
+										<div class="main">
+											<div class="form-left-to-w3l">
+										
+											<input type="text" id="verifiedFullname" name="verifiedCustomerName" readonly="true">
+												
+												<div class="clear"></div>
+											</div>
+
+											<div class="form-right-to-w3ls">
+											
+											<input type="date" class="" id="appointment_modal_Date" name="datepicked"  >
+												
+											</h4>
+
+												<div class="clear"></div>
+											</div>
+											</div>
+										
+											<div class="main">
+
+											<div class="form-left-to-w3l">
+											<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
+											<option value="" name = "timepicked">Choose a Time Block</option>
+											<option value="Block A (8am-9am)" name = "timepicked">Block A (8am-9am)</option>
+											<option value="Block B (9am-10am)" name = "timepicked">Block B (9am-10am)</option>
+											<option value="Block C (10am-11pm)" name = "timepicked">Block C (10am-11pm)</option>
+											<option value="Block D (11am-12am)" name = "timepicked">Block D (11am-12am)</option>
+											<option value="Block E (1pm-2pm)" name = "timepicked">Block E (1pm-2pm)</option>
+											<option value="Block F (2pm-3pm)" name = "timepicked">Block F (2pm-3pm)</option>
+											<option value="Block G (3pm-4pm)" name = "timepicked">Block G (3pm-4pm)</option>
+												</select>
+												
+												<div class="clear"></div>
+											</div>
+
+											<div class="form-right-to-w3ls">
+											
+											<select id="appointment_modal_TimeBlock" class="form-control" name = "reason_for_appointment">
+												<option value="" name = "reason_for_appointment">Reason for Appointment</option>
+												<option value="Consultation" name = "reason_for_appointment">Consultation</option>
+												<option value="Vaccination" name = "reason_for_appointment">Vaccination</option>
+												<option value="Treatment" name = "reason_for_appointment">Treatment</option>
+												<option value="Surgery" name = "reason_for_appointment">Surgery</option>
+												<option value="Deworming" name = "reason_for_appointment">Deworming</option>
+												<option value="Boarding" name = "reason_for_appointment">Boarding</option>
+												<option value="Confinement" name = "reason_for_appointment">Confinement</option>
+												<option value="Grooming" name = "reason_for_appointment">Grooming</option>
+												<option value="Other" name = "reason_for_appointment">Other</option>
+												</select>
+												
+											</h4>
+
+											
+											
+												<div class="clear"></div>
+												
+											</div>										
+											</div>
+
+											<div class="btnn">
+												<button id="btnSubmitAppointment" name="btnSubmitAppointment" type="submit">Submit</button><br>
+											</div>
+									</form>
+							</div>
+						</div>
+						<!--//register form-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Make appointment Modal End -->
+
+
+
 	<!--About-->
 	<div class="about" id="about">
 		<div class="container">
@@ -345,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span class="fa fa-paw dog-arrow" aria-hidden="true"></span>Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006.The origin of 
                         the clinic’s name comes from the association of Pet Lovers in Southwestern University PHINMA.The clinic was created out of passion and 
                         love for pets. The clinic accommodates as many pets as theycan work on in a day. It is their will and a heart of passion to save and help
-                         every pet that needs remedy. The clinic is open from Sunday to Saturday and this includes services they could offer such asgrooming,
+                         every pet that needs remedy. The clinic is open from Sunday to Saturday and this includes services they could offer such as grooming,
                           vaccination, surgery, boarding, check-up, confinement, consultation, treatment, deworming and house calls service.The clinic accepts
                            walk-in clients and appointment schedules for pets. Pet Science Veterinary Clinic stores information that includes vaccination history,
                             consultation, and the meditation of pets.Unfortunately, because of the limited source of vaccine, they only accept feline and canine
@@ -517,7 +503,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- // feedback modal alert end -->
 
 	<!-- appointment success modal alert start -->
-	<div class="modal about-modal fade" id="appointmentAlertModal" tabindex="-1" role="dialog">
+
+	<!-- <div class="modal about-modal fade" id="appointmentAlertModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -531,8 +518,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
+
 	<!-- appointment success modal alert end -->
+
+		<!-- Registration success modal alert start -->
+		<div class="modal about-modal fade" id="RegistrationAlertModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Thank you!</h4>
+					</div>
+					<div class="modal-body text-center">
+						<h5 id="appointmentStatusMessage"></h5>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">OK</span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Registration success modal alert end -->
 
 
 
@@ -689,6 +695,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--js working-->
 	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
 	<script src="js/bootstrap.js"></script>
+	<script src="js/toastr.js"></script>
 	<!-- //js  working-->
 
 	<script src="js/responsiveslides.min.js"></script>
