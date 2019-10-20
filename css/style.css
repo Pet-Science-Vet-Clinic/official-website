@@ -452,7 +452,7 @@ background-size:40px;
 	padding:1em;
 }
 .btnn {
-    text-align: center;
+    text-align: right;
 }
 .main {
     display: -webkit-flex;
@@ -2034,6 +2034,10 @@ h4.form-header {
 
 .mt-20 {
     margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
 }
 
 .thead-gray {
