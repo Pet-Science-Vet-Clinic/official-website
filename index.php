@@ -167,10 +167,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address">
 											<div class="clear"></div>
 										</div>
+
 										<div class="form-right-to-w3ls">
-										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationCellphone"   maxlength="45" placeholder="Cellphone Number">
-											<div class="clear"></div>
-										</div>
+										
+													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="45" placeholder="Cellphone Number">
+											
+													<div class="clear"></div>
+												</div>
+											
 									</div>
 									<div class="main">
 

@@ -1,56 +1,28 @@
 
 
-function showFunction() {
-    // Get the checkbox
-    var checkBox = document.getElementById("toggle-show");
-    // Get the output text
-   
-    
-    var element6 = document.getElementById("hidden-Submitbtn");
-    var element7 = document.getElementById("hidden-fullname");
-    var element8 = document.getElementById("hidden-celnum");
-    var element9 = document.getElementById("hidden-faxnum");
-    var element10 = document.getElementById("hidden-phonenum");
-    var element12 = document.getElementById("hidden-email");
-    var element13 = document.getElementById("hidden-address");
-    var element14 = document.getElementById("hidden-celnum2");
-    var element15 = document.getElementById("hidden-celnum3");
-
-    var element16 = document.getElementById("appointment_modal_CellNumber");
-    var element17 = document.getElementById("appointment_modal_Fullname");
-    // If the checkbox is checked, display the output text
-    if (checkBox.checked == true){
-     
-      element6.style.display = "block";
-    //   element7.style.display = "block";
-    //   element8.style.display = "block";
-    //   element9.style.display = "block";
-    //   element10.style.display = "block";
-    //   element12.style.display = "block";
-    //   element13.style.display = "block";
-    //   element14.style.display = "block";
-    //   element15.style.display = "block";
-
-    //   element16.style.display ="none"; 
-    //   element17.style.display ="none"; 
-    } else {
-       
-        
-        element6.style.display = "none";
-        // element7.style.display = "none";
-        // element8.style.display = "none";
-        // element9.style.display = "none";
-        // element10.style.display = "none";
-        // element12.style.display = "none";
-        // element13.style.display = "none";
-        // element14.style.display = "none";
-        // element15.style.display = "none";
-
-        // element16.style.display = "block";
-        // element17.style.display = "block";
-        
+function CheckNumber_valid_(str){
+    if(str.charAt(0) != "0" || str.charAt(1) != "9"  || str.length < 11 ){
+        return true;
+    }else{
+        return false;
     }
-  } 
+}
+
+function Repelace_63Number(str){
+    if(!CheckNumber_valid_(str)){
+        str = str.substr(1);
+        return str = `+63${str}`;
+    }else{
+        if(str.charAt(0) == "+" && str.charAt(1) == "6" && str.charAt(2) == "3"){
+            str = str.substr(0);
+            str = str.substr(1);
+            str = str.substr(2);
+            return str = `0${str}`;
+        }else{
+            return str;
+        }
+    }
+}
 
 
 
@@ -603,3 +575,20 @@ $('#btnRegistration').click(function(){
     $('#makeAppointment-modal').modal('hide');
     $('#registration-modal').modal('show');
 });
+
+
+
+$("#customer_RegistrationCellphone").keypress(function(e) {
+    var allowed_Letters = /^[0-9]*$/;
+    if (e.which !== 0) {
+      if( !String.fromCharCode(e.which).match(allowed_Letters)){
+        return false;
+      }
+    }
+   });
+  
+  
+   $("#customer_RegistrationCellphone").focusout(function() {
+    $('#customer_RegistrationCellphone').val(Repelace_63Number($('#customer_RegistrationCellphone').val()));
+    // alert(CheckNumber_valid_($('#CRF_Cell').val()));
+   });
