@@ -70,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="#about" class="scroll">About</a></li>
 								<li><a href="#services" class="scroll">Services</a></li>
 								<li class="active" style="border: 2px solid #20c7b3;">
-									<a href="#" data-toggle="modal" id="buttontick" data-target="#registration-modal">Make an Appointment</a>
+									<a href="#" data-toggle="modal" id="buttontick" >Make an Appointment</a>
 								</li>
 								<!-- <li><a href="#gallery" class="scroll">Gallery</a></li> -->
 								<li><a href="#contact" class="scroll">Contact Us</a></li>
@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										    class="fa fa-paw paw-banner" aria-hidden="true"></span><span class="fa fa-paw paw-banner" aria-hidden="true"></span> </h4>
 									<p>Click the button below to register and make an appointment today.</p>
 									<div class="outs_more-buttn">
-										<a href="#" data-toggle="modal" id="buttontick" data-target="#makeAppointment-modal" onclick="ticker();">Register Now!</a>
+										<a href="#" data-toggle="modal" id="buttonticks" data-target="#makeAppointment-modal" onclick="ticker2();">Register Now!</a>
 									</div>
 								</div>
 							</div>
@@ -138,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" id="buttonclosemodal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h6 class="modal-title">We need to verify your personal information first before making an appointment.<p> Already verified? <button id="btnMakeAppointment" class="btnn">Make appointment now!</button></p></h6>
+						<h6 class="modal-title">We need to verify your personal information first before making an appointment.</h6><p><br><h6 class="modal-textdesc">Already verified?  <button id="btnMakeAppointment" class="btnn">Make appointment now!</button></p></h6>
 					</div>
 					<div class="modal-body">
 						<div class="out-info">
@@ -149,12 +149,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 									<div class="form-left-to-w3l">
 
-									<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationFullname"   maxlength="45" placeholder="FullName">
+									<input type="text" id="customer_RegistrationFullname" style="display:block" name="customer_RegistrationFullname"   maxlength="45" placeholder="FullName" required>
 											<div class="clear"></div>
 										</div>
 
 										 <div class="form-right-to-w3ls">
-										 <input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationAddress"   maxlength="45" placeholder="Address">
+										 <input type="text" id="customer_RegistrationAddress" style="display:block" name="customer_RegistrationAddress"   maxlength="45" placeholder="Address" required>
 										
 											<div class="clear"></div>
 										</div>
@@ -164,13 +164,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address">
+										<input type="text" id="customer_RegistrationEmail" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address" required>
 											<div class="clear"></div>
 										</div>
 
 										<div class="form-right-to-w3ls">
 										
-													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="45" placeholder="Cellphone Number">
+													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="45" placeholder="Cellphone Number" required>
 											
 													<div class="clear"></div>
 												</div>
@@ -179,11 +179,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationTelephone"   maxlength="45" placeholder="Telephone Number">
+										<input type="text" id="customer_RegistrationTelephone" style="display:block" name="customer_RegistrationTelephone"   maxlength="45" placeholder="Telephone Number" required>
 										
 										</div>
 										<div class="form-right-to-w3ls">
-										<input type="text" id="appointment_modal_Fullname" style="display:block" name="customer_RegistrationOptional"   maxlength="10" placeholder="Cellphone (Optional)">
+										<input type="text" id="customer_RegistrationOptional" style="display:block" name="customer_RegistrationOptional"   maxlength="10" placeholder="Cellphone (Optional)">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -215,8 +215,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" id="buttonclosemodal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h6 class="modal-title">Make Appointment<p> Not yet Registered? <button id="btnRegistration" class="btnn">Register now!</button></p></h6>
+						<button type="button" id="btnCloseModal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h6 class="modal-title">Make Appointment</h6><br><p><h6 class="modal-textdesc"> Not yet Registered? <button id="btnRegistration" class="btnn">Register now!</button></p></h6>
 					</div>
 					<div class="modal-body">
 						<div class="out-info">
@@ -228,7 +228,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 									<div class="form-left-to-w3l">
 
-									<input type="text" id="appointment_customer_phone" style="display:block" name="appointment_customer_phone"   maxlength="12" placeholder="Cellphone Number">
+									<input type="text" id="appointment_customer_phone" style="display:block" name="appointment_customer_phone"   maxlength="12" placeholder="Cellphone Number" required>
 											<div class="clear"></div>
 										</div>
 
@@ -286,16 +286,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="form-right-to-w3ls">
 											
 											<select id="appointment_modal_TimeBlock" class="form-control" name = "reason_for_appointment">
-												<option value="" name = "reason_for_appointment">Reason for Appointment</option>
+												<option value="" name = "reason_for_appointment">Appointment type</option>
 												<option value="Consultation" name = "reason_for_appointment">Consultation</option>
 												<option value="Vaccination" name = "reason_for_appointment">Vaccination</option>
 												<option value="Treatment" name = "reason_for_appointment">Treatment</option>
-												<option value="Surgery" name = "reason_for_appointment">Surgery</option>
 												<option value="Deworming" name = "reason_for_appointment">Deworming</option>
 												<option value="Boarding" name = "reason_for_appointment">Boarding</option>
 												<option value="Confinement" name = "reason_for_appointment">Confinement</option>
 												<option value="Grooming" name = "reason_for_appointment">Grooming</option>
-												<option value="Other" name = "reason_for_appointment">Other</option>
 												</select>
 												
 											</h4>
@@ -537,7 +535,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="modal-body text-center">
 						<h5 id="appointmentStatusMessage"></h5>
 					</div>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">OK</span></button>
+					<button type="button" class="close" id="btnRegistrationOk" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">OK</span></button>
 				</div>
 			</div>
 		</div>

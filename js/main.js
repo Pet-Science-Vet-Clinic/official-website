@@ -11,19 +11,17 @@ function CheckNumber_valid_(str){
 function Repelace_63Number(str){
     if(!CheckNumber_valid_(str)){
         str = str.substr(1);
-        return str = `+63${str}`;
+        return str = `63${str}`;
     }else{
-        if(str.charAt(0) == "+" && str.charAt(1) == "6" && str.charAt(2) == "3"){
+        if(str.charAt(0) == "6" && str.charAt(1) == "3"){
             str = str.substr(0);
             str = str.substr(1);
-            str = str.substr(2);
-            return str = `0${str}`;
+            return str = `6${str}`;
         }else{
             return str;
         }
     }
 }
-
 
 
 function ticker(){
@@ -36,44 +34,21 @@ $.fn.checkboxMaster = function(list) {
     });
 
 }
-// $(function() {
-//     $("#buttontick").on("click",function() {
-//       $("input[value='showhiddenfields']").prop("checked",true);
-//     });
-//   });
-//   $(function() {
-//     $("#buttonclosemodal").on("click",function() {
-//       $("input[value='showhiddenfields']").prop("checked",false);
-//     });
-//   });
-  
-function CheckNumber_valid_(str){
-    if(str.charAt(0) != "0" || str.charAt(1) != "9"  || str.length < 11 ){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-function Repelace_63Number(str){
-    if(!CheckNumber_valid_(str)){
-        str = str.substr(1);
-        return str = `+63${str}`;
-    }else{
-        if(str.charAt(0) == "+" && str.charAt(1) == "6" && str.charAt(2) == "3"){
-            str = str.substr(0);
-            str = str.substr(1);
-            str = str.substr(2);
-            return str = `0${str}`;
-        }else{
-            return str;
-        }
-    }
-}
-
-
 //====== AJAX START====//
 
+$("#btnVerify").click(function()
+   {
+
+    $('#appointment_customer_phone').val(Repelace_63Number($('#appointment_customer_phone').val()));
+    
+   });
+   
+  
+   $("#customer_RegistrationCellphone").focusout(function()
+    {
+    $('#customer_RegistrationCellphone').val(Repelace_63Number($('#customer_RegistrationCellphone').val()));
+    // alert(CheckNumber_valid_($('#CRF_Cell').val()));
+   });
 
 
 // Contact Us Send Email
@@ -265,36 +240,55 @@ $("#registrationModalForm").submit(function(event){
      });
  
      // Callback handler that will be called on success
-     request.done(function (response, textStatus, jqXHR){
+     request.done(function (response, textStatus, jqXHR)
+     {
          // Log a message to the console
          console.log(response);
          var json_data = JSON.parse(response);
          console.log("Hooray, it worked!");
          console.log(json_data);
          
-         if(json_data.status == "success"){
-         $('#RegistrationAlertModal').modal('show');
-         $('#appointmentStatusMessage').html(json_data.status_message);
-         
-         }
-         else if(json_data.status == "error")
-         {
-            $('#RegistrationAlertModal').modal('show');
-            $('#appointmentStatusMessage').html(json_data.status_message);
-         }
-         else if(json_data.status == "existing"){
-           
-            toastr.options.closeButton = true;
-            toastr.warning(json_data.status_message, json_data.status);
+            if(json_data.status == "success")
+            {
+                $('#RegistrationAlertModal').modal('show');
+                $('#appointmentStatusMessage').html(json_data.status_message);
+                $('#customer_RegistrationFullname').val("");
+                $('#customer_RegistrationAddress').val("");
+                $('#customer_RegistrationEmail').val("");
+                $('#customer_RegistrationCellphone').val("");
+                $('#customer_RegistrationTelephone').val("");
+                $('#customer_RegistrationOptional').val("");
+            }
+            else if(json_data.status == "error")
+            {
+                $('#RegistrationAlertModal').modal('show');
+                $('#appointmentStatusMessage').html(json_data.status_message);
+            }
+            else if(json_data.status == "existing"){
+            
+                toastr.options.closeButton = true;
+                toastr.warning(json_data.status_message, json_data.status);
 
-            // $('#RegistrationAlertModal').modal('show');
-            // $('#appointmentStatusMessage').html(json_data.status_message);
-         }
-         $('#timepicked').val("");
-         $('#span_customersname').html(json_data.fname);
-         $('#customer_fullname').val("");
-         $('#customer_cellnum').val("");
-         $('#reason_for_appointment').val("");
+                // $('#RegistrationAlertModal').modal('show');
+                // $('#appointmentStatusMessage').html(json_data.status_message);
+            }
+            else if(json_data.status == "existingName"){
+            
+                toastr.options.closeButton = true;
+                toastr.warning(json_data.status_message, json_data.status);
+
+                // $('#RegistrationAlertModal').modal('show');
+                // $('#appointmentStatusMessage').html(json_data.status_message);
+            }
+            else if(json_data.status == "existingPhone"){
+            
+                toastr.options.closeButton = true;
+                toastr.warning(json_data.status_message, json_data.status);
+
+                // $('#RegistrationAlertModal').modal('show');
+                // $('#appointmentStatusMessage').html(json_data.status_message);
+            }
+               
      });
  
      // Callback handler that will be called on failure
@@ -316,7 +310,47 @@ $("#registrationModalForm").submit(function(event){
 
 //=== Registration modal AJAX ===//
 
+// === Clear fields on close start === //
+
+// var request;
+// // Bind to the submit event of our form
+// $("#btnCloseModal").click(function(event){
+//     $('#statusVerified').hide();
+//     $('#btnVerify').show();
+//     $("#btnVerifying").hide();
+//     $('#verifiedFullname').val();
+//     $('#appointment_customer_phone').val("");
+//     $('#appointmentForm').hide();
+//     $('#appointment_customer_phone').removeAttr('disabled');
+    
+// });
+
+// === Clear fields on close end === //
+
+var request;
+// Bind to the submit event of our form
+$("#btnMakeAppointment").click(function()
+{
+    $('#makeAppointment-modal').modal({
+        backdrop: "static",
+        keyboard: false
+    });
+
+});
+$("#buttontick").click(function()
+{
+    $('#registration-modal').modal({
+        backdrop: "static",
+        keyboard: false
+    });
+
+});
+
+
+
+
 // ===Verify custoner number AJAX===//
+
 
 var request;
 // Bind to the submit event of our form
@@ -325,10 +359,15 @@ $("#btnVerify").click(function(event){
      event.preventDefault();
      $("#btnVerify").hide();
      $("#btnVerifying").show();
+     $("#btnCloseModal").hide();
+    //  $('#makeAppointment-modal').modal({
+    //     backdrop: false
+    // });
      // Abort any pending request
      if (request) {
          request.abort();
      }
+     
      // setup some local variables
      var $form = $("#appointmentModalForm");
  
@@ -364,7 +403,7 @@ $("#btnVerify").click(function(event){
             $("#btnVerifying").hide();
             $('#verifiedFullname').val(json_data.customer_name);
             $('#appointmentForm').show();
-            
+            $('#appointment_customer_phone').disabled();
          }
          else if(json_data.status == "notfound")
          {
@@ -380,6 +419,7 @@ $("#btnVerify").click(function(event){
             toastr.options.closeButton = true;
             toastr.warning(json_data.status_message, json_data.status);
          }
+         
          
          $('#timepicked').val("");
          
@@ -406,6 +446,7 @@ $("#btnVerify").click(function(event){
 });
 
 // ===Verify custoner number AJAX end===//
+
 
 // ===Make Appointment AJAX===//
 
@@ -576,8 +617,6 @@ $('#btnRegistration').click(function(){
     $('#registration-modal').modal('show');
 });
 
-
-
 $("#customer_RegistrationCellphone").keypress(function(e) {
     var allowed_Letters = /^[0-9]*$/;
     if (e.which !== 0) {
@@ -586,9 +625,5 @@ $("#customer_RegistrationCellphone").keypress(function(e) {
       }
     }
    });
-  
-  
-   $("#customer_RegistrationCellphone").focusout(function() {
-    $('#customer_RegistrationCellphone').val(Repelace_63Number($('#customer_RegistrationCellphone').val()));
-    // alert(CheckNumber_valid_($('#CRF_Cell').val()));
-   });
+
+   
