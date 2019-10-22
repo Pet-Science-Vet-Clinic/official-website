@@ -34,6 +34,8 @@ $.fn.checkboxMaster = function(list) {
     });
 
 }
+
+
 //====== AJAX START====//
 
 $("#btnVerify").click(function()
@@ -310,22 +312,6 @@ $("#registrationModalForm").submit(function(event){
 
 //=== Registration modal AJAX ===//
 
-// === Clear fields on close start === //
-
-// var request;
-// // Bind to the submit event of our form
-// $("#btnCloseModal").click(function(event){
-//     $('#statusVerified').hide();
-//     $('#btnVerify').show();
-//     $("#btnVerifying").hide();
-//     $('#verifiedFullname').val();
-//     $('#appointment_customer_phone').val("");
-//     $('#appointmentForm').hide();
-//     $('#appointment_customer_phone').removeAttr('disabled');
-    
-// });
-
-// === Clear fields on close end === //
 
 var request;
 // Bind to the submit event of our form
@@ -340,6 +326,14 @@ $("#btnMakeAppointment").click(function()
 $("#buttontick").click(function()
 {
     $('#registration-modal').modal({
+        backdrop: "static",
+        keyboard: false
+    });
+
+});
+$("#btnAppStatus").click(function()
+{
+    $('#appStatusModal').modal({
         backdrop: "static",
         keyboard: false
     });
@@ -445,7 +439,115 @@ $("#btnVerify").click(function(event){
      });
 });
 
-// ===Verify custoner number AJAX end===//
+// ===Verify customer number AJAX end===//
+
+//=== Appointment status AJAX Start ===//
+
+var request;
+// Bind to the submit event of our form
+$("#btnVerifyStatus").click(function(event){
+     // Prevent default posting of form - put here to work in case of errors
+     event.preventDefault();
+     $("#btnVerifyStatus").hide();
+     $("#btnVerifyingStatus").show();
+     $("#btnCloseModalAppStatus").hide();
+    //  $('#makeAppointment-modal').modal({
+    //     backdrop: false
+    // });
+     // Abort any pending request
+     if (request) {
+         request.abort();
+     }
+     
+     // setup some local variables
+     var $form = $("#appStatusVerify");
+ 
+     // Let's select and cache all the fields
+     var $inputs = $form.find("input, select, button, textarea, date, checkbox");
+     
+     // Serialize the data in the form
+     var serializedData = $form.serialize();
+ 
+     // Let's disable the inputs for the duration of the Ajax request.
+     // Note: we disable elements AFTER the form data has been serialized.
+     // Disabled form elements will not be serialized.
+     $inputs.prop("disabled", true);
+ 
+     // Fire off the request to /form.php
+     request = $.ajax({
+         url: "controller/appointmentstatus.php",
+         type: "post",
+         data: serializedData
+     });
+ 
+     // Callback handler that will be called on success
+     request.done(function (response, textStatus, jqXHR){
+         // Log a message to the console
+         console.log(response);
+         var json_data = JSON.parse(response);
+         console.log("Hooray, it worked!");
+         console.log(json_data);
+         
+         if(json_data.status == "found"){
+            
+                    for(var i = 0; i < json_data.appointments_data.length; i++) 
+                    {
+                       
+                        var $row = $('<tr>'+
+                        '<td>'+json_data.appointments_data[i]["appointment_Date"]+'</td>'+
+                        '<td>'+json_data.appointments_data[i]["appointment_TimeSlot"]+'</td>'+
+                        '<td>'+json_data.appointments_data[i]["appointment_ReasonForAppointment"]+'</td>'+
+                        '<td>'+ '<button>Cancel</button>' +'</td>'+
+                        '</tr>'); 
+                        $('#displayStatsHere').append($row);
+                     }
+                
+
+            
+            console.log(json_data.appointments_data);
+           
+            console.log("Hi!");
+            $('#statusVerified').show();
+            $('#btnVerifyStatus').hide();
+            $("#btnVerifyingStatus").hide();
+            $('#appointmentStat').show();
+            $('#appointmentStatus_customer_phone').disabled();
+         }
+         else if(json_data.status == "notfound")
+         {
+            $("#btnVerifyStatus").show();
+            $("#btnVerifyingStatus").hide();
+            toastr.options.closeButton = true;
+            toastr.warning(json_data.status_message, json_data.status);
+         }
+         else if(json_data.status == "pending")
+         {
+            $("#btnVerifyStatus").show();
+            $("#btnVerifyingStatus").hide();
+            toastr.options.closeButton = true;
+            toastr.warning(json_data.status_message, json_data.status);
+         }
+         
+     });
+ 
+     // Callback handler that will be called on failure
+     request.fail(function (jqXHR, textStatus, errorThrown){
+         // Log the error to the console
+         console.error(
+             "The following error occurred: "+
+             textStatus, errorThrown
+         );
+     });
+ 
+     // Callback handler that will be called regardless
+     // if the request failed or succeeded
+     request.always(function () {
+         // Reenable the inputs
+         $inputs.prop("disabled", false);
+     });
+});
+
+//== Appointment status AJAX End ===//
 
 
 // ===Make Appointment AJAX===//

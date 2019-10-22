@@ -72,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="active" style="border: 2px solid #20c7b3;">
 									<a href="#" data-toggle="modal" id="buttontick" >Make an Appointment</a>
 								</li>
-								<!-- <li><a href="#gallery" class="scroll">Gallery</a></li> -->
+								<li><a href="#" class="scroll" id="btnAppStatus">App. Status</a></li>
 								<li><a href="#contact" class="scroll">Contact Us</a></li>
 								<li><a href="#faq" class="scroll">FAQ</a></li>
 							</ul>
@@ -273,11 +273,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<option value="" name = "timepicked">Choose a Time Block</option>
 											<option value="Block A (8am-9am)" name = "timepicked">Block A (8am-9am)</option>
 											<option value="Block B (9am-10am)" name = "timepicked">Block B (9am-10am)</option>
-											<option value="Block C (10am-11pm)" name = "timepicked">Block C (10am-11pm)</option>
-											<option value="Block D (11am-12am)" name = "timepicked">Block D (11am-12am)</option>
+											<option value="Block C (10am-11am)" name = "timepicked">Block C (10am-11am)</option>
+											<option value="Block D (11am-12pm)" name = "timepicked">Block D (11am-12pm)</option>
 											<option value="Block E (1pm-2pm)" name = "timepicked">Block E (1pm-2pm)</option>
 											<option value="Block F (2pm-3pm)" name = "timepicked">Block F (2pm-3pm)</option>
 											<option value="Block G (3pm-4pm)" name = "timepicked">Block G (3pm-4pm)</option>
+											<option value="Block G (4pm-5pm)" name = "timepicked">Block H (4pm-5pm)</option>
+											<option value="Block G (5pm-6pm)" name = "timepicked">Block I (5pm-6pm)</option>
+											<option value="Block G (6pm-7pm)" name = "timepicked">Block J (6pm-7pm)</option>
 												</select>
 												
 												<div class="clear"></div>
@@ -320,6 +323,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!-- Make appointment Modal End -->
+
+	<!-- Appointment status Modal Start -->
+
+	<div class="modal about-modal fade" id="appStatusModal" tabindex="-3" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" id="btnCloseModalAppStatus" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h6 class="modal-title">Check your appointment status here.</h6>
+					</div>
+					<div class="modal-body">
+						<div class="out-info">
+							<div class="letter-w3ls">
+
+								<form id="appStatusVerify">
+									<div class="form-header">Please enter your cellphone number.<br><br></div>
+
+									<div class="main">
+									<div class="form-left-to-w3l">
+
+									<input type="text" id="appointmentStatus_customer_phone" style="display:block" name="appointmentStatus_customer_phone"   maxlength="12" placeholder="Cellphone Number" required>
+											<div class="clear"></div>
+										</div>
+
+										 <div class="form-right-to-w3ls">
+										 <button id="btnVerifyStatus" class="btnn">Verify</button>
+										 <button id="btnVerifyingStatus" style="display:none;" class="btnn" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
+										 <h4 id="statusVerified" style="display:none;">
+										 	<span class="label label-success"><span class="fa fa-check" aria-hidden="true"></span>Verified</span>
+										</h4>
+								
+										<div class="clear"></div>
+									</div>
+									</div>
+								</form>
+								
+										<div class="divider mb-20"></div>
+									
+										<form id="appStatusDisplay">
+											<div style="display:none;" id="appointmentStat">
+												<div class="main">
+
+													<div class="container-table100">
+														<table class="table">
+																<thead class="thead-gray">
+																		<tr>
+																			<th class="col column2" data-column="column2">Scheduled Date</th>
+																			<th class="col column3" data-column="column3">Time Slot</th>
+																			<th class="col column4" data-column="column4">App Reason</th>
+																			<th class="col column5" data-column="column5">Action</th>
+																			
+																		</tr>
+																	</thead>
+																<tbody id="displayStatsHere">
+																			
+															</tbody>
+													</table>
+												</div>
+											</div>
+									</form>
+							</div>
+						</div>
+						<!--//register form-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Appointment status Modal End -->
 
 
 
