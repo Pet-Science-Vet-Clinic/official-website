@@ -5840,13 +5840,13 @@ button.list-group-item-danger.active:focus {
 }
 .close {
   float: right;
-  font-size: 21px;
+  font-size: 35px;
   font-weight: bold;
   line-height: 1;
-  color: #000;
+  color: rgb(255, 0, 0);
   text-shadow: 0 1px 0 #fff;
   filter: alpha(opacity=20);
-  opacity: .2;
+  opacity: .7;
 }
 .close:hover,
 .close:focus {
@@ -6755,3 +6755,12 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.modal-textdesc {
+  margin: 0;
+  line-height: 2.42857143;
+}
+
+
+ 
+  
