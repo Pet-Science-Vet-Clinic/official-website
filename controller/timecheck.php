@@ -10,46 +10,46 @@ $timeNowMinute= date("i");
 $timeNowEx = date("A");
 $blockTime = "";
 
-            if ($timeNowHour >= "8" && $timeNowMinute <= "59" && $timeNowEx == "AM") 
+            if ($timeNowHour == "8" && $timeNowMinute <= "59" && $timeNowEx == "AM") 
             {
                 
-                $blockTime = "Block A (8am-9am)";
+                $blockTime = "8am - 9am";
             }
-            else if ($timeNowHour >= "9" && $timeNowMinute <= "59" && $timeNowEx == "AM") {
+            else if ($timeNowHour == "9" && $timeNowMinute <= "59" && $timeNowEx == "AM") {
             
-                $blockTime = "Block B (9am-10am)";
+                $blockTime = "9am - 10am";
             }
-            else if ($timeNowHour >= "10" && $timeNowMinute <= "59" && $timeNowEx == "AM") {
+            else if ($timeNowHour == "10" && $timeNowMinute <= "59" && $timeNowEx == "AM") {
             
-                $blockTime = "Block C (10am-11am)";
+                $blockTime = "10am - 11am";
             }
-            else if ($timeNowHour >= "11" && $timeNowMinute <= "59" && $timeNowEx == "AM") {
+            else if ($timeNowHour == "11" && $timeNowMinute <= "59" && $timeNowEx == "AM") {
             
-                $blockTime = "Block D (11am-12pm)";
+                $blockTime = "11am - 12pm";
             }
-            else if ($timeNowHour >= "1" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
+            else if ($timeNowHour == "1" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
             
-                $blockTime = "Block E (1pm-2pm)";
+                $blockTime = "1pm - 2pm";
             }
-            else if ($timeNowHour >= "2" && $timeNowMinute <= "59" && $timeNowEx == "AM") {
+            else if ($timeNowHour == "2" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
             
-                $blockTime = "Block F (2pm-3pm)";
+                $blockTime = "2pm - 3pm";
             }
-            else if ($timeNowHour >= "3" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
+            else if ($timeNowHour == "3" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
             
-                $blockTime = "Block G (3pm-4pm)";
+                $blockTime = "3pm - 4pm";
             }
-            else if ($timeNowHour >= "4" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
+            else if ($timeNowHour == "4" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
             
-                $blockTime = "Block H (4pm-5pm)";
+                $blockTime = "4pm - 5pm";
             }
-            else if ($timeNowHour >= "5" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
+            else if ($timeNowHour == "5" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
             
-                $blockTime = "Block I (5pm-6pm)";
+                $blockTime = "5pm - 6pm";
             }
-            else if ($timeNowHour >= "6" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
+            else if ($timeNowHour == "6" && $timeNowMinute <= "59" && $timeNowEx == "PM") {
             
-                $blockTime = "Block J (6pm-7pm)";
+                $blockTime = "6pm - 7pm";
             }
             else {
                 $blockTime =  "Empty";
@@ -70,7 +70,7 @@ while($row = mysqli_fetch_assoc($results))
 
     // die();
 
-
+// echo $timeNowHour. ":" . $timeNowMinute;
 // echo $blockTime . $dateNow; die();
 if (mysqli_num_rows($results)>=1) 
 { 
@@ -101,7 +101,7 @@ if (mysqli_num_rows($results)>=1)
                         // echo "Record updated successfully";
                     }
                 else
-                //  echo "nothing";
+                 echo "nothing";
                 
             } 
             // else if ($timenowHour >= $AppointmentHour && $timenowMinute <= $AppointmentMinute)

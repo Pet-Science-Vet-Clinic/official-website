@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										<div class="form-right-to-w3ls">
 										
-													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="45" placeholder="Cellphone Number" required>
+													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="11" placeholder="Cellphone Number" required>
 											
 													<div class="clear"></div>
 												</div>
@@ -183,7 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										
 										</div>
 										<div class="form-right-to-w3ls">
-										<input type="text" id="customer_RegistrationOptional" style="display:block" name="customer_RegistrationOptional"   maxlength="10" placeholder="Cellphone (Optional)">
+										<input type="text" id="customer_RegistrationOptional" style="display:block" name="customer_RegistrationOptional"   maxlength="11" placeholder="Cellphone (Optional)">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -271,16 +271,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="form-left-to-w3l">
 											<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
 											<option value="" name = "timepicked">Choose a Time Block</option>
-											<option value="Block A (8am-9am)" name = "timepicked">Block A (8am-9am)</option>
-											<option value="Block B (9am-10am)" name = "timepicked">Block B (9am-10am)</option>
-											<option value="Block C (10am-11am)" name = "timepicked">Block C (10am-11am)</option>
-											<option value="Block D (11am-12pm)" name = "timepicked">Block D (11am-12pm)</option>
-											<option value="Block E (1pm-2pm)" name = "timepicked">Block E (1pm-2pm)</option>
-											<option value="Block F (2pm-3pm)" name = "timepicked">Block F (2pm-3pm)</option>
-											<option value="Block G (3pm-4pm)" name = "timepicked">Block G (3pm-4pm)</option>
-											<option value="Block G (4pm-5pm)" name = "timepicked">Block H (4pm-5pm)</option>
-											<option value="Block G (5pm-6pm)" name = "timepicked">Block I (5pm-6pm)</option>
-											<option value="Block G (6pm-7pm)" name = "timepicked">Block J (6pm-7pm)</option>
+											<option value="10am - 11am" name = "timepicked">10am - 11am</option>
+											<option value="11am - 12pm" name = "timepicked">11am - 12pm</option>
+											<option value="12pm - 1pm" name = "timepicked">12pm - 1pm</option>
+											<option value="1pm - 2pm" name = "timepicked">1pm - 2pm</option>
+											<option value="2pm - 3pm" name = "timepicked">2pm - 3pm</option>
+											<option value="3pm - 4pm" name = "timepicked">3pm - 4pm</option>
+											<option value="4pm - 5pm" name = "timepicked">4pm - 5pm</option>
 												</select>
 												
 												<div class="clear"></div>
@@ -360,29 +357,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</form>
 								
 										<div class="divider mb-20"></div>
-									
-										<form id="appStatusDisplay">
-											<div style="display:none;" id="appointmentStat">
-												<div class="main">
+										<div style="display:none;" id="appointmentStat">
+											<div class="main">
 
-													<div class="container-table100">
-														<table class="table">
-																<thead class="thead-gray">
-																		<tr>
-																			<th class="col column2" data-column="column2">Scheduled Date</th>
-																			<th class="col column3" data-column="column3">Time Slot</th>
-																			<th class="col column4" data-column="column4">App Reason</th>
-																			<th class="col column5" data-column="column5">Action</th>
-																			
-																		</tr>
-																	</thead>
-																<tbody id="displayStatsHere">
-																			
-															</tbody>
-													</table>
-												</div>
+												<div class="container-table100">
+													<table class="table" id="appStatTable">
+															<thead class="thead-gray">
+																	<tr>
+																		<th class="col column1" data-column="column1">ID</th>
+																		<th class="col column2" data-column="column2">Scheduled Date</th>
+																		<th class="col column3" data-column="column3">Time Slot</th>
+																		<th class="col column4" data-column="column4">App Reason</th>
+																		<th class="col column5" data-column="column5">Action</th>
+																		
+																	</tr>
+																</thead>
+															<tbody id="displayStatsHere">
+																		
+														</tbody>
+												</table>
 											</div>
-									</form>
+											
+										</div>
+										<div class="modal-footers">
+											<input type="hidden" id="appIDTextView" name="appIDTextView">
+											<button id="btnCloseStatModal" class="btnnDone">Done</button>
+										</div>
+										
+							
+									
+									
 							</div>
 						</div>
 						<!--//register form-->
@@ -408,7 +412,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         the clinic’s name comes from the association of Pet Lovers in Southwestern University PHINMA.The clinic was created out of passion and 
                         love for pets. The clinic accommodates as many pets as theycan work on in a day. It is their will and a heart of passion to save and help
                          every pet that needs remedy. The clinic is open from Sunday to Saturday and this includes services they could offer such as grooming,
-                          vaccination, surgery, boarding, check-up, confinement, consultation, treatment, deworming and house calls service.The clinic accepts
+                          vaccination, surgery, boarding, check-up, confinement, consultation, treatment, deworming.The clinic accepts
                            walk-in clients and appointment schedules for pets. Pet Science Veterinary Clinic stores information that includes vaccination history,
                             consultation, and the meditation of pets.Unfortunately, because of the limited source of vaccine, they only accept feline and canine
                              pets.
@@ -446,8 +450,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Grooming</h4>
-						<p>
-							tur aut.maiores alias consequatur .</p>
+						<!-- <p>
+							tur aut.maiores alias consequatur .</p> -->
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -457,8 +461,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Vaccination</h4>
-						<p>
-							tur aut.maiores alias consequatur .</p>
+						<!-- <p>
+							tur aut.maiores alias consequatur .</p> -->
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -468,8 +472,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Surgery</h4>
-						<p>
-							tur aut.maiores alias consequatur .</p>
+						<!-- <p>
+							tur aut.maiores alias consequatur .</p> -->
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -479,7 +483,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="white-shadow">
 						<h4>Boarding</h4>
-						<p>tur aut.maiores alias consequatur </p>
+						<!-- <p>tur aut.maiores alias consequatur </p> -->
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -489,7 +493,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Check-up</h4>
-						<p>tur aut.maiores alias consequatur .</p>
+						<!-- <p>tur aut.maiores alias consequatur .</p> -->
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -499,8 +503,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Confinement</h4>
-						<p>tur aut.maiores alias consequatur
-						</p>
+						<!-- <p>tur aut.maiores alias consequatur
+						</p> -->
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -510,8 +514,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Consultation</h4>
-						<p>tur aut.maiores alias consequatur
-						</p>
+						<!-- <p>tur aut.maiores alias consequatur
+						</p> -->
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -521,8 +525,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Treatment</h4>
-						<p>tur aut.maiores alias consequatur
-						</p>
+						<!-- <p>tur aut.maiores alias consequatur
+						</p> -->
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -532,12 +536,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class=" white-shadow">
 						<h4>Deworming</h4>
-						<p>tur aut.maiores alias consequatur
-						</p>
+						<!-- <p>tur aut.maiores alias consequatur
+						</p> -->
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				<div class="col-md-12 col-sm-6 col-xs-6  its-banner-grid">
+				<!-- <div class="col-md-12 col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
 						<span class="fa fa-volume-control-phone banner-icon" aria-hidden="true"></span>
 					</div>
@@ -549,7 +553,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!--//services-->
@@ -615,6 +619,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- Registration success modal alert end -->
+
+	<!-- Appointment cancel modal alert start -->
+	<div class="modal about-modal fade" id="AppointmentCancelAlert" tabindex="-4" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h5 class="modal-title">Attention</h5>
+					</div>
+					<div class="modal-body text-center">
+						<h5>Are you sure you want to cancel this appointment?</h5>
+					</div>
+					<div class="modal-footer text-center">
+						<button id="btnCancelThisAppointmentYes" style="padding: 3">Yes</button><button id="btnCancelThisAppointmentNo">No</button>
+					</div>
+					
+				</div>
+			</div>
+	</div>
+	<!-- Appointment cancel modal alert end -->
 
 
 
@@ -757,7 +781,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4> About Us</h4>
 				</div>
 				<div class="sub-para">
-					<p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p>
+					<!-- <p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p> -->
 				</div>
 			</div>
 			<div class="clearfix"> </div>

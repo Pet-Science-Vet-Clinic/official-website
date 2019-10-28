@@ -22,7 +22,7 @@
 
     $appointments_data = array();
 
-    $appStatusPending = 1;
+    $appStatusPending = 2;
     $selectedDate = "";
     $selectedTimeBlock = "";
     $selectedAppointmentReason = "";
