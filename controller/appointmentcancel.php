@@ -59,8 +59,6 @@
         $status = "failed";
         $status_header = "Cancellation failed";
         $status_message = "Time cancellation failed.";
-		// array_push($errors, "Wrong username/password combination");
-		// header("Refresh:0");
         }
     
 

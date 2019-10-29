@@ -52,7 +52,7 @@ $("#btnLoadTable").click(function(event){
                     {
                         $Appointment_Time_Slot =json_data.appointments_data[i].appointment_TimeSlot;
                         $Appointment_Date_Now =json_data.appointments_data[i].appointment_Date;
-                        $Appointment_Status =json_data.appointments_data[i].appointment_Status;
+                        $Appointment_Flag =json_data.appointments_data[i].appointment_Flag;
                         $blockTime ="";
                         if ($Appointment_Time_Slot == "8am - 9am"){ $blockTime = "8"; }
                         else if	($Appointment_Time_Slot == "9am - 10am"){ $blockTime = "9"; }
@@ -77,16 +77,16 @@ $("#btnLoadTable").click(function(event){
                         var table_5=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Email);
                         var table_6=$('<td></td>').html(json_data.appointments_data[i].appointment_Contact);
                         var table_7=$('<td></td>').html(json_data.appointments_data[i].appointment_ReasonForAppointment);
-                        if($blockTime==Hour && today==$Appointment_Date_Now && $Appointment_Status==2)
+                        if($blockTime==Hour && today==$Appointment_Date_Now && $Appointment_Flag==2)
                         {
                             var table_Buttons=$('<td style="text-align: center;"><button value="'+json_data.appointments_data[i].appointment_SystemID+'" class="btnnShowUp" id="btnShowUp" type="button" data-toggle="modal" data-target="#ConfirmShowUpModal">Show Up</button> </td>');
                         
                         }
-                        else if($Appointment_Status==1)
+                        else if($Appointment_Flag==1)
                         {
                             var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnCancel" id="" type="text" disabled>Cancelled</button> </td>');
                         }
-                        else if($Appointment_Status=="4")
+                        else if($Appointment_Flag=="4")
                         {
                             var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnAppDone" id="" type="text" disabled>Done</button> </td>');
                         }
@@ -184,7 +184,7 @@ $(document).on('click','#btnShowUpYes', function(){
                     {
                         $Appointment_Time_Slot =json_data.appointments_data[i].appointment_TimeSlot;
                         $Appointment_Date_Now =json_data.appointments_data[i].appointment_Date;
-                        $Appointment_Status =json_data.appointments_data[i].appointment_Status;
+                        $Appointment_Flag =json_data.appointments_data[i].appointment_Flag;
                         $blockTime ="";
                         if ($Appointment_Time_Slot == "8am - 9am"){ $blockTime = "8"; }
                         else if	($Appointment_Time_Slot == "9am - 10am"){ $blockTime = "9"; }
@@ -209,16 +209,16 @@ $(document).on('click','#btnShowUpYes', function(){
                         var table_5=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Email);
                         var table_6=$('<td></td>').html(json_data.appointments_data[i].appointment_Contact);
                         var table_7=$('<td></td>').html(json_data.appointments_data[i].appointment_ReasonForAppointment);
-                        if($blockTime==Hour && today==$Appointment_Date_Now && $Appointment_Status==2)
+                        if($blockTime==Hour && today==$Appointment_Date_Now && $Appointment_Flag==2)
                         {
                             var table_Buttons=$('<td style="text-align: center;"><button value="'+json_data.appointments_data[i].appointment_SystemID+'" class="btnnShowUp" id="btnShowUp" type="button" data-toggle="modal" data-target="#ConfirmShowUpModal">Show Up</button> </td>');
                         
                         }
-                        else if($Appointment_Status==1)
+                        else if($Appointment_Flag==1)
                         {
                             var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnCancel" id="" type="text" disabled>Cancelled</button> </td>');
                         }
-                        else if($Appointment_Status=="4")
+                        else if($Appointment_Flag=="4")
                         {
                             var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnAppDone" id="" type="text" disabled>Done</button> </td>');
                         }

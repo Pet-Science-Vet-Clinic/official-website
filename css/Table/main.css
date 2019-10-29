@@ -378,4 +378,13 @@ border-radius: 4px;
 width: 110%;
 color: rgb(0, 255, 64);
 }
+.btnnVerify {
+  text-align: middle;
+  background-color: #ffffff;
+padding: 5%;
+border-radius: 4px;
+width: 10%;
+color: rgb(59, 193, 255);
+}
+
 

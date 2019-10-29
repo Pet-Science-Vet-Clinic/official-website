@@ -29,7 +29,7 @@
     if (mysqli_num_rows($results) ==1) 
       { 
 	
-            $sql = "UPDATE tb_appointment_list SET appointment_Status ='4' WHERE appointment_SystemID='$appShowUpID'";
+            $sql = "UPDATE tb_appointment_list SET appointment_Flag ='4' WHERE appointment_SystemID='$appShowUpID'";
             $resultzx = mysqli_query($db,$sql);
 
             $query2 = "SELECT * FROM tb_appointment_list";

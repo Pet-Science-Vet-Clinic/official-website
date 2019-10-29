@@ -83,6 +83,7 @@
 		'appfname' => $registration_fullname,
 		'appcnum' => $registration_cellphone,
         'status' => $status,
+        'status_header' => $status_header,
         'status_message' => $status_message
 	);
 

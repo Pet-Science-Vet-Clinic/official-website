@@ -233,10 +233,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 
 										 <div class="form-right-to-w3ls">
-										 <button id="btnVerify" class="btnn">Verify</button>
-										 <button id="btnVerifying" style="display:none;" class="btnn" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
+										 <button id="btnVerify" class="btnnVerify">Verify</button>
+										 <button id="btnVerifying" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
 										 <h4 id="statusVerified" style="display:none;">
-										 	<span class="label label-success"><span class="fa fa-check" aria-hidden="true"></span>Verified</span>
+										 <button class="verified"><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</button>
 										</h4>
 								
 										<div class="clear"></div>
@@ -258,7 +258,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="form-right-to-w3ls">
 											
-											<input type="date" class="" id="appointment_modal_Date" name="datepicked"  >
+											<input type="date" class="" id="appointment_modal_Date" name="datepicked" data-provide="datepicker">
 												
 											</h4>
 
@@ -285,7 +285,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="form-right-to-w3ls">
 											
-											<select id="appointment_modal_TimeBlock" class="form-control" name = "reason_for_appointment">
+											<select id="appointment_modal_AppointmentType" class="form-control" name = "reason_for_appointment">
 												<option value="" name = "reason_for_appointment">Appointment type</option>
 												<option value="Consultation" name = "reason_for_appointment">Consultation</option>
 												<option value="Vaccination" name = "reason_for_appointment">Vaccination</option>
@@ -307,6 +307,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="btnn">
 												<button id="btnSubmitAppointment" name="btnSubmitAppointment" type="submit">Submit</button><br>
+												<button id="btnSubmittingAppointment" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
 											</div>
 									</form>
 							</div>
@@ -345,10 +346,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 
 										 <div class="form-right-to-w3ls">
-										 <button id="btnVerifyStatus" class="btnn">Verify</button>
-										 <button id="btnVerifyingStatus" style="display:none;" class="btnn" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
+										 <button id="btnVerifyStatus" class="btnnVerify">Verify</button>
+										 <button id="btnVerifyingStatus" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
 										 <h4 id="statusVerified" style="display:none;">
-										 	<span class="label label-success"><span class="fa fa-check" aria-hidden="true"></span>Verified</span>
+										 	<button class="verified"><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</button>
 										</h4>
 								
 										<div class="clear"></div>
@@ -582,26 +583,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- // feedback modal alert end -->
 
-	<!-- appointment success modal alert start -->
-
-	<!-- <div class="modal about-modal fade" id="appointmentAlertModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Response</h4>
-					</div>
-					<div class="modal-body text-center">
-						<h5 id="appointmentStatusMessage"></h5>
-					</div>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">OK</span></button>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- appointment success modal alert end -->
-
 		<!-- Registration success modal alert start -->
 		<div class="modal about-modal fade" id="RegistrationAlertModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
@@ -791,6 +772,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<footer>
 		<p>&copy; 2019 Pet Science Vet Clinic. All Rights Reserved | Design by <a href="https://www.facebook.com/Kesterific/" target="_blank">Thesis Team</a></p>
 	</footer>
+
 
 	<!--js working-->
 	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
