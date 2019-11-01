@@ -18,10 +18,11 @@
 	$errors   = array(); 
 
 	// call the login() function if register_btn is clicked
-	if (isset($_POST['login_btn'])) {
-		login();
-		
-	}
+	// if (isset($_POST['login_btn'])) {
+	// 	// login();
+	// 	// $username = $_POST['pass_2'];
+	// 	// echo $username; die();
+	// }
 
 
 	if (isset($_GET['logout'])) {
@@ -36,7 +37,9 @@ function login(){
 	global $db, $username, $errors;
 	// grap form values
 	$username = e($_POST['username']);
-	$password = e($_POST['pass']);
+	$password = e($_POST['pass_2']);
+
+	// echo $password; die();
 
 	// make sure form is filled properly
 	if (empty($username)) {
@@ -69,14 +72,7 @@ function login(){
 		}
 	}
 }
-	
-	
 
-	function block_checker()
-	{
-		
-		
-	}
 
 	function Number_RemoveFirstCharacter($str){
 		$str =substr($str,1);
