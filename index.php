@@ -164,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-										<input type="text" id="customer_RegistrationEmail" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address" required>
+										<input type="email" id="customer_RegistrationEmail" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address" required>
 											<div class="clear"></div>
 										</div>
 

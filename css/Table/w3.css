@@ -251,6 +251,15 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     color: black; 
     border: 2px solid #008CBA;
   }
+  .logout {
+    background-color: white; 
+    color: rgb(255, 0, 0); 
+    border: 2px solid rgb(255, 0, 0);
+  }
+  .logout:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+  }
 .loadTable:hover {
     background-color: #008CBA;
     color: white;

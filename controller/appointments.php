@@ -1,6 +1,7 @@
 <?php 
 	include('conn.php');
-	
+    
+    
 	// $default_email = 'info@petsciencevet.com';
     // $fasfg = 'infopassword';
     $db = mysqli_connect($servername,$username,$password,$DatabaseName);
@@ -17,12 +18,10 @@
     $appointment_fullname = isset($_POST['verifiedCustomerName']) ? $_POST['verifiedCustomerName'] : "";
     $appointment_reason = isset($_POST['reason_for_appointment']) ? $_POST['reason_for_appointment'] : "";
     $appointment_phone = isset($_POST['appNumb']) ? $_POST['appNumb'] : "";
-    
+    $appointment_Date2Words = isset($_POST['date2words']) ? $_POST['date2words'] : "";
     
     // echo $appointment_phone; die();
     $cancel = "1";
-
-    //$register_cellnumtrap = Number_RemoveFirstCharacter($register_cellnum);
     
     // $checked = isset($_POST['newuser']) ? $_POST['newuser'] : "";
 
@@ -50,7 +49,7 @@
         if (mysqli_num_rows($results) <3) 
         { 
         
-                $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone')";
+                $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words')";
             $query=$conn->query($sql);
 
                 $status = "success";
