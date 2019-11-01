@@ -1,9 +1,10 @@
 <?php
-include('functions.php');
+// include('functions.php');
 include('conn.php');
-
-if (isLoggedIn()) {
-	header('location: login.php');
+session_start();
+if(isset($_POST['btnLogout']))
+{
+ unset($_SESSION['username']);
 }
 ?>
 
@@ -41,8 +42,10 @@ if (isLoggedIn()) {
 <!-- Header -->
 <header class="w3-panel w3-center w3-opacity" style="padding:50px 16px">
   	<h1 class="w3-xlarge">Pet Science Veterinary Clinic</h1>
-  	<h1>Talamban Cebu</h1>
-	<a href="login.php?logout='1'" class="w3-bar-item w3-button">Log out</a><br><br>
+	  <h1>Talamban Cebu</h1>
+	  <form>
+	  <h4><button class="w3-bar-item btnCss logout" value="btnLogout" id="btnLogout" name="btnLogout">Logout</button></h4><br><br>
+	</form>
 	<div>
 	<h1><button class="w3-bar-item btnCss loadTable" id="btnLoadTable">Load table</button></h1>
 	<div>

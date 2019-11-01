@@ -1,5 +1,7 @@
 var request;
 // Bind to the submit event of our form
+
+
 $("#btnLoadTable").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
@@ -132,6 +134,7 @@ $("#btnLoadTable").click(function(event){
          $inputs.prop("disabled", false);
      });
 });
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

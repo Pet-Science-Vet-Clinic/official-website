@@ -1,8 +1,26 @@
 <?php
-include('functions.php');
-if (isLoggedOut()) {
-	// $_SESSION['msg'] = "You must log in first";
-	header('location: login.php');
+include('conn.php');
+session_start();
+if(isset($_POST['btnSubmitAppointment']))
+{
+	// connect to database
+$db = mysqli_connect($servername,$username,$password,$DatabaseName);
+
+ $username=$_POST['username'];
+ $pass=$_POST['pass_2'];
+ $query = "SELECT * FROM tb_appointment_list WHERE user_Username='$username' AND user_Password ='$pass'";
+ $results = mysqli_query($db, $query);
+ if($row=mysqli_fetch_assoc($results))
+ {
+  $_SESSION['username']=$row['user_Username'];
+  echo $_SESSION; die();
+  header("location: viewtable.php");
+ }
+ else
+ {
+  echo "fail";
+ }
+ exit();
 }
 ?>
 <!DOCTYPE html>
@@ -39,13 +57,13 @@ if (isLoggedOut()) {
 				<a href="index.php" ><img src="img/rippleeffect.png" alt="IMG"></a>
 				</div>
 
-				<form id ="formed" name="formed"class="login100-form validate-form" method="post" action="viewtable.php">
+				<form id ="formed" name="formed"class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
 						Staff Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username" maxlength="20" onkeypress="return blockSpecialChar(event)">
+						<input id="Username_2_1" class="input100" type="text" name="username" placeholder="Username" maxlength="20">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-id-badge" aria-hidden="true"></i>
@@ -53,7 +71,8 @@ if (isLoggedOut()) {
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password" maxlength="20" onkeypress="return blockSpecialChar(event)">
+						<input id="Password_1" class="input100" type="password" name="pass" placeholder="Password" maxlength="20">
+						<input id="Password_2"  class="input100" type="hidden" name="pass_2" placeholder="Password" maxlength="20">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -61,7 +80,7 @@ if (isLoggedOut()) {
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" name="login_btn">
+						<button class="login100-form-btn" name="btnSubmitAppointment" id="btnSubmitAppointment">
 							Login
 						</button>
 						
@@ -82,7 +101,8 @@ if (isLoggedOut()) {
 	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<script src="js/Login/main.js"></script>
+	<!-- <script src="js/Login/main.js"></script> -->
+	<script src="js/login.js"></script>
 
 </body>
 </html>

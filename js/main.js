@@ -24,6 +24,32 @@ function Repelace_63Number(str){
     }
 }
 
+function getMonthInWords(MonthInput){
+    var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        return month[MonthInput];
+}
+
+function ConvertDate_Words(ProperDate){
+        var callbackDate = ""; 
+        var newDate = new Date(ProperDate); day = newDate.getDate(); month = newDate.getMonth() + 1; year = newDate.getFullYear();
+    
+        callbackDate = getMonthInWords(newDate.getMonth())+" "+newDate.getDate()+", "+newDate.getFullYear();
+    
+        return callbackDate;
+  }
+
 
 function ticker(){
     $('#buttontick').checkboxMaster('input[name=showhiddenfields]');
@@ -212,6 +238,7 @@ $("#btnSubmitAppointment").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
      var appNumb = $("#appointment_customer_phone").val();
+     var date2words = ConvertDate_Words($("#appointment_modal_Date").val());
     $('#btnSubmitAppointment').hide();
     $('#btnSubmittingAppointment').show();
     
@@ -222,6 +249,8 @@ $("#btnSubmitAppointment").click(function(event){
      }
      if($('#appointment_modal_AppointmentType').val()== "")
         {
+            $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
             toastr.warning("Invalid Appointment type","Please choose what appointment do you want to make with the clinic.");
@@ -229,6 +258,8 @@ $("#btnSubmitAppointment").click(function(event){
         }
         else if($('#appointment_modal_TimeBlock').val()== "")
         {
+            $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
             toastr.warning("Invalid Time block","Please choose a time block.");
@@ -241,7 +272,7 @@ $("#btnSubmitAppointment").click(function(event){
      var $inputs = $form.find("input, select, button, textarea, date, checkbox");
      
      // Serialize the data in the form
-     var serializedData = $form.serialize()+"&appNumb="+appNumb;
+     var serializedData = $form.serialize()+"&appNumb="+appNumb+"&date2words="+date2words;
  
      // Let's disable the inputs for the duration of the Ajax request.
      // Note: we disable elements AFTER the form data has been serialized.
@@ -269,6 +300,8 @@ $("#btnSubmitAppointment").click(function(event){
             toastr.options.preventDuplicates= true;
             toastr.success(json_data.status_head, json_data.status_message);
             $('#btnSubmitAppointment').show();
+            $('#btnCloseModal').show();
+            
          }
          else if(json_data.status == "error")
          {
@@ -325,6 +358,41 @@ $("#registrationModalForm").submit(function(event){
      if (request) {
          request.abort();
      }
+    //  if($('#customer_RegistrationFullname').val()== "")
+    //  {
+    //      toastr.options.closeButton = true;
+    //      toastr.options.preventDuplicates= true;
+    //      toastr.warning("Number field empty","Please enter your phone number in the textfield provided.");
+    //      return true;
+    //  }
+    //  else if($('#customer_RegistrationFullname').val()== "")
+    //  {
+    //     toastr.options.closeButton = true;
+    //     toastr.options.preventDuplicates= true;
+    //     toastr.warning("Fullname field empty","Please enter your fullname in the textfield provided.");
+    //     return true;
+    //  }
+    //  else if($('#customer_RegistrationAddress').val()== "")
+    //  {
+    //     toastr.options.closeButton = true;
+    //     toastr.options.preventDuplicates= true;
+    //     toastr.warning("Address field empty","Please enter your address in the textfield provided.");
+    //     return true;
+    //  }
+    //  else if($('#customer_RegistrationEmail').val()== "")
+    //  {
+    //     toastr.options.closeButton = true;
+    //     toastr.options.preventDuplicates= true;
+    //     toastr.warning("E-mail field empty","Please enter your E-mail in the textfield provided.");
+    //     return true;
+    //  }
+    //  else if($('#customer_RegistrationCellphone').val()== "")
+    //  {
+    //     toastr.options.closeButton = true;
+    //     toastr.options.preventDuplicates= true;
+    //     toastr.warning("Cellphone Number field empty","Please enter your cellphone number in the textfield provided.");
+    //     return true;
+    //  }
      // setup some local variables
      var $form = $(this);
  
@@ -478,6 +546,7 @@ $("#btnVerify").click(function(event){
          toastr.options.preventDuplicates= true;
          toastr.warning("Number field empty","Please enter your phone number in the textfield.");
          return true;
+         
      }
      
      $("#btnVerify").hide();
@@ -582,6 +651,9 @@ $(document).on('click','#appIDtoCancel', function(){
 $('#btnCancelThisAppointmentNo').click(function(){
     $('#AppointmentCancelAlert').modal('hide'); 
 });
+
+
+
 
 $('#btnCloseStatModal').click(function(){
     $('#appStatusModal').modal('hide');
@@ -688,6 +760,8 @@ var request;
 $("#btnVerifyStatus").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
+     $('#appointmentStatus_customer_phone').val(Repelace_63Number($('#appointment_customer_phone').val()));
+
      if($('#appointmentStatus_customer_phone').val()== "")
      {
          toastr.options.closeButton = true;
@@ -991,4 +1065,32 @@ $("#customer_RegistrationCellphone").keypress(function(e) {
     }
    });
 
+   $('#customer_RegistrationCellphone').focusout(()=>{
+    $('#customer_RegistrationCellphone').val(Repelace_63Number($('#customer_RegistrationCellphone').val()));
+
+})
+
+   $("#appointment_customer_phone").keypress(function(e) {
+    var allowed_Letters = /^[0-9]*$/;
+    if (e.which !== 0) {
+      if( !String.fromCharCode(e.which).match(allowed_Letters)){
+        return false;
+      }
+    }
+   });
+   
+   $('#appointment_customer_phone').focusout(()=>{
+    $('#appointment_customer_phone').val(Repelace_63Number($('#appointment_customer_phone').val()));
+
+})
+   $("#appointmentStatus_customer_phone").keypress(function(e) {
+    var allowed_Letters = /^[0-9]*$/;
+    if (e.which !== 0) {
+      if( !String.fromCharCode(e.which).match(allowed_Letters)){
+        return false;
+      }
+    }
+   });
+   
+  
    
