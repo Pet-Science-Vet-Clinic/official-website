@@ -42,60 +42,63 @@ if (isLoggedIn()) {
 <header class="w3-panel w3-center w3-opacity" style="padding:50px 16px">
   	<h1 class="w3-xlarge">Pet Science Veterinary Clinic</h1>
   	<h1>Talamban Cebu</h1>
-	<a href="login.php?logout='1'" class="w3-bar-item w3-button">Log out</a>
+	<a href="login.php?logout='1'" class="w3-bar-item w3-button">Log out</a><br><br>
+	<div>
+	<h1><button class="w3-bar-item btnCss loadTable" id="btnLoadTable">Load table</button></h1>
+	<div>
 </header>
 <div class="w3-padding-32">
     <div class="w3-bar w3-border">
-	<?php
-  	$query = "SELECT * FROM tb_appointment_list";
-  	$Result = mysqli_query($conn,$query);
-  	?>
  
 		<div class="container-table100">
-			<table class="table">
-				<thead class="thead-gray">
-					<tr>
-						<th class="col column2" data-column="column2">Time Slot</th>
-						<th class="col column3" data-column="column3">Scheduled Date</th>
-						<th class="col column4" data-column="column4">Customer Name</th>
-						<th class="col column5" data-column="column5">Customer Email</th>
-						<th class="col column6" data-column="column6">Customer Contact No.</th>
-						<th class="col column7" data-column="column7">Reason for Appointment</th>
-					</tr>
-				</thead>
-				<tbody>
-
-
-					<?php
-					while($rows = mysqli_fetch_array($Result)):; 
-					$Appointment_Time_Slot = $rows['appointment_TimeSlot'];
-					$Appoiment_Date = $rows['appointment_Date'];
-					$Customer_Name = $rows['appointment_Customer_Name'];
-					$Customer_Email = $rows['appointment_Customer_Email'];
-					$Customer_Contact = $rows['appointment_Contact'];
-					$Appointment_Reason = $rows['appointment_ReasonForAppointment'];
-
-					?>
-						
-							<tr class="row100">
-								<td class="col column1" data-column="column1"><?php echo $Appointment_Time_Slot;?></td>
-								<td class="col column1" data-column="column1"><?php echo $Appoiment_Date;?></td>
-								<td class="col column1" data-column="column1"><?php echo $Customer_Name;?></td>
-								<td class="col column1" data-column="column1"><?php echo $Customer_Email;?></td>
-								<td class="col column1" data-column="column1"><?php echo $Customer_Contact;?></td>
-								<td class="col column1" data-column="column1"><?php echo $Appointment_Reason;?></td>
-							</tr>
-						
-					<?php endwhile; ?>
-						
-				</tbody>
-			</table>
+			<div style="display:none;" id="TableView">
+				<table class="table">
+					<thead class="thead-gray">
+						<tr>
+							<th class="col column1" data-column="column1">ID</th>
+							<th class="col column2" data-column="column2">Time Slot</th>
+							<th class="col column3" data-column="column3">Scheduled Date</th>
+							<th class="col column4" data-column="column4">Customer Name</th>
+							<th class="col column5" data-column="column5">Customer Email</th>
+							<th class="col column6" data-column="column6">Customer Contact No.</th>
+							<th class="col column7" data-column="column7">Reason for Appointment</th>
+							<th class="col column8" data-column="column8">Status</th>
+						</tr>
+					</thead>
+						<tbody id="populateHere">
+									
+									
+						</tbody>
+						</table>
+						<input type="hidden" id="AppIDTableVal" name="AppIDTableVal">
+					</div>
+				</div>
+			</div>
 		</div>
+
+		<!-- Appointment cancel modal alert start -->
+	<div class="modal about-modal fade" id="ConfirmShowUpModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h5 class="modal-title">Attention</h5>
+					</div>
+					<div class="modal-body text-center">
+						<h5>Please confirm if the customer has arrived in the clinic.</h5>
+					</div>
+					<div class="modal-footer text-center">
+						<button class="btnnDefault" id="btnShowUpNo">No</button><button class="btnnDefault" id="btnShowUpYes">Yes</button>
+					</div>
+					
+				</div>
+			</div>
 	</div>
-</div>
-
+	<!-- Appointment cancel modal alert end -->
+	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/toastr.js"></script>
 	
-
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -104,8 +107,9 @@ if (isLoggedIn()) {
 <!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
+	<!-- <script src="js/main.js"></script> -->
+	<script src="js/viewtablejs.js"></script>
+	
 
 
 

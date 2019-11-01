@@ -11,12 +11,13 @@
     $appointment_reason = isset($_POST['reason_for_appointment']) ? $_POST['reason_for_appointment'] : "";
     $appointment_phone = isset($_POST['appointment_customer_phone']) ? $_POST['appointment_customer_phone'] : "";
     
+    $cancel = "1";
 
     //$register_cellnumtrap = Number_RemoveFirstCharacter($register_cellnum);
     
     // $checked = isset($_POST['newuser']) ? $_POST['newuser'] : "";
 
-    $query = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$appoinment_time' AND appointment_Date ='$appointment_date'";
+    $query = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$appoinment_time' AND appointment_Date ='$appointment_date' AND appointment_Flag !='$cancel'";
     $results = mysqli_query($db, $query);
     
     $status = "";

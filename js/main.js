@@ -315,6 +315,7 @@ $("#registrationModalForm").submit(function(event){
 
 var request;
 // Bind to the submit event of our form
+
 $("#btnMakeAppointment").click(function()
 {
     $('#makeAppointment-modal').modal({
@@ -340,7 +341,19 @@ $("#btnAppStatus").click(function()
 
 });
 
+$("#btnCloseModal").click(function()
+{
+    $('#makeAppointment-modal').find('input:text, input[type=date]').val('');
+});
 
+$("#btnCloseModalAppStatus").click(function()
+{
+    $('#appStatusModal').find('input:text').val('');
+});
+$("#buttonclosemodal").click(function()
+{
+    $('#registration-modal').find('input:text, input[type=date]').val('');
+});
 
 
 // ===Verify custoner number AJAX===//
@@ -441,6 +454,113 @@ $("#btnVerify").click(function(event){
 
 // ===Verify customer number AJAX end===//
 
+$(document).on('click','#appIDtoCancel', function(){
+    var IDNumber = $(this).attr('value');
+    // alert("this is ID number of clicked button"+ IDNumber);
+    $('#appIDTextView').val(IDNumber);
+    
+});
+
+$('#btnCancelThisAppointmentNo').click(function(){
+    $('#AppointmentCancelAlert').modal('hide'); 
+});
+
+$('#btnCloseStatModal').click(function(){
+    $('#appStatusModal').modal('hide');
+    var Table = document.getElementById("displayStatsHere");
+    Table.innerHTML = "";
+    $('#appointmentStat').hide();
+    $('#btnVerifyStatus').show();
+    $('#btnVerifyStatus').removeAttr('disabled');
+    $('#appointmentStatus_customer_phone').removeAttr('disabled');
+    $('#appointmentStatus_customer_phone').val("");
+    $("#btnCloseModalAppStatus").show();
+    
+    // $("#displayStatsHere").remove();
+    // $("displayStatsHere").closest('tr').remove();
+
+});
+   
+ $(document).on('click','#btnCancelThisAppointmentYes', function(){
+
+    var appID = $("#appIDTextView").val();
+    var appNumb = $("#appointmentStatus_customer_phone").val();
+     // Serialize the data in the form
+     var serializedData = "appID="+appID+"&appNumb="+appNumb;
+ 
+     // Let's disable the inputs for the duration of the Ajax request.
+     // Note: we disable elements AFTER the form data has been serialized.
+     // Disabled form elements will not be serialized.
+   
+ 
+     // Fire off the request to /form.php
+     request = $.ajax({
+         url: "controller/appointmentcancel.php",
+         type: "post",
+         data: serializedData
+     });
+ 
+     // Callback handler that will be called on success
+     request.done(function (response, textStatus, jqXHR){
+         // Log a message to the console
+         console.log(response);
+         var json_data = JSON.parse(response);
+         console.log("Hooray, it worked!");
+         console.log(json_data);
+         
+         if(json_data.status == "success"){
+            var Table = document.getElementById("displayStatsHere");
+            Table.innerHTML = "";
+            $valuesz=1;
+            for(var i = 0; i < json_data.appointments_data.length; i++) 
+            {
+                var table_R = $('<tr></tr>');
+                var table_1=$('<td></td>').html(json_data.appointments_data[i].appointment_SystemID);
+                var table_2=$('<td></td>').html(json_data.appointments_data[i].appointment_Date);
+                var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_TimeSlot);
+                var table_4=$('<td></td>').html(json_data.appointments_data[i].appointment_ReasonForAppointment);
+                var table_Buttons=$('<td style="text-align: center;"><button value="'+json_data.appointments_data[i].appointment_SystemID+'" id="appIDtoCancel" type="button" data-toggle="modal" data-target="#AppointmentCancelAlert">Cancel</button> </td>');
+
+                
+                table_R.append(table_1,table_2,table_3,table_4,table_Buttons);
+                $('#displayStatsHere').append(table_R);
+            }
+            $('#AppointmentCancelAlert').modal('hide'); 
+            $('#appointmentStatus_customer_phone').disabled();
+         }
+         else if(json_data.status == "failed")
+         {
+            $("#btnVerifyStatus").show();
+            $("#btnVerifyingStatus").hide();
+            toastr.options.closeButton = true;
+            toastr.warning(json_data.status_message, json_data.status);
+         }
+         else 
+         {
+            $("#btnVerifyStatus").show();
+            $("#btnVerifyingStatus").hide();
+            toastr.options.closeButton = true;
+            toastr.warning("An error has occured", "Unknown error! Please contact developer now.");
+         }
+         
+     });
+ 
+     // Callback handler that will be called on failure
+     request.fail(function (jqXHR, textStatus, errorThrown){
+         // Log the error to the console
+         console.error(
+             "The following error occurred: "+
+             textStatus, errorThrown
+         );
+     });
+   
+});
+
+
+
+
+
+
 //=== Appointment status AJAX Start ===//
 
 var request;
@@ -451,9 +571,7 @@ $("#btnVerifyStatus").click(function(event){
      $("#btnVerifyStatus").hide();
      $("#btnVerifyingStatus").show();
      $("#btnCloseModalAppStatus").hide();
-    //  $('#makeAppointment-modal').modal({
-    //     backdrop: false
-    // });
+    
      // Abort any pending request
      if (request) {
          request.abort();
@@ -489,29 +607,42 @@ $("#btnVerifyStatus").click(function(event){
          console.log(json_data);
          
          if(json_data.status == "found"){
-            
+            $valuesz=1;
                     for(var i = 0; i < json_data.appointments_data.length; i++) 
                     {
+                        var table_R = $('<tr></tr>');
+                        var table_1=$('<td></td>').html(json_data.appointments_data[i].appointment_SystemID);
+                        var table_2=$('<td></td>').html(json_data.appointments_data[i].appointment_Date);
+                        var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_TimeSlot);
+                        var table_4=$('<td></td>').html(json_data.appointments_data[i].appointment_ReasonForAppointment);
+                        var table_Buttons=$('<td style="text-align: center;"><button value="'+json_data.appointments_data[i].appointment_SystemID+'" id="appIDtoCancel" type="button" data-toggle="modal" data-target="#AppointmentCancelAlert">Cancel</button> </td>');
+
+                        
+                        table_R.append(table_1,table_2,table_3,table_4,table_Buttons);
+                        $('#displayStatsHere').append(table_R);
+
                        
-                        var $row = $('<tr>'+
-                        '<td>'+json_data.appointments_data[i]["appointment_Date"]+'</td>'+
-                        '<td>'+json_data.appointments_data[i]["appointment_TimeSlot"]+'</td>'+
-                        '<td>'+json_data.appointments_data[i]["appointment_ReasonForAppointment"]+'</td>'+
-                        '<td>'+ '<button>Cancel</button>' +'</td>'+
-                        '</tr>'); 
-                        $('#displayStatsHere').append($row);
+                    //    $appDate= json_data.appointments_data[i]["appointment_Date"];
+                    //    $appTimeSlot= json_data.appointments_data[i]["appointment_TimeSlot"];
+                    //    $appReason= json_data.appointments_data[i]["appointment_ReasonForAppointment"];
+
+                    //     var $row = $('<tr>'+
+                    //     '<td>'+$appID+'</td>'+
+                    //     '<td>'+$appDate+'</td>'+
+                    //     '<td>'+$appTimeSlot+'</td>'+
+                    //     '<td>'+$appReason+'</td>'+
+                    //     '<td>'+ '<button id="btnAppCancel" value="$appID">Cancel</button>' +'</td>'+
+                    //     '</tr>'); 
+                    //     $('#displayStatsHere').append($row);
                      }
                 
-
-            
-            console.log(json_data.appointments_data);
-           
-            console.log("Hi!");
+            // console.log(json_data.appointments_data);
+            // console.log("Hi!");
             $('#statusVerified').show();
             $('#btnVerifyStatus').hide();
             $("#btnVerifyingStatus").hide();
             $('#appointmentStat').show();
-            $('#appointmentStatus_customer_phone').disabled();
+            // $('#appointmentStatus_customer_phone').disabled();
          }
          else if(json_data.status == "notfound")
          {
@@ -718,6 +849,8 @@ $('#btnRegistration').click(function(){
     $('#makeAppointment-modal').modal('hide');
     $('#registration-modal').modal('show');
 });
+
+
 
 $("#customer_RegistrationCellphone").keypress(function(e) {
     var allowed_Letters = /^[0-9]*$/;

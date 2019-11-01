@@ -62,7 +62,7 @@ function login(){
 			}
 		else {
 			?>
-			<?php echo '<script> alert("NO LOGIN FOR YOU"); </script>'; ?>
+			<?php echo '<script> alert("The account you entered was not found in our database. Please try again."); </script>'; ?>
 			<?php
 			array_push($errors, "Wrong username/password combination");
 			header("Refresh:0");
