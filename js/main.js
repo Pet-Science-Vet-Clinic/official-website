@@ -1,5 +1,6 @@
 
 
+
 function CheckNumber_valid_(str){
     if(str.charAt(0) != "0" || str.charAt(1) != "9"  || str.length < 11 ){
         return true;
@@ -35,6 +36,78 @@ $.fn.checkboxMaster = function(list) {
 
 }
 
+console.log(ValidateDate_LessThanToday_2("2019-12-12"));
+
+
+function ValidateDate_LessThanToday_2(dateString){
+    var todayDate = new Date();
+    dateString_2 = new Date(dateString);
+
+    var date_Converted = dateString_2.getFullYear() + '-' + ('0' + (dateString_2.getMonth() + 1)).slice(-2) + '-' + ('0' + dateString_2.getDate()).slice(-2);
+    var Today_Converted = todayDate.getFullYear() + '-' + ('0' + (todayDate.getMonth() + 1)).slice(-2) + '-' + ('0' + todayDate.getDate()).slice(-2);
+
+    if(date_Converted == Today_Converted){
+        return false;
+    }else{
+
+         var difference = dateString_2.getFullYear() - todayDate.getFullYear();
+        //  alert(difference);
+
+        if(dateString_2 < todayDate){
+            return true;
+        }else if(difference >= 5){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+}
+
+$('#appointment_modal_Date').change(function(){
+
+    if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
+    {
+        $('#btnSubmitAppointment').attr('disabled','disabled');
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+
+    }
+    else
+    {
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.success("Available!","Selected Day available.");
+        $('#btnSubmitAppointment').removeAttr('disabled');
+    }
+
+
+
+});
+
+$('#btnSubmitAppointment').click(function(){
+    var bool = new Boolean(false);
+    if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
+    {
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+    }
+    // else
+    // {
+    
+    //     toastr.options.closeButton = true;
+    //     toastr.options.preventDuplicates= true;
+    //     toastr.success("Available!","Selected Day available.");
+        
+    // }
+
+
+
+});
+
 
 //====== AJAX START====//
 
@@ -52,6 +125,7 @@ $("#btnVerify").click(function()
     // alert(CheckNumber_valid_($('#CRF_Cell').val()));
    });
 
+  
 
 // Contact Us Send Email
 // Variable to hold request
@@ -121,30 +195,53 @@ $("#contactUsFormSubmit").submit(function(event){
 
 //=== AJAX END ===//
 
+$("#btnVerify").click(function()
+   {
 
+    $('#appointment_customer_phone').val(Repelace_63Number($('#appointment_customer_phone').val()));
+    
+   });
 
 //=== Appointment modal AJAX ===//
 
-// Contact Us Send Email
 // Variable to hold request
 var request;
 // Bind to the submit event of our form
-$("#appointmentModalForm").submit(function(event){
+$("#btnSubmitAppointment").click(function(event){
+    
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
-
+     var appNumb = $("#appointment_customer_phone").val();
+    $('#btnSubmitAppointment').hide();
+    $('#btnSubmittingAppointment').show();
+    
      // Abort any pending request
-     if (request) {
+     if (request)
+      {
          request.abort();
      }
+     if($('#appointment_modal_AppointmentType').val()== "")
+        {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning("Invalid Appointment type","Please choose what appointment do you want to make with the clinic.");
+            return true;
+        }
+        else if($('#appointment_modal_TimeBlock').val()== "")
+        {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning("Invalid Time block","Please choose a time block.");
+            return true;
+        }
      // setup some local variables
-     var $form = $(this);
+     var $form = $("#appointmentDetailsForm");
  
      // Let's select and cache all the fields
      var $inputs = $form.find("input, select, button, textarea, date, checkbox");
      
      // Serialize the data in the form
-     var serializedData = $form.serialize();
+     var serializedData = $form.serialize()+"&appNumb="+appNumb;
  
      // Let's disable the inputs for the duration of the Ajax request.
      // Note: we disable elements AFTER the form data has been serialized.
@@ -159,7 +256,8 @@ $("#appointmentModalForm").submit(function(event){
      });
  
      // Callback handler that will be called on success
-     request.done(function (response, textStatus, jqXHR){
+     request.done(function (response, textStatus, jqXHR)
+     {
          // Log a message to the console
          console.log(response);
          var json_data = JSON.parse(response);
@@ -167,24 +265,31 @@ $("#appointmentModalForm").submit(function(event){
          console.log(json_data);
          
          if(json_data.status == "success"){
-         $('#appointmentAlertModal').modal('show');
-         $('#appointmentStatusMessage').html(json_data.status_message);
-         
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.success(json_data.status_head, json_data.status_message);
+            $('#btnSubmitAppointment').show();
          }
          else if(json_data.status == "error")
          {
-            $('#appointmentAlertModal').modal('show');
-            $('#appointmentStatusMessage').html(json_data.status_message);
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.error(json_data.status_head, json_data.status_message);
          }
-         else if(json_data.status == "full"){
-            $('#appointmentAlertModal').modal('show');
-            $('#appointmentStatusMessage').html(json_data.status_message);
+         else if(json_data.status == "full")
+         {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning(json_data.status_head, json_data.status_message);
          }
-         $('#timepicked').val("");
-         $('#span_customersname').html(json_data.fname);
-         $('#customer_fullname').val("");
-         $('#customer_cellnum').val("");
-         $('#reason_for_appointment').val("");
+         else if(json_data.status == "block")
+         {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.info(json_data.status_head, json_data.status_message);
+            // $('#appointmentAlertModal').modal('show');
+            // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
+         }
      });
  
      // Callback handler that will be called on failure
@@ -269,7 +374,8 @@ $("#registrationModalForm").submit(function(event){
             else if(json_data.status == "existing"){
             
                 toastr.options.closeButton = true;
-                toastr.warning(json_data.status_message, json_data.status);
+                toastr.options.preventDuplicates= true;
+                toastr.warning(json_data.status_message, json_data.status_header);
 
                 // $('#RegistrationAlertModal').modal('show');
                 // $('#appointmentStatusMessage').html(json_data.status_message);
@@ -277,7 +383,8 @@ $("#registrationModalForm").submit(function(event){
             else if(json_data.status == "existingName"){
             
                 toastr.options.closeButton = true;
-                toastr.warning(json_data.status_message, json_data.status);
+                toastr.options.preventDuplicates= true;
+                toastr.warning(json_data.status_message, json_data.status_header);
 
                 // $('#RegistrationAlertModal').modal('show');
                 // $('#appointmentStatusMessage').html(json_data.status_message);
@@ -285,7 +392,8 @@ $("#registrationModalForm").submit(function(event){
             else if(json_data.status == "existingPhone"){
             
                 toastr.options.closeButton = true;
-                toastr.warning(json_data.status_message, json_data.status);
+                toastr.options.preventDuplicates= true;
+                toastr.warning(json_data.status_message, json_data.status_header);
 
                 // $('#RegistrationAlertModal').modal('show');
                 // $('#appointmentStatusMessage').html(json_data.status_message);
@@ -364,6 +472,14 @@ var request;
 $("#btnVerify").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
+     if($('#appointment_customer_phone').val()== "")
+     {
+         toastr.options.closeButton = true;
+         toastr.options.preventDuplicates= true;
+         toastr.warning("Number field empty","Please enter your phone number in the textfield.");
+         return true;
+     }
+     
      $("#btnVerify").hide();
      $("#btnVerifying").show();
      $("#btnCloseModal").hide();
@@ -374,6 +490,7 @@ $("#btnVerify").click(function(event){
      if (request) {
          request.abort();
      }
+     
      
      // setup some local variables
      var $form = $("#appointmentModalForm");
@@ -410,21 +527,22 @@ $("#btnVerify").click(function(event){
             $("#btnVerifying").hide();
             $('#verifiedFullname').val(json_data.customer_name);
             $('#appointmentForm').show();
-            $('#appointment_customer_phone').disabled();
          }
          else if(json_data.status == "notfound")
          {
             $("#btnVerify").show();
             $("#btnVerifying").hide();
             toastr.options.closeButton = true;
-            toastr.warning(json_data.status_message, json_data.status);
+            toastr.options.preventDuplicates= true;
+            toastr.warning(json_data.status_message, json_data.status_header);
          }
          else if(json_data.status == "pending")
          {
             $("#btnVerify").show();
             $("#btnVerifying").hide();
             toastr.options.closeButton = true;
-            toastr.warning(json_data.status_message, json_data.status);
+            toastr.options.preventDuplicates= true;
+            toastr.warning(json_data.status_message, json_data.status_header);
          }
          
          
@@ -526,13 +644,14 @@ $('#btnCloseStatModal').click(function(){
                 $('#displayStatsHere').append(table_R);
             }
             $('#AppointmentCancelAlert').modal('hide'); 
-            $('#appointmentStatus_customer_phone').disabled();
+            $('#appointmentStatus_customer_phone').attr('disabled','disabled');
          }
          else if(json_data.status == "failed")
          {
             $("#btnVerifyStatus").show();
             $("#btnVerifyingStatus").hide();
             toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
             toastr.warning(json_data.status_message, json_data.status);
          }
          else 
@@ -540,7 +659,8 @@ $('#btnCloseStatModal').click(function(){
             $("#btnVerifyStatus").show();
             $("#btnVerifyingStatus").hide();
             toastr.options.closeButton = true;
-            toastr.warning("An error has occured", "Unknown error! Please contact developer now.");
+            toastr.options.preventDuplicates= true;
+            toastr.error("An error has occured", "Unknown error! Please contact developer now.");
          }
          
      });
@@ -568,6 +688,13 @@ var request;
 $("#btnVerifyStatus").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
+     if($('#appointmentStatus_customer_phone').val()== "")
+     {
+         toastr.options.closeButton = true;
+         toastr.options.preventDuplicates= true;
+         toastr.warning("Number field empty","Please enter your phone number in the textfield.");
+         return true;
+     }
      $("#btnVerifyStatus").hide();
      $("#btnVerifyingStatus").show();
      $("#btnCloseModalAppStatus").hide();
@@ -576,6 +703,7 @@ $("#btnVerifyStatus").click(function(event){
      if (request) {
          request.abort();
      }
+     
      
      // setup some local variables
      var $form = $("#appStatusVerify");
@@ -642,13 +770,13 @@ $("#btnVerifyStatus").click(function(event){
             $('#btnVerifyStatus').hide();
             $("#btnVerifyingStatus").hide();
             $('#appointmentStat').show();
-            // $('#appointmentStatus_customer_phone').disabled();
          }
          else if(json_data.status == "notfound")
          {
             $("#btnVerifyStatus").show();
             $("#btnVerifyingStatus").hide();
             toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
             toastr.warning(json_data.status_message, json_data.status);
          }
          else if(json_data.status == "pending")
@@ -656,6 +784,7 @@ $("#btnVerifyStatus").click(function(event){
             $("#btnVerifyStatus").show();
             $("#btnVerifyingStatus").hide();
             toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
             toastr.warning(json_data.status_message, json_data.status);
          }
          
@@ -731,8 +860,9 @@ $("#appointmentDetailsForm").submit(function(event){
          }
          else if(json_data.status == "full")
          {
-            $('#RegistrationAlertModal').modal('show');
-            $('#appointmentStatusMessage').html(json_data.status_message);
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning(json_data.status_message, json_data.status_header);
          }
          
          

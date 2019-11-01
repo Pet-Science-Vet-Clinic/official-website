@@ -2054,11 +2054,30 @@ h4.form-header {
   border-radius: 4px;
   width: 100px;
 }
-.modal-footers {
+.modal-footers
+ {
     padding: 23px;
     text-align: right;
     border-top: 1px solid #e5e5e5;
   }
+  .btnnVerify
+   {
+    text-align: center;
+    background-color: #ffffff;
+  padding: 5%;
+  border-radius: 4px;
+  width: 50%;
+  color: rgb(0, 0, 0);
+  }
 
-
-
+  .verified 
+  {
+    text-align: center;
+    background-color: #5cb85c;
+  padding: 5%;
+  border-radius: 4px;
+  width: 50%;
+  color: #ffffff;
+  }
+  
+ 
