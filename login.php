@@ -61,7 +61,7 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-				<a href="index.php" ><img src="img/officiallogo.png" alt="IMG"></a>
+				<a href="index.php" ><img src="img/officiallogo.jpg" alt="IMG"></a>
 				</div>
 
 				<form id="formed" name="formed"class="login100-form validate-form" method="post">
@@ -89,9 +89,6 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" name="btnLogin" id="btnLogins">
 							Login
-						</button>
-						
-					</div>
 					
 					
 					<div class="text-center p-t-12">
@@ -109,7 +106,20 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 	<script src="js/toastr.js"></script>
+=======
+>>>>>>> login-changeTo-Ajax
+=======
+	<script src="js/toastr.js"></script>
+>>>>>>> 35222922bcdb5fd5e55ee6154bbf14586d932ea1
+=======
+	<script src="js/toastr.js"></script>
+=======
+>>>>>>> login-changeTo-Ajax
+>>>>>>> update again
 	<!-- <script src="js/Login/main.js"></script> -->
 	<script src="js/login.js"></script>
 
