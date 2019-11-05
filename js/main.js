@@ -91,14 +91,26 @@ function ValidateDate_LessThanToday_2(dateString){
 
 }
 
-$('#appointment_modal_Date').change(function(){
 
+
+
+
+$('#appointment_modal_Date').change(function()
+{
     if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
     {
         $('#btnSubmitAppointment').attr('disabled','disabled');
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
         toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+
+    }
+    else if($('#appointment_modal_Date').val() == "")
+    {
+        $('#btnSubmitAppointment').attr('disabled','disabled');
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The time you selected is not valid. Please select a day.","No date selected");
 
     }
     else
@@ -247,16 +259,16 @@ $("#btnSubmitAppointment").click(function(event){
       {
          request.abort();
      }
-     if($('#appointment_modal_AppointmentType').val()== "")
-        {
-            $('#btnSubmitAppointment').show();
-            $('#btnSubmittingAppointment').hide();
-            toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.warning("Invalid Appointment type","Please choose what appointment do you want to make with the clinic.");
-            return true;
-        }
-        else if($('#appointment_modal_TimeBlock').val()== "")
+     if($('#appointment_modal_Date').val()== "")
+     {
+         $('#btnSubmitAppointment').show();
+         $('#btnSubmittingAppointment').hide();
+         toastr.options.closeButton = true;
+         toastr.options.preventDuplicates= true;
+         toastr.warning("No date selected","Please choose a date.");
+         return true;
+     }
+     else if($('#appointment_modal_TimeBlock').val()== "")
         {
             $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
@@ -265,6 +277,18 @@ $("#btnSubmitAppointment").click(function(event){
             toastr.warning("Invalid Time block","Please choose a time block.");
             return true;
         }
+     else if($('#appointment_modal_AppointmentType').val()== "")
+        {
+            $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning("Invalid Appointment type","Please choose what appointment do you want to make with the clinic.");
+            return true;
+        }
+        
+        
+       
      // setup some local variables
      var $form = $("#appointmentDetailsForm");
  
@@ -323,6 +347,22 @@ $("#btnSubmitAppointment").click(function(event){
             // $('#appointmentAlertModal').modal('show');
             // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
          }
+         else if(json_data.status == "Max")
+         {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.info(json_data.status_head, json_data.status_message);
+            // $('#appointmentAlertModal').modal('show');
+            // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
+         }
+         else
+         {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.info("Thank you!", "Thank you!");
+         }
+         $('#btnSubmitAppointment').show();
+    $('#btnSubmittingAppointment').hide();
      });
  
      // Callback handler that will be called on failure
@@ -596,6 +636,7 @@ $("#btnVerify").click(function(event){
             $("#btnVerifying").hide();
             $('#verifiedFullname').val(json_data.customer_name);
             $('#appointmentForm').show();
+            $("#btnCloseModal").show();
          }
          else if(json_data.status == "notfound")
          {
@@ -672,7 +713,9 @@ $('#btnCloseStatModal').click(function(){
 });
    
  $(document).on('click','#btnCancelThisAppointmentYes', function(){
-
+    $("#btnCancelling").show();
+    $("#btnCancelThisAppointmentYes").hide();
+    $("#btnCancelThisAppointmentNo").hide();
     var appID = $("#appIDTextView").val();
     var appNumb = $("#appointmentStatus_customer_phone").val();
      // Serialize the data in the form
@@ -699,6 +742,9 @@ $('#btnCloseStatModal').click(function(){
          console.log(json_data);
          
          if(json_data.status == "success"){
+            $("#btnCancelling").hide();
+            $("#btnCancelThisAppointmentYes").show();
+            $("#btnCancelThisAppointmentNo").show();
             var Table = document.getElementById("displayStatsHere");
             Table.innerHTML = "";
             $valuesz=1;
@@ -760,7 +806,7 @@ var request;
 $("#btnVerifyStatus").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
-     $('#appointmentStatus_customer_phone').val(Repelace_63Number($('#appointment_customer_phone').val()));
+     $('#appointmentStatus_customer_phone').val(Repelace_63Number($('#appointmentStatus_customer_phone').val()));
 
      if($('#appointmentStatus_customer_phone').val()== "")
      {
@@ -840,10 +886,12 @@ $("#btnVerifyStatus").click(function(event){
                 
             // console.log(json_data.appointments_data);
             // console.log("Hi!");
-            $('#statusVerified').show();
+            $('#AppstatusVerified').show();
             $('#btnVerifyStatus').hide();
             $("#btnVerifyingStatus").hide();
             $('#appointmentStat').show();
+            
+            
          }
          else if(json_data.status == "notfound")
          {
@@ -1004,14 +1052,14 @@ $(document).ready(function () {
         fit: true // 100% fit in a container
     });
 });
-jQuery(document).ready(function ($) {
-    $(".scroll").click(function (event) {
-        event.preventDefault();
-        $('html,body').animate({
-            scrollTop: $(this.hash).offset().top
-        }, 1000);
-    });
-});
+// jQuery(document).ready(function ($) {
+//     $(".scroll").click(function (event) {
+//         event.preventDefault();
+//         $('html,body').animate({
+//             scrollTop: $(this.hash).offset().top
+//         }, 1000);
+//     });
+// });
 $(document).ready(function () {
     var defaults = {
     containerID: 'toTop', // fading element id
@@ -1052,6 +1100,7 @@ $('#btnMakeAppointment').click(function(){
 $('#btnRegistration').click(function(){
     $('#makeAppointment-modal').modal('hide');
     $('#registration-modal').modal('show');
+    $('#registration-appointment_customer_phone').val("");
 });
 
 
@@ -1083,6 +1132,13 @@ $("#customer_RegistrationCellphone").keypress(function(e) {
     $('#appointment_customer_phone').val(Repelace_63Number($('#appointment_customer_phone').val()));
 
 })
+$('#customer_RegistrationOptional').focusout(()=>{
+    $('#customer_RegistrationOptional').val(Repelace_63Number($('#customer_RegistrationOptional').val()));
+
+})
+
+
+
    $("#appointmentStatus_customer_phone").keypress(function(e) {
     var allowed_Letters = /^[0-9]*$/;
     if (e.which !== 0) {
@@ -1092,5 +1148,12 @@ $("#customer_RegistrationCellphone").keypress(function(e) {
     }
    });
    
-  
-   
+   $("#customer_RegistrationFullname").keypress(function(e) {
+    var allowed_Letters = /^[a-z A-Z .-]*$/;
+    if (e.which !== 0) {
+      if( !String.fromCharCode(e.which).match(allowed_Letters)){
+        return false;
+      }
+    }
+   });
+

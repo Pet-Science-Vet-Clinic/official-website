@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<img src="img/rippleeffect.png" style="width: 290px;">
+					<img src="img/officiallogo.jpg" style="width: 290px;">
 						<!-- <h1><a class="navbar-brand" href="index.html">L<span class="fa fa-paw" aria-hidden="true"></span>vely-Pets</a></h1> -->
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -179,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<input type="text" id="customer_RegistrationTelephone" style="display:block" name="customer_RegistrationTelephone"   maxlength="45" placeholder="Telephone Number" required>
+										<input type="text" id="customer_RegistrationTelephone" style="display:block" name="customer_RegistrationTelephone"   maxlength="7" placeholder="Telephone Number" required>
 										
 										</div>
 										<div class="form-right-to-w3ls">
@@ -257,9 +257,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 
 											<div class="form-right-to-w3ls">
-											
-											<input type="date" class="" id="appointment_modal_Date" name="datepicked" data-provide="datepicker">
-												
+											<!-- DateForMakeAppointment -->
+											<input type="date" id="appointment_modal_Date" name="datepicked" data-provide="datepicker">
 											</h4>
 
 												<div class="clear"></div>
@@ -348,7 +347,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										 <div class="form-right-to-w3ls">
 										 <button id="btnVerifyStatus" class="btnnVerify">Verify</button>
 										 <button id="btnVerifyingStatus" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
-										 <h4 id="statusVerified" style="display:none;">
+										 <h4 id="AppstatusVerified" style="display:none;">
 										 	<button class="verified"><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</button>
 										</h4>
 								
@@ -614,6 +613,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="modal-footer text-center">
 						<button id="btnCancelThisAppointmentYes" style="padding: 3">Yes</button><button id="btnCancelThisAppointmentNo">No</button>
+						<button id="btnCancelling" style="display:none;" class="" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Cancelling Appointment</button>
 					</div>
 					
 				</div>
@@ -755,11 +755,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="buttom-w3">
 		<div class="container">
 			<div class="col-md-6 bottom-head text-center">
-			   <img src="img/rippleeffect.png" style="width: 90%">
+			   <img src="img/officiallogo.jpg" style="width: 90%">
 			</div>
 			<div class="col-md-6 copyright text-center">
 				<div class="">
-					<h4> About Us</h4>
+					
 				</div>
 				<div class="sub-para">
 					<!-- <p>Lorem ipsum dolor sit amet,dolor sit amet,iste natus error sit voluptatem</p> -->
@@ -770,7 +770,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	</div>
 	<footer>
-		<p>&copy; 2019 Pet Science Vet Clinic. All Rights Reserved | Design by <a href="https://www.facebook.com/Kesterific/" target="_blank">Thesis Team</a></p>
+		<p>&copy; 2019 Pet Science Vet Clinic. All Rights Reserved </p>
+		<!-- | Design by <a href="https://www.facebook.com/Kesterific/" target="_blank"></a> -->
 	</footer>
 
 

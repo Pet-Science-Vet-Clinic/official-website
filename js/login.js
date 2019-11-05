@@ -75,24 +75,14 @@ function base64EncArr (aBytes) {
 }
 
 
-
-
-
 var request;
 // Bind to the submit event of our form
-$("#btnSubmitAppointment").click(function(event){
+$("#btnLogin").click(function(event){
     
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
      var username=$("#Username_2_1").val();
-     var pass=$("#Password_1").val();
-     var pass2=$("#Password_2").val();
-    
-     // Abort any pending request
-     if (request)
-      {
-         request.abort();
-     }
+     var pass = UTF16_Base64_Encryption($("#Password_1").val());
      if(username== "")
         {
             toastr.options.closeButton = true;
@@ -107,6 +97,12 @@ $("#btnSubmitAppointment").click(function(event){
             toastr.warning("Password text field empty","Please do not leave password field empty.");
             return true;
         }
+     // Abort any pending request
+     if (request)
+      {
+         request.abort();
+     }
+     
      // setup some local variables
      var $form = $("#formed");
  
@@ -114,8 +110,8 @@ $("#btnSubmitAppointment").click(function(event){
      var $inputs = $form.find("input, select, button, textarea, date, checkbox");
      
      // Serialize the data in the form
-     var serializedData = $form.serialize();
- 
+     var serializedData = $form.serialize()+"&pass="+pass;
+ //+"&username="+username+"&pass="+pass
      // Let's disable the inputs for the duration of the Ajax request.
      // Note: we disable elements AFTER the form data has been serialized.
      // Disabled form elements will not be serialized.
@@ -139,7 +135,7 @@ $("#btnSubmitAppointment").click(function(event){
          
          if(json_data.status == "found")
          {
-          window.location.href="viewtable.php";
+          // window.location.href="viewtable.php";
          }
          else if(json_data.status == "notfound")
          {
@@ -173,11 +169,10 @@ $("#btnSubmitAppointment").click(function(event){
 // to decrypt
 // alert(UTF16_Base64_Decryption("YQBkAG0AaQBuAGEAZABtAGkAbgA"));
 
-
 $('#Password_1').focusout(function(){
   $('#Password_2').val(UTF16_Base64_Encryption($('#Password_1').val()));
 });
 
-$('#Password_1').click(function(){
+$('#Password_1').change(function(){
   $('#Password_2').val(UTF16_Base64_Encryption($('#Password_1').val()));
 });
