@@ -155,7 +155,6 @@ th, td {
 .table100.ver5 td {
   font-family: Montserrat-Regular;
   font-size: 17px;
-  color: rgb(14, 0, 0);
   line-height: 1.4;
   position: relative;
 }
@@ -220,6 +219,7 @@ th, td {
   background: -o-linear-gradient(-68deg, #ac32e4 , #4801ff);
   background: -moz-linear-gradient(-68deg, #ac32e4 , #4801ff);
   background: linear-gradient(-68deg, #ac32e4 , #4801ff);
+  color:white;
 }
 
 .table100.ver6 table {
@@ -229,8 +229,9 @@ th, td {
 .table100.ver6 td {
   font-family: Montserrat-Regular;
   font-size: 14px;
-  color: rgb(14, 0, 0);
+  /* color: rgb(14, 0, 0); */
   line-height: 1.4;
+  color:white;
 }
 
 .table100.ver6 th {
@@ -239,7 +240,7 @@ th, td {
   color: #fff;
   line-height: 1.4;
   text-transform: uppercase;
-
+  color:white;
   background-color: rgba(255,255,255,0.32);
 }
 
@@ -333,7 +334,8 @@ width: 100px;
 .btnnShowUp {
   text-align: middle;
   float:right;
-  background-color: #00f33d;
+  background-color: #101820FF;
+  color:#006B38FF;
 padding: 5%;
 border-radius: 4px;
 width: 110%;
@@ -345,20 +347,42 @@ width: 110%;
 .btnnUpcoming {
   text-align: middle;
   float:right;
-  background-color: #ffffff;
+  background-color: #1C70CB;
 padding: 5%;
 border-radius: 4px;
 width: 110%;
-color:rgb(0, 146, 243);
+color:#EEA47FFF;
 }
+.lblUpcoming
+{
+  color:#EEA47FFF;
+background:#2460A7FF;
+}
+.lblDone
+{
+  background:rgb(0, 255, 64);;
+  color: #FFE77AFF;
+}
+.lblShowUp
+{
+  background-color: #101820FF;
+color:#006B38FF;
+}
+
 .btnnCancel {
   text-align: middle;
   float:right;
-  background-color: #ffffff;
-  color: #d40606e0;
+  background-color: #EE2737FF;
 padding: 5%;
 border-radius: 4px;
 width: 110%;
+color: #FBDE44FF;
+}
+.lblCancel
+{
+  color: #FBDE44FF;
+  background:#d40606e0;
+  
 }
 .btnnDefault {
   text-align: middle;
@@ -376,15 +400,33 @@ width: 15%;
 padding: 5%;
 border-radius: 4px;
 width: 110%;
-color: rgb(0, 255, 64);
-}
-.btnnVerify {
-  text-align: middle;
-  background-color: #ffffff;
-padding: 5%;
-border-radius: 4px;
-width: 10%;
-color: rgb(59, 193, 255);
+color: #FFE77AFF;
 }
 
+.btnFetching {
+  background-color:rgb(3, 255, 116);
+  color: white; 
+}
 
+.headerBackground {
+  background: url(../../img/4.jpeg);
+  background-repeat: no-repeat;
+    background-position: center;
+-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 300px;
+    color:black;
+}
+
+.tableBackground {
+  background: none;
+  background-repeat: no-repeat;
+    background-position: center;
+-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 0px;
+}

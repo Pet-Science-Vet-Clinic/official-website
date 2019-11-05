@@ -1,9 +1,16 @@
 <?php
-include('functions.php');
+// include('functions.php');
 include('conn.php');
-
+session_start();
 if (isLoggedIn()) {
 	header('location: login.php');
+}
+if(isset($_POST['btnLogout']))
+{
+session_destroy();
+ unset($_SESSION['username']);
+ echo ("hello");
+ header("location: viewtable.php");
 }
 ?>
 
@@ -30,27 +37,31 @@ if (isLoggedIn()) {
 	<link rel="stylesheet" type="text/css" href="css/Table/main.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/main2.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/w3.css">
+	<link href="css/font-awesome.css" rel="stylesheet">
 	<link rel="shortcut icon" href="img/officiallogo.ico">
 	<!--stylesheets-->
 	<link href="css/style.css" rel='stylesheet' type='text/css' media="all">
 <!--===============================================================================================-->
 </head>
 <body>
-<div class="w3-content" style="max-width:1500px">
+<div class="w3-content headerBackground" style="max-width:1500px">
 
 <!-- Header -->
 <header class="w3-panel w3-center w3-opacity" style="padding:50px 16px">
   	<h1 class="w3-xlarge">Pet Science Veterinary Clinic</h1>
-  	<h1>Talamban Cebu</h1>
-	<a href="login.php?logout='1'" class="w3-bar-item w3-button">Log out</a><br><br>
+	  <h1>Talamban Cebu</h1>
+	  <form id="buttonOnly" method="post">
+	  <h4><button class="w3-bar-item btnCss logout" value="btnLogout" id="btnLogout" name="btnLogout">Logout</button></h4><br><br>
+	</form>
 	<div>
 	<h1><button class="w3-bar-item btnCss loadTable" id="btnLoadTable">Load table</button></h1>
+	<button id="btnFetching" style="display:none;" class="btnCss btnFetching" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Fetching Appointments</button>
 	<div>
 </header>
 <div class="w3-padding-32">
     <div class="w3-bar w3-border">
  
-		<div class="container-table100">
+		<div class="container-table100 tableBackground">
 			<div style="display:none;" id="TableView">
 				<table class="table">
 					<thead class="thead-gray">

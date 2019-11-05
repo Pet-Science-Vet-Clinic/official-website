@@ -1,9 +1,13 @@
+
 var request;
 // Bind to the submit event of our form
+
+
 $("#btnLoadTable").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
-
+     $('#btnFetching').show();
+     $('#btnLoadTable').hide();
      // Abort any pending request
      if (request) {
          request.abort();
@@ -39,7 +43,8 @@ $("#btnLoadTable").click(function(event){
          console.log(json_data);
          
          if(json_data.status == "success"){
-
+            $('#btnFetching').hide();
+            $('#btnLoadTable').show();
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -69,7 +74,23 @@ $("#btnLoadTable").click(function(event){
                         else {
                             $blockTime =  "Empty";
                         }
-                        var table_R = $('<tr></tr>');
+                        
+                        if($blockTime==Hour && today==$Appointment_Date_Now && $Appointment_Flag==2)
+                        {
+                            var table_R = $('<tr class="lblShowUp"></tr>');
+                        }
+                        else if($Appointment_Flag == 4)
+                        {
+                            var table_R = $('<tr class="lblDone"></tr>');
+                        }
+                        else if($Appointment_Flag == 1)
+                        {
+                            var table_R = $('<tr class="lblCancel"></tr>');
+                        }
+                        else
+                        {
+                            var table_R = $('<tr class="lblUpcoming"></tr>');
+                        }
                         var table_1=$('<td></td>').html(json_data.appointments_data[i].appointment_SystemID);
                         var table_2=$('<td></td>').html(json_data.appointments_data[i].appointment_TimeSlot);
                         var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_Date);
@@ -132,6 +153,7 @@ $("#btnLoadTable").click(function(event){
          $inputs.prop("disabled", false);
      });
 });
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

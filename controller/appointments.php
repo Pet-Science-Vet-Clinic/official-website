@@ -1,6 +1,7 @@
 <?php 
 	include('conn.php');
-	
+    
+    
 	// $default_email = 'info@petsciencevet.com';
     // $fasfg = 'infopassword';
     $db = mysqli_connect($servername,$username,$password,$DatabaseName);
@@ -17,18 +18,20 @@
     $appointment_fullname = isset($_POST['verifiedCustomerName']) ? $_POST['verifiedCustomerName'] : "";
     $appointment_reason = isset($_POST['reason_for_appointment']) ? $_POST['reason_for_appointment'] : "";
     $appointment_phone = isset($_POST['appNumb']) ? $_POST['appNumb'] : "";
-    
+    $appointment_Date2Words = isset($_POST['date2words']) ? $_POST['date2words'] : "";
     
     // echo $appointment_phone; die();
     $cancel = "1";
-
-    //$register_cellnumtrap = Number_RemoveFirstCharacter($register_cellnum);
     
     // $checked = isset($_POST['newuser']) ? $_POST['newuser'] : "";
 
     $query = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$appoinment_time' AND appointment_Date ='$appointment_date' AND appointment_Flag !='$cancel'";
     $results = mysqli_query($db, $query);
-    
+
+    $queryz = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$appoinment_time' AND appointment_Date ='$appointment_date' AND appointment_Flag !='$cancel' AND appointment_IDReference_Customer ='$appointment_phone'";
+    $results3 = mysqli_query($db, $queryz);
+
+ 
     $status = "";
     $status_message ="";
     $status_header="";
@@ -47,23 +50,32 @@
     }
     else
     {
-        if (mysqli_num_rows($results) <3) 
-        { 
-        
-                $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone')";
-            $query=$conn->query($sql);
-
-                $status = "success";
-                $status_header = "Appointment Set";
-                $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
-                            
+        if(mysqli_num_rows($results3) >=2)
+        {
+            $status = "Max";
+            $status_header = "Appointment limit reached.";
+            $status_message = "Every customer can only make a maximum of 2 appointments per time block to make way for other customers who wants to make appointments in the clinic.";
         }
-        else if (mysqli_num_rows($results) >2) {
-
-            $status = "full";
-            $status_header = "No vacancy";
-            $status_message = "Time block full.Please select another time block.";
+        else
+        {
+            if (mysqli_num_rows($results) <3) 
+            { 
             
+                    $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words')";
+                $query=$conn->query($sql);
+
+                    $status = "success";
+                    $status_header = "Appointment Set";
+                    $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
+                                
+            }
+            else if (mysqli_num_rows($results) >2) {
+
+                $status = "full";
+                $status_header = "No vacancy";
+                $status_message = "Time block full.Please select another time block.";
+                
+            }
         }
     }
 
