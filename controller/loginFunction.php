@@ -13,12 +13,12 @@
     // $timeNowMinute= date("i");
     // $timeNowEx = date("A");
 
-	$login_username = isset($_POST['Username_2_1']) ? $_POST['Username_2_1'] : "";
+	$login_username = isset($_POST['username']) ? $_POST['username'] : "";
 	// $login_password = isset($_POST['Password_1']) ? $_POST['Password_1'] : "";
-    $login_password2 = isset($_POST['Password_2']) ? $_POST['Password_2'] : "";
+    $login_password2 = isset($_POST['pass']) ? $_POST['pass'] : "";
     
     
-    // echo $appointment_phone; die();
+    // echo $login_password2; die();
     
     // $checked = isset($_POST['newuser']) ? $_POST['newuser'] : "";
 
