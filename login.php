@@ -87,11 +87,11 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 					</div>
 					
 					<div class="container-login100-form-btn">
+
 						<button class="login100-form-btn" name="btnLogin" id="btnLogins">
+
+						<button class="login100-form-btn" name="btnSubmitAppointment" id="btnSubmitAppointment">
 							Login
-						</button>
-						
-					</div>
 					
 					
 					<div class="text-center p-t-12">
