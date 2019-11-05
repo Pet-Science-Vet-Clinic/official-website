@@ -253,6 +253,96 @@ $("#btnSubmitAppointment").click(function(event){
 });
 
 
+
+var request;
+// Bind to the submit event of our form
+$("#btnSubmitAppointment").click(function(event){
+    
+     // Prevent default posting of form - put here to work in case of errors
+     event.preventDefault();
+     var username=$("#Username_2_1").val();
+     var pass=$("#Password_1").val();
+     var pass2=$("#Password_2").val();
+    
+     // Abort any pending request
+     if (request)
+      {
+         request.abort();
+     }
+     if(username== "")
+        {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning("Username text field empty","Please do not leave username field empty.");
+            return true;
+        }
+        else if(pass== "")
+        {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning("Password text field empty","Please do not leave password field empty.");
+            return true;
+        }
+     // setup some local variables
+     var $form = $("#formed");
+ 
+     // Let's select and cache all the fields
+     var $inputs = $form.find("input, select, button, textarea, date, checkbox");
+     
+     // Serialize the data in the form
+     var serializedData = $form.serialize();
+ 
+     // Let's disable the inputs for the duration of the Ajax request.
+     // Note: we disable elements AFTER the form data has been serialized.
+     // Disabled form elements will not be serialized.
+     $inputs.prop("disabled", true);
+ 
+     // Fire off the request to /form.php
+     request = $.ajax({
+         url: "controller/loginFunction.php",
+         type: "post",
+         data: serializedData
+     });
+ 
+     // Callback handler that will be called on success
+     request.done(function (response, textStatus, jqXHR)
+     {
+         // Log a message to the console
+         console.log(response);
+         var json_data = JSON.parse(response);
+         console.log("Hooray, it worked!");
+         console.log(json_data);
+         
+         if(json_data.status == "found")
+         {
+          window.location.href="viewtable.php";
+         }
+         else if(json_data.status == "notfound")
+         {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.error(json_data.status_head, json_data.status_message);
+         }
+     });
+ 
+     // Callback handler that will be called on failure
+     request.fail(function (jqXHR, textStatus, errorThrown){
+         // Log the error to the console
+         console.error(
+             "The following error occurred: "+
+             textStatus, errorThrown
+         );
+     });
+ 
+     // Callback handler that will be called regardless
+     // if the request failed or succeeded
+     request.always(function () {
+         // Reenable the inputs
+         $inputs.prop("disabled", false);
+     });
+});
+
+
 // to encrypt 
 // alert(UTF16_Base64_Encryption("adminadmin"));
 

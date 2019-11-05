@@ -109,7 +109,10 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+<<<<<<< HEAD
 	<script src="js/toastr.js"></script>
+=======
+>>>>>>> login-changeTo-Ajax
 	<!-- <script src="js/Login/main.js"></script> -->
 	<script src="js/login.js"></script>
 
