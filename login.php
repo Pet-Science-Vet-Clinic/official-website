@@ -87,11 +87,15 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 					</div>
 					
 					<div class="container-login100-form-btn">
+<<<<<<< HEAD
 						<button class="login100-form-btn" name="btnLogin" id="btnLogins">
+=======
+
+						<button class="login100-form-btn" name="btnLogin" id="btnLogins">
+
+						<button class="login100-form-btn" name="btnSubmitAppointment" id="btnSubmitAppointment">
+>>>>>>> 35222922bcdb5fd5e55ee6154bbf14586d932ea1
 							Login
-						</button>
-						
-					</div>
 					
 					
 					<div class="text-center p-t-12">
@@ -110,9 +114,13 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<script src="js/toastr.js"></script>
 =======
 >>>>>>> login-changeTo-Ajax
+=======
+	<script src="js/toastr.js"></script>
+>>>>>>> 35222922bcdb5fd5e55ee6154bbf14586d932ea1
 	<!-- <script src="js/Login/main.js"></script> -->
 	<script src="js/login.js"></script>
 
