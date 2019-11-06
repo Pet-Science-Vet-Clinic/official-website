@@ -28,7 +28,7 @@
     $selectedAppointmentReason = "";
     
 
-    $query2 = "SELECT * FROM tb_appointment_list WHERE appointment_IDReference_Customer='$appVerifyPhone' AND appointment_Status='$appStatusPending'";
+    $query2 = "SELECT * FROM tb_appointment_list WHERE appointment_IDReference_Customer='$appVerifyPhone' AND appointment_Flag='$appStatusPending'";
     $results2 = mysqli_query($db, $query2);
 
     

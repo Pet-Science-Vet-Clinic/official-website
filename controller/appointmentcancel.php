@@ -39,10 +39,10 @@
     if (mysqli_num_rows($results) ==1) 
       { 
 	
-            $sql = "UPDATE tb_appointment_list SET appointment_Status ='1' WHERE appointment_SystemID='$appCancelID'";
+            $sql = "UPDATE tb_appointment_list SET appointment_Flag ='1' WHERE appointment_SystemID='$appCancelID'";
             $resultzx = mysqli_query($db,$sql);
 
-            $query2 = "SELECT * FROM tb_appointment_list WHERE appointment_IDReference_Customer='$appVerifyPhone' AND appointment_Status='$two'";
+            $query2 = "SELECT * FROM tb_appointment_list WHERE appointment_IDReference_Customer='$appVerifyPhone' AND appointment_Flag='$two'";
     $results2 = mysqli_query($db, $query2);
     while($rowx = mysqli_fetch_assoc($results2))
     {
