@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<img src="img/officiallogo.jpg" style="width: 290px;">
+					<img src="img/officiallogo.png" style="width: 290px;">
 						<!-- <h1><a class="navbar-brand" href="index.html">L<span class="fa fa-paw" aria-hidden="true"></span>vely-Pets</a></h1> -->
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -193,6 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 									<div class="btnn">
 										<button id="make_appointment_modal_SubmitAppointment" value="" name="make_appointment_modal_SubmitAppointment" type="submit">Submit</button><br>
+										<button id="btnSubmittingAppointments" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
 									</div>
 
 								</form>
@@ -215,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" id="btnCloseModal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<button type="button" id="btnCloseModalMakeApp" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h6 class="modal-title">Make Appointment</h6><br><p><h6 class="modal-textdesc"> Not yet Registered? <button id="btnRegistration" class="btnn">Register now!</button></p></h6>
 					</div>
 					<div class="modal-body">
@@ -755,7 +756,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="buttom-w3">
 		<div class="container">
 			<div class="col-md-6 bottom-head text-center">
-			   <img src="img/officiallogo.jpg" style="width: 90%">
+			   <img src="img/officiallogo.png" style="width: 90%">
 			</div>
 			<div class="col-md-6 copyright text-center">
 				<div class="">

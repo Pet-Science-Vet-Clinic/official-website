@@ -54,6 +54,7 @@
                 if($sqlinsert) 
                  {
                     $status = "success";
+                    $status_header = "Registration submitted.";
                     $status_message = "Thank you for providing us your information, please wait for a text message or SMS if your personal information is verified, inorder to proceed on making an appointment.";
                 }
                              else

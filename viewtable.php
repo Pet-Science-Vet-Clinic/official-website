@@ -1,6 +1,5 @@
 <?php
-// include('functions.php');
-include('conn.php');
+include('functions.php');
 session_start();
 if (isLoggedIn()) {
 	header('location: login.php');
