@@ -355,6 +355,14 @@ $("#btnSubmitAppointment").click(function(event){
             // $('#appointmentAlertModal').modal('show');
             // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
          }
+         else if(json_data.status == "Late")
+         {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.info(json_data.status_head, json_data.status_message);
+            // $('#appointmentAlertModal').modal('show');
+            // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
+         }
          else
          {
             toastr.options.closeButton = true;
@@ -936,7 +944,7 @@ $("#btnVerifyStatus").click(function(event){
             $('#btnVerifyStatus').hide();
             $("#btnVerifyingStatus").hide();
             $('#appointmentStat').show();
-            $("#btnCloseModalAppStatus").show();
+            $("#btnCloseModalAppStatus").hide();
             
          }
          else if(json_data.status == "notfound")

@@ -5,13 +5,49 @@
 	// $default_email = 'info@petsciencevet.com';
     // $fasfg = 'infopassword';
     $db = mysqli_connect($servername,$username,$password,$DatabaseName);
-    // date_default_timezone_set('Asia/Singapore');
-    // $dateNow = date('Y-m-d');
-    // $time_data = array();
+    date_default_timezone_set('Asia/Singapore');
+    $dateNow = date('Y-m-d');
+    $time_data = array();
 
-    // $timeNowHour = date("h");
-    // $timeNowMinute= date("i");
-    // $timeNowEx = date("A");
+    $timeNowHour = date("h");
+    $timeNowMinute= date("i");
+    $timeNowEx = date("A");
+
+    $hourval ="";
+
+    if($timeNowHour == "10")
+    {
+        $hourval = $timeNowHour;
+    }
+    else if($timeNowHour == "11")
+    {
+        $hourval = $timeNowHour;
+    }
+    else if($timeNowHour == "12")
+    {
+        $hourval = $timeNowHour;
+    }
+    else if($timeNowHour == "01")
+    {
+        $hourval = $timeNowHour;
+    }
+    else if($timeNowHour == "02")
+    {
+        $hourval = $timeNowHour;
+    }
+    else if($timeNowHour == "03")
+    {
+        $hourval = $timeNowHour;
+    }
+    else if($timeNowHour == "04")
+    {
+        $hourval = $timeNowHour;
+    }
+    else if($timeNowHour == "05")
+    {
+        $hourval = $timeNowHour;
+    }
+
 
 	$appointment_date = isset($_POST['datepicked']) ? $_POST['datepicked'] : "";
 	$appoinment_time = isset($_POST['timepicked']) ? $_POST['timepicked'] : "";
@@ -20,7 +56,7 @@
     $appointment_phone = isset($_POST['appNumb']) ? $_POST['appNumb'] : "";
     $appointment_Date2Words = isset($_POST['date2words']) ? $_POST['date2words'] : "";
     
-    // echo $appointment_phone; die();
+    // echo $timeNowHour . $timeNowMinute . $timeNowEx; die();
     $cancel = "1";
     
     // $checked = isset($_POST['newuser']) ? $_POST['newuser'] : "";
@@ -39,6 +75,7 @@
 
     $statuszero = "0";
     $statusone = "1";
+    $statustwo = "2";
 
     $query2 = "SELECT * FROM tb_block_dates WHERE block_Date='$appointment_date'";
     $results2 = mysqli_query($db, $query2);
@@ -61,12 +98,22 @@
             if (mysqli_num_rows($results) <3) 
             { 
             
+                // echo $timeNowHour . " " . $hourval; die();
+                // if($timeNowHour == $hourval)
+                // {
+                //     $status = "Late";
+                //     $status_header = "Attention";
+                //     $status_message = "Please select an time block an hour ahead.";
+                // }
+                // else
+                // {
                     $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words')";
                 $query=$conn->query($sql);
 
                     $status = "success";
                     $status_header = "Appointment Set";
                     $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
+                // }
                                 
             }
             else if (mysqli_num_rows($results) >2) {
