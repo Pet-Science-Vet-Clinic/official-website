@@ -3,7 +3,7 @@ include('conn.php');
 session_start();
 if(isset($_POST['btnLogin']))
 {
-	echo "nisulod ";
+	// echo "nisulod ";
 $postUsername = $_POST['username'];
 
 
@@ -25,7 +25,11 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
  }
  else
  {
-  echo "fail ";
+	echo '<script>
+	alert("Username and password does not match any registered user credentials. Please log in again!");
+			</script>';
+	unset($_SESSION['username']);
+	header("Refresh:0");
  }
  exit();
 }
@@ -40,6 +44,7 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link href="css/style.css" rel='stylesheet' type='text/css' media="all">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -48,6 +53,7 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link href="css/toastr.css" rel="stylesheet" type="text/css" media="all" />
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/login/util.css">
 	<link rel="stylesheet" type="text/css" href="css/login/main.css">
@@ -102,25 +108,30 @@ $db = mysqli_connect($servername,$username,$password,$DatabaseName);
 			</div>
 		</div>
 	</div>
+
+	<div class="modal about-modal fade" style="display:none;" id="AppointmentCancelAlert" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h5 class="modal-title">Attention</h5>
+					</div>
+					<div class="modal-body text-center">
+						<h5>Are you sure you want to cancel this appointment?</h5>
+					</div>
+					<div class="modal-footer text-center">
+						<button data-dismiss="modal" id="">Ok</button>
+					</div>
+					
+				</div>
+			</div>
+	</div>
 	
 	<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	<script src="js/toastr.js"></script>
-=======
->>>>>>> login-changeTo-Ajax
-=======
-	<script src="js/toastr.js"></script>
->>>>>>> 35222922bcdb5fd5e55ee6154bbf14586d932ea1
-=======
-	<script src="js/toastr.js"></script>
-=======
->>>>>>> login-changeTo-Ajax
->>>>>>> update again
-	<!-- <script src="js/Login/main.js"></script> -->
 	<script src="js/login.js"></script>
 
 </body>

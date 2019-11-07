@@ -8,7 +8,7 @@ if(isset($_POST['btnLogout']))
 {
 session_destroy();
  unset($_SESSION['username']);
- echo ("hello");
+//  echo ("hello");
  header("location: viewtable.php");
 }
 ?>
@@ -49,20 +49,27 @@ session_destroy();
 <header class="w3-panel w3-center w3-opacity" style="padding:50px 16px">
   	<h1 class="w3-xlarge">Pet Science Veterinary Clinic</h1>
 	  <h1>Talamban Cebu</h1>
+
 	  <form id="buttonOnly" method="post">
-	  <h4><button class="w3-bar-item btnCss logout" value="btnLogout" id="btnLogout" name="btnLogout">Logout</button></h4><br><br>
-	</form>
-	<div>
-	<h1><button class="w3-bar-item btnCss loadTable" id="btnLoadTable">Load table</button></h1>
-	<button id="btnFetching" style="display:none;" class="btnCss btnFetching" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Fetching Appointments</button>
-	<div>
+	  	<h4><button class="w3-bar-item btnCss logout" value="btnLogout" id="btnLogout" name="btnLogout">Logout</button></h4><br><br>
+	  </form>
+
+		<div>
+			<h1><button class="w3-bar-item btnCss loadTable" id="btnLoadTable">Load table</button></h1>
+			<button id="btnFetching" style="display:none;" class="btnCss btnFetching" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Fetching Appointments</button>
+		</div>
+	
 </header>
 <div class="w3-padding-32">
     <div class="w3-bar w3-border">
  
 		<div class="container-table100 tableBackground">
 			<div style="display:none;" id="TableView">
-				<table class="table">
+			<div>
+		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><button onclick="sortStatus(0)">Sort by status</button>
+		<button onclick="sortName(1)">Sort by Name</button><button onclick="sortTime(2)">Sort by Time</button><button onclick="sortDate(3)">Sort by Date</button><button onclick="sortAppointment(4)">Sort by Appointment</button>
+	</div>
+				<table class="table" id="appTable">
 					<thead class="thead-gray">
 						<tr>
 							<th class="col column1" data-column="column1">ID</th>

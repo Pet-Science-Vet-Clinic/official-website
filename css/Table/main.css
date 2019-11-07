@@ -378,10 +378,10 @@ border-radius: 4px;
 width: 110%;
 color: #FBDE44FF;
 }
-.lblCancel
+.lblDefault
 {
-  color: #FBDE44FF;
-  background:#d40606e0;
+  color: rgb(255, 255, 255);
+  background:#414141e0;
   
 }
 .btnnDefault {

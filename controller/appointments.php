@@ -89,7 +89,7 @@
     {
         if(mysqli_num_rows($results3) >=2)
         {
-            $status = "Max";
+            $status = "max";
             $status_header = "Appointment limit reached.";
             $status_message = "Every customer can only make a maximum of 2 appointments per time block to make way for other customers who wants to make appointments in the clinic.";
         }

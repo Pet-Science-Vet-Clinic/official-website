@@ -283,7 +283,7 @@ $("#btnSubmitAppointment").click(function(event){
             $('#btnSubmittingAppointment').hide();
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
-            toastr.warning("Invalid Appointment type","Please choose what appointment do you want to make with the clinic.");
+            toastr.warning("Invalid Service type","Please choose what service you want to make with the clinic.");
             return true;
         }
         
@@ -347,13 +347,12 @@ $("#btnSubmitAppointment").click(function(event){
             // $('#appointmentAlertModal').modal('show');
             // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
          }
-         else if(json_data.status == "Max")
+         else if(json_data.status == "max")
          {
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
             toastr.info(json_data.status_head, json_data.status_message);
-            // $('#appointmentAlertModal').modal('show');
-            // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
+            
          }
          else if(json_data.status == "Late")
          {
@@ -412,14 +411,6 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
      
      if($('#customer_RegistrationFullname').val()== "")
      {
-         toastr.options.closeButton = true;
-         toastr.options.preventDuplicates= true;
-         toastr.warning("Number field empty","Please enter your phone number in the textfield provided.");
-         return true;
-         
-     }
-     else if($('#customer_RegistrationFullname').val()== "")
-     {
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
         toastr.warning("Fullname field empty","Please enter your fullname in the textfield provided.");
@@ -443,21 +434,21 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
      {
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
-        toastr.warning("Cellphone Number field empty","Please enter your cellphone number in the textfield provided.");
+        toastr.warning("Mobile Number field empty","Please enter your Mobile number in the textfield provided.");
         return true;
      }
      else if(help.length <= 10)
      {
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
-        toastr.warning("Cellphone Number incomplete","The phone number you provided is incomplete.");
+        toastr.warning("Mobile Number incomplete","The mobile number you provided is incomplete.");
         return true;
      }
      else if(n == false)
      {
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
-        toastr.warning("Cellphone Number not valid","The phone number you provided is not a local cellphone number.");
+        toastr.warning("Mobile Number not valid","The mobile number you provided is not a local mobile number.");
         
         return true;
      }
@@ -504,8 +495,6 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
                 toastr.options.closeButton = true;
                 toastr.options.preventDuplicates= true;
                 toastr.success(json_data.status_message, json_data.status_header);
-                // $('#RegistrationAlertModal').modal('show');
-                // $('#appointmentStatusMessage').html(json_data.status_message);
                 $('#customer_RegistrationFullname').val("");
                 $('#customer_RegistrationAddress').val("");
                 $('#customer_RegistrationEmail').val("");
@@ -690,6 +679,7 @@ $("#btnVerify").click(function(event){
             $('#verifiedFullname').val(json_data.customer_name);
             $('#appointmentForm').show();
             $("#btnCloseModal").show();
+            $('#AppstatusVerified').attr('disabled','disabled');
          }
          else if(json_data.status == "notfound")
          {
@@ -941,6 +931,7 @@ $("#btnVerifyStatus").click(function(event){
             // console.log(json_data.appointments_data);
             // console.log("Hi!");
             $('#AppstatusVerified').show();
+            $('#AppstatusVerified').attr('disabled','disabled');
             $('#btnVerifyStatus').hide();
             $("#btnVerifyingStatus").hide();
             $('#appointmentStat').show();
@@ -1215,6 +1206,16 @@ $('#customer_RegistrationOptional').focusout(()=>{
     }
    });
 
+   $("#contact_fname").keypress(function(e) {
+    var allowed_Letters = /^[a-z A-Z .-]*$/;
+    if (e.which !== 0) {
+      if( !String.fromCharCode(e.which).match(allowed_Letters)){
+        return false;
+      }
+    }
+   });
+   
+
    $("#customer_RegistrationTelephone").keypress(function(e) {
     var allowed_Letters = /^[0-9]*$/;
     if (e.which !== 0) {
@@ -1232,3 +1233,14 @@ $('#customer_RegistrationOptional').focusout(()=>{
       }
     }
    });
+
+   $("#contact_phone").keypress(function(e) {
+    var allowed_Letters = /^[0-9]*$/;
+    if (e.which !== 0) {
+      if( !String.fromCharCode(e.which).match(allowed_Letters)){
+        return false;
+      }
+    }
+   });
+   
+

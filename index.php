@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										<div class="form-right-to-w3ls">
 										
-													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="11" placeholder="Cellphone Number" required>
+													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="11" placeholder="Mobile Number" required>
 											
 													<div class="clear"></div>
 												</div>
@@ -214,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="modal about-modal fade" id="makeAppointment-modal" tabindex="-2" role="dialog">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content">
+				<div class="modal-contentStat">
 					<div class="modal-header">
 						<button type="button" id="btnCloseModalMakeApp" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h6 class="modal-title">Make Appointment</h6><br><p><h6 class="modal-textdesc"> Not yet Registered? <button id="btnRegistration" class="btnn">Register now!</button></p></h6>
@@ -237,7 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										 <button id="btnVerify" class="btnnVerify">Verify</button>
 										 <button id="btnVerifying" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
 										 <h4 id="statusVerified" style="display:none;">
-										 <button class="verified"><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</button>
+										 <span class="verified" disabled><span class="fa fa-check" aria-hidden="true"></span>Verified</span>
 										</h4>
 								
 										<div class="clear"></div>
@@ -286,7 +286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="form-right-to-w3ls">
 											
 											<select id="appointment_modal_AppointmentType" class="form-control" name = "reason_for_appointment">
-												<option value="" name = "reason_for_appointment">Appointment type</option>
+												<option value="" name = "reason_for_appointment">Service type</option>
 												<option value="Consultation" name = "reason_for_appointment">Consultation</option>
 												<option value="Vaccination" name = "reason_for_appointment">Vaccination</option>
 												<option value="Treatment" name = "reason_for_appointment">Treatment</option>
@@ -344,18 +344,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<input type="text" id="appointmentStatus_customer_phone" style="display:block" name="appointmentStatus_customer_phone"   maxlength="12" placeholder="Cellphone Number" required>
 											<div class="clear"></div>
 										</div>
-
+										</form>
 										 <div class="form-right-to-w3ls">
 										 <button id="btnVerifyStatus" class="btnnVerify">Verify</button>
 										 <button id="btnVerifyingStatus" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
 										 <h4 id="AppstatusVerified" style="display:none;">
-										 	<button class="verified"><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</button>
+										 	<span class="verified" disabled><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</span>
 										</h4>
 								
 										<div class="clear"></div>
 									</div>
 									</div>
-								</form>
+								
 								
 										<div class="divider mb-20"></div>
 										<div style="display:none;" id="appointmentStat">
@@ -649,7 +649,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<p><a href="mailto:info@petsciencevet.com">info@petsciencevet.com</a>
 				</div>
 				<div class="footer_grid_left">
-					<h5>Times</h5>
+					<h5>Clinic Hours</h5>
 					<p>Mon-Fri:8AM to 7PM
 					<span>Sat:8AM to 6PM</span>
 					<span>Sun:9AM to 3PM</span></p>
@@ -658,11 +658,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 
 <!-- feedback start -->
-
+<!-- 
 			<div class="contact">
 				<form id="contactUsFormSubmit">
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="text" id="contact_fname" name="contact_fname" placeholder="First Name" required="">
+						<input type="text" id="contact_fname" name="contact_fname" maxlength="45" placeholder="First Name" required="">
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
 						<input type="text" id="contact_lname" name="contact_lname" placeholder="Last Name" required="">
@@ -675,7 +675,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
 
-						<input type="text" id="contact_phone" name="contact_phone" placeholder="phone" required="">
+						<input type="text" id="contact_phone" name="contact_phone" maxlength="11" placeholder="Mobile number" required="">
 
 					</div>
 					<div class="clearfix"> </div>
@@ -684,12 +684,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div>
 						<div class="click">
-							<!-- data-toggle="modal" data-target="#contactUsAlertModal" -->
+						
 							<input id="btn-send-email" type="submit" value="SEND">
 						</div>
 					</div>
 				</form>
-			</div>
+			</div> -->
 			<!-- feedback end -->
 
 

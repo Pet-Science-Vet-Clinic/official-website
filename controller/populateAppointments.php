@@ -7,6 +7,7 @@
 
     $active="2";
     $query = "SELECT * FROM tb_appointment_list";
+    $query2 = "SELECT * FROM tb_appointment_list ORDER BY appointment_Flag";
     $results = mysqli_query($db, $query);
 //     while($row = mysqli_fetch_assoc($results)){
 //         $stringTest = $row['appointment_Status'];

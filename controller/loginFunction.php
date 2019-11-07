@@ -33,7 +33,8 @@
         if (mysqli_num_rows($results) ==1 ) 
         { 
                 $status = "found";
-                            
+                $status_header = "found";
+                $status_message = "Nakit an ang user.";
         }
         else
          {

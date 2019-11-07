@@ -449,7 +449,8 @@ background-size:40px;
 /*-- modal-- */
 .modal-content {
     background-color:rgba(162, 162, 160, 0.91);
-	padding:1em;
+    padding:1em;
+    width:103%;
 }
 .btnn {
     text-align: right;
@@ -2080,4 +2081,8 @@ h4.form-header {
   color: #ffffff;
   }
   
- 
+  .modal-contentStat {
+    background-color:rgba(162, 162, 160, 0.91);
+    padding:1em;
+    width:103%;
+}
