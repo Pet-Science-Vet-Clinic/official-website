@@ -68,6 +68,7 @@ session_destroy();
 			<div>
 		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><button onclick="sortStatus(0)">Sort by status</button>
 		<button onclick="sortName(1)">Sort by Name</button><button onclick="sortTime(2)">Sort by Time</button><button onclick="sortDate(3)">Sort by Date</button><button onclick="sortAppointment(4)">Sort by Appointment</button>
+		<!-- <h1><button class="w3-bar-item btnCss loadTable" id="btnRefreshTable">🔄Refresh</button></h1> -->
 	</div>
 				<table class="table" id="appTable">
 					<thead class="thead-gray">

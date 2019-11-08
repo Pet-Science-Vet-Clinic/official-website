@@ -7,7 +7,6 @@
 
     $active="2";
     $query = "SELECT * FROM tb_appointment_list";
-    $query2 = "SELECT * FROM tb_appointment_list ORDER BY appointment_Flag";
     $results = mysqli_query($db, $query);
 //     while($row = mysqli_fetch_assoc($results)){
 //         $stringTest = $row['appointment_Status'];
@@ -31,15 +30,15 @@
       {     
           	
             $status = "success";
-            $status_header = "Appointment Cancelled";
-            $status_message = "Your appointment is cancelled.";
+            $status_header = "Table Loaded";
+            $status_message = "Table has been populated.";
         }
         else
          {
 
         $status = "failed";
-        $status_header = "Cancellation failed";
-        $status_message = "Time cancellation failed.";
+        $status_header = "Table data fetch failed";
+        $status_message = "Table data fetching failed.";
 		// array_push($errors, "Wrong username/password combination");
 		// header("Refresh:0");
         }
