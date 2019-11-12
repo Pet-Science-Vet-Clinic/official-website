@@ -4,9 +4,10 @@
 	// $default_email = 'info@petsciencevet.com';
     // $fasfg = 'infopassword';
     $db = mysqli_connect($servername,$username,$password,$DatabaseName);
-
+    date_default_timezone_set('Asia/Singapore');
+    // $dateNow = date('Y-m-d');
     $active="2";
-    $query = "SELECT * FROM tb_appointment_list";
+    $query = "SELECT * FROM tb_appointment_list WHERE appointment_Date >= date_sub(now(), interval 0 day) ";
     $results = mysqli_query($db, $query);
 //     while($row = mysqli_fetch_assoc($results)){
 //         $stringTest = $row['appointment_Status'];

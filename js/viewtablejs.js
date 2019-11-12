@@ -278,6 +278,7 @@ $("#btnLoadTable").click(function(event){
                     {
                         $Appointment_Time_Slot =json_data.appointments_data[i].appointment_TimeSlot;
                         $Appointment_Date_Now =json_data.appointments_data[i].appointment_Date;
+                        $Appointment_Date_Now2 =json_data.appointments_data[i].appointment_Date2;
                         $Appointment_Flag =json_data.appointments_data[i].appointment_Flag;
                         $blockTime ="";
                         if ($Appointment_Time_Slot == "8am - 9am"){ $blockTime = "8"; }
@@ -300,7 +301,7 @@ $("#btnLoadTable").click(function(event){
                         var table_R = $('<tr class="lblDefault"></tr>');
                         var table_1=$('<td></td>').html(json_data.appointments_data[i].appointment_SystemID);
                         var table_2=$('<td></td>').html(json_data.appointments_data[i].appointment_TimeSlot);
-                        var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_Date);
+                        var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_Date2);
                         var table_4=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Name);
                         var table_5=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Email);
                         var table_6=$('<td></td>').html(json_data.appointments_data[i].appointment_Contact);
@@ -419,6 +420,7 @@ $("#btnRefreshTable").click(function(event){
                     {
                         $Appointment_Time_Slot =json_data.appointments_data[i].appointment_TimeSlot;
                         $Appointment_Date_Now =json_data.appointments_data[i].appointment_Date;
+                        $Appointment_Date_Now2 =json_data.appointments_data[i].appointment_Date2;
                         $Appointment_Flag =json_data.appointments_data[i].appointment_Flag;
                         $blockTime ="";
                         if ($Appointment_Time_Slot == "8am - 9am"){ $blockTime = "8"; }
@@ -441,7 +443,7 @@ $("#btnRefreshTable").click(function(event){
                         var table_R = $('<tr class="lblDefault"></tr>');
                         var table_1=$('<td></td>').html(json_data.appointments_data[i].appointment_SystemID);
                         var table_2=$('<td></td>').html(json_data.appointments_data[i].appointment_TimeSlot);
-                        var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_Date);
+                        var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_Date2);
                         var table_4=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Name);
                         var table_5=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Email);
                         var table_6=$('<td></td>').html(json_data.appointments_data[i].appointment_Contact);

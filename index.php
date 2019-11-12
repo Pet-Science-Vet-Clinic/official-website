@@ -145,26 +145,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="letter-w3ls">
 
 								<form id="registrationModalForm">
-									<div class="form-header">Your Personal Information<br><br></div>
-									<div class="main">
-									<div class="form-left-to-w3l">
+									<div class="form-header"><br>Your Personal Information<br><br></div>
+										<div class="main">
+											<div class="form-left-to-w3l">
 
-									<input type="text" id="customer_RegistrationFullname" style="display:block" name="customer_RegistrationFullname"   maxlength="45" placeholder="FullName" required>
-											<div class="clear"></div>
-										</div>
+												<input type="text" id="customer_RegistrationFullname" style="display:block" name="customer_RegistrationFullname"   maxlength="45" placeholder="FullName" required>
+													<div class="clear"></div>
+											</div>
 
-										 <div class="form-right-to-w3ls">
-										 <input type="text" id="customer_RegistrationAddress" style="display:block" name="customer_RegistrationAddress"   maxlength="45" placeholder="Address" required>
-										
-											<div class="clear"></div>
-										</div>
+											<div class="form-right-to-w3ls">
+												<input type="text" id="customer_RegistrationAddress" style="display:block" name="customer_RegistrationAddress"   maxlength="45" placeholder="Address" required>
+												
+													<div class="clear"></div>
+											</div>
 
 										</div>
 
 									<div class="main">
 										<div class="form-left-to-w3l">
 
-										<input type="email" id="customer_RegistrationEmail" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address" required>
+										<input type="email" id="customer_RegistrationEmail" style="display:block" name="customer_RegistrationEmail"   maxlength="45" placeholder="Email Address">
 											<div class="clear"></div>
 										</div>
 
@@ -180,7 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										<div class="form-left-to-w3l">
 										<input type="text" id="customer_RegistrationTelephone" style="display:block" name="customer_RegistrationTelephone"   maxlength="7" placeholder="Telephone Number" required>
-										
+										<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
 										<input type="text" id="customer_RegistrationOptional" style="display:block" name="customer_RegistrationOptional"   maxlength="11" placeholder="Cellphone (Optional)">
@@ -189,14 +189,102 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 
 									<div class="divider"></div>
+									<!-- </form> -->
+									<input type="text" id="numberzxc" style="display:none;" value="0" disabled>
 
-								
+									<div class="form-header"><br>Pet list for registration<br><br></div>
+									
+									
+									<div class="main">
+
+										<div style="width: 20%; display:inline-block;">
+							
+											<div class="dropdown-content w3-animate-opacity" style=" overflow-y: scroll; height: 200px;">
+												<a  id="TableRow_Owner">Owner</a>
+												<a  id="TableRow_PetName">Pet Name</a>
+												<a  id="TableRow_Vaccine">Vaccine</a>
+												<a  id="TableRow_Sequence">Sequence</a>
+												<a  id="TableRow_Date">Date</a>
+												<a  id="TableRow_Time">Time</a>
+											</div>
+										</div>
+                  					</div>
+              
+                  <div id="PetFollowUp_Table_Div">
+                    <table id="PetFollowUp_Table" >
+						<thead>
+						<tr>
+							<!-- <th id="PetFollowUp_Table_Header_Owner" style="width: 10%">Count</th> -->
+							<th id="TableRow_PetName" style="width: 25%">Pet Name</th>
+							<th id="TableRow_Specie" style="width: 20%">Specie</th>
+							<th id="TableRow_Breed" style="width: 20%">Breed</th>
+							<th id="TableRow_Birthday" style="width: 20%">Birthday</th>
+							<th id="TableRow_Action" style="width: 8%">Action</th>
+						</tr>
+						</thead>
+
+						<tbody id="pet_Entered">
+																			
+						</tbody>
+                    </table>
+                  </div><br><br>
+
+                  
+            
+                <!-- </div> -->
+              <!-- </div> -->
+              
+
+
+            </div>
+
+									</div>
+
+									<!-- <form id="registrationModalForm"> -->
+									<div class="form-header">Your Pet Information<br><br></div>
+
+									<div class="main">
+										<div class="form-left-to-w3l">
+
+										<input type="text" id="pet_Name" style="display:block" name="pet_Name"   maxlength="20" placeholder="Pet Name" required>
+											<div class="clear"></div>
+										</div>
+
+										<div class="form-right-to-w3ls">
+										
+										<select id="pet_Species" class="form-control" name = "pet_Species">
+											<option value="" name = "pet_Species">Pet Specie</option>
+											<option value="Canine" name = "pet_Species">Canine</option>
+											<option value="Feline" name = "pet_Species">Feline</option>
+											
+												</select>
+											
+													<div class="clear"></div>
+											</div>
+											
+									</div>
+
+									<div class="main">
+
+										<div class="form-left-to-w3l">
+										<input type="text" id="pet_Breed" style="display:block" name="pet_Breed"   maxlength="20" placeholder="Breed" required>
+										<div class="clear"></div>
+										</div>
+										<div class="form-right-to-w3ls">
+										<input type="date" id="pet_Birthdate" style="display:block" name="pet_Birthdate" required>
+											<div class="clear"></div>
+										</div>
+									</div>
+									
+									</form>
+									
 									<div class="btnn">
-										<button id="make_appointment_modal_SubmitAppointment" value="" name="make_appointment_modal_SubmitAppointment" type="submit">Submit</button><br>
+									<button id="make_appointment_add_Pet" onclick="addIDval();" value="" name="make_appointment_add_Pet" type="submit">Add pet</button><br><br>
+										<button id="make_appointment_modal_SubmitAppointment" style="display:none;" value="" name="make_appointment_modal_SubmitAppointment" type="submit">Submit</button><br>
 										<button id="btnSubmittingAppointments" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
 									</div>
 
-								</form>
+								
 							</div>
 						</div>
 						<!--//register form-->
@@ -271,6 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="form-left-to-w3l">
 											<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
 											<option value="" name = "timepicked">Choose a Time Block</option>
+											<option value="5am - 6am" name = "timepicked">5am - 6am</option>
 											<option value="10am - 11am" name = "timepicked">10am - 11am</option>
 											<option value="11am - 12pm" name = "timepicked">11am - 12pm</option>
 											<option value="12pm - 1pm" name = "timepicked">12pm - 1pm</option>
@@ -304,12 +393,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												
 											</div>										
 											</div>
+											</form>
 
 											<div class="btnn">
-												<button id="btnSubmitAppointment" name="btnSubmitAppointment" type="submit">Submit</button><br>
+												<button id="btnSubmitAppointment" name="btnSubmitAppointment">Submit</button><br>
 												<button id="btnSubmittingAppointment" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
 											</div>
-									</form>
+									
 							</div>
 						</div>
 						<!--//register form-->

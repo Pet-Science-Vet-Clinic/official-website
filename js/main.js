@@ -95,7 +95,7 @@ function ValidateDate_LessThanToday_2(dateString){
 
 
 
-$('#appointment_modal_Date').change(function()
+$('#appointment_modal_Date').focusout(function()
 {
     if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
     {
@@ -103,11 +103,27 @@ $('#appointment_modal_Date').change(function()
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
         toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+        $("#btnSubmitAppointment").css("background","red");
+    }
+    else
+    {
+        $('#btnSubmitAppointment').removeAttr('disabled');
+        $("#btnSubmitAppointment").css("background","black");
+    }
+});
+
+$('#btnSubmitAppointment').click(function(){
+    if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
+    {
+        
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
 
     }
     else if($('#appointment_modal_Date').val() == "")
     {
-        $('#btnSubmitAppointment').attr('disabled','disabled');
+        
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
         toastr.warning("The time you selected is not valid. Please select a day.","No date selected");
@@ -115,23 +131,11 @@ $('#appointment_modal_Date').change(function()
     }
     else
     {
+        
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
         toastr.success("Available!","Selected Day available.");
-        $('#btnSubmitAppointment').removeAttr('disabled');
-    }
-
-
-
-});
-
-$('#btnSubmitAppointment').click(function(){
-    var bool = new Boolean(false);
-    if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
-    {
-        toastr.options.closeButton = true;
-        toastr.options.preventDuplicates= true;
-        toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+        
     }
     // else
     // {
@@ -240,6 +244,44 @@ $("#btnVerify").click(function()
     
    });
 
+   function addIDval()
+    {
+    var value = parseInt(document.getElementById('numberzxc').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('numberzxc').value = value;
+    }
+    
+    function deleteRow(btn)
+     {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+      }
+$("#make_appointment_add_Pet").click(function()
+    {
+        
+        var $id = $('#numberzxc').val();
+        var $petName = $('#pet_Name').val();
+        var $petSpecie = $('#pet_Species').val();
+        var $petBreed = $('#pet_Breed').val();
+        var $petBirthdate = $('#pet_Birthdate').val();
+        $("#pet_Entered").append(
+            "<tr>" +
+            // "<td>"+ $id +"</td>" +
+              "<td>"+ $petName +"</td>" +
+              "<td>"+ $petSpecie + "</td>" +
+              "<td>"+ $petBreed + "</td>" +
+              "<td>"+ $petBirthdate + "</td>" +
+              "<td>"+ "<button onclick=" + "deleteRow(this)" + ">Remove</button>" + "</td>" +
+            "</tr>"
+        );
+
+        $('#make_appointment_modal_SubmitAppointment').show();
+
+    });
+
+   
+
 //=== Appointment modal AJAX ===//
 
 // Variable to hold request
@@ -253,6 +295,7 @@ $("#btnSubmitAppointment").click(function(event){
      var date2words = ConvertDate_Words($("#appointment_modal_Date").val());
     $('#btnSubmitAppointment').hide();
     $('#btnSubmittingAppointment').show();
+    $('#btnSubmitAppointment').attr('disabled','disabled');
     
      // Abort any pending request
      if (request)
@@ -319,57 +362,66 @@ $("#btnSubmitAppointment").click(function(event){
          console.log("Hooray, it worked!");
          console.log(json_data);
          
-         if(json_data.status == "success"){
-            toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.success(json_data.status_head, json_data.status_message);
-            // $('#btnSubmitAppointment').show();
-            // $('#btnCloseModal').show();
-            
+         if(json_data.status == "success")
+         {
+             toastr.options.closeButton = true;
+             toastr.options.preventDuplicates= true;
+             toastr.success(json_data.status_message, json_data.status_header);
+             $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
          }
          else if(json_data.status == "error")
          {
             toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.error(json_data.status_head, json_data.status_message);
+             toastr.options.preventDuplicates= true;
+             toastr.success(json_data.status_message, json_data.status_header);
+             $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
+
          }
          else if(json_data.status == "full")
          {
+            
             toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.warning(json_data.status_head, json_data.status_message);
+             toastr.options.preventDuplicates= true;
+             toastr.warning(json_data.status_message, json_data.status_header);
+             $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
+            
          }
          else if(json_data.status == "block")
          {
             toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.info(json_data.status_head, json_data.status_message);
-            // $('#appointmentAlertModal').modal('show');
-            // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
+             toastr.options.preventDuplicates= true;
+             toastr.success(json_data.status_message, json_data.status_header);
+             $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
          }
          else if(json_data.status == "max")
          {
             toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.info(json_data.status_head, json_data.status_message);
-            
+             toastr.options.preventDuplicates= true;
+             toastr.success(json_data.status_message, json_data.status_header);
+             $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
          }
-         else if(json_data.status == "Late")
-         {
+         else if(json_data.status == "late"){
+            
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
-            toastr.info(json_data.status_head, json_data.status_message);
-            // $('#appointmentAlertModal').modal('show');
-            // $('#appointmentStatusMessage').html(json_data.status_header,json_data.status_message);
-         }
+            toastr.warning(json_data.status_message, json_data.status_header);
+            $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
+        }
          else
          {
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
             toastr.info("Thank you!", "Thank you!");
+            $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
          }
-         $('#btnSubmitAppointment').show();
-    $('#btnSubmittingAppointment').hide();
+         
      });
  
      // Callback handler that will be called on failure
@@ -396,13 +448,33 @@ $("#btnSubmitAppointment").click(function(event){
 // Contact Us Send Email
 // Variable to hold request
 var request;
-
 // Bind to the submit event of our form
 $("#make_appointment_modal_SubmitAppointment").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
      var help = $('#customer_RegistrationCellphone').val();
      var n = help.startsWith("639");
+     var date2words = ConvertDate_Words($("#pet_Birthdate").val());
+     var tableCount = $('#numberzxc').val();
+  
+  var TableData = new Array();
+
+
+    var table = document.getElementById( "PetFollowUp_Table" );
+    var tableArr = [];
+    for ( var i = 1; i < table.rows.length; i++ ) {
+        tableArr.push({
+            Pet_Name: table.rows[i].cells[0].innerHTML,
+            Specie: table.rows[i].cells[1].innerHTML,
+            Breed: table.rows[i].cells[2].innerHTML,
+            Birthday: table.rows[i].cells[3].innerHTML,
+            Birthday2Words: ConvertDate_Words(table.rows[i].cells[3].innerHTML)
+        });
+            
+    }
+    
+    
+// alert(JSON.stringify(tableArr));
 
      // Abort any pending request
      if (request) {
@@ -457,6 +529,17 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
         $("#btnSubmittingAppointments").show();
         $("#make_appointment_modal_SubmitAppointment").hide();
      }
+    //  if ($('#PetFollowUp_Table').length == 0) 
+    //  {
+    //     var tableCount = 0;
+    // }
+    if ($('#PetFollowUp_Table').length != 0)
+    {
+        
+        for (var i = 0; i < $('PetFollowUp_Table').length; i++) {
+            var tableCount = i;
+         }
+    }
     
      // setup some local variables
      var $form = $("#registrationModalForm");
@@ -465,7 +548,8 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
      var $inputs = $form.find("input, select, button, textarea, date, checkbox");
      
      // Serialize the data in the form
-     var serializedData = $form.serialize();
+     var serializedData = $form.serialize() +"&tableCount="+tableCount +"&date2words="+date2words+"&tableArr="+JSON.stringify(tableArr);
+     
  
      // Let's disable the inputs for the duration of the Ajax request.
      // Note: we disable elements AFTER the form data has been serialized.
@@ -501,6 +585,10 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
                 $('#customer_RegistrationCellphone').val("");
                 $('#customer_RegistrationTelephone').val("");
                 $('#customer_RegistrationOptional').val("");
+                var Table = document.getElementById("pet_Entered");
+                Table.innerHTML = "";
+                $('#pet_Name').val("");
+                $('#pet_Breed').val("");
             }
             else if(json_data.status == "error")
             {
@@ -539,6 +627,8 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
                 // $('#RegistrationAlertModal').modal('show');
                 // $('#appointmentStatusMessage').html(json_data.status_message);
             }
+            
+            
                
      });
  
@@ -814,7 +904,18 @@ $('#btnCloseStatModal').click(function(){
             $("#btnVerifyingStatus").hide();
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
-            toastr.warning(json_data.status_message, json_data.status);
+            toastr.warning(json_data.status_message, json_data.status_header);
+         }
+         else if(json_data.status == "passed")
+         {
+            $('#AppointmentCancelAlert').modal('hide'); 
+            $('#appointmentStatus_customer_phone').attr('disabled','disabled');
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning(json_data.status_message, json_data.status_header);
+            $("#btnCancelling").hide();
+            $("#btnCancelThisAppointmentYes").show();
+            $("#btnCancelThisAppointmentNo").show();
          }
          else 
          {
@@ -944,7 +1045,7 @@ $("#btnVerifyStatus").click(function(event){
             $("#btnVerifyingStatus").hide();
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
-            toastr.warning(json_data.status_message, json_data.status);
+            toastr.warning(json_data.status_message, json_data.status_header);
             $("#btnCloseModalAppStatus").show();
          }
          else if(json_data.status == "pending")
@@ -953,9 +1054,10 @@ $("#btnVerifyStatus").click(function(event){
             $("#btnVerifyingStatus").hide();
             toastr.options.closeButton = true;
             toastr.options.preventDuplicates= true;
-            toastr.warning(json_data.status_message, json_data.status);
+            toastr.warning(json_data.status_message, json_data.status_header);
             $("#btnCloseModalAppStatus").show();
          }
+         
          
      });
  

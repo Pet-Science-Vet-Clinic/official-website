@@ -45,13 +45,14 @@ session_destroy();
 <body>
 <div class="w3-content headerBackground" style="max-width:1500px">
 
-<!-- Header -->
-<header class="w3-panel w3-center w3-opacity" style="padding:50px 16px">
-  	<h1 class="w3-xlarge">Pet Science Veterinary Clinic</h1>
+<!-- Header --><br>
+<header class="w3-panel w3-center" style="padding:50px 16px">
+<img class="topleft" src="img/officiallogo.png" style="width: 290px;">
+  	<h1 class="w3-xlarge">List of all upcoming Appointment Schedules</h1>
 	  <h1>Talamban Cebu</h1>
 
 	  <form id="buttonOnly" method="post">
-	  	<h4><button class="w3-bar-item btnCss logout" value="btnLogout" id="btnLogout" name="btnLogout">Logout</button></h4><br><br>
+	  	<h4><button class="w3-bar-item btnCss logout topRight" value="btnLogout" id="btnLogout" name="btnLogout">Logout</button></h4><br><br>
 	  </form>
 
 		<div>
@@ -59,7 +60,7 @@ session_destroy();
 			<button id="btnFetching" style="display:none;" class="btnCss btnFetching" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Fetching Appointments</button>
 		</div>
 	
-</header>
+</header>+
 <div class="w3-padding-32">
     <div class="w3-bar w3-border">
  
@@ -93,6 +94,7 @@ session_destroy();
 				</div>
 			</div>
 		</div>
+		
 
 		<!-- Appointment cancel modal alert start -->
 	<div class="modal about-modal fade" id="ConfirmShowUpModal" tabindex="-1" role="dialog">

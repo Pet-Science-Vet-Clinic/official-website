@@ -21,10 +21,14 @@
     // $appointID = "";
     $appointments_data = array();
    
-    // while($rows = mysqli_fetch_array($results)):; 
-    // $appointID = $rows['appointment_SystemID'];
-    // endwhile;
+    while($rows = mysqli_fetch_array($results)):; 
+    $AppDate = $rows['appointment_Date'];
+    endwhile;
     
+    $timestamp = strtotime($AppDate);
+    $oneDay = strtotime("-1 day");
+    
+
     
     $status = "";
     $status_message ="";
@@ -38,20 +42,30 @@
 
     if (mysqli_num_rows($results) ==1) 
       { 
-	
-            $sql = "UPDATE tb_appointment_list SET appointment_Flag ='1' WHERE appointment_SystemID='$appCancelID'";
-            $resultzx = mysqli_query($db,$sql);
-
-            $query2 = "SELECT * FROM tb_appointment_list WHERE appointment_IDReference_Customer='$appVerifyPhone' AND appointment_Flag='$two'";
-    $results2 = mysqli_query($db, $query2);
-    while($rowx = mysqli_fetch_assoc($results2))
-    {
-       $appointments_data[] = $rowx;
-    }
+                if($oneDay<=$timestamp) 
+                {
                 
-            $status = "success";
-            $status_header = "Appointment Cancelled";
-            $status_message = "Your appointment is cancelled.";
+                
+                        $sql = "UPDATE tb_appointment_list SET appointment_Flag ='1' WHERE appointment_SystemID='$appCancelID'";
+                        $resultzx = mysqli_query($db,$sql);
+
+                        $query2 = "SELECT * FROM tb_appointment_list WHERE appointment_IDReference_Customer='$appVerifyPhone' AND appointment_Flag='$two'";
+                        $results2 = mysqli_query($db, $query2);
+                        while($rowx = mysqli_fetch_assoc($results2))
+                                {
+                                        $appointments_data[] = $rowx;
+                                }
+                                
+                        $status = "success";
+                        $status_header = "Appointment Cancelled";
+                        $status_message = "Your appointment is cancelled.";
+                }
+                else
+                {
+                        $status = "passed";
+                        $status_header = "Appointment cannot be cancelled";
+                        $status_message = "Appointments can only be cancelled a day before the set date.";
+                }
         }
         else
          {

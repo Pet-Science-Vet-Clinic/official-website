@@ -430,3 +430,6 @@ color: #FFE77AFF;
     -ms-background-size: cover;
     min-height: 0px;
 }
+
+.topleft{position:absolute;left:0;top:0 !important}
+.topRight{position:absolute;right:0;top:0 !important}

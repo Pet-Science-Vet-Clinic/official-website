@@ -2086,3 +2086,152 @@ h4.form-header {
     padding:1em;
     width:103%;
 }
+
+.Search_DropDown{
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 5px 20px 5px 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+    color: black;
+    width: 150px;
+    text-align: left;
+    transition: 0.2s;
+    font-size:15px;
+  }
+  
+  .Search_DropDown:hover {
+    background-color: #eeeeee;
+  }
+
+  .FirstModule_search_input{
+    padding: 6px;
+    font-size: 17px;
+    border: none;
+    width: 80%;
+  }
+
+  #PetFollowUp_Table{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    /* width: 1260px; */
+    width: 100%;
+    table-layout: fixed;
+    /* height: 100%; */
+  }
+  
+  #PetFollowUp_Table_Div{
+    display: block;
+    height: 200px;
+    /* width: 200px; */
+    border-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }
+  
+  
+  #PetFollowUp_Table td, #PetFollowUp_Table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #PetFollowUp_Table td{
+    word-wrap: break-word;
+  }
+  
+  #PetFollowUp_Table thead{
+    border-radius: 10px;
+  }
+  
+  #PetFollowUp_Table tr:hover {background-color: #eff5ff;}
+  
+  #PetFollowUp_Table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2f9c34;
+  color: white;
+  }
+  
+   /* / FOR THE DROPDOWN/ */
+    .dropbtn {
+      /* background-color: #4CAF50; */
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      /* z-index: 1; */
+  
+      max-height: 400px;
+      /* width: 34%; */
+      overflow-x: scroll;
+      
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      word-wrap: break-word;
+    }
+    
+    .dropdown-content a:hover {background-color: #f1f1f1}
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+  
+    .FirstModule_search_container button {
+      padding: 6px 10px;
+      background: #ddd;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .FirstModule_search_container button:hover {
+      background: #ccc;
+    }
+    
+  
+    .FirstModule_search_Dropdown{
+      display: inline-block;
+      border: 1px solid gray;
+      border-radius: 4px;
+      padding: 5px 20px 5px 10px;
+      background-color: #ffffff;
+      cursor: pointer;
+      white-space: nowrap;
+      color: black;
+      width: 150px;
+      text-align: left;
+      transition: 0.2s;
+      font-size:15px;
+    }
+    
+    .FirstModule_search_Dropdown:hover {
+      background-color: #eeeeee;
+    }
+
+

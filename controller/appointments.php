@@ -13,40 +13,7 @@
     $timeNowMinute= date("i");
     $timeNowEx = date("A");
 
-    $hourval ="";
-
-    if($timeNowHour == "10")
-    {
-        $hourval = $timeNowHour;
-    }
-    else if($timeNowHour == "11")
-    {
-        $hourval = $timeNowHour;
-    }
-    else if($timeNowHour == "12")
-    {
-        $hourval = $timeNowHour;
-    }
-    else if($timeNowHour == "01")
-    {
-        $hourval = $timeNowHour;
-    }
-    else if($timeNowHour == "02")
-    {
-        $hourval = $timeNowHour;
-    }
-    else if($timeNowHour == "03")
-    {
-        $hourval = $timeNowHour;
-    }
-    else if($timeNowHour == "04")
-    {
-        $hourval = $timeNowHour;
-    }
-    else if($timeNowHour == "05")
-    {
-        $hourval = $timeNowHour;
-    }
+    
 
 
 	$appointment_date = isset($_POST['datepicked']) ? $_POST['datepicked'] : "";
@@ -55,6 +22,42 @@
     $appointment_reason = isset($_POST['reason_for_appointment']) ? $_POST['reason_for_appointment'] : "";
     $appointment_phone = isset($_POST['appNumb']) ? $_POST['appNumb'] : "";
     $appointment_Date2Words = isset($_POST['date2words']) ? $_POST['date2words'] : "";
+
+    $hourval ="";
+
+    if($appoinment_time == "10am - 11am")
+    {
+        $hourval = "10";
+    }
+    else if($appoinment_time == "11am - 12pm")
+    {
+        $hourval = "11";
+    }
+    else if($appoinment_time == "12pm - 1pm")
+    {
+        $hourval = "12";
+    }
+    else if($appoinment_time == "1pm - 2pm")
+    {
+        $hourval = "01";
+    }
+    else if($appoinment_time == "2pm - 3pm")
+    {
+        $hourval = "02";
+    }
+    else if($appoinment_time == "3pm - 4pm")
+    {
+        $hourval = "03";
+    }
+    else if($appoinment_time == "4pm - 5pm")
+    {
+        $hourval = "04";
+    }
+    else if($appoinment_time == "5am - 6am")
+    {
+        $hourval = "05";
+    }
+    
     
     // echo $timeNowHour . $timeNowMinute . $timeNowEx; die();
     $cancel = "1";
@@ -98,22 +101,22 @@
             if (mysqli_num_rows($results) <3) 
             { 
             
-                // echo $timeNowHour . " " . $hourval; die();
-                // if($timeNowHour == $hourval)
-                // {
-                //     $status = "Late";
-                //     $status_header = "Attention";
-                //     $status_message = "Please select an time block an hour ahead.";
-                // }
-                // else
-                // {
-                    $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words')";
-                $query=$conn->query($sql);
+                
+                    if($hourval <= $timeNowHour)
+                    {
+                        $status = "late";
+                        $status_header = "Selected time already passed";
+                        $status_message = "Your selected time has already passed. Please select another time.";
+                    }
+                    else
+                    {
+                        $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words')";
+                        $query=$conn->query($sql);
 
-                    $status = "success";
-                    $status_header = "Appointment Set";
-                    $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
-                // }
+                        $status = "success";
+                        $status_header = "Appointment Set";
+                        $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
+                    }
                                 
             }
             else if (mysqli_num_rows($results) >2) {
