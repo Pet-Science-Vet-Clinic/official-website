@@ -1,4 +1,48 @@
 
+@media 
+only screen and 
+  (max-width: 760px){
+  td, tr { 
+      display: block;
+}
+thead tr { 
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+tr {
+      border: 1px solid rgb(218, 208, 207); 
+  }
+  tr + tr{
+      margin-top: 15%;
+  }
+td { 
+
+  border: none;
+  border-bottom: 1px solid #eee; 
+  position: relative;
+  padding-left: 50%; 
+      background-color: rgb(39, 39, 39);
+      text-align: left;
+}
+button { 
+
+  text-align: middle;
+  float: none !important;
+  background-color: #EE2737FF;
+  padding: 3% !important;
+  border-radius: 4px;
+  margin-bottom: 5%;
+}
+td:before { 
+      content: attr(data-label);
+      display: inline-block;
+      line-height: 1.5;
+    margin-left: -100%;
+      width: 100%;
+  white-space: nowrap;
+}
+} 
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -338,7 +382,7 @@ width: 100px;
   color:#006B38FF;
 padding: 5%;
 border-radius: 4px;
-width: 110%;
+width: 100%;
 }
 .btnnShowUp:hover {
   background-color: #019927;
@@ -350,7 +394,7 @@ width: 110%;
   background-color: #1C70CB;
 padding: 5%;
 border-radius: 4px;
-width: 110%;
+width: 100%;
 color:#EEA47FFF;
 }
 .lblUpcoming
@@ -375,7 +419,7 @@ color:#006B38FF;
   background-color: #EE2737FF;
 padding: 5%;
 border-radius: 4px;
-width: 110%;
+width: 100%;
 color: #FBDE44FF;
 }
 .lblDefault
@@ -399,7 +443,7 @@ width: 15%;
   background-color: #ffffff;
 padding: 5%;
 border-radius: 4px;
-width: 110%;
+width: 100%;
 color: #FFE77AFF;
 }
 

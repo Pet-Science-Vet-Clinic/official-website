@@ -5,6 +5,52 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+/* Mobile View Start */
+/* @media 
+only screen and 
+  (max-width: 760px){
+  td, tr { 
+      display: block;
+}
+thead tr { 
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+tr {
+      border: 1px solid rgb(218, 208, 207); 
+  }
+  tr + tr{
+      margin-top: 15%;
+  }
+td { 
+
+  border: none;
+  border-bottom: 1px solid #eee; 
+  position: relative;
+  padding-left: 50%; 
+      background-color: rgb(39, 39, 39);
+      text-align: left;
+}
+button { 
+
+  text-align: middle;
+  float: none !important;
+  background-color: #EE2737FF;
+  padding: 3% !important;
+  border-radius: 4px;
+  margin-bottom: 5%;
+}
+td:before { 
+      content: attr(data-label);
+      display: inline-block;
+      line-height: 1.5;
+    margin-left: -100%;
+      width: 100%;
+  white-space: nowrap;
+}
+}  */
+/* Mobile View Start */
 
 html,
 body {
@@ -2004,12 +2050,13 @@ h1 a.navbar-brand {
     -webkit-flex-basis: 90%;
 }
 
-.divider{border-bottom: 1px solid #e5e5e5}
+.divider{border-bottom: 1px solid #e5e5e5;padding-top:40px;}
 h4.form-header {
     text-align: left;
     font-size: 52px;
     color:#000;
     letter-spacing: 2px;
+    
 }
 @media(max-width:667px){
 	h4.form-header {
@@ -2124,11 +2171,14 @@ h4.form-header {
   
   #PetFollowUp_Table_Div{
     display: block;
-    height: 200px;
+    height: 320px;
     /* width: 200px; */
     border-radius: 10px;
     overflow-y: scroll;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
+    border-style: solid;
+  border-color: white;
+
   }
   
   
@@ -2234,4 +2284,7 @@ h4.form-header {
       background-color: #eeeeee;
     }
 
-
+    .padding-tops
+    {
+        padding-top:10px;
+    }

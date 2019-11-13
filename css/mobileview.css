@@ -1,0 +1,45 @@
+
+ @media 
+only screen and 
+  (max-width: 812px){
+  td, tr { 
+      display: block;
+}
+thead tr { 
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+tr {
+      border: 1px solid rgb(218, 208, 207); 
+  }
+  tr + tr{
+      margin-top: 15%;
+  }
+td { 
+
+  border: none;
+  border-bottom: 1px solid #eee; 
+  position: relative;
+  padding-left: 50%; 
+      background-color: rgb(211, 216, 209);
+      text-align: left;
+      color: rgb(0, 0, 0);
+}
+button { 
+
+  text-align: middle;
+  float: none;
+  padding: 3%;
+  border-radius: 4px;
+  margin-bottom: 5%;
+}
+td:before { 
+      content: attr(data-label);
+      display: inline-block;
+      line-height: 1.5;
+    margin-left: -100%;
+      width: 100%;
+  white-space: nowrap;
+}
+} 

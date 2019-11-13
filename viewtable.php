@@ -48,7 +48,7 @@ session_destroy();
 <!-- Header --><br>
 <header class="w3-panel w3-center" style="padding:50px 16px">
 <img class="topleft" src="img/officiallogo.png" style="width: 290px;">
-  	<h1 class="w3-xlarge">List of all upcoming Appointment Schedules</h1>
+  	<br><br><h1 class="w3-xlarge">List of all upcoming Appointment Schedules</h1>
 	  <h1>Talamban Cebu</h1>
 
 	  <form id="buttonOnly" method="post">
@@ -71,6 +71,7 @@ session_destroy();
 		<button onclick="sortName(1)">Sort by Name</button><button onclick="sortTime(2)">Sort by Time</button><button onclick="sortDate(3)">Sort by Date</button><button onclick="sortAppointment(4)">Sort by Appointment</button>
 		<!-- <h1><button class="w3-bar-item btnCss loadTable" id="btnRefreshTable">🔄Refresh</button></h1> -->
 	</div>
+
 				<table class="table" id="appTable">
 					<thead class="thead-gray">
 						<tr>

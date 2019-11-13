@@ -35,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //font-awesome icons -->
 	<!--stylesheets-->
 	<link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+	<link href="css/mobileview.css" rel='stylesheet' type='text/css' media="all">
 	<!--//stylesheets-->
 	<link rel='stylesheet' type='text/css' href='css/jquery.easy-gallery.css' />
 	<!-- For-gallery-CSS -->
@@ -219,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<th id="TableRow_Specie" style="width: 20%">Specie</th>
 							<th id="TableRow_Breed" style="width: 20%">Breed</th>
 							<th id="TableRow_Birthday" style="width: 20%">Birthday</th>
-							<th id="TableRow_Action" style="width: 8%">Action</th>
+							<th id="TableRow_Action" style="width: 11%">Action</th>
 						</tr>
 						</thead>
 
@@ -324,9 +325,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										 <div class="form-right-to-w3ls">
 										 <button id="btnVerify" class="btnnVerify">Verify</button>
 										 <button id="btnVerifying" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
-										 <h4 id="statusVerified" style="display:none;">
-										 <span class="verified" disabled><span class="fa fa-check" aria-hidden="true"></span>Verified</span>
-										</h4>
+										 	<div id="statusVerified" class="padding-tops" style="display:none;">
+										 		<span class="verified" disabled><span class="fa fa-check" aria-hidden="true"></span>Verified</span>
+											</div>
 								
 										<div class="clear"></div>
 									</div>
@@ -337,63 +338,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 									<form id="appointmentDetailsForm">
 										<div style="display:none;" id="appointmentForm">
-										<div class="main">
-											<div class="form-left-to-w3l">
-										
-											<input type="text" id="verifiedFullname" name="verifiedCustomerName" readonly="true">
+											<div class="main">
+												<div class="form-left-to-w3l">
+											
+												<input type="text" id="verifiedFullname" name="verifiedCustomerName" readonly="true">
+													
+													<div class="clear"></div>
+												</div>
+
+												<div class="form-right-to-w3ls">
+												<!-- DateForMakeAppointment -->
+												<input type="date" id="appointment_modal_Date" name="datepicked" data-provide="datepicker">
 												
-												<div class="clear"></div>
-											</div>
 
-											<div class="form-right-to-w3ls">
-											<!-- DateForMakeAppointment -->
-											<input type="date" id="appointment_modal_Date" name="datepicked" data-provide="datepicker">
-											</h4>
-
-												<div class="clear"></div>
+													<div class="clear"></div>
+												</div>
 											</div>
-											</div>
-										
+											
 											<div class="main">
 
-											<div class="form-left-to-w3l">
-											<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
-											<option value="" name = "timepicked">Choose a Time Block</option>
-											<option value="5am - 6am" name = "timepicked">5am - 6am</option>
-											<option value="10am - 11am" name = "timepicked">10am - 11am</option>
-											<option value="11am - 12pm" name = "timepicked">11am - 12pm</option>
-											<option value="12pm - 1pm" name = "timepicked">12pm - 1pm</option>
-											<option value="1pm - 2pm" name = "timepicked">1pm - 2pm</option>
-											<option value="2pm - 3pm" name = "timepicked">2pm - 3pm</option>
-											<option value="3pm - 4pm" name = "timepicked">3pm - 4pm</option>
-											<option value="4pm - 5pm" name = "timepicked">4pm - 5pm</option>
-												</select>
-												
-												<div class="clear"></div>
-											</div>
+												<div class="form-left-to-w3l">
+													<select id="petpicked" class="form-control" name = "petpicked">
+													<option value="" name = "timepicked">Choose a pet</option>
+													
+													</select>
+													
+													<div class="clear"></div>
+												</div>
 
-											<div class="form-right-to-w3ls">
-											
-											<select id="appointment_modal_AppointmentType" class="form-control" name = "reason_for_appointment">
-												<option value="" name = "reason_for_appointment">Service type</option>
-												<option value="Consultation" name = "reason_for_appointment">Consultation</option>
-												<option value="Vaccination" name = "reason_for_appointment">Vaccination</option>
-												<option value="Treatment" name = "reason_for_appointment">Treatment</option>
-												<option value="Deworming" name = "reason_for_appointment">Deworming</option>
-												<option value="Boarding" name = "reason_for_appointment">Boarding</option>
-												<option value="Confinement" name = "reason_for_appointment">Confinement</option>
-												<option value="Grooming" name = "reason_for_appointment">Grooming</option>
-												</select>
+													<div class="form-right-to-w3ls">
 												
-											</h4>
+													<select id="appointment_modal_AppointmentType" class="form-control" name = "reason_for_appointment">
+													<option value="" name = "reason_for_appointment">Service type</option>
+													<option value="Consultation" name = "reason_for_appointment">Consultation</option>
+													<option value="Vaccination" name = "reason_for_appointment">Vaccination</option>
+													<option value="Treatment" name = "reason_for_appointment">Treatment</option>
+													<option value="Deworming" name = "reason_for_appointment">Deworming</option>
+													<option value="Boarding" name = "reason_for_appointment">Boarding</option>
+													<option value="Confinement" name = "reason_for_appointment">Confinement</option>
+													<option value="Grooming" name = "reason_for_appointment">Grooming</option>
+													</select>
+													
+												
 
-											
-											
-												<div class="clear"></div>
 												
-											</div>										
-											</div>
-											</form>
+												
+													<div class="clear"></div>
+													
+												</div>										
+										</div>
+
+										<div class="main">
+
+												<div class="form-left-to-w3l">
+													<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
+													<option value="" name = "timepicked">Choose a Time Block</option>
+													<option value="5am - 6am" name = "timepicked">5am - 6am</option>
+													<option value="10am - 11am" name = "timepicked">10am - 11am</option>
+													<option value="11am - 12pm" name = "timepicked">11am - 12pm</option>
+													<option value="12pm - 1pm" name = "timepicked">12pm - 1pm</option>
+													<option value="1pm - 2pm" name = "timepicked">1pm - 2pm</option>
+													<option value="2pm - 3pm" name = "timepicked">2pm - 3pm</option>
+													<option value="3pm - 4pm" name = "timepicked">3pm - 4pm</option>
+													<option value="4pm - 5pm" name = "timepicked">4pm - 5pm</option>
+													</select>
+													
+													<div class="clear"></div>
+												</div>
+										</div>
+									</form>
 
 											<div class="btnn">
 												<button id="btnSubmitAppointment" name="btnSubmitAppointment">Submit</button><br>
@@ -438,9 +451,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										 <div class="form-right-to-w3ls">
 										 <button id="btnVerifyStatus" class="btnnVerify">Verify</button>
 										 <button id="btnVerifyingStatus" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
-										 <h4 id="AppstatusVerified" style="display:none;">
-										 	<span class="verified" disabled><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</span>
-										</h4>
+											<div id="AppstatusVerified" class="padding-tops" style="display:none;">
+												<span class="verified" disabled><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</span>
+											</div>
 								
 										<div class="clear"></div>
 									</div>

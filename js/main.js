@@ -62,7 +62,7 @@ $.fn.checkboxMaster = function(list) {
 
 }
 
-console.log(ValidateDate_LessThanToday_2("2019-12-12"));
+// console.log(ValidateDate_LessThanToday_2("2019-12-12"));
 
 
 function ValidateDate_LessThanToday_2(dateString){
@@ -90,6 +90,32 @@ function ValidateDate_LessThanToday_2(dateString){
     }
 
 }
+function ValidateDate_GreaterThanToday_2(dateString){
+    var todayDate = new Date();
+    dateString_2 = new Date(dateString);
+
+    var date_Converted = dateString_2.getFullYear() + '-' + ('0' + (dateString_2.getMonth() + 1)).slice(-2) + '-' + ('0' + dateString_2.getDate()).slice(-2);
+    var Today_Converted = todayDate.getFullYear() + '-' + ('0' + (todayDate.getMonth() + 1)).slice(-2) + '-' + ('0' + todayDate.getDate()).slice(-2);
+
+    if(date_Converted == Today_Converted){
+        return false;
+    }else{
+
+         var difference = dateString_2.getFullYear() + todayDate.getFullYear();
+        //  alert(difference);
+
+        if(dateString_2 > todayDate){
+            return true;
+        }else if(difference <= 20){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+}
+
 
 
 
@@ -257,9 +283,35 @@ $("#btnVerify").click(function()
         var row = btn.parentNode.parentNode;
         row.parentNode.removeChild(row);
       }
-$("#make_appointment_add_Pet").click(function()
+$("#make_appointment_add_Pet").click(function(heck)
     {
+        if($('#pet_Name').val() == "")
+        {
+        toastr.options.closeButton = true;
+         toastr.options.preventDuplicates= true;
+         toastr.warning("You forgot to enter your pets name.");
+        }
+        else if($('#pet_Species').val() == "")
+        {
+        toastr.options.closeButton = true;
+         toastr.options.preventDuplicates= true;
+         toastr.warning("You forgot to select your pets specie.");
+        }
+        else if($('#pet_Breed').val() == "")
+        {
+        toastr.options.closeButton = true;
+         toastr.options.preventDuplicates= true;
+         toastr.warning("You forgot to enter your pets breed.");
+        }
+        else if(ValidateDate_GreaterThanToday_2($('#pet_Birthdate').val()))
+        {
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The birthdate you enter is invalid. Please do not enter future days.");
+        }
         
+        else
+        {
         var $id = $('#numberzxc').val();
         var $petName = $('#pet_Name').val();
         var $petSpecie = $('#pet_Species').val();
@@ -277,7 +329,7 @@ $("#make_appointment_add_Pet").click(function()
         );
 
         $('#make_appointment_modal_SubmitAppointment').show();
-
+        }
     });
 
    
@@ -293,6 +345,7 @@ $("#btnSubmitAppointment").click(function(event){
      event.preventDefault();
      var appNumb = $("#appointment_customer_phone").val();
      var date2words = ConvertDate_Words($("#appointment_modal_Date").val());
+     var choosenPet = $("#petpicked").val();
     $('#btnSubmitAppointment').hide();
     $('#btnSubmittingAppointment').show();
     $('#btnSubmitAppointment').attr('disabled','disabled');
@@ -329,7 +382,15 @@ $("#btnSubmitAppointment").click(function(event){
             toastr.warning("Invalid Service type","Please choose what service you want to make with the clinic.");
             return true;
         }
-        
+        else if($('#petpicked').val()== "")
+        {
+            $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning("Please select a pet","Please select which pet you want to bring in the clinic.");
+            return true;
+        }
         
        
      // setup some local variables
@@ -339,7 +400,8 @@ $("#btnSubmitAppointment").click(function(event){
      var $inputs = $form.find("input, select, button, textarea, date, checkbox");
      
      // Serialize the data in the form
-     var serializedData = $form.serialize()+"&appNumb="+appNumb+"&date2words="+date2words;
+     var serializedData = $form.serialize()+"&appNumb="+appNumb+"&date2words="+date2words+"&choosenPet="+choosenPet;
+     
  
      // Let's disable the inputs for the duration of the Ajax request.
      // Note: we disable elements AFTER the form data has been serialized.
@@ -724,6 +786,10 @@ $("#btnVerify").click(function(event){
      $("#btnVerify").hide();
      $("#btnVerifying").show();
      $("#btnCloseModal").hide();
+
+        
+
+
     //  $('#makeAppointment-modal').modal({
     //     backdrop: false
     // });
@@ -763,6 +829,23 @@ $("#btnVerify").click(function(event){
          console.log(json_data);
          
          if(json_data.status == "found"){
+
+            $valuesz=1;
+            for(var i = 0; i < json_data.numberofpets.length; i++) 
+            {
+                $pet_Name =json_data.numberofpets[i].pet_Name;
+              
+                var pet_ID = $pet_Name;
+                var pet_Val= $pet_Name;
+              
+                
+                $('#petpicked').append($('<option>', { 
+                    value: pet_ID,
+                    text : pet_Val 
+                }));
+             }
+            
+
             $('#statusVerified').show();
             $('#btnVerify').hide();
             $("#btnVerifying").hide();

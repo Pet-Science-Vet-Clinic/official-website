@@ -22,6 +22,8 @@
     $appointment_reason = isset($_POST['reason_for_appointment']) ? $_POST['reason_for_appointment'] : "";
     $appointment_phone = isset($_POST['appNumb']) ? $_POST['appNumb'] : "";
     $appointment_Date2Words = isset($_POST['date2words']) ? $_POST['date2words'] : "";
+    $appointment_PetChosen = isset($_POST['choosenPet']) ? $_POST['choosenPet'] : "";
+    
 
     $hourval ="";
 
@@ -82,6 +84,10 @@
 
     $query2 = "SELECT * FROM tb_block_dates WHERE block_Date='$appointment_date'";
     $results2 = mysqli_query($db, $query2);
+
+    $queryzxc = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$appoinment_time' AND appointment_Date ='$appointment_date' AND appointment_Flag !='$cancel' AND appointment_ReasonForAppointment ='$appointment_reason' AND appointment_IDReference_Pet ='$appointment_PetChosen'";
+    $resultszxc = mysqli_query($db, $queryzxc);
+
     if(mysqli_num_rows($results2) >=1)
     {
         $status = "block";
@@ -100,8 +106,14 @@
         {
             if (mysqli_num_rows($results) <3) 
             { 
-            
-                
+                if(mysqli_num_rows($resultszxc)>=1)
+                {
+                    $status = "duplicate";
+                    $status_header = "Duplicate appointment with pet";
+                    $status_message = "You have already set an appointment with on your selected date,time and service. To prevent duplication, Please select another date,time or service. Thank you.";
+                }
+                else
+                {
                     if($hourval <= $timeNowHour)
                     {
                         $status = "late";
@@ -110,14 +122,15 @@
                     }
                     else
                     {
-                        $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words')";
+                        $sql = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2,appointment_IDReference_Pet) VALUES ('$appoinment_time', '$appointment_date', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words','$appointment_PetChosen')";
+                        
                         $query=$conn->query($sql);
 
                         $status = "success";
                         $status_header = "Appointment Set";
                         $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
                     }
-                                
+                }       
             }
             else if (mysqli_num_rows($results) >2) {
 
@@ -139,7 +152,9 @@
         'status_message' => $status_message,
         'status_header' => $status_header,
         'appointment_phone' => $appointment_phone,
-        'ID_reference' => $appointment_phone
+        'ID_reference' => $appointment_phone,
+        'appointment_PetChosen' => $appointment_PetChosen
+        
 	);
 
 	echo json_encode($data);
