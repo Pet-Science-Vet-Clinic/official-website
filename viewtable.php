@@ -36,6 +36,8 @@ session_destroy();
 	<link rel="stylesheet" type="text/css" href="css/Table/main.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/main2.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/w3.css">
+	<link rel="stylesheet" type="text/css" href="css/Table/mobileviewcss.css">
+	
 	<link href="css/font-awesome.css" rel="stylesheet">
 	<link rel="shortcut icon" href="img/officiallogo.ico">
 	<!--stylesheets-->
@@ -75,7 +77,7 @@ session_destroy();
 				<table class="table" id="appTable">
 					<thead class="thead-gray">
 						<tr>
-							<th class="col column1" data-column="column1">ID</th>
+							<th class="col column1" style="display:none; data-column="column1">ID</th>
 							<th class="col column2" data-column="column2">Time Slot</th>
 							<th class="col column3" data-column="column3">Scheduled Date</th>
 							<th class="col column4" data-column="column4">Customer Name</th>

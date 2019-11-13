@@ -1,48 +1,5 @@
 
-@media 
-only screen and 
-  (max-width: 760px){
-  td, tr { 
-      display: block;
-}
-thead tr { 
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-tr {
-      border: 1px solid rgb(218, 208, 207); 
-  }
-  tr + tr{
-      margin-top: 15%;
-  }
-td { 
 
-  border: none;
-  border-bottom: 1px solid #eee; 
-  position: relative;
-  padding-left: 50%; 
-      background-color: rgb(39, 39, 39);
-      text-align: left;
-}
-button { 
-
-  text-align: middle;
-  float: none !important;
-  background-color: #EE2737FF;
-  padding: 3% !important;
-  border-radius: 4px;
-  margin-bottom: 5%;
-}
-td:before { 
-      content: attr(data-label);
-      display: inline-block;
-      line-height: 1.5;
-    margin-left: -100%;
-      width: 100%;
-  white-space: nowrap;
-}
-} 
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -370,32 +327,45 @@ body {
 .btnnDone {
   text-align: middle;
   float:right;
-  background-color: #00f365;
+  background-color: #ffffff;
 padding: 10px;
 border-radius: 4px;
-width: 100px;
+/* width: 100px; */
+color:rgb(8, 185, 37);
 }
 .btnnShowUp {
   text-align: middle;
   float:right;
-  background-color: #101820FF;
-  color:#006B38FF;
+  /* background-color: #101820FF; */
+  color:rgb(173, 219, 5);
 padding: 5%;
 border-radius: 4px;
-width: 100%;
+/* width: 100%; */
 }
 .btnnShowUp:hover {
-  background-color: #019927;
-  color: white;
+  background-color: #000000;
+  color: rgb(210, 230, 34);
+}
+.btnnUpcoming:hover {
+  background-color: #000000;
+  color: rgb(56, 126, 255);
+}
+.btnnCancel:hover {
+  background-color: #000000;
+  color: rgb(255, 56, 56);
+}
+.btnnAppDone:hover {
+  background-color: #000000;
+  color: rgb(3, 240, 55);
 }
 .btnnUpcoming {
   text-align: middle;
   float:right;
-  background-color: #1C70CB;
+  background-color: rgb(255, 255, 255);
 padding: 5%;
 border-radius: 4px;
-width: 100%;
-color:#EEA47FFF;
+/* width: 100%; */
+color:rgb(17, 72, 153);
 }
 .lblUpcoming
 {
@@ -416,11 +386,11 @@ color:#006B38FF;
 .btnnCancel {
   text-align: middle;
   float:right;
-  background-color: #EE2737FF;
+  background-color: rgb(255, 255, 255);
 padding: 5%;
 border-radius: 4px;
-width: 100%;
-color: #FBDE44FF;
+/* width: 100%; */
+color: #EE2737FF;
 }
 .lblDefault
 {
@@ -443,7 +413,7 @@ width: 15%;
   background-color: #ffffff;
 padding: 5%;
 border-radius: 4px;
-width: 100%;
+/* width: 100%; */
 color: #FFE77AFF;
 }
 

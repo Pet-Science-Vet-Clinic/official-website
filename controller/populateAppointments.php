@@ -7,7 +7,7 @@
     date_default_timezone_set('Asia/Singapore');
     // $dateNow = date('Y-m-d');
     $active="2";
-    $query = "SELECT * FROM tb_appointment_list WHERE appointment_Date >= date_sub(now(), interval 0 day) ";
+    $query = "SELECT * FROM tb_appointment_list WHERE appointment_Date >= date_sub(now(), interval 0 day) ORDER BY appointment_Date2";
     $results = mysqli_query($db, $query);
 //     while($row = mysqli_fetch_assoc($results)){
 //         $stringTest = $row['appointment_Status'];
