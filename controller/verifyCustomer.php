@@ -19,7 +19,7 @@
     $customerID = $rowsz['customer_SystemID'];
     endwhile;
 
-    $queryx = "SELECT * FROM tb_pet_information WHERE pet_IDReference_Customer='$customerID'";
+    $queryx = "SELECT pet_SystemID, pet_Name FROM tb_pet_information WHERE pet_IDReference_Customer='$customerID'";
     $resultsx = mysqli_query($db, $queryx);
 
     $numberofpets = array();
