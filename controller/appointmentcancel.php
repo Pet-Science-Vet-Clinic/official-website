@@ -4,7 +4,8 @@
 	// $default_email = 'info@petsciencevet.com';
     // $fasfg = 'infopassword';
     $db = mysqli_connect($servername,$username,$password,$DatabaseName);
-    
+    date_default_timezone_set("Asia/Bangkok");
+    $datenow=date("Y-m-d");
 
     $appCancelID = isset($_POST['appID']) ? $_POST['appID'] : "";
     $appVerifyPhone = isset($_POST['appNumb']) ? $_POST['appNumb'] : "";
@@ -25,8 +26,11 @@
     $AppDate = $rows['appointment_Date'];
     endwhile;
     
-    $timestamp = strtotime($AppDate);
-    $oneDay = strtotime("-1 day");
+//     $timestamp = strtotime($AppDate);
+//     $oneDay = strtotime("-1 day");
+        $dayBehind = date('Y-m-d', strtotime($AppDate . ' -1 day'));
+        $dateToday=date_create($AppDate);
+        $dateYesterday=date_create("2019-11-17");
     
 
     
@@ -42,7 +46,14 @@
 
     if (mysqli_num_rows($results) ==1) 
       { 
-                if($oneDay<=$timestamp) 
+                
+                if($AppDate==$datenow)
+                {
+                        $status = "passed";
+                        $status_header = "Appointment cannot be cancelled";
+                        $status_message = "Appointments can only be cancelled a day before the set date.";
+                }
+                else if($datenow!=$dayBehind) 
                 {
                 
                 
@@ -84,6 +95,12 @@
         'appCancelID' => $appCancelID,
         'appointments_data' => $appointments_data,
         'appVerifyPhone' => $appVerifyPhone,
+        'AppDate' => $AppDate,
+        'datenow' => $datenow,
+        'dayBehind' => $dayBehind,
+        'dateToday' => $dateToday
+        
+
         
 	);
 

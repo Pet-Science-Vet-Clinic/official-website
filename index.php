@@ -268,21 +268,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
+										<select id="pet_Gender" class="form-control" name = "pet_Gender">
+											<option value="" name = "pet_Gender">Gender</option>
+											<option value="Male" name = "pet_Gender">Male</option>
+											<option value="Female" name = "pet_Gender">Female</option>
+											
+												</select>
+										</div>
+										<div class="form-right-to-w3ls">
 										<input type="text" id="pet_Breed" style="display:block" name="pet_Breed"   maxlength="20" placeholder="Breed" required>
 										<div class="clear"></div>
 										</div>
-										<div class="form-right-to-w3ls">
+									</div>
+
+									<div class="main">
+
+										<div class="form-left-to-w3l">
 										<input type="date" id="pet_Birthdate" style="display:block" name="pet_Birthdate" required>
 											<div class="clear"></div>
 										</div>
+										
 									</div>
 									
 									</form>
 									
 									<div class="btnn">
 									<button id="make_appointment_add_Pet" onclick="addIDval();" value="" name="make_appointment_add_Pet" type="submit">Add pet</button><br><br>
-										<button id="make_appointment_modal_SubmitAppointment" style="display:none;" value="" name="make_appointment_modal_SubmitAppointment" type="submit">Submit</button><br>
-										<button id="btnSubmittingAppointments" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
+										<button id="make_appointment_modal_SubmitAppointment" class="btnSubmitting" style="display:none;" value="" name="make_appointment_modal_SubmitAppointment" type="submit">Submit</button><br>
+										<button id="btnSubmittingAppointments" class="btnSubmitting" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
 									</div>
 
 								
@@ -306,7 +319,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="modal-contentStat">
 					<div class="modal-header">
 						<button type="button" id="btnCloseModalMakeApp" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h6 class="modal-title">Make Appointment</h6><br><p><h6 class="modal-textdesc"> Not yet Registered? <button id="btnRegistration" class="btnn">Register now!</button></p></h6>
+						<h6 class="modal-title">Make Appointment</h6><br><p><h6 id="hideUponEntry" class="modal-textdesc"> Not yet Registered? <button id="btnRegistration" class="btnn">Register now!</button></p></h6>
 					</div>
 					<div class="modal-body">
 						<div class="out-info">
@@ -318,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 									<div class="form-left-to-w3l">
 
-									<input type="text" id="appointment_customer_phone" style="display:block" name="appointment_customer_phone"   maxlength="12" placeholder="Cellphone Number" required>
+									<input type="text" id="appointment_customer_phone" style="display:block" name="appointment_customer_phone"   maxlength="11" placeholder="Cellphone Number" required>
 											<div class="clear"></div>
 										</div>
 
@@ -388,47 +401,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>										
 										</div>
 
-										<div id="hiddenDate" style="display:none;">
+										
 												<div class="main">
 
-														<div class="form-left-to-w3l">
-														<input type="date" id="appointment_date_start" name="datepicked" data-provide="datepicker">
-															
+													
+														<div id="hiddenDate" style="display:none;" class="form-left-to-w3l">
+														<div class="labelHidden" id="endLabel">End Date</div>
+														<input type="date" id="appointment_date_end" name="datepicked" data-provide="datepicker">
+														
 															<div class="clear"></div>
 														</div>
-
-															<div class="form-right-to-w3ls">
-														
-															<input type="date" id="appointment_date_end" name="datepicked" data-provide="datepicker">
-														
-															<div class="clear"></div>
+											
+									
+													
+														<div class="form-right-to-w3ls">
+															<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
+															<option value="" name = "timepicked">Choose a Time Block</option>
+															<option value="10am - 11am" name = "timepicked">10am - 11am</option>
+															<option value="11am - 12pm" name = "timepicked">11am - 12pm</option>
+															<option value="12pm - 1pm" name = "timepicked">12pm - 1pm</option>
+															<option value="1pm - 2pm" name = "timepicked">1pm - 2pm</option>
+															<option value="2pm - 3pm" name = "timepicked">2pm - 3pm</option>
+															<option value="3pm - 4pm" name = "timepicked">3pm - 4pm</option>
+															<option value="4pm - 5pm" name = "timepicked">4pm - 5pm</option>
+															</select>
 															
+															<div class="clear"></div>
+														
+														
 														</div>										
 												</div>
-										</div>
-										<div class="main">
-
-												<div class="form-left-to-w3l">
-													<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
-													<option value="" name = "timepicked">Choose a Time Block</option>
-													<option value="5am - 6am" name = "timepicked">5am - 6am</option>
-													<option value="10am - 11am" name = "timepicked">10am - 11am</option>
-													<option value="11am - 12pm" name = "timepicked">11am - 12pm</option>
-													<option value="12pm - 1pm" name = "timepicked">12pm - 1pm</option>
-													<option value="1pm - 2pm" name = "timepicked">1pm - 2pm</option>
-													<option value="2pm - 3pm" name = "timepicked">2pm - 3pm</option>
-													<option value="3pm - 4pm" name = "timepicked">3pm - 4pm</option>
-													<option value="4pm - 5pm" name = "timepicked">4pm - 5pm</option>
-													</select>
-													
-													<div class="clear"></div>
-												</div>
-										</div>
+										
+										
 									</form>
 
 											<div class="btnn">
-												<button id="btnSubmitAppointment" name="btnSubmitAppointment">Submit</button><br>
-												<button id="btnSubmittingAppointment" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
+												<button id="btnSubmitAppointment" class="btnSubmitting" name="btnSubmitAppointment">Submit</button><br>
+												<button id="btnSubmittingAppointment" class="btnSubmitting" style="display:none;" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Submitting</button>
 											</div>
 									
 							</div>
