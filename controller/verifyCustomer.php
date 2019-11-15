@@ -69,6 +69,7 @@
         'status_header' => $status_header,
         'customer_name' => $customer_name,
         'numberofpets' => $numberofpets
+        
 	);
 
 	echo json_encode($data);

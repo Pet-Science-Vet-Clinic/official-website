@@ -388,6 +388,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>										
 										</div>
 
+										<div id="hiddenDate" style="display:none;">
+												<div class="main">
+
+														<div class="form-left-to-w3l">
+														<input type="date" id="appointment_date_start" name="datepicked" data-provide="datepicker">
+															
+															<div class="clear"></div>
+														</div>
+
+															<div class="form-right-to-w3ls">
+														
+															<input type="date" id="appointment_date_end" name="datepicked" data-provide="datepicker">
+														
+															<div class="clear"></div>
+															
+														</div>										
+												</div>
+										</div>
 										<div class="main">
 
 												<div class="form-left-to-w3l">
@@ -570,17 +588,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
+				<!-- <div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
 						<span class="fa fa-heartbeat banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class=" white-shadow">
 						<h4>Surgery</h4>
-						<!-- <p>
-							tur aut.maiores alias consequatur .</p> -->
+						
 						<div class="clearfix"> </div>
 					</div>
-				</div>
+				</div> -->
 				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
 						<span class="fa fa-h-square banner-icon" aria-hidden="true"></span>
@@ -591,16 +608,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				<div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
+				<!-- <div class="col-md-4  col-sm-6 col-xs-6  its-banner-grid">
 					<div class="left-icon-grid">
 						<span class="fa fa-stethoscope banner-icon" aria-hidden="true"></span>
 					</div>
 					<div class=" white-shadow">
 						<h4>Check-up</h4>
-						<!-- <p>tur aut.maiores alias consequatur .</p> -->
+						
 						<div class="clearfix"> </div>
 					</div>
-				</div>
+				</div> -->
 				<div class="col-md-4 col-sm-6 col-xs-6  its-banner-grid">
 					<div class=" left-icon-grid">
 						<span class="fa fa-hospital-o banner-icon" aria-hidden="true"></span>

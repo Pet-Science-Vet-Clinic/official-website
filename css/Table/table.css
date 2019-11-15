@@ -1,4 +1,58 @@
+.PetFollowUp_Table{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
 
+.PetFollowUp_Table_Div{
+  display: block;
+  height: 320px;
+  border-radius: 10px;
+  overflow-y: scroll;
+  border-style: solid;
+border-color: white;
+
+}
+
+
+.PetFollowUp_Table td, .PetFollowUp_Table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.PetFollowUp_Table td{
+  word-wrap: break-word;
+}
+
+.PetFollowUp_Table thead{
+  border-radius: 10px;
+}
+
+.PetFollowUp_Table tr:hover {background-color: #eff5ff;}
+
+.PetFollowUp_Table th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #2f9c34;
+color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 
 body {
     font-family: 'lato', sans-serif;
@@ -80,66 +134,11 @@ body {
     }
   }
 
-  .btnnDone {
-    text-align: middle;
-    float:right;
-    background-color: #00f365;
-  padding: 10px;
-  border-radius: 4px;
-  width: 100px;
-  }
-  .btnnShowUp {
-    text-align: middle;
-    float:right;
-    background-color: #00f33d;
-  padding: 5%;
-  border-radius: 4px;
-  width: 110%;
-  }
-  .btnnShowUp:hover {
-    background-color: #019927;
-    color: white;
-  }
-  .btnnUpcoming {
-    text-align: middle;
-    float:right;
-    background-color: #ffffff;
-  padding: 5%;
-  border-radius: 4px;
-  width: 110%;
-  color:rgb(0, 146, 243);
-  }
-  .btnnCancel {
-    text-align: middle;
-    float:right;
-    background-color: #ffffff;
-    color: #d40606e0;
-  padding: 5%;
-  border-radius: 4px;
-  width: 110%;
-  }
-  .btnnDefault {
-    text-align: middle;
-    float:right;
-    background-color: #ffffff;
-    color: black;
-  padding: 1%;
-  border-radius: 4px;
-  width: 15%;
-  } 
-  .btnnAppDone {
-    text-align: middle;
-    float:right;
-    background-color: #ffffff;
-  padding: 5%;
-  border-radius: 4px;
-  width: 110%;
-  color: rgb(0, 255, 64);
-  }
+ 
   
 
 
 
 
 
-
+ */

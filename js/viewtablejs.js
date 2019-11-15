@@ -90,15 +90,15 @@ function fetchData(event) {
                       }
                       else if($Appointment_Flag==1)
                       {
-                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnCancel" id="" type="text" disabled>Cancelled</button> </td>');
+                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-danger" id="" type="text" disabled>Cancelled</button> </td>');
                       }
                       else if($Appointment_Flag=="4")
                       {
-                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnAppDone" id="" type="text" disabled>Done</button> </td>');
+                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-success" id="" type="text" disabled>Done</button> </td>');
                       }
                       else
                       {
-                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnUpcoming" id="" type="text" disabled>Upcoming</button> </td>');
+                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-warning" id="" type="text" disabled>Upcoming</button> </td>');
                       }
                       table_R.append(table_1,table_2,table_3,table_4,table_5,table_6,table_7,table_Buttons);
                       $('#appTable').append(table_R);
@@ -160,11 +160,6 @@ function myFunction() {
     }
   }
 
-  const interval = setInterval(function() {
-    // method to be executed;
-  }, 5000);
- 
- clearInterval(interval);
 
   function sortStatus(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -462,19 +457,19 @@ $("#btnLoadTable").click(function(event){
                         }
                         else if($Appointment_Flag==1)
                         {
-                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnCancel" id="" type="text" disabled>Cancelled</button> </td>');
+                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-danger" id="" type="text" disabled>Cancelled</button> </td>');
                         }
                         else if($Appointment_Flag=="4")
                         {
-                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnAppDone" id="" type="text" disabled>Done</button> </td>');
+                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-success" id="" type="text" disabled>Done</button> </td>');
                         }
                         else if($Appointment_Flag=="3")
                         {
-                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnAppDone" id="" type="text" disabled>Ongoing</button> </td>');
+                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-warning" id="" type="text" disabled>Ongoing</button> </td>');
                         }
                         else
                         {
-                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btnnUpcoming" id="" type="text" disabled>Upcoming</button> </td>');
+                            var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-primary" id="" type="text" disabled>Upcoming</button> </td>');
                         }
                         table_R.append(table_1,table_2,table_3,table_4,table_5,table_6,table_7,table_Buttons);
                         $('#populateHere').append(table_R);

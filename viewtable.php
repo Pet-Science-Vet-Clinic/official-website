@@ -37,6 +37,8 @@ session_destroy();
 	<link rel="stylesheet" type="text/css" href="css/Table/main2.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/w3.css">
 	<link rel="stylesheet" type="text/css" href="css/Table/mobileviewcss.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/Table/table.css">
 	
 	<link href="css/font-awesome.css" rel="stylesheet">
 	<link rel="shortcut icon" href="img/officiallogo.ico">
@@ -66,16 +68,16 @@ session_destroy();
 <div class="w3-padding-32">
     <div class="w3-bar w3-border">
  
-		<div class="container-table100 tableBackground">
+		<div class="container-table100">
 			<div style="display:none;" id="TableView">
 			<div>
 		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><button onclick="sortStatus(0)">Sort by status</button>
 		<button onclick="sortName(1)">Sort by Name</button><button onclick="sortTime(2)">Sort by Time</button><button onclick="sortDate(3)">Sort by Date</button><button onclick="sortAppointment(4)">Sort by Appointment</button>
 		<!-- <h1><button class="w3-bar-item btnCss loadTable" id="btnRefreshTable">🔄Refresh</button></h1> -->
 	</div>
-
-				<table class="table" id="appTable">
-					<thead class="thead-gray">
+			<div class="PetFollowUp_Table_Div">
+				<table class="PetFollowUp_Table" id="appTable">
+					<thead>
 						<tr>
 							<th class="col column1" style="display:none; data-column="column1">ID</th>
 							<th class="col column2" data-column="column2">Time Slot</th>
@@ -92,6 +94,7 @@ session_destroy();
 									
 						</tbody>
 						</table>
+			</div>
 						<input type="hidden" id="AppIDTableVal" name="AppIDTableVal">
 					</div>
 				</div>

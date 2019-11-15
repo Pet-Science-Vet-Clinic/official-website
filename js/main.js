@@ -129,12 +129,44 @@ $('#appointment_modal_Date').focusout(function()
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
         toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
-        $("#btnSubmitAppointment").css("background","red");
+        // $("#btnSubmitAppointment").css("background","red");
     }
     else
     {
         $('#btnSubmitAppointment').removeAttr('disabled');
-        $("#btnSubmitAppointment").css("background","black");
+        // $("#btnSubmitAppointment").css("background","black");
+    }
+});
+$('#appointment_date_start').focusout(function()
+{
+    if(ValidateDate_LessThanToday_2($('#appointment_date_start').val()))
+    {
+        $('#btnSubmitAppointment').attr('disabled','disabled');
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+        // $("#btnSubmitAppointment").css("background","red");
+    }
+    else
+    {
+        $('#btnSubmitAppointment').removeAttr('disabled');
+        // $("#btnSubmitAppointment").css("background","black");
+    }
+});
+$('#appointment_date_end').focusout(function()
+{
+    if(ValidateDate_LessThanToday_2($('#appointment_date_end').val()))
+    {
+        $('#btnSubmitAppointment').attr('disabled','disabled');
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+        // $("#btnSubmitAppointment").css("background","red");
+    }
+    else
+    {
+        $('#btnSubmitAppointment').removeAttr('disabled');
+        // $("#btnSubmitAppointment").css("background","black");
     }
 });
 
@@ -346,6 +378,9 @@ $("#btnSubmitAppointment").click(function(event){
      var appNumb = $("#appointment_customer_phone").val();
      var date2words = ConvertDate_Words($("#appointment_modal_Date").val());
      var choosenPet = $("#petpicked").val();
+     var appService = $("#appointment_modal_AppointmentType").val();
+     var beginDate = ConvertDate_Words($("#appointment_date_start").val());
+     var endDate = ConvertDate_Words($("#appointment_date_end").val());
     $('#btnSubmitAppointment').hide();
     $('#btnSubmittingAppointment').show();
     $('#btnSubmitAppointment').attr('disabled','disabled');
@@ -400,8 +435,8 @@ $("#btnSubmitAppointment").click(function(event){
      var $inputs = $form.find("input, select, button, textarea, date, checkbox");
      
      // Serialize the data in the form
-     var serializedData = $form.serialize()+"&appNumb="+appNumb+"&date2words="+date2words+"&choosenPet="+choosenPet;
-     
+     var serializedData = $form.serialize()+"&appNumb="+appNumb+"&date2words="+date2words+"&choosenPet="+choosenPet+"&appService="+appService+"&endDate="+endDate+"&beginDate="+beginDate;
+       
  
      // Let's disable the inputs for the duration of the Ajax request.
      // Note: we disable elements AFTER the form data has been serialized.
@@ -475,6 +510,14 @@ $("#btnSubmitAppointment").click(function(event){
             $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
         }
+        else if(json_data.status == "wla")
+         {
+            toastr.options.closeButton = true;
+            toastr.options.preventDuplicates= true;
+            toastr.warning("wla ni sulod sa insert", "Wla nisulot sa insert");
+            $('#btnSubmitAppointment').show();
+            $('#btnSubmittingAppointment').hide();
+         }
          else
          {
             toastr.options.closeButton = true;
@@ -1370,6 +1413,23 @@ $('#customer_RegistrationOptional').focusout(()=>{
     $('#customer_RegistrationOptional').val(Repelace_63Number($('#customer_RegistrationOptional').val()));
 
 })
+
+$("#appointment_modal_AppointmentType").on("change", function(){
+    var v = $(this).val();
+    if(v=="Confinement"){
+       $("#hiddenDate").show();
+       $("#appointment_date_end").hide();
+       
+    }
+    else if(v=="Boarding")
+    {
+        $("#appointment_date_end").show();
+    }
+    else
+    {
+        $("#hiddenDate").hide();
+    }
+  });
 
 
 
