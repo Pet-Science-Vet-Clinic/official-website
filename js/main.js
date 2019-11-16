@@ -861,6 +861,8 @@ $("#btnCloseModalMakeApp").click(function()
 $("#btnCloseModalAppStatus").click(function()
 {
     $('#appStatusModal').find('input:text').val('');
+    $('#appointmentStatus_customer_phone').removeAttr('disabled');
+
 });
 $("#buttonclosemodal").click(function()
 {
