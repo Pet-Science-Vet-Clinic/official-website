@@ -219,7 +219,7 @@
                 // {
                     if($hourval <= $timeNowHour && $dateNow==$appointment_date)
                     {
-                        echo $hourval. " / " . $timeNowHour;
+                        // echo $hourval. " / " . $timeNowHour;
                         $status = "late";
                         $status_header = "Selected time already passed";
                         $status_message = "Your selected time has already passed. Please select another time.";

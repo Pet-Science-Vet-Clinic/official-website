@@ -1,7 +1,4 @@
-function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
+
 
 function CheckNumber_valid_(str){
     if(str.charAt(0) != "0" || str.charAt(1) != "9"  || str.length < 11 ){
@@ -665,13 +662,7 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
         toastr.warning("Address field empty","Please enter your address in the textfield provided.");
         return true;
      }
-     else if(validateEmail($('#customer_RegistrationEmail').val()))
-     {
-        toastr.options.closeButton = true;
-        toastr.options.preventDuplicates= true;
-        toastr.warning("Email is not complete","The email address you entered is not complete or incorrect format. Please enter your email again.");
-        return true;
-     }
+     
 
      else if($('#customer_RegistrationCellphone').val()== "")
      {
