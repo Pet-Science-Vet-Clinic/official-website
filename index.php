@@ -198,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									
 									<div class="main">
 
-										<div style="width: 20%; display:inline-block;">
+										<div id="petTableList" style="width: 20%; display:inline-block;">
 							
 											<div class="dropdown-content w3-animate-opacity" style=" overflow-y: scroll; height: 200px;">
 												<a  id="TableRow_Owner">Owner</a>
@@ -218,9 +218,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!-- <th id="PetFollowUp_Table_Header_Owner" style="width: 10%">Count</th> -->
 							<th id="TableRow_PetName" style="width: 25%">Pet Name</th>
 							<th id="TableRow_Specie" style="width: 20%">Specie</th>
+							<th id="TableRow_Specie" style="width: 20%">Gender</th>
 							<th id="TableRow_Breed" style="width: 20%">Breed</th>
-							<th id="TableRow_Birthday" style="width: 20%">Birthday</th>
-							<th id="TableRow_Action" style="width: 11%">Action</th>
+							<th id="TableRow_Birthday" style="width: 25%">Birthday</th>
+							<th id="TableRow_Action" style="width: 15%">Action</th>
 						</tr>
 						</thead>
 
@@ -268,7 +269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<select id="pet_Gender" class="form-control" name = "pet_Gender">
+										<select id="pet_Gender" class="form-control" name = "pet_Gender" required>
 											<option value="" name = "pet_Gender">Gender</option>
 											<option value="Male" name = "pet_Gender">Male</option>
 											<option value="Female" name = "pet_Gender">Female</option>
@@ -405,17 +406,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<div class="main">
 
 													
-														<div id="hiddenDate" style="display:none;" class="form-left-to-w3l">
-														<div class="labelHidden" id="endLabel">End Date</div>
-														<input type="date" id="appointment_date_end" name="datepicked" data-provide="datepicker">
-														
-															<div class="clear"></div>
-														</div>
-											
-									
-													
-														<div class="form-right-to-w3ls">
-															<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
+														<div class="form-left-to-w3l">
+														<select id="appointment_modal_TimeBlock" class="form-control" name = "timepicked">
 															<option value="" name = "timepicked">Choose a Time Block</option>
 															<option value="10am - 11am" name = "timepicked">10am - 11am</option>
 															<option value="11am - 12pm" name = "timepicked">11am - 12pm</option>
@@ -426,10 +418,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<option value="4pm - 5pm" name = "timepicked">4pm - 5pm</option>
 															</select>
 															
+															
+														
 															<div class="clear"></div>
-														
-														
-														</div>										
+														</div>
+											
+																	
 												</div>
 										
 										
@@ -471,7 +465,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 									<div class="form-left-to-w3l">
 
-									<input type="text" id="appointmentStatus_customer_phone" style="display:block" name="appointmentStatus_customer_phone"   maxlength="12" placeholder="Cellphone Number" required>
+									<input type="text" id="appointmentStatus_customer_phone" style="display:block" name="appointmentStatus_customer_phone"   maxlength="11" placeholder="Cellphone Number" required>
 											<div class="clear"></div>
 										</div>
 										</form>

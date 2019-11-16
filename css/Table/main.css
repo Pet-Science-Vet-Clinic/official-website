@@ -393,15 +393,7 @@ color: #EE2737FF;
   background:#414141e0;
   
 }
-.btnnDefault {
-  text-align: middle;
-  float:right;
-  background-color: #ffffff;
-  color: black;
-padding: 1%;
-border-radius: 4px;
-width: 15%;
-} 
+
 .btnnAppDone {
   text-align: middle;
   float:right;
@@ -443,3 +435,23 @@ color: #FFE77AFF;
 .topleft{position:absolute;left:0;top:0 !important}
 .topRight{position:absolute;right:0;top:0 !important}
 
+
+/* .btnnDesign {
+  text-align: middle;
+  float:right;
+  background-color: white;
+padding: 10px;
+border-radius: 4px;
+width: 50px;
+margin-right: 5px;
+} */
+.btnnDefault {
+  text-align: middle;
+  float:right;
+  background-color: #ffffff;
+  color: black;
+padding: 1%;
+border-radius: 4px;
+width: 15%;
+margin-left: 5px;
+} 

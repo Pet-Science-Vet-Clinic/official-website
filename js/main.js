@@ -132,26 +132,26 @@ $('#appointment_modal_Date').focusout(function()
         $("#btnSubmitAppointment").css("background","red");
         $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
     }
-    else if($('#appointment_modal_AppointmentType').val() == "Boarding")
-    {
-        if($('#appointment_modal_Date').val() > $('#appointment_date_end').val())
-        {
-            $('#btnSubmitAppointment').attr('disabled','disabled');
-        toastr.options.closeButton = true;
-        toastr.options.preventDuplicates= true;
-        toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
-        $("#btnSubmitAppointment").css("background","red");
-        $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
-        }
-        else
-        {
-            $('#btnSubmitAppointment').removeAttr('disabled');
-            $("#btnSubmitAppointment").css("background","black");
-            $(".btnSubmitting").on("mouseover",function(){$(".btnSubmitting").css("background","white")});
-            $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","black")});
-        }
+    // else if($('#appointment_modal_AppointmentType').val() == "Boarding")
+    // {
+    //     if($('#appointment_modal_Date').val() > $('#appointment_date_end').val())
+    //     {
+    //         $('#btnSubmitAppointment').attr('disabled','disabled');
+    //     toastr.options.closeButton = true;
+    //     toastr.options.preventDuplicates= true;
+    //     toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
+    //     $("#btnSubmitAppointment").css("background","red");
+    //     $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
+    //     }
+    //     else
+    //     {
+    //         $('#btnSubmitAppointment').removeAttr('disabled');
+    //         $("#btnSubmitAppointment").css("background","black");
+    //         $(".btnSubmitting").on("mouseover",function(){$(".btnSubmitting").css("background","white")});
+    //         $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","black")});
+    //     }
         
-    }
+    // }
     else
     {
         $('#btnSubmitAppointment').removeAttr('disabled');
@@ -162,40 +162,40 @@ $('#appointment_modal_Date').focusout(function()
 });
 
 
-$('#appointment_date_end').focusout(function()
-{
-    if($('#appointment_modal_AppointmentType').val() == "Boarding")
-    {
-        if($('#appointment_date_end').val() == "")
-        {
-            $('#btnSubmitAppointment').attr('disabled','disabled');
-            toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.warning("End date Empty","Your selected end date is Empty.");
-            $("#btnSubmitAppointment").css("background","red");
-            $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
-        }
-        else if($('#appointment_date_end').val() < $('#appointment_modal_Date').val())
-        {
-            $('#btnSubmitAppointment').attr('disabled','disabled');
-            toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.warning("End date not valid","Your selected end date is less than your starting date.");
-            $("#btnSubmitAppointment").css("background","red");
-        }
-        else
-        {
-            $('#btnSubmitAppointment').removeAttr('disabled');
-            $("#btnSubmitAppointment").css("background","black");
-            $(".btnSubmitting").on("mouseover",function(){$(".btnSubmitting").css("background","white")});
-            $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","black")});
-        }
-    }
-    else
-    {
-        $('#btnSubmitAppointment').removeAttr('disabled');
-    }
-});
+// $('#appointment_date_end').focusout(function()
+// {
+//     if($('#appointment_modal_AppointmentType').val() == "Boarding")
+//     {
+//         if($('#appointment_date_end').val() == "")
+//         {
+//             $('#btnSubmitAppointment').attr('disabled','disabled');
+//             toastr.options.closeButton = true;
+//             toastr.options.preventDuplicates= true;
+//             toastr.warning("End date Empty","Your selected end date is Empty.");
+//             $("#btnSubmitAppointment").css("background","red");
+//             $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
+//         }
+//         else if($('#appointment_date_end').val() < $('#appointment_modal_Date').val())
+//         {
+//             $('#btnSubmitAppointment').attr('disabled','disabled');
+//             toastr.options.closeButton = true;
+//             toastr.options.preventDuplicates= true;
+//             toastr.warning("End date not valid","Your selected end date is less than your starting date.");
+//             $("#btnSubmitAppointment").css("background","red");
+//         }
+//         else
+//         {
+//             $('#btnSubmitAppointment').removeAttr('disabled');
+//             $("#btnSubmitAppointment").css("background","black");
+//             $(".btnSubmitting").on("mouseover",function(){$(".btnSubmitting").css("background","white")});
+//             $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","black")});
+//         }
+//     }
+//     else
+//     {
+//         $('#btnSubmitAppointment').removeAttr('disabled');
+//     }
+// });
 
 $('#btnSubmitAppointment').click(function(){
     if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
@@ -381,6 +381,7 @@ $("#make_appointment_add_Pet").click(function(heck)
         var $id = $('#numberzxc').val();
         var $petName = $('#pet_Name').val();
         var $petSpecie = $('#pet_Species').val();
+        var $petGender = $('#pet_Gender').val();
         var $petBreed = $('#pet_Breed').val();
         var $petBirthdate = $('#pet_Birthdate').val();
         $("#pet_Entered").append(
@@ -388,6 +389,7 @@ $("#make_appointment_add_Pet").click(function(heck)
             // "<td>"+ $id +"</td>" +
               "<td>"+ $petName +"</td>" +
               "<td>"+ $petSpecie + "</td>" +
+              "<td>"+ $petGender + "</td>" +
               "<td>"+ $petBreed + "</td>" +
               "<td>"+ $petBirthdate + "</td>" +
               "<td>"+ "<button onclick=" + "deleteRow(this)" + ">Remove</button>" + "</td>" +
@@ -414,11 +416,12 @@ $("#btnSubmitAppointment").click(function(event){
      var date2words = ConvertDate_Words($("#appointment_modal_Date").val());
      var choosenPet = $("#petpicked").val();
      var appService = $("#appointment_modal_AppointmentType").val();
-     var endDate = ConvertDate_Words($("#appointment_date_end").val());
      var appDate = $("#appointment_modal_Date").val();
     $('#btnSubmitAppointment').hide();
     $('#btnSubmittingAppointment').show();
     $('#buttonclosemodal').hide();
+    $('#make_appointment_add_Pet').hide();
+    
     
     // $('#btnSubmitAppointment').attr('disabled','disabled');
     
@@ -454,40 +457,6 @@ $("#btnSubmitAppointment").click(function(event){
             toastr.warning("Invalid Service type","Please choose what service you want to make with the clinic.");
             return true;
         }
-        else if($('#appointment_modal_AppointmentType').val()== "Boarding")
-        {
-            var dateStarting = $('#appointment_modal_Date').val();
-            var dateEnd = $('#appointment_date_end').val();
-            if( dateEnd== "" || $('#appointment_date_end').val() == "")
-            {
-                $('#btnSubmitAppointment').show();
-                $('#btnSubmittingAppointment').hide();
-                toastr.options.closeButton = true;
-                toastr.options.preventDuplicates= true;
-                toastr.warning("No date selected","Please select an end date.");
-                return true;
-            }
-            else if(dateStarting>dateEnd || dateEnd<dateStarting)
-            {
-                $('#btnSubmitAppointment').show();
-                $('#btnSubmittingAppointment').hide();
-                toastr.options.closeButton = true;
-                toastr.options.preventDuplicates= true;
-                toastr.warning("Incorrect start and end date","Please check your starting and end date.");
-                return true;
-            }
-            else if($('#appointment_modal_TimeBlock').val()== "")
-        {
-            $('#btnSubmitAppointment').show();
-            $('#btnSubmittingAppointment').hide();
-            toastr.options.closeButton = true;
-            toastr.options.preventDuplicates= true;
-            toastr.warning("No time block selected","Please choose a time block.");
-            return true;
-        }
-          
-        }
-        
         else if($('#appointment_modal_TimeBlock').val()== "")
         {
             $('#btnSubmitAppointment').show();
@@ -509,7 +478,7 @@ $("#btnSubmitAppointment").click(function(event){
      var $inputs = $form.find("input, select, button, textarea, date, checkbox");
      
      // Serialize the data in the form
-     var serializedData = $form.serialize()+"&appNumb="+appNumb+"&date2words="+date2words+"&choosenPet="+choosenPet+"&appService="+appService+"&endDate="+endDate+"&appDate="+appDate;
+     var serializedData = $form.serialize()+"&appNumb="+appNumb+"&date2words="+date2words+"&choosenPet="+choosenPet+"&appService="+appService+"&appDate="+appDate;
        
  
      // Let's disable the inputs for the duration of the Ajax request.
@@ -541,6 +510,13 @@ $("#btnSubmitAppointment").click(function(event){
              $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
+            $('#make_appointment_add_Pet').hide();
+            var Table = document.getElementById("petTableList");
+            Table.innerHTML = "";
+            $('#appointmentForm').hide();
+            $('#appointment_customer_phone').val("");
+            $('#statusVerified').hide();
+            $('#btnVerify').show();
          }
          else if(json_data.status == "error")
          {
@@ -550,6 +526,7 @@ $("#btnSubmitAppointment").click(function(event){
              $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
+            $('#make_appointment_add_Pet').hide();
 
          }
          else if(json_data.status == "full")
@@ -561,7 +538,7 @@ $("#btnSubmitAppointment").click(function(event){
              $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
-            
+            $('#make_appointment_add_Pet').hide();
          }
          else if(json_data.status == "block")
          {
@@ -571,6 +548,7 @@ $("#btnSubmitAppointment").click(function(event){
              $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
+            $('#make_appointment_add_Pet').hide();
          }
          else if(json_data.status == "max")
          {
@@ -580,6 +558,7 @@ $("#btnSubmitAppointment").click(function(event){
              $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
+            $('#make_appointment_add_Pet').hide();
          }
          else if(json_data.status == "late"){
             
@@ -589,6 +568,7 @@ $("#btnSubmitAppointment").click(function(event){
             $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
+            $('#make_appointment_add_Pet').hide();
         }
         else if(json_data.status == "wla")
          {
@@ -598,6 +578,7 @@ $("#btnSubmitAppointment").click(function(event){
             $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
+            $('#make_appointment_add_Pet').hide();
          }
          else
          {
@@ -607,6 +588,7 @@ $("#btnSubmitAppointment").click(function(event){
             $('#btnSubmitAppointment').show();
             $('#btnSubmittingAppointment').hide();
             $('#buttonclosemodal').show();
+            $('#make_appointment_add_Pet').hide();
          }
          
      });
@@ -653,9 +635,10 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
         tableArr.push({
             Pet_Name: table.rows[i].cells[0].innerHTML,
             Specie: table.rows[i].cells[1].innerHTML,
-            Breed: table.rows[i].cells[2].innerHTML,
-            Birthday: table.rows[i].cells[3].innerHTML,
-            Birthday2Words: ConvertDate_Words(table.rows[i].cells[3].innerHTML)
+            Gender: table.rows[i].cells[2].innerHTML,
+            Breed: table.rows[i].cells[3].innerHTML,
+            Birthday: table.rows[i].cells[4].innerHTML,
+            Birthday2Words: ConvertDate_Words(table.rows[i].cells[4].innerHTML)
         });
             
     }
@@ -891,6 +874,8 @@ $("#btnCloseModalAppStatus").click(function()
 $("#buttonclosemodal").click(function()
 {
     $('#registration-modal').find('input:text, input[type=date]').val('');
+    var Table = document.getElementById("petTableList");
+    Table.innerHTML = "";
 });
 
 
@@ -1053,6 +1038,7 @@ $('#btnCloseStatModal').click(function(){
     $("#btnCloseModalAppStatus").show();
     $('#AppstatusVerified').hide();
     
+    
     // $("#displayStatsHere").remove();
     // $("displayStatsHere").closest('tr').remove();
 
@@ -1175,6 +1161,8 @@ $("#btnVerifyStatus").click(function(event){
      $("#btnVerifyStatus").hide();
      $("#btnVerifyingStatus").show();
      $("#btnCloseModalAppStatus").hide();
+     $('#appointmentStatus_customer_phone').attr('disabled','disabled');
+     
     
      // Abort any pending request
      if (request) {
@@ -1213,6 +1201,15 @@ $("#btnVerifyStatus").click(function(event){
          
          if(json_data.status == "found"){
             $valuesz=1;
+            if(json_data.appointments_data.length == 0)
+            {
+             var tableBody = $("#appStatTable");
+            var table_R =  $('<tr style="background-color: #dbd3d3;"></tr>');
+            var table_1 = $('<td colspan="5"> No Data Available in table</td>');
+  
+            table_R.append(table_1);
+            tableBody.append(table_R);
+            }
                     for(var i = 0; i < json_data.appointments_data.length; i++) 
                     {
                         var table_R = $('<tr></tr>');
@@ -1443,6 +1440,24 @@ $('#appointment_modal_CellNumber').focusout(()=>{
     // }
 })
 
+$('#pet_Birthdate').focusout((duplicate)=>{
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+    if($('#registration-pet_Birthdate').val() == today)
+    {
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("Your pet must be atleast 1 (one) day old to be registered");
+        return true;
+    }
+
+
+})
+
 $("#appointment_modal_CellNumber").keypress(function(e) {
     var allowed_Letters = /^[0-9]*$/;
     if (e.which !== 0) {
@@ -1500,21 +1515,21 @@ $('#customer_RegistrationOptional').focusout(()=>{
 
 })
 
-$("#appointment_modal_AppointmentType").on("change", function(){
-    var v = $(this).val();
-     if(v=="Boarding")
-    {
-        $("#hiddenDate").show();
-        document.getElementById("appointment_modal_TimeBlock").style.marginTop = "30px";
-    }
-    else
-    {
-        $("#hiddenDate").hide();
-        document.getElementById("appointment_modal_TimeBlock").style.marginTop = "0px";
-        document.getElementById("appointment_modal_AppointmentType").style.marginTop = "0px";
+// $("#appointment_modal_AppointmentType").on("change", function(){
+//     var v = $(this).val();
+//      if(v=="Boarding")
+//     {
+//         $("#hiddenDate").show();
+//         document.getElementById("appointment_modal_TimeBlock").style.marginTop = "30px";
+//     }
+//     else
+//     {
+//         $("#hiddenDate").hide();
+//         document.getElementById("appointment_modal_TimeBlock").style.marginTop = "0px";
+//         document.getElementById("appointment_modal_AppointmentType").style.marginTop = "0px";
         
-    }
-  });
+//     }
+//   });
 
 
 

@@ -100,12 +100,13 @@
                                  { 
                                     $row1Value = $tableArr[$i]["Pet_Name"];
                                     $row2Value = $tableArr[$i]["Specie"];
-                                    $row3Value = $tableArr[$i]["Breed"];
-                                    $row4Value = $tableArr[$i]["Birthday"];
-                                    $row5Value = $tableArr[$i]["Birthday2Words"];
+                                    $row3Value = $tableArr[$i]["Gender"];
+                                    $row4Value = $tableArr[$i]["Breed"];
+                                    $row5Value = $tableArr[$i]["Birthday"];
+                                    $row6Value = $tableArr[$i]["Birthday2Words"];
 
-                                    $sqlinsert2 = "INSERT INTO tb_pet_information (pet_IDReference_Customer,pet_Name, pet_Specie, pet_Breed, pet_DOB,pet_DOB2) VALUES
-                                    ('$customer_sysID', '$row1Value', '$row2Value', '$row3Value', '$row4Value', '$row5Value')";
+                                    $sqlinsert2 = "INSERT INTO tb_pet_information (pet_IDReference_Customer,pet_Name, pet_Specie,pet_Sex, pet_Breed, pet_DOB,pet_DOB2) VALUES
+                                    ('$customer_sysID', '$row1Value', '$row2Value', '$row3Value', '$row4Value', '$row5Value', '$row6Value')";
                                    $querycheck4=$conn->query($sqlinsert2);
 
                                     // echo $row1Value . " /// " . $row2Value. " /// ".

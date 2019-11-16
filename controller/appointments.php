@@ -199,24 +199,24 @@
     }
     else
     {
-        if(mysqli_num_rows($results3) >=2)
-        {
-            $status = "max";
-            $status_header = "Appointment limit reached.";
-            $status_message = "Every customer can only make a maximum of 2 appointments per time block to make way for other customers who wants to make appointments in the clinic.";
-        }
-        else
-        {
+        // if(mysqli_num_rows($results3) >=2)
+        // {
+        //     $status = "max";
+        //     $status_header = "Appointment limit reached.";
+        //     $status_message = "Every customer can only make a maximum of 2 appointments per time block to make way for other customers who wants to make appointments in the clinic.";
+        // }
+        // else
+        // {
             if (mysqli_num_rows($results) <3) 
             { 
-                if(mysqli_num_rows($resultszxc)>=1)
-                {
-                    $status = "duplicate";
-                    $status_header = "Duplicate appointment with pet";
-                    $status_message = "You have already set an appointment with on your selected date,time and service. To prevent duplication, Please select another date,time or service. Thank you.";
-                }
-                else
-                {
+                // if(mysqli_num_rows($resultszxc)>=1)
+                // {
+                //     $status = "duplicate";
+                //     $status_header = "Duplicate appointment with pet";
+                //     $status_message = "You have already set an appointment with on your selected date,time and service. To prevent duplication, Please select another date,time or service. Thank you.";
+                // }
+                // else
+                // {
                     if($hourval <= $timeNowHour && $dateNow==$appointment_date)
                     {
                         $status = "late";
@@ -225,8 +225,8 @@
                     }
                     else
                     {
-                        
                         $sqlInsert = "INSERT INTO tb_appointment_list (appointment_TimeSlot,appointment_Date, appointment_Customer_Name,appointment_ReasonForAppointment,appointment_Status,appointment_IDReference_Customer,appointment_Contact,appointment_Date2,appointment_IDReference_Pet) VALUES ('$appoinment_time', '$appointment_setDate', '$appointment_fullname', '$appointment_reason', '$statuszero','$appointment_phone','$appointment_phone','$appointment_Date2Words','$petData')";
+
                         $queryInsert=$conn->query($sqlInsert);
                         
                                  if($queryInsert)
@@ -235,12 +235,12 @@
                                         $status_header = "Appointment Set";
                                         $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
                                     }
-                                else
-                                {
-                                        $status = "wla";
-                                }
+                                    else
+                                    {
+                                            $status = "wla";
+                                    }
                     }
-                }       
+                // }       
             }
             else if (mysqli_num_rows($results) >2) {
 
@@ -249,7 +249,7 @@
                 $status_message = "Time block full.Please select another time block.";
                 
             }
-        }
+        // }
     }
 
 	
