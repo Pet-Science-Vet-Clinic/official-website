@@ -71,9 +71,10 @@ session_destroy();
 		<div class="container-table100">
 			<div style="display:none;" id="TableView">
 			<div>
-		<input class="searchBorder" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><button class="btnnSorting" onclick="sortStatus(0)">Sort by status</button>
+		<input class="labelUp" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><button class="btnnSorting" onclick="sortStatus(0)">Sort by status</button>
 		<button class="btnnSorting" onclick="sortName(1)">Sort by Name</button><button class="btnnSorting" onclick="sortTime(2)">Sort by Time</button><button class="btnnSorting" onclick="sortDate(3)">Sort by Date</button><button class="btnnSorting" onclick="sortAppointment(4)">Sort by Appointment</button>
-		<!-- <h1><button class="w3-bar-item btnCss loadTable" id="btnRefreshTable">🔄Refresh</button></h1> -->
+		<button class="btnnRefresh" onclick="fetchData()" id="btnRefreshTable">🔄Refresh</button>
+		<button class="btnnRefresh" style="display:none;" id="btnRefreshingTable" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Refreshing</button>
 	</div>
 			<div class="PetFollowUp_Table_Div">
 				<table class="PetFollowUp_Table" id="appTable">

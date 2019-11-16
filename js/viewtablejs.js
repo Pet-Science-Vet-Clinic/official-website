@@ -9,7 +9,8 @@ function fetchData(event) {
    if (request) {
        request.abort();
    }
-   
+   $('#btnRefreshingTable').show();
+   $('#btnRefreshTable').hide();
    // setup some local variables
    var $form = $("#TableView");
 
@@ -40,6 +41,8 @@ function fetchData(event) {
        console.log(json_data);
        
        if(json_data.status == "success"){
+        $('#btnRefreshingTable').hide();
+        $('#btnRefreshTable').show();
         console.log("Refresh success");
         var Table = document.getElementById("populateHere");
         Table.innerHTML = "";
@@ -51,71 +54,77 @@ function fetchData(event) {
           today = yyyy + '-' + mm + '-' + dd;
            
                    $valuesz=1;
-                  for(var i = 0; i < json_data.appointments_data.length; i++) 
-                  {
-                      $Appointment_Time_Slot =json_data.appointments_data[i].appointment_TimeSlot;
-                      $Appointment_Date_Now =json_data.appointments_data[i].appointment_Date;
-                      $Appointment_Date_Now2 =json_data.appointments_data[i].appointment_Date2;
-                      $Appointment_Flag =json_data.appointments_data[i].appointment_Flag;
-                      $blockTime ="";
-                      if ($Appointment_Time_Slot == "8am - 9am"){ $blockTime = "8"; }
-                      else if	($Appointment_Time_Slot == "9am - 10am"){ $blockTime = "9"; }
-                      else if	($Appointment_Time_Slot == "10am - 11am"){ $blockTime = "10"; }
-                      else if	($Appointment_Time_Slot == "11am - 12pm"){ $blockTime = "11"; }
-                      else if	($Appointment_Time_Slot == "12pm - 1pm"){ $blockTime = "12"; }
-                      else if	($Appointment_Time_Slot == "1pm - 2pm"){ $blockTime = "13"; }
-                      else if	($Appointment_Time_Slot == "2pm - 3pm"){ $blockTime = "14"; }
-                      else if	($Appointment_Time_Slot == "3pm - 4pm"){ $blockTime = "15"; }
-                      else if	($Appointment_Time_Slot == "4pm - 5pm"){ $blockTime = "16"; }
-                      else if	($Appointment_Time_Slot == "5pm - 6pm"){ $blockTime = "17"; }
-                      else if	($Appointment_Time_Slot == "6pm - 7pm"){ $blockTime = "18"; }
-                      else if	($Appointment_Time_Slot == "7pm - 8pm"){ $blockTime = "19"; }
-                      else {
-                          $blockTime =  "Empty";
-                      }
-                      
-                    
-                      var table_R = $('<tr class="lblDefault"></tr>');
-                      var table_1=$('<td style="display:none;></td>').html(json_data.appointments_data[i].appointment_SystemID);
-                      var table_2=$('<td></td>').html(json_data.appointments_data[i].appointment_TimeSlot);
-                      var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_Date2);
-                      var table_4=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Name);
-                      var table_5=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Email);
-                      var table_6=$('<td></td>').html(json_data.appointments_data[i].appointment_Contact);
-                      var table_7=$('<td></td>').html(json_data.appointments_data[i].appointment_ReasonForAppointment);
-                      if($blockTime==Hour && today==$Appointment_Date_Now && $Appointment_Flag==2)
-                      {
-                          var table_Buttons=$('<td style="text-align: center;"><button value="'+json_data.appointments_data[i].appointment_SystemID+'" class="btnnShowUp" id="btnShowUp" type="button" data-toggle="modal" data-target="#ConfirmShowUpModal">Show Up</button> </td>');
-                      
-                      }
-                      else if($Appointment_Flag==1)
-                      {
-                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-danger" id="" type="text" disabled>Cancelled</button> </td>');
-                      }
-                      else if($Appointment_Flag=="4")
-                      {
-                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-success" id="" type="text" disabled>Done</button> </td>');
-                      }
-                      else
-                      {
-                          var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-warning" id="" type="text" disabled>Upcoming</button> </td>');
-                      }
-                      table_R.append(table_1,table_2,table_3,table_4,table_5,table_6,table_7,table_Buttons);
-                      $('#appTable').append(table_R);
-                   }
-              
-          $('#TableView').show();
-          
-       }
+                   for(var i = 0; i < json_data.appointments_data.length; i++) 
+                   {
+                       $Appointment_Time_Slot =json_data.appointments_data[i].appointment_TimeSlot;
+                       $Appointment_Date_Now =json_data.appointments_data[i].appointment_Date;
+                       $Appointment_Date_Now2 =json_data.appointments_data[i].appointment_Date2;
+                       $Appointment_Flag =json_data.appointments_data[i].appointment_Flag;
+                       $blockTime ="";
+                       if ($Appointment_Time_Slot == "8am - 9am"){ $blockTime = "8"; }
+                       else if	($Appointment_Time_Slot == "9am - 10am"){ $blockTime = "9"; }
+                       else if	($Appointment_Time_Slot == "10am - 11am"){ $blockTime = "10"; }
+                       else if	($Appointment_Time_Slot == "11am - 12pm"){ $blockTime = "11"; }
+                       else if	($Appointment_Time_Slot == "12pm - 1pm"){ $blockTime = "12"; }
+                       else if	($Appointment_Time_Slot == "1pm - 2pm"){ $blockTime = "13"; }
+                       else if	($Appointment_Time_Slot == "2pm - 3pm"){ $blockTime = "14"; }
+                       else if	($Appointment_Time_Slot == "3pm - 4pm"){ $blockTime = "15"; }
+                       else if	($Appointment_Time_Slot == "4pm - 5pm"){ $blockTime = "16"; }
+                       else if	($Appointment_Time_Slot == "5pm - 6pm"){ $blockTime = "17"; }
+                       else if	($Appointment_Time_Slot == "6pm - 7pm"){ $blockTime = "18"; }
+                       else if	($Appointment_Time_Slot == "7pm - 8pm"){ $blockTime = "19"; }
+                       else {
+                           $blockTime =  "Empty";
+                       }
+                       
+                     
+                       var table_R = $('<tr class="lblDefault"></tr>');
+                       var table_1=$('<td style="display:none;></td>').html(json_data.appointments_data[i].appointment_SystemID);
+                       var table_2=$('<td></td>').html(json_data.appointments_data[i].appointment_TimeSlot);
+                       var table_3=$('<td></td>').html(json_data.appointments_data[i].appointment_Date2);
+                       var table_4=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Name);
+                       var table_5=$('<td></td>').html(json_data.appointments_data[i].appointment_Customer_Email);
+                       var table_6=$('<td></td>').html(json_data.appointments_data[i].appointment_Contact);
+                       var table_7=$('<td></td>').html(json_data.appointments_data[i].appointment_ReasonForAppointment);
+                       if($blockTime==Hour && today==$Appointment_Date_Now && $Appointment_Flag==2)
+                       {
+                           var table_Buttons=$('<td style="text-align: center;"><button value="'+json_data.appointments_data[i].appointment_SystemID+'" class="btnnShowUp" id="btnShowUp" type="button" data-toggle="modal" data-target="#ConfirmShowUpModal">Show Up</button> </td>');
+                       
+                       }
+                       else if($Appointment_Flag==1)
+                       {
+                           var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-danger" id="" type="text" disabled>Cancelled</button> </td>');
+                       }
+                       else if($Appointment_Flag=="4")
+                       {
+                           var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-success" id="" type="text" disabled>Done</button> </td>');
+                       }
+                       else if($Appointment_Flag=="3")
+                       {
+                           var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-warning" id="" type="text" disabled>Ongoing</button> </td>');
+                       }
+                       else
+                       {
+                           var table_Buttons=$('<td style="text-align: center;"><button value="" class="btn-primary" id="" type="text" disabled>Upcoming</button> </td>');
+                       }
+                       table_R.append(table_1,table_2,table_3,table_4,table_5,table_6,table_7,table_Buttons);
+                       $('#populateHere').append(table_R);
+                    }
+               
+           $('#TableView').show();
+           $('#btnLoadTable').hide();
+        }
        else if(json_data.status == "failed")
        {
-          
+        $('#btnRefreshingTable').hide();
+        $('#btnRefreshTable').show();
           toastr.options.closeButton = true;
           toastr.warning(json_data.status_message, json_data.status);
        }
        else
        {
-         
+        $('#btnRefreshingTable').hide();
+        $('#btnRefreshTable').show();
           toastr.options.closeButton = true;
           toastr.warning("Error Here", "An error has occured. Please contact the developer for assistance.");
        }
@@ -640,3 +649,6 @@ $(document).on('click','#btnShowUpYes', function(){
      });
    
 });
+
+
+

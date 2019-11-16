@@ -544,4 +544,20 @@ margin-left: 5px;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+.btnnRefresh {
+  text-align: middle;
+  float:right;
+  background-color: #ffffff;
+padding: 10px;
+color:rgb(8, 185, 37);
+}
+
+.btn-showUp{color:rgb(0, 0, 0);background-color:#ee30e4;border-color:#000000}
+.btn-showUp:hover{color:rgb(0, 0, 0);background-color:#53f13f;border-color:#000000}
+
+.labelUp
+{
+  font-size: 18px;
+}
+
 
