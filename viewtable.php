@@ -64,15 +64,15 @@ session_destroy();
 			<button id="btnFetching" style="display:none;" class="btnCss btnFetching" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Fetching Appointments</button>
 		</div>
 	
-</header>+
+</header>
 <div class="w3-padding-32">
     <div class="w3-bar w3-border">
  
 		<div class="container-table100">
 			<div style="display:none;" id="TableView">
 			<div>
-		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><button onclick="sortStatus(0)">Sort by status</button>
-		<button onclick="sortName(1)">Sort by Name</button><button onclick="sortTime(2)">Sort by Time</button><button onclick="sortDate(3)">Sort by Date</button><button onclick="sortAppointment(4)">Sort by Appointment</button>
+		<input class="searchBorder" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><button class="btnnSorting" onclick="sortStatus(0)">Sort by status</button>
+		<button class="btnnSorting" onclick="sortName(1)">Sort by Name</button><button class="btnnSorting" onclick="sortTime(2)">Sort by Time</button><button class="btnnSorting" onclick="sortDate(3)">Sort by Date</button><button class="btnnSorting" onclick="sortAppointment(4)">Sort by Appointment</button>
 		<!-- <h1><button class="w3-bar-item btnCss loadTable" id="btnRefreshTable">🔄Refresh</button></h1> -->
 	</div>
 			<div class="PetFollowUp_Table_Div">

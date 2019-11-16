@@ -14,7 +14,7 @@
     $query = "SELECT * FROM tb_customer_information WHERE customer_Cell='$verify_phone'";
     $results = mysqli_query($db, $query);
     $resultsz = mysqli_query($db, $query);
-
+    $customerID ="";
     while($rowsz = mysqli_fetch_array($resultsz)):; 
     $customerID = $rowsz['customer_SystemID'];
     endwhile;

@@ -1038,7 +1038,6 @@ $('#btnCloseStatModal').click(function(){
     $("#btnCloseModalAppStatus").show();
     $('#AppstatusVerified').hide();
     
-    
     // $("#displayStatsHere").remove();
     // $("displayStatsHere").closest('tr').remove();
 
@@ -1150,7 +1149,8 @@ $("#btnVerifyStatus").click(function(event){
      // Prevent default posting of form - put here to work in case of errors
      event.preventDefault();
      $('#appointmentStatus_customer_phone').val(Repelace_63Number($('#appointmentStatus_customer_phone').val()));
-
+    
+     console.log($('#appointmentStatus_customer_phone').val());
      if($('#appointmentStatus_customer_phone').val()== "")
      {
          toastr.options.closeButton = true;
@@ -1170,19 +1170,13 @@ $("#btnVerifyStatus").click(function(event){
      }
      
      
-     // setup some local variables
-     var $form = $("#appStatusVerify");
- 
-     // Let's select and cache all the fields
-     var $inputs = $form.find("input, select, button, textarea, date, checkbox");
-     
      // Serialize the data in the form
-     var serializedData = $form.serialize();
- 
+     var serializedData ="appointmentStatus_customer_phone=" + $('#appointmentStatus_customer_phone').val();
+ console.log(serializedData);
      // Let's disable the inputs for the duration of the Ajax request.
      // Note: we disable elements AFTER the form data has been serialized.
      // Disabled form elements will not be serialized.
-     $inputs.prop("disabled", true);
+    //  $inputs.prop("disabled", true);
  
      // Fire off the request to /form.php
      request = $.ajax({
@@ -1256,6 +1250,7 @@ $("#btnVerifyStatus").click(function(event){
             toastr.options.preventDuplicates= true;
             toastr.warning(json_data.status_message, json_data.status_header);
             $("#btnCloseModalAppStatus").show();
+            $('#btnVerifyStatus').attr('disabled','disabled');
          }
          else if(json_data.status == "pending")
          {
@@ -1265,6 +1260,7 @@ $("#btnVerifyStatus").click(function(event){
             toastr.options.preventDuplicates= true;
             toastr.warning(json_data.status_message, json_data.status_header);
             $("#btnCloseModalAppStatus").show();
+            $('#btnVerifyStatus').attr('disabled','disabled');
          }
          
          
@@ -1283,7 +1279,7 @@ $("#btnVerifyStatus").click(function(event){
      // if the request failed or succeeded
      request.always(function () {
          // Reenable the inputs
-         $inputs.prop("disabled", false);
+        //  $inputs.prop("disabled", false);
      });
 });
 

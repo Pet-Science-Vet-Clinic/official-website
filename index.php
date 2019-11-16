@@ -171,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										<div class="form-right-to-w3ls">
 										
-													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="11" placeholder="Mobile Number" required>
+													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="12" placeholder="Mobile Number" required>
 											
 													<div class="clear"></div>
 												</div>
@@ -180,11 +180,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 
 										<div class="form-left-to-w3l">
-										<input type="text" id="customer_RegistrationTelephone" style="display:block" name="customer_RegistrationTelephone"   maxlength="7" placeholder="Telephone Number" required>
+										<input type="text" id="customer_RegistrationTelephone" style="display:block" name="customer_RegistrationTelephone"   maxlength="7" placeholder="Telephone Number">
 										<div class="clear"></div>
 										</div>
 										<div class="form-right-to-w3ls">
-										<input type="text" id="customer_RegistrationOptional" style="display:block" name="customer_RegistrationOptional"   maxlength="11" placeholder="Cellphone (Optional)">
+										<input type="text" id="customer_RegistrationOptional" style="display:block" name="customer_RegistrationOptional"   maxlength="12" placeholder="Cellphone (Optional)">
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -218,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!-- <th id="PetFollowUp_Table_Header_Owner" style="width: 10%">Count</th> -->
 							<th id="TableRow_PetName" style="width: 25%">Pet Name</th>
 							<th id="TableRow_Specie" style="width: 20%">Specie</th>
-							<th id="TableRow_Specie" style="width: 20%">Gender</th>
+							<th id="TableRow_Gender" style="width: 20%">Gender</th>
 							<th id="TableRow_Breed" style="width: 20%">Breed</th>
 							<th id="TableRow_Birthday" style="width: 25%">Birthday</th>
 							<th id="TableRow_Action" style="width: 15%">Action</th>
@@ -332,7 +332,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="main">
 									<div class="form-left-to-w3l">
 
-									<input type="text" id="appointment_customer_phone" style="display:block" name="appointment_customer_phone"   maxlength="11" placeholder="Cellphone Number" required>
+									<input type="text" id="appointment_customer_phone" style="display:block" name="appointment_customer_phone"   maxlength="12" placeholder="Cellphone Number" required>
 											<div class="clear"></div>
 										</div>
 
@@ -459,27 +459,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="out-info">
 							<div class="letter-w3ls">
 
-								<form id="appStatusVerify">
-									<div class="form-header">Please enter your cellphone number.<br><br></div>
+							<form id="appStatusVerify">
+							<div class="form-header">Please enter your cellphone number.<br><br></div>
 
-									<div class="main">
-									<div class="form-left-to-w3l">
+							<div class="main">
+							<div class="form-left-to-w3l">
 
-									<input type="text" id="appointmentStatus_customer_phone" style="display:block" name="appointmentStatus_customer_phone"   maxlength="11" placeholder="Cellphone Number" required>
-											<div class="clear"></div>
-										</div>
-										</form>
-										 <div class="form-right-to-w3ls">
-										 <button id="btnVerifyStatus" class="btnnVerify">Verify</button>
-										 <button id="btnVerifyingStatus" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
-											<div id="AppstatusVerified" class="padding-tops" style="display:none;">
-												<span class="verified" disabled><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</span>
-											</div>
-								
-										<div class="clear"></div>
+							<input type="text" id="appointmentStatus_customer_phone" style="display:block" name="appointmentStatus_customer_phone"   maxlength="12" placeholder="Cellphone Number" required>
+									<div class="clear"></div>
+								</div>
+						
+									<div class="form-right-to-w3ls">
+									<button id="btnVerifyStatus" class="btnnVerify">Verify</button>
+									<button id="btnVerifyingStatus" style="display:none;" class="btnnVerify" disabled><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Verifying</button>
+									<div id="AppstatusVerified" class="padding-tops" style="display:none;">
+										<span class="verified" disabled><span class="fa fa-check" aria-hidden="true" disabled></span>Verified</span>
 									</div>
-									</div>
-								
+						
+								<div class="clear"></div>
+							</div>
+							</div>
+							</form>
 								
 										<div class="divider mb-20"></div>
 										<div style="display:none;" id="appointmentStat">

@@ -9,7 +9,7 @@
     $dateNow = date('Y-m-d');
     $time_data = array();
 
-    $timeNowHour = date("h");
+    $timeNowHour = date("H");
     $timeNowMinute= date("i");
     $timeNowEx = date("A");
 
@@ -46,23 +46,23 @@
     }
     else if($appoinment_time == "1pm - 2pm")
     {
-        $hourval = "01";
+        $hourval = "13";
     }
     else if($appoinment_time == "2pm - 3pm")
     {
-        $hourval = "02";
+        $hourval = "14";
     }
     else if($appoinment_time == "3pm - 4pm")
     {
-        $hourval = "03";
+        $hourval = "15";
     }
     else if($appoinment_time == "4pm - 5pm")
     {
-        $hourval = "04";
+        $hourval = "16";
     }
     else if($appoinment_time == "5am - 6am")
     {
-        $hourval = "05";
+        $hourval = "17";
     }
     
     
@@ -219,6 +219,7 @@
                 // {
                     if($hourval <= $timeNowHour && $dateNow==$appointment_date)
                     {
+                        echo $hourval. " / " . $timeNowHour;
                         $status = "late";
                         $status_header = "Selected time already passed";
                         $status_message = "Your selected time has already passed. Please select another time.";
