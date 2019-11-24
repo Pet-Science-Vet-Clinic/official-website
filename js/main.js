@@ -90,6 +90,29 @@ function ValidateDate_LessThanToday_2(dateString){
     }
 
 }
+function ValidateDate_LessThanToday_3(dateString){
+    var todayDate = new Date();
+    dateString_2 = new Date(dateString);
+
+    var date_Converted = dateString_2.getFullYear() + '-' + ('0' + (dateString_2.getMonth() + 1)).slice(-2) + '-' + ('0' + dateString_2.getDate()).slice(-2);
+    var Today_Converted = todayDate.getFullYear() + '-' + ('0' + (todayDate.getMonth() + 1)).slice(-2) + '-' + ('0' + todayDate.getDate()).slice(-2);
+
+    if(date_Converted == Today_Converted){
+        return false;
+    }else{
+
+         var difference =todayDate.getFullYear() - dateString_2.getFullYear();
+         alert(difference);
+
+         if(difference > 20){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+}
 function ValidateDate_GreaterThanToday_2(dateString){
     var todayDate = new Date();
     dateString_2 = new Date(dateString);
@@ -296,6 +319,12 @@ $("#make_appointment_add_Pet").click(function(heck)
         toastr.options.closeButton = true;
         toastr.options.preventDuplicates= true;
         toastr.warning("The birthdate you enter is invalid. Please do not enter future days.");
+        }
+        else if(ValidateDate_LessThanToday_3($('#pet_Birthdate').val()))
+        {
+        toastr.options.closeButton = true;
+        toastr.options.preventDuplicates= true;
+        toastr.warning("The birthdate you enter is invalid. Please select birthdate upto 20 years ago.");
         }
         
         else
@@ -613,6 +642,7 @@ $("#make_appointment_modal_SubmitAppointment").click(function(event){
         
         return true;
      }
+    //  zxc
      else if(n == true)
      {
         $("#btnSubmittingAppointments").show();
@@ -1380,8 +1410,7 @@ today = yyyy + '-' + mm + '-' + dd;
         toastr.warning("Your pet must be atleast 1 (one) day old to be registered");
         return true;
     }
-
-
+    
 })
 
 $("#appointment_modal_CellNumber").keypress(function(e) {
