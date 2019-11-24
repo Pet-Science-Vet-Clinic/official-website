@@ -1418,8 +1418,17 @@ $("#customer_RegistrationCellphone").keypress(function(e) {
     }
    });
 
-   $('#customer_RegistrationCellphone').focusout(()=>{
-    $('#customer_RegistrationCellphone').val(Repelace_63Number($('#customer_RegistrationCellphone').val()));
+   $('#customer_RegistrationCellphone').focusout((incomplete)=>{
+       if( $('#customer_RegistrationCellphone').val()<=10 || $('#customer_RegistrationCellphone').val()==12  )
+       {
+            return true;
+       }
+       else
+       {
+        $('#customer_RegistrationCellphone').val(Repelace_63Number($('#customer_RegistrationCellphone').val()));
+        return false;
+       }
+    
 
 })
 
