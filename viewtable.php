@@ -16,7 +16,7 @@ session_destroy();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Table V03</title>
+	<title>Pet Science Appointment List</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	

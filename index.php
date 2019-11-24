@@ -533,17 +533,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-7 about-top-grid">
 					<h2>About Us </h2>
 					<div class="arrow">
-					<span class="fa fa-paw dog-arrow" aria-hidden="true"></span>Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006.The origin of 
+					<!-- <span class="fa fa-paw dog-arrow" aria-hidden="true"></span> -->
+					<p class="aboutUsCss">Pet Science Veterinary Clinic is owned and operated by Dr. Zandro Perez. The clinic was established on November 18, 2006.The origin of 
                         the clinic’s name comes from the association of Pet Lovers in Southwestern University PHINMA.The clinic was created out of passion and 
                         love for pets. The clinic accommodates as many pets as theycan work on in a day. It is their will and a heart of passion to save and help
                          every pet that needs remedy. The clinic is open from Sunday to Saturday and this includes services they could offer such as grooming,
                           vaccination, surgery, boarding, check-up, confinement, consultation, treatment, deworming.The clinic accepts
                            walk-in clients and appointment schedules for pets. Pet Science Veterinary Clinic stores information that includes vaccination history,
                             consultation, and the meditation of pets.Unfortunately, because of the limited source of vaccine, they only accept feline and canine
-                             pets.
+                             pets.</p>
 					</div>
 					<div class="about-para">
 						
+					
+
 					</div>
 				</div>
 				<div class="col-md-5 pope banner-agileits-btm" id="video">
@@ -777,6 +780,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span>Sat:8AM to 6PM</span>
 					<span>Sun:9AM to 3PM</span></p>
 				</div>
+				<div class="footer_grid_left">
+					<h5>Social Media</h5>
+					<a href="https://www.facebook.com/petscienceveterinaryclinic/" class="fa fa-facebook"></a>
+				</div>
+				
 			</div>
 			<div class="clearfix"> </div>
 

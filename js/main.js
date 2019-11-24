@@ -129,26 +129,6 @@ $('#appointment_modal_Date').focusout(function()
         $("#btnSubmitAppointment").css("background","red");
         $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
     }
-    // else if($('#appointment_modal_AppointmentType').val() == "Boarding")
-    // {
-    //     if($('#appointment_modal_Date').val() > $('#appointment_date_end').val())
-    //     {
-    //         $('#btnSubmitAppointment').attr('disabled','disabled');
-    //     toastr.options.closeButton = true;
-    //     toastr.options.preventDuplicates= true;
-    //     toastr.warning("The time you selected is not valid. Please do not select previous days.","Invalid Date");
-    //     $("#btnSubmitAppointment").css("background","red");
-    //     $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
-    //     }
-    //     else
-    //     {
-    //         $('#btnSubmitAppointment').removeAttr('disabled');
-    //         $("#btnSubmitAppointment").css("background","black");
-    //         $(".btnSubmitting").on("mouseover",function(){$(".btnSubmitting").css("background","white")});
-    //         $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","black")});
-    //     }
-        
-    // }
     else
     {
         $('#btnSubmitAppointment').removeAttr('disabled');
@@ -158,41 +138,6 @@ $('#appointment_modal_Date').focusout(function()
     }
 });
 
-
-// $('#appointment_date_end').focusout(function()
-// {
-//     if($('#appointment_modal_AppointmentType').val() == "Boarding")
-//     {
-//         if($('#appointment_date_end').val() == "")
-//         {
-//             $('#btnSubmitAppointment').attr('disabled','disabled');
-//             toastr.options.closeButton = true;
-//             toastr.options.preventDuplicates= true;
-//             toastr.warning("End date Empty","Your selected end date is Empty.");
-//             $("#btnSubmitAppointment").css("background","red");
-//             $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","red")});
-//         }
-//         else if($('#appointment_date_end').val() < $('#appointment_modal_Date').val())
-//         {
-//             $('#btnSubmitAppointment').attr('disabled','disabled');
-//             toastr.options.closeButton = true;
-//             toastr.options.preventDuplicates= true;
-//             toastr.warning("End date not valid","Your selected end date is less than your starting date.");
-//             $("#btnSubmitAppointment").css("background","red");
-//         }
-//         else
-//         {
-//             $('#btnSubmitAppointment').removeAttr('disabled');
-//             $("#btnSubmitAppointment").css("background","black");
-//             $(".btnSubmitting").on("mouseover",function(){$(".btnSubmitting").css("background","white")});
-//             $(".btnSubmitting").on("mouseout",function(){$(".btnSubmitting").css("background","black")});
-//         }
-//     }
-//     else
-//     {
-//         $('#btnSubmitAppointment').removeAttr('disabled');
-//     }
-// });
 
 $('#btnSubmitAppointment').click(function(){
     if(ValidateDate_LessThanToday_2($('#appointment_modal_Date').val()))
@@ -204,26 +149,6 @@ $('#btnSubmitAppointment').click(function(){
         $('#btnSubmitAppointment').removeAttr('disabled');
 
     }
-    // else if($('#appointment_modal_Date').val() == "")
-    // {
-        
-    //     toastr.options.closeButton = true;
-    //     toastr.options.preventDuplicates= true;
-    //     toastr.warning("The time you selected is not valid. Please select a day.","No date selected");
-
-    // }
-
-    // else
-    // {
-    
-    //     toastr.options.closeButton = true;
-    //     toastr.options.preventDuplicates= true;
-    //     toastr.success("Available!","Selected Day available.");
-        
-    // }
-
-
-
 });
 
 
@@ -394,6 +319,10 @@ $("#make_appointment_add_Pet").click(function(heck)
         );
 
         $('#make_appointment_modal_SubmitAppointment').show();
+        $("#pet_Species")[0].selectedIndex = 0;
+            $("#pet_Gender")[0].selectedIndex = 0;
+            $('#pet_Breed').val("");
+            $('#pet_Name').val("");
         }
     });
 
@@ -419,8 +348,6 @@ $("#btnSubmitAppointment").click(function(event){
     $('#buttonclosemodal').hide();
     $('#make_appointment_add_Pet').hide();
     
-    
-    // $('#btnSubmitAppointment').attr('disabled','disabled');
     
      // Abort any pending request
      if (request)
@@ -867,7 +794,7 @@ $("#btnCloseModalAppStatus").click(function()
 $("#buttonclosemodal").click(function()
 {
     $('#registration-modal').find('input:text, input[type=date]').val('');
-    var Table = document.getElementById("petTableList");
+    var Table = document.getElementById("pet_Entered");
     Table.innerHTML = "";
 });
 
