@@ -936,8 +936,18 @@ $("#btnVerify").click(function(event){
          console.log(json_data);
          
          if(json_data.status == "found"){
+            $("#appointment_modal_AppointmentType")[0].selectedIndex = 0;
+            $("#appointment_modal_TimeBlock")[0].selectedIndex = 0;
             $("#hideUponEntry").hide();
             $valuesz=1;
+            var x = document.getElementById("petpicked");
+            while (x.length > 0) {
+                x.remove(x.length-1);
+            }
+            $('#petpicked').append($('<option>', { 
+                value: "",
+                text : "Choose a pet" 
+            }));
             for(var i = 0; i < json_data.numberofpets.length; i++) 
             {
                 $pet_Name =json_data.numberofpets[i].pet_Name;

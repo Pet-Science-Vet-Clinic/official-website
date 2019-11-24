@@ -1,9 +1,6 @@
 <?php 
 	include('conn.php');
     
-    
-	// $default_email = 'info@petsciencevet.com';
-    // $fasfg = 'infopassword';
     $db = mysqli_connect($servername,$username,$password,$DatabaseName);
     date_default_timezone_set('Asia/Singapore');
     $dateNow = date('Y-m-d');
@@ -13,9 +10,6 @@
     $timeNowMinute= date("i");
     $timeNowEx = date("A");
 
-    
-
-    
     $appointment_date = isset($_POST['datepicked']) ? $_POST['datepicked'] : "";
     $appointment_setDate = isset($_POST['appDate']) ? $_POST['appDate'] : "";
 	$appoinment_time = isset($_POST['timepicked']) ? $_POST['timepicked'] : "";
@@ -28,9 +22,9 @@
     $appointment_dateEnd_2 = isset($_POST['endDate']) ? $_POST['endDate'] : "";
     $appointment_2ndService = isset($_POST['appService']) ? $_POST['appService'] : "";
     
-      
 
     $hourval ="";
+    $MaxAppValue = "0";
 
     if($appoinment_time == "10am - 11am")
     {
@@ -65,11 +59,7 @@
         $hourval = "17";
     }
     
-    
-    // echo $timeNowHour . $timeNowMinute . $timeNowEx; die();
     $cancel = "1";
-    
-    // $checked = isset($_POST['newuser']) ? $_POST['newuser'] : "";
 
     $query = "SELECT * FROM tb_appointment_list WHERE appointment_TimeSlot='$appoinment_time' AND appointment_Date ='$appointment_date' AND appointment_Flag !='$cancel'";
     $results = mysqli_query($db, $query);
@@ -84,97 +74,19 @@
     $customerData = $rowsFetch['customer_SystemID'];
     endwhile;
 
+    $queryMaxApp = "SELECT * FROM tb_cofiguration";
+    $resultsMaxApp = mysqli_query($db, $queryMaxApp);
+
+    while($rowFetcher = mysqli_fetch_array($resultsMaxApp)):; 
+    $MaxAppValue = $rowFetcher['max_appointment'];
+    endwhile;
+
     $queryPet = "SELECT * FROM tb_pet_information WHERE pet_Name='$appointment_PetChosen' AND pet_IDReference_Customer ='$customerData'";
     $resultsPet = mysqli_query($db, $queryPet);
     
     while($rowsFetchPet = mysqli_fetch_array($resultsPet)):; 
     $petData = $rowsFetchPet['pet_SystemID'];
     endwhile;
-
-    // if($appointment_2ndService == "Confinement")
-    // {
-        
-    //         $querySelectConfinement = "SELECT * FROM tb_pet_record_confinement";
-    //         $resultConfinement = mysqli_query($db, $querySelectConfinement);
-
-    //         $queryConfinementCheck = "SELECT * FROM tb_pet_record_confinement WHERE confinement_Start_Date='$appointment_date'";
-    //         $resultConfinementCheck = mysqli_query($db, $queryConfinementCheck);
-            
-    //         $queryConfinementPet = "SELECT * FROM tb_pet_record_confinement WHERE confinement_Start_Date='$appointment_date' AND confinement_IDReference_Pet ='$appointment_PetChosen'";
-    //         $resultPetEntry = mysqli_query($db, $queryConfinementPet);
-           
-            
-    //        if ($appointment_2ndService == "Confinement")
-    //         {
-    //             if(mysqli_num_rows($resultConfinement) >2)
-    //             {
-    //                 $status = "confinementFull";
-    //                 $status_header = "Slots Full";
-    //                 $status_message = "Slots for Confinement services are currently full";
-    //             }
-    //         }
-    //     else
-    //     {
-    //         $sqlConfinement = "INSERT INTO tb_appointment_list (confinement_IDReference_User,confinement_IDReference_Pet, confinement_Start_Date,confinement_Start_Date_2,confinement_End_Date,confinement_End_Date_2) VALUES ('$customerData', '$petData', '$appointment_date', '$appointment_Date2Words', '$appointment_dateEnd','$appointment_dateEnd_2')";
-    //         $queryInsertConfinement=$conn->query($sqlConfinement);
-
-    //         if($queryInsertConfinement)
-    //         {
-    //             $status = "success";
-    //             $status_header = "Appointment Set";
-    //             $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
-    //         }
-    //         else
-    //         {
-    //             $status = "failed2";
-    //             $status_header = "Appointment Failed";
-    //             $status_message = "Confinement or Boarding failed";
-    //         }
-
-
-    //     }
-
-    // }
-    // else if ($appointment_2ndService=="Boarding")
-    // {
-    //     $querySelectBoarding = "SELECT * FROM tb_pet_record_confinement";
-    //         $resultBoarding = mysqli_query($db, $querySelectBoarding);
-
-    //         $queryBoardingCheck = "SELECT * FROM tb_pet_record_confinement WHERE confinement_Start_Date='$appointment_date'";
-    //         $resultBoardingCheck = mysqli_query($db, $queryBoardingCheck);
-            
-    //         $queryBoardingPet = "SELECT * FROM tb_pet_record_confinement WHERE confinement_Start_Date='$appointment_date' AND confinement_IDReference_Pet ='$appointment_PetChosen'";
-    //         $resultPetSlot = mysqli_query($db, $queryBoardingPet);
-
-    //     if($appointment_2ndService == "Boarding")
-    //     {
-    //         if(mysqli_num_rows($resultBoarding) >5)
-    //         {
-    //             $status = "boardingFull";
-    //             $status_header = "Slots Full";
-    //             $status_message = "Slots for Boarding services are currently full";
-    //         }
-    //     }
-    //     else
-    //     {
-    //         $sqlBoarding = "INSERT INTO tb_pet_record_boarding (boarding_IDReference_User,boarding_IDReference_Pet, boarding_Start_Date,boarding_Start_Date_2,boarding_End_Date,boarding_End_Date_2) VALUES ('$customerData', '$petData', '$appointment_date', '$appointment_Date2Words', '$appointment_dateEnd','$appointment_dateEnd_2')";
-    //         $queryInsertBoarding=$conn->query($sqlBoarding);
-
-    //         if($queryInsertBoarding)
-    //         {
-    //             $status = "success";
-    //             $status_header = "Appointment Set";
-    //             $status_message = "Thank you! Your appointment is set. We will remind you through SMS.";
-    //         }
-    //         else
-    //         {
-    //             $status = "failed2";
-    //             $status_header = "Appointment Failed";
-    //             $status_message = "Confinement or Boarding failed";
-    //         }
-
-    //     }
-    // }
  
     $status = "";
     $status_message ="";
@@ -207,19 +119,11 @@
         // }
         // else
         // {
-            if (mysqli_num_rows($results) <3) 
+            if (mysqli_num_rows($results) < $MaxAppValue) 
             { 
-                // if(mysqli_num_rows($resultszxc)>=1)
-                // {
-                //     $status = "duplicate";
-                //     $status_header = "Duplicate appointment with pet";
-                //     $status_message = "You have already set an appointment with on your selected date,time and service. To prevent duplication, Please select another date,time or service. Thank you.";
-                // }
-                // else
-                // {
+                
                     if($hourval <= $timeNowHour && $dateNow==$appointment_date)
                     {
-                        // echo $hourval. " / " . $timeNowHour;
                         $status = "late";
                         $status_header = "Selected time already passed";
                         $status_message = "Your selected time has already passed. Please select another time.";
@@ -266,7 +170,9 @@
         'ID_reference' => $appointment_phone,
         'appointment_PetChosen' => $appointment_PetChosen,
         'appointment_Date2Words' => $appointment_Date2Words,
-        'appointment_setDate' => $appointment_setDate
+        'appointment_setDate' => $appointment_setDate,
+        'MaxAppValue' => $MaxAppValue
+        
         
         
         
