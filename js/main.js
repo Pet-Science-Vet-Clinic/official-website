@@ -102,7 +102,7 @@ function ValidateDate_LessThanToday_3(dateString){
     }else{
 
          var difference =todayDate.getFullYear() - dateString_2.getFullYear();
-         alert(difference);
+        //  alert(difference);
 
          if(difference > 20){
             return true;

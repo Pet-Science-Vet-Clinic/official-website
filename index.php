@@ -171,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										<div class="form-right-to-w3ls">
 										
-													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="12" placeholder="Mobile Number" required>
+													<input type="text" id="customer_RegistrationCellphone" name="customer_RegistrationCellphone"   maxlength="11" placeholder="Mobile Number" required>
 											
 													<div class="clear"></div>
 												</div>
