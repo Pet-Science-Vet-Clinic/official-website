@@ -782,7 +782,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="footer_grid_left">
 					<h5>Social Media</h5>
-					<a href="https://www.facebook.com/petscienceveterinaryclinic/" class="faz faz-facebook"></a>
+					<a href="https://www.facebook.com/petscienceveterinaryclinic/" class="fa fa-facebook facebook"></a>
 				</div>
 				
 			</div>
